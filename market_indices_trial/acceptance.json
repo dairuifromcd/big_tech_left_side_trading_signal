@@ -1,0 +1,298 @@
+{
+  "MARKET_INDICES_EXTENSION": "PASS",
+  "at_utc": "2026-11-07T11:02:31.871785+00:00",
+  "scope": "Development, one live three-index capture, isolated baseline and offline regression. No scheduling or Phase5 deployment.",
+  "git_baseline": "f30c07b18e493e549b139d17114350cb23fd66f1",
+  "original_tracked_files": 387,
+  "protected_historical_files": 346,
+  "all_original_files_unchanged": true,
+  "changed_original_files": {},
+  "live_http_requests": 3,
+  "http_200_count": 3,
+  "rate_limited": false,
+  "request_intervals": [
+    {
+      "previous_symbol": "^GSPC",
+      "symbol": "^NDX",
+      "batch_boundary": false,
+      "start_gap_seconds": 5.005081791023258,
+      "normal_wait_seconds": 3.7080687080160715,
+      "batch_extra_wait_seconds": 0.0,
+      "minimum_start_gap_seconds": 5.0,
+      "interval_pass": true,
+      "batch_wait_pass": true
+    },
+    {
+      "previous_symbol": "^NDX",
+      "symbol": "^SOX",
+      "batch_boundary": false,
+      "start_gap_seconds": 5.005059124960098,
+      "normal_wait_seconds": 3.9447534999926575,
+      "batch_extra_wait_seconds": 0.0,
+      "minimum_start_gap_seconds": 5.0,
+      "interval_pass": true,
+      "batch_wait_pass": true
+    }
+  ],
+  "data_validation_errors": {},
+  "indices": [
+    {
+      "symbol": "^GSPC",
+      "category": "Market Indices",
+      "series_basis": "YAHOO_CHART_ADJCLOSE",
+      "as_of_utc": "2026-11-07T10:51:32.391738+00:00",
+      "identity": {
+        "symbol": "^GSPC",
+        "longName": "S&P 500",
+        "shortName": "S&P 500",
+        "instrumentType": "INDEX",
+        "currency": "USD",
+        "exchangeName": "SNP",
+        "fullExchangeName": "SNP",
+        "exchangeTimezoneName": "America/New_York"
+      },
+      "identity_checks": {
+        "symbol": true,
+        "instrumentType": true,
+        "currency": true,
+        "exchange": true,
+        "timezone": true,
+        "name": true
+      },
+      "target": "2026-11-06",
+      "data_quality": "PASS",
+      "valid_adjclose_count": 501,
+      "earliest_trading_date": "2024-11-07",
+      "latest_trading_date": "2026-11-06",
+      "excluded_incomplete_dates": [],
+      "close_adjclose_exact_equal": true,
+      "max_absolute_close_adjclose_difference": 0.0,
+      "volume_missing_or_null_count": 0,
+      "volume_zero_count": 0,
+      "volume_policy": "Optional index metadata; never a price-validity prerequisite",
+      "identity_source": "https://www.spglobal.com/spdji/en/indices/equity/sp-500/",
+      "venue_policy": "Exact Yahoo vendor dissemination codes, distinct from listing venue of constituent equities",
+      "left_boundary_limit": "Internal exchange-session coverage verified; exact vendor range=2y boundary not independently certified"
+    },
+    {
+      "symbol": "^NDX",
+      "category": "Market Indices",
+      "series_basis": "YAHOO_CHART_ADJCLOSE",
+      "as_of_utc": "2026-11-07T10:51:37.163598+00:00",
+      "identity": {
+        "symbol": "^NDX",
+        "longName": "NASDAQ-100",
+        "shortName": "NASDAQ-100",
+        "instrumentType": "INDEX",
+        "currency": "USD",
+        "exchangeName": "NIM",
+        "fullExchangeName": "Nasdaq GIDS",
+        "exchangeTimezoneName": "America/New_York"
+      },
+      "identity_checks": {
+        "symbol": true,
+        "instrumentType": true,
+        "currency": true,
+        "exchange": true,
+        "timezone": true,
+        "name": true
+      },
+      "target": "2026-11-06",
+      "data_quality": "PASS",
+      "valid_adjclose_count": 501,
+      "earliest_trading_date": "2024-11-07",
+      "latest_trading_date": "2026-11-06",
+      "excluded_incomplete_dates": [],
+      "close_adjclose_exact_equal": true,
+      "max_absolute_close_adjclose_difference": 0.0,
+      "volume_missing_or_null_count": 0,
+      "volume_zero_count": 0,
+      "volume_policy": "Optional index metadata; never a price-validity prerequisite",
+      "identity_source": "https://indexes.nasdaq.com/Index/Overview/NDX",
+      "venue_policy": "Exact Yahoo vendor dissemination codes, distinct from listing venue of constituent equities",
+      "left_boundary_limit": "Internal exchange-session coverage verified; exact vendor range=2y boundary not independently certified"
+    },
+    {
+      "symbol": "^SOX",
+      "category": "Market Indices",
+      "series_basis": "YAHOO_CHART_ADJCLOSE",
+      "as_of_utc": "2026-11-07T10:51:41.578761+00:00",
+      "identity": {
+        "symbol": "^SOX",
+        "longName": "PHLX Semiconductor",
+        "shortName": "PHLX Semiconductor",
+        "instrumentType": "INDEX",
+        "currency": "USD",
+        "exchangeName": "NIM",
+        "fullExchangeName": "Nasdaq GIDS",
+        "exchangeTimezoneName": "America/New_York"
+      },
+      "identity_checks": {
+        "symbol": true,
+        "instrumentType": true,
+        "currency": true,
+        "exchange": true,
+        "timezone": true,
+        "name": true
+      },
+      "target": "2026-11-06",
+      "data_quality": "PASS",
+      "valid_adjclose_count": 501,
+      "earliest_trading_date": "2024-11-07",
+      "latest_trading_date": "2026-11-06",
+      "excluded_incomplete_dates": [],
+      "close_adjclose_exact_equal": true,
+      "max_absolute_close_adjclose_difference": 0.0,
+      "volume_missing_or_null_count": 0,
+      "volume_zero_count": 501,
+      "volume_policy": "Optional index metadata; never a price-validity prerequisite",
+      "identity_source": "https://indexes.nasdaq.com/Index/Overview/SOX",
+      "venue_policy": "Exact Yahoo vendor dissemination codes, distinct from listing venue of constituent equities",
+      "left_boundary_limit": "Internal exchange-session coverage verified; exact vendor range=2y boundary not independently certified"
+    }
+  ],
+  "references": {
+    "^GSPC": {
+      "independent_method": "Decimal(50 digits), closed-form geometric Wilder weights, independent high/drawdown and simple means",
+      "reference_values": {
+        "highest_adjclose": 7818.93017578125,
+        "drawdown": -0.05653846530939628,
+        "rsi14": 35.11085440367562,
+        "sma50": 7679.447421875,
+        "sma200": 7325.05326171875
+      },
+      "stored_values": {
+        "highest_adjclose": 7818.93017578125,
+        "drawdown": -0.056538465309396324,
+        "rsi14": 35.11085440367562,
+        "sma50": 7679.447421875,
+        "sma200": 7325.05326171875
+      },
+      "differences": {
+        "highest_adjclose": 0.0,
+        "drawdown": -4.163336342344337e-17,
+        "rsi14": 0.0,
+        "sma50": 0.0,
+        "sma200": 0.0
+      },
+      "passed": true
+    },
+    "^NDX": {
+      "independent_method": "Decimal(50 digits), closed-form geometric Wilder weights, independent high/drawdown and simple means",
+      "reference_values": {
+        "highest_adjclose": 31224.470703125,
+        "drawdown": -0.13561416329552725,
+        "rsi14": 31.391068064542683,
+        "sma50": 29632.697421875,
+        "sma200": 27983.89166015625
+      },
+      "stored_values": {
+        "highest_adjclose": 31224.470703125,
+        "drawdown": -0.13561416329552722,
+        "rsi14": 31.39106806454268,
+        "sma50": 29632.697421875,
+        "sma200": 27983.89166015625
+      },
+      "differences": {
+        "highest_adjclose": 0.0,
+        "drawdown": 2.7755575615628914e-17,
+        "rsi14": -3.552713678800501e-15,
+        "sma50": 0.0,
+        "sma200": 0.0
+      },
+      "passed": true
+    },
+    "^SOX": {
+      "independent_method": "Decimal(50 digits), closed-form geometric Wilder weights, independent high/drawdown and simple means",
+      "reference_values": {
+        "highest_adjclose": 14634.7197265625,
+        "drawdown": -0.3583580570418178,
+        "rsi14": 31.60997253253481,
+        "sma50": 11694.66125,
+        "sma200": 10831.110102539062
+      },
+      "stored_values": {
+        "highest_adjclose": 14634.7197265625,
+        "drawdown": -0.3583580570418178,
+        "rsi14": 31.609972532534798,
+        "sma50": 11694.66125,
+        "sma200": 10831.110102539062
+      },
+      "differences": {
+        "highest_adjclose": 0.0,
+        "drawdown": 0.0,
+        "rsi14": -1.4210854715202004e-14,
+        "sma50": 0.0,
+        "sma200": 0.0
+      },
+      "passed": true
+    }
+  },
+  "integration": {
+    "baseline_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/market_indices_trial/reports/indices_1794049079393974000.json",
+    "repeat_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/market_indices_trial/reports/indices_1794049079431922000.json",
+    "all_three_baselines": true,
+    "first_baseline_alerts": 0,
+    "repeat_byte_identical": true,
+    "state_path": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/market_indices_trial/state/indices_state.json",
+    "state_commit_version": 2
+  },
+  "tests": {
+    "total": 237,
+    "passed": 237,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "existing_208_retained": true,
+    "new_index_tests": 29,
+    "network_attempts": []
+  },
+  "equity_pending_records_retained": [
+    "1d2e2d2a9976a239db9b025ba3105aad61212ce847db5ceee074add132e656cb",
+    "8bfe2256185593a6ccae5a6db614485a4f70ad4d927409f9ed31c292e95f75e8",
+    "da41b55d5afa227467e01ee36bd36fcb8a6477ea851d00b4bcf971ae13dfc832",
+    "a8a1075214d9b7d698d2854c10d14fffde6423ada4310becce8cc2a72384c0c8",
+    "7e1ca52e5e2a45b4e6db7aa2edd3267ced582121efbf983045b0dd40ffb24161",
+    "6c807eb892929d3b88b202876319962fa8af4df8731e33fbd7555350fe7273e3",
+    "b2b9dc1262168fbfab63346259b7472e5a07daa7604cda660aa63d142873c0f6"
+  ],
+  "avgo_diagnostic": {
+    "symbol": "AVGO",
+    "previous_date": "2026-11-05",
+    "current_date": "2026-11-06",
+    "previous_drawdown_percent": -39.25636916460756,
+    "current_drawdown_percent": -38.80631143049248,
+    "daily_drawdown_change_pp": 0.45005773411508354,
+    "old_deepening_anchor_percent": -32.85966825576655,
+    "cumulative_unconfirmed_deepening_pp": 5.94664317472593,
+    "daily_new_deepening": false,
+    "stored_summary": "PENDING_REVIEW",
+    "candidate_market_type": "DEEPER_DRAWDOWN",
+    "candidate_status": "PENDING_REVIEW",
+    "comparability_reasons": [
+      "UNRESOLVED_PRIOR_REVISION_REVIEW",
+      "ROLLING_EXTREMUM_REVISED",
+      "PREVIOUS_EXTREMUM_REVISED"
+    ],
+    "explanation": "The old anchor is retained while market candidates remain unconfirmed. The cumulative distance exceeds 1pp even though this session improved. Recovery denotes exiting a WATCH tier, not every positive daily change.",
+    "recommendation": "Separate daily_new_deepening/daily_drawdown_change_pp from cumulative_unconfirmed_deepening_pp and original candidate date in a later stock-model change. Preserve all existing event IDs, pending decisions and unconsumed anchor scope.",
+    "stock_model_modified": false,
+    "pending_review_decisions_made": 0
+  },
+  "new_files": [
+    "src/index_data.py",
+    "src/market_indices.py",
+    "tests/test_market_indices.py",
+    "diagnostics/validate_market_indices.py",
+    "MARKET_INDICES.md",
+    "market_indices_trial/"
+  ],
+  "phase5_readiness": "Eligible as an isolated integration candidate; live index cross-day reliability, explicit index-review workflow and unattended recovery still require validation. No automatic production promotion.",
+  "limitations": [
+    "Yahoo single source; issuer descriptions do not authenticate vendor-specific exchange codes.",
+    "Exact two-year left boundary is not independently certified; complete internal calendar coverage is verified.",
+    "All index price revisions are conservatively pending; this is stricter than the stock precision-comparability policy.",
+    "Only one actual index capture; multi-session scenarios are offline fixtures.",
+    "Bounded existing 2024–2028 calendar remains unchanged."
+  ]
+}

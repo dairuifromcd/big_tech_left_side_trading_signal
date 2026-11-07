@@ -1,0 +1,23 @@
+{
+  "symbol": "AVGO",
+  "previous_date": "2026-11-05",
+  "current_date": "2026-11-06",
+  "previous_drawdown_percent": -39.25636916460756,
+  "current_drawdown_percent": -38.80631143049248,
+  "daily_drawdown_change_pp": 0.45005773411508354,
+  "old_deepening_anchor_percent": -32.85966825576655,
+  "cumulative_unconfirmed_deepening_pp": 5.94664317472593,
+  "daily_new_deepening": false,
+  "stored_summary": "PENDING_REVIEW",
+  "candidate_market_type": "DEEPER_DRAWDOWN",
+  "candidate_status": "PENDING_REVIEW",
+  "comparability_reasons": [
+    "UNRESOLVED_PRIOR_REVISION_REVIEW",
+    "ROLLING_EXTREMUM_REVISED",
+    "PREVIOUS_EXTREMUM_REVISED"
+  ],
+  "explanation": "The old anchor is retained while market candidates remain unconfirmed. The cumulative distance exceeds 1pp even though this session improved. Recovery denotes exiting a WATCH tier, not every positive daily change.",
+  "recommendation": "Separate daily_new_deepening/daily_drawdown_change_pp from cumulative_unconfirmed_deepening_pp and original candidate date in a later stock-model change. Preserve all existing event IDs, pending decisions and unconsumed anchor scope.",
+  "stock_model_modified": false,
+  "pending_review_decisions_made": 0
+}

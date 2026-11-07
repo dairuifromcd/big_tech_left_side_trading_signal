@@ -1,0 +1,77 @@
+{
+  "^GSPC": {
+    "independent_method": "Decimal(50 digits), closed-form geometric Wilder weights, independent high/drawdown and simple means",
+    "reference_values": {
+      "highest_adjclose": 7818.93017578125,
+      "drawdown": -0.05653846530939628,
+      "rsi14": 35.11085440367562,
+      "sma50": 7679.447421875,
+      "sma200": 7325.05326171875
+    },
+    "stored_values": {
+      "highest_adjclose": 7818.93017578125,
+      "drawdown": -0.056538465309396324,
+      "rsi14": 35.11085440367562,
+      "sma50": 7679.447421875,
+      "sma200": 7325.05326171875
+    },
+    "differences": {
+      "highest_adjclose": 0.0,
+      "drawdown": -4.163336342344337e-17,
+      "rsi14": 0.0,
+      "sma50": 0.0,
+      "sma200": 0.0
+    },
+    "passed": true
+  },
+  "^NDX": {
+    "independent_method": "Decimal(50 digits), closed-form geometric Wilder weights, independent high/drawdown and simple means",
+    "reference_values": {
+      "highest_adjclose": 31224.470703125,
+      "drawdown": -0.13561416329552725,
+      "rsi14": 31.391068064542683,
+      "sma50": 29632.697421875,
+      "sma200": 27983.89166015625
+    },
+    "stored_values": {
+      "highest_adjclose": 31224.470703125,
+      "drawdown": -0.13561416329552722,
+      "rsi14": 31.39106806454268,
+      "sma50": 29632.697421875,
+      "sma200": 27983.89166015625
+    },
+    "differences": {
+      "highest_adjclose": 0.0,
+      "drawdown": 2.7755575615628914e-17,
+      "rsi14": -3.552713678800501e-15,
+      "sma50": 0.0,
+      "sma200": 0.0
+    },
+    "passed": true
+  },
+  "^SOX": {
+    "independent_method": "Decimal(50 digits), closed-form geometric Wilder weights, independent high/drawdown and simple means",
+    "reference_values": {
+      "highest_adjclose": 14634.7197265625,
+      "drawdown": -0.3583580570418178,
+      "rsi14": 31.60997253253481,
+      "sma50": 11694.66125,
+      "sma200": 10831.110102539062
+    },
+    "stored_values": {
+      "highest_adjclose": 14634.7197265625,
+      "drawdown": -0.3583580570418178,
+      "rsi14": 31.609972532534798,
+      "sma50": 11694.66125,
+      "sma200": 10831.110102539062
+    },
+    "differences": {
+      "highest_adjclose": 0.0,
+      "drawdown": 0.0,
+      "rsi14": -1.4210854715202004e-14,
+      "sma50": 0.0,
+      "sma200": 0.0
+    },
+    "passed": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "baseline_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/market_indices_trial/reports/indices_1794049079393974000.json",
+  "repeat_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/market_indices_trial/reports/indices_1794049079431922000.json",
+  "all_three_baselines": true,
+  "first_baseline_alerts": 0,
+  "repeat_byte_identical": true,
+  "state_path": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/market_indices_trial/state/indices_state.json",
+  "state_commit_version": 2
+}

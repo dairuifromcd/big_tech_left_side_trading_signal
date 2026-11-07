@@ -1,0 +1,10 @@
+{
+  "schema_version": 2,
+  "category": "Market Indices",
+  "event_model_version": "indices-revision-market-v2",
+  "rules_version": "adjclose-wilder14-sma-252-v1",
+  "commit_version": 1,
+  "indices": {},
+  "event_records": {},
+  "review_history": []
+}

@@ -1,0 +1,167 @@
+{
+  "category": "Market Indices",
+  "event_model_version": "indices-revision-market-v2",
+  "rules_version": "adjclose-wilder14-sma-252-v1",
+  "state_updated": true,
+  "commit_version": 2,
+  "indices": [
+    {
+      "trading_date": "2026-11-06",
+      "adjclose": 7376.85986328125,
+      "window_samples": 252,
+      "highest_adjclose": 7818.93017578125,
+      "highest_date": "2026-10-06",
+      "drawdown": -0.056538465309396324,
+      "rsi14": 35.11085440367562,
+      "sma50": 7679.447421875,
+      "sma200": 7325.05326171875,
+      "rsi_warmup_prices": 501,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "VALID"
+      },
+      "symbol": "^GSPC",
+      "identity": {
+        "symbol": "^GSPC",
+        "longName": "S&P 500",
+        "shortName": "S&P 500",
+        "instrumentType": "INDEX",
+        "currency": "USD",
+        "exchangeName": "SNP",
+        "fullExchangeName": "SNP",
+        "exchangeTimezoneName": "America/New_York"
+      },
+      "as_of_utc": "2026-11-07T10:51:32.391738+00:00",
+      "history_fingerprint": "0a653ec9425c56982505072869da42a1a50cde8e5d2fe78012a916812ddf59ea",
+      "comparison_fingerprint": "9d3c8cff89a0de126789ef9dcab008d82f9b5ebf14d25bc50429a84c92294204",
+      "watch_tier": "NONE",
+      "baseline_thresholds": [],
+      "confirmed_thresholds": [],
+      "deepening_anchor": -0.056538465309396324,
+      "change_event": "FIRST_BASELINE",
+      "market_event_ids": [],
+      "revision_observation": {
+        "count": 0,
+        "event_id": null,
+        "requires_review": false
+      },
+      "comparability_proven": true,
+      "revision_policy": "Conservative: all overlapping revisions require review; counterfactual disagreement emits no market event",
+      "technical_observation_only": true,
+      "daily_drawdown_change_pp": null,
+      "cumulative_anchor_deepening_pp": null,
+      "daily_new_deepening": false
+    },
+    {
+      "trading_date": "2026-11-06",
+      "adjclose": 26989.990234375,
+      "window_samples": 252,
+      "highest_adjclose": 31224.470703125,
+      "highest_date": "2026-10-06",
+      "drawdown": -0.13561416329552722,
+      "rsi14": 31.39106806454268,
+      "sma50": 29632.697421875,
+      "sma200": 27983.89166015625,
+      "rsi_warmup_prices": 501,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "VALID"
+      },
+      "symbol": "^NDX",
+      "identity": {
+        "symbol": "^NDX",
+        "longName": "NASDAQ-100",
+        "shortName": "NASDAQ-100",
+        "instrumentType": "INDEX",
+        "currency": "USD",
+        "exchangeName": "NIM",
+        "fullExchangeName": "Nasdaq GIDS",
+        "exchangeTimezoneName": "America/New_York"
+      },
+      "as_of_utc": "2026-11-07T10:51:37.163598+00:00",
+      "history_fingerprint": "f752feadfe5b537577420cd74bffc3cc0292eb1fe63cce9852dbddf5b9298d52",
+      "comparison_fingerprint": "706df847507a04ba156f66b902170070c49488071d5d45acb9cae7f6c83bd600",
+      "watch_tier": "WATCH_10",
+      "baseline_thresholds": [
+        10
+      ],
+      "confirmed_thresholds": [],
+      "deepening_anchor": -0.13561416329552722,
+      "change_event": "FIRST_BASELINE",
+      "market_event_ids": [],
+      "revision_observation": {
+        "count": 0,
+        "event_id": null,
+        "requires_review": false
+      },
+      "comparability_proven": true,
+      "revision_policy": "Conservative: all overlapping revisions require review; counterfactual disagreement emits no market event",
+      "technical_observation_only": true,
+      "daily_drawdown_change_pp": null,
+      "cumulative_anchor_deepening_pp": null,
+      "daily_new_deepening": false
+    },
+    {
+      "trading_date": "2026-11-06",
+      "adjclose": 9390.25,
+      "window_samples": 252,
+      "highest_adjclose": 14634.7197265625,
+      "highest_date": "2026-06-22",
+      "drawdown": -0.3583580570418178,
+      "rsi14": 31.609972532534798,
+      "sma50": 11694.66125,
+      "sma200": 10831.110102539062,
+      "rsi_warmup_prices": 501,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "VALID"
+      },
+      "symbol": "^SOX",
+      "identity": {
+        "symbol": "^SOX",
+        "longName": "PHLX Semiconductor",
+        "shortName": "PHLX Semiconductor",
+        "instrumentType": "INDEX",
+        "currency": "USD",
+        "exchangeName": "NIM",
+        "fullExchangeName": "Nasdaq GIDS",
+        "exchangeTimezoneName": "America/New_York"
+      },
+      "as_of_utc": "2026-11-07T10:51:41.578761+00:00",
+      "history_fingerprint": "518c18bf53b33b07af0c0c5126cf26dd42d325f2add5e55c4384dbf802d4b9a2",
+      "comparison_fingerprint": "3e45b468931b4d5816754ce02a68ec9553332f1fa43027df7d93d939a5b91f5d",
+      "watch_tier": "WATCH_30",
+      "baseline_thresholds": [
+        10,
+        20,
+        30
+      ],
+      "confirmed_thresholds": [],
+      "deepening_anchor": -0.3583580570418178,
+      "change_event": "FIRST_BASELINE",
+      "market_event_ids": [],
+      "revision_observation": {
+        "count": 0,
+        "event_id": null,
+        "requires_review": false
+      },
+      "comparability_proven": true,
+      "revision_policy": "Conservative: all overlapping revisions require review; counterfactual disagreement emits no market event",
+      "technical_observation_only": true,
+      "daily_drawdown_change_pp": null,
+      "cumulative_anchor_deepening_pp": null,
+      "daily_new_deepening": false
+    }
+  ],
+  "success_count": 3,
+  "pending_event_ids": []
+}

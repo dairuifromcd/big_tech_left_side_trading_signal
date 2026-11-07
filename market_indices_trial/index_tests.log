@@ -1,0 +1,33 @@
+test_improving_day_has_cumulative_unconfirmed_anchor_candidate (tests.test_market_indices.AVGOReadOnlyTests.test_improving_day_has_cumulative_unconfirmed_anchor_candidate) ... ok
+test_429_stops_after_one_request (tests.test_market_indices.CollectorTests.test_429_stops_after_one_request) ... {"symbol": "^GSPC", "http_status": 429, "error_category": "RATE_LIMITED", "elapsed_seconds": 0.0007794999983161688}
+ok
+test_auth_denial_stops_without_retry (tests.test_market_indices.CollectorTests.test_auth_denial_stops_without_retry) ... {"symbol": "^GSPC", "http_status": 403, "error_category": "HTTP_FORBIDDEN", "elapsed_seconds": 0.0006762919947504997}
+ok
+test_duplicate_dates_rejected (tests.test_market_indices.DataTests.test_duplicate_dates_rejected) ... ok
+test_each_identity_field_is_checked (tests.test_market_indices.DataTests.test_each_identity_field_is_checked) ... ok
+test_inconsistent_lengths_rejected (tests.test_market_indices.DataTests.test_inconsistent_lengths_rejected) ... ok
+test_instrument_identity_is_index (tests.test_market_indices.DataTests.test_instrument_identity_is_index) ... ok
+test_invalid_complete_prices_rejected (tests.test_market_indices.DataTests.test_invalid_complete_prices_rejected) ... ok
+test_missing_adjclose_never_uses_close (tests.test_market_indices.DataTests.test_missing_adjclose_never_uses_close) ... ok
+test_null_volume_does_not_invalidate_prices (tests.test_market_indices.DataTests.test_null_volume_does_not_invalidate_prices) ... ok
+test_sox_missing_volume_does_not_invalidate_prices (tests.test_market_indices.DataTests.test_sox_missing_volume_does_not_invalidate_prices) ... ok
+test_stale_data_rejected (tests.test_market_indices.DataTests.test_stale_data_rejected) ... ok
+test_three_real_indices_and_independent_decimal_references (tests.test_market_indices.DataTests.test_three_real_indices_and_independent_decimal_references) ... ok
+test_unfinished_null_bar_is_excluded (tests.test_market_indices.DataTests.test_unfinished_null_bar_is_excluded) ... ok
+test_cannot_initialize_over_existing_or_lost_state (tests.test_market_indices.StateTests.test_cannot_initialize_over_existing_or_lost_state) ... ok
+test_equity_state_path_cannot_be_used (tests.test_market_indices.StateTests.test_equity_state_path_cannot_be_used) ... ok
+test_identical_replay_preserves_state_bytes_and_events (tests.test_market_indices.StateTests.test_identical_replay_preserves_state_bytes_and_events) ... ok
+test_index_failure_does_not_prevent_other_index_commit (tests.test_market_indices.StateTests.test_index_failure_does_not_prevent_other_index_commit) ... ok
+test_index_state_rejected_by_equity_loader (tests.test_market_indices.StateTests.test_index_state_rejected_by_equity_loader) ... ok
+test_initial_baseline_has_no_false_threshold (tests.test_market_indices.StateTests.test_initial_baseline_has_no_false_threshold) ... ok
+test_market_and_revision_candidate_stays_pending (tests.test_market_indices.StateTests.test_market_and_revision_candidate_stays_pending) ... ok
+test_missed_session_preserves_previous_state (tests.test_market_indices.StateTests.test_missed_session_preserves_previous_state) ... ok
+test_revision_only_cannot_create_threshold (tests.test_market_indices.StateTests.test_revision_only_cannot_create_threshold) ... ok
+test_revision_risk_escalates_and_pending_stays_pending (tests.test_market_indices.StateTests.test_revision_risk_escalates_and_pending_stays_pending) ... ok
+test_significant_deepening (tests.test_market_indices.StateTests.test_significant_deepening) ... ok
+test_threshold_recovery_and_reentry (tests.test_market_indices.StateTests.test_threshold_recovery_and_reentry) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.316s
+
+OK
