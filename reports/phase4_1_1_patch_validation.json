@@ -1,0 +1,505 @@
+{
+  "phase": "4.1.1",
+  "mode": "OFFLINE_STATE_SAFETY_PATCH",
+  "at_utc": "2026-10-31T04:44:04.845503+00:00",
+  "new_http_requests": 0,
+  "network_attempts_blocked": [],
+  "acceptance": {
+    "REVISION_RISK_ESCALATION": "PASS",
+    "PENDING_REVIEW_INTEGRITY": "PASS",
+    "MISSING_STATE_FAIL_CLOSED": "PASS",
+    "EXPLICIT_INITIALIZATION": "PASS",
+    "MISSED_SESSION_DETECTION": "PASS",
+    "EVENT_LEDGER_IDEMPOTENCY": "PASS",
+    "EXISTING_REGRESSION_TESTS": "PASS",
+    "INDICATORS_UNCHANGED": "PASS",
+    "FORMAL_STATE_UNCHANGED": "PASS",
+    "PROTECTED_EVIDENCE_UNCHANGED": "PASS",
+    "CATCHUP_SAFETY": "BLOCKED",
+    "PHASE_4_1_1_ACCEPTANCE": "PASS",
+    "CROSS_DAY_LIVE_VALIDATION": "PENDING_LIVE_VALIDATION"
+  },
+  "acceptance_scope": "Requested fail-closed state-safety patch PASS; automatic reconstructed catchup remains BLOCKED. Not complete unattended recovery capability.",
+  "baseline": {
+    "tests": {
+      "total": 133,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "manifest": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_1_trial/baseline/manifest.json",
+    "pre_fix_failures": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_1_trial/baseline/pre_fix_failures.txt",
+    "git_commit": null,
+    "git_status": "Untracked working files preserved in source snapshot"
+  },
+  "tests": {
+    "total": 153,
+    "passed": 153,
+    "failed": 0,
+    "skipped": 0,
+    "existing_133_passed": 133,
+    "new_tests": 20,
+    "old_test_ids_retained": [
+      "test_market_calendar.CalendarTests.test_dst_changes_utc_close",
+      "test_market_calendar.CalendarTests.test_early_close",
+      "test_market_calendar.CalendarTests.test_exact_session_enumeration",
+      "test_market_calendar.CalendarTests.test_fail_closed",
+      "test_market_calendar.CalendarTests.test_holidays",
+      "test_market_calendar.CalendarTests.test_no_observation_for_saturday_new_year_2028",
+      "test_market_calendar.CalendarTests.test_regular_close_boundary",
+      "test_market_calendar.CalendarTests.test_weekend_and_premarket",
+      "test_yahoo_nine_offline.CollectionAndRunnerTests.test_429_stops_immediately_and_marks_remaining_six",
+      "test_yahoo_nine_offline.CollectionAndRunnerTests.test_all_nine_serial_schedule_and_atomic_reports",
+      "test_yahoo_nine_offline.CollectionAndRunnerTests.test_dns_failure_has_zero_http_invocations",
+      "test_yahoo_nine_offline.CollectionAndRunnerTests.test_invalid_json_fails_one_stock_without_retry",
+      "test_yahoo_nine_offline.CollectionAndRunnerTests.test_network_exception_classification_prioritizes_ssl",
+      "test_yahoo_nine_offline.CollectionAndRunnerTests.test_one_401_continues_but_consecutive_401_403_stops",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_bad_prices_are_quality_errors",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_close_timestamp_duplicate_and_array_mismatch",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_complete_history_and_separate_price_evidence",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_in_progress_daily_bar_is_excluded",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_latest_missing_session_is_stale",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_missing_adjclose",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_spcx_etf_identity_is_rejected",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_spcx_independently_verified_short_ipo_history_passes",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_spcx_ipo_gap_cannot_be_excused_as_short_listing",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_spcx_pre_ipo_history_is_identity_contamination",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_unexplained_short_history_is_not_assumed_new_listing",
+      "test_yahoo_nine_offline.PayloadValidationTests.test_unsupported_calendar_fails_closed",
+      "tests.test_phase3.IndicatorTests.test_duplicate_and_unsorted",
+      "tests.test_phase3.IndicatorTests.test_high_leaves_window",
+      "tests.test_phase3.IndicatorTests.test_invalid_prices",
+      "tests.test_phase3.IndicatorTests.test_missing_session",
+      "tests.test_phase3.IndicatorTests.test_new_high",
+      "tests.test_phase3.IndicatorTests.test_no_drawdown",
+      "tests.test_phase3.IndicatorTests.test_normal_drawdown",
+      "tests.test_phase3.IndicatorTests.test_rsi_14_prices_insufficient",
+      "tests.test_phase3.IndicatorTests.test_rsi_falling",
+      "tests.test_phase3.IndicatorTests.test_rsi_flat",
+      "tests.test_phase3.IndicatorTests.test_rsi_rising",
+      "tests.test_phase3.IndicatorTests.test_short_listing",
+      "tests.test_phase3.IndicatorTests.test_short_not_assumed_ipo",
+      "tests.test_phase3.IndicatorTests.test_sma200",
+      "tests.test_phase3.IndicatorTests.test_sma50",
+      "tests.test_phase3.IndicatorTests.test_sma_includes_latest",
+      "tests.test_phase3.IndicatorTests.test_sma_insufficient",
+      "tests.test_phase3.IndicatorTests.test_stale_target",
+      "tests.test_phase3.IndicatorTests.test_tie_latest_date",
+      "tests.test_phase3.IndicatorTests.test_wilder_published_example_and_independent_decimal",
+      "tests.test_phase3.IntegrationTests.test_all_nine_independent_decimal_reference",
+      "tests.test_phase3.IntegrationTests.test_baseline_repeat_state_unchanged_and_recovery",
+      "tests.test_phase3.IntegrationTests.test_close_not_used_in_indicators",
+      "tests.test_phase3.IntegrationTests.test_corrupted_state_never_reset",
+      "tests.test_phase3.IntegrationTests.test_failed_stock_preserves_state_others_continue",
+      "tests.test_phase3.IntegrationTests.test_input_hash_tampering_rejected",
+      "tests.test_phase3.IntegrationTests.test_logically_corrupt_state_fails_closed",
+      "tests.test_phase3.IntegrationTests.test_missing_stock_in_partial_fetch_keeps_others",
+      "tests.test_phase3.IntegrationTests.test_old_snapshot_cannot_overwrite_new_state",
+      "tests.test_phase3.IntegrationTests.test_revision_overlapping_date_recomputes",
+      "tests.test_phase3.IntegrationTests.test_revision_tolerance",
+      "tests.test_phase3.IntegrationTests.test_rolling_hash_not_revision",
+      "tests.test_phase3.IntegrationTests.test_spcx_independent_indicator_availability",
+      "tests.test_phase3.SignalTests.test_accumulated_deepening_anchor",
+      "tests.test_phase3.SignalTests.test_all_three_thresholds",
+      "tests.test_phase3.SignalTests.test_baseline_no_new_signals",
+      "tests.test_phase3.SignalTests.test_deepening_percentage_points",
+      "tests.test_phase3.SignalTests.test_invalid_configuration",
+      "tests.test_phase3.SignalTests.test_multiple_crossings",
+      "tests.test_phase3.SignalTests.test_recovery_and_reentry",
+      "tests.test_phase3.SignalTests.test_revision_not_market_drop",
+      "tests.test_phase3.SignalTests.test_same_day_no_duplicate",
+      "tests.test_phase4.ReliabilityTests.test_401_403_not_retried",
+      "tests.test_phase4.ReliabilityTests.test_429_halts_and_preserves_failed_and_skipped_stocks",
+      "tests.test_phase4.ReliabilityTests.test_abnormal_process_exit_releases_lock",
+      "tests.test_phase4.ReliabilityTests.test_backup_limit",
+      "tests.test_phase4.ReliabilityTests.test_commit_interruption_old_state_intact",
+      "tests.test_phase4.ReliabilityTests.test_competing_process_lock",
+      "tests.test_phase4.ReliabilityTests.test_corrupt_state_clear_report_no_reset",
+      "tests.test_phase4.ReliabilityTests.test_directory_sync_failure_complete_new_state",
+      "tests.test_phase4.ReliabilityTests.test_dns_tls_timeout_preserve_all_state",
+      "tests.test_phase4.ReliabilityTests.test_explicit_backup_recovery_and_hash_validation",
+      "tests.test_phase4.ReliabilityTests.test_invalid_json_partial_stock_preserved",
+      "tests.test_phase4.ReliabilityTests.test_missing_adjclose_partial_failure",
+      "tests.test_phase4.ReliabilityTests.test_mock_live_entire_pipeline_and_repeat",
+      "tests.test_phase4.ReliabilityTests.test_phase4_refuses_formal_state",
+      "tests.test_phase4.ReliabilityTests.test_replay_five_sessions_no_future_prices",
+      "tests.test_phase4.ReliabilityTests.test_report_failure_preserves_committed_event_ledger",
+      "tests.test_phase4.ReliabilityTests.test_stale_capture_rejected_before_commit",
+      "tests.test_phase4_1.ObservationScenarios.test_a_micro_revision_alone_keeps_revision_fact_without_market_event",
+      "tests.test_phase4_1.ObservationScenarios.test_c_historical_high_revision_alone_does_not_confirm_market_crossing",
+      "tests.test_phase4_1.ObservationScenarios.test_d_mixed_high_revision_and_new_price_remains_pending",
+      "tests.test_phase4_1.ObservationScenarios.test_e_repeating_same_snapshot_has_no_duplicate_market_event",
+      "tests.test_phase4_1.ObservationScenarios.test_f_same_day_new_micro_capture_never_becomes_new_market_day",
+      "tests.test_phase4_1.ObservationScenarios.test_g_new_day_can_cross_ten_and_twenty_together",
+      "tests.test_phase4_1.ObservationScenarios.test_h_recovery_then_reentry_preserves_first_confirmation_history",
+      "tests.test_phase4_1.ObservationScenarios.test_i_natural_high_expiration_is_not_historical_revision",
+      "tests.test_phase4_1.ObservationScenarios.test_j_float32_high_revision_near_boundary_is_not_automatically_harmless",
+      "tests.test_phase4_1.ObservationScenarios.test_k_material_adjustment_unit_change_does_not_confirm_market_event",
+      "tests.test_phase4_1.ObservationScenarios.test_l_normal_close_move_with_incomparable_adjclose_is_pending",
+      "tests.test_phase4_1.ObservationScenarios.test_m_short_spcx_stays_provisional_with_unavailable_sma200",
+      "tests.test_phase4_1.ObservationScenarios.test_n_one_pending_symbol_does_not_block_other_valid_symbol",
+      "tests.test_phase4_1.P0RevisionAndMarketEventTests.test_b_stable_close_evidence_confirms_real_new_twenty_percent_event",
+      "tests.test_phase4_1.P0RevisionAndMarketEventTests.test_scenario_b_preserves_twenty_percent_market_candidate",
+      "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_n_e_pending_and_confirmed_symbols_commit_together_and_repeat_is_byte_idempotent",
+      "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_o_failed_atomic_commit_preserves_old_state_and_explicit_backup_recovery",
+      "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_p_malformed_migration_source_is_preserved",
+      "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_p_migration_is_pure_preserves_prices_and_is_byte_idempotent",
+      "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_q_legacy_consumed_threshold_without_verified_event_is_ambiguous",
+      "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_r_event_ids_separate_revision_and_market_and_ignore_evidence_time",
+      "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_r_pending_event_promotes_in_place_only_after_explicit_review",
+      "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_s_rejected_revision_restores_previous_valid_stock_and_blocks_bad_snapshot",
+      "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_t_process_lock_and_event_ledger_remain_consistent",
+      "tests.test_phase4_1_guardrails.Guardrails.test_all_failed_run_keeps_even_v1_checkpoint_byte_identical",
+      "tests.test_phase4_1_guardrails.Guardrails.test_comparison_evidence_tamper_fails_closed",
+      "tests.test_phase4_1_guardrails.Guardrails.test_formal_state_cannot_be_implicitly_migrated",
+      "tests.test_phase4_1_guardrails.Guardrails.test_partial_event_registration_cannot_leak_into_failed_stock",
+      "tests.test_phase4_1_guardrails.Guardrails.test_tiny_adjustment_factor_changes_require_review",
+      "tests.test_phase4_1_guardrails.Guardrails.test_unresolved_high_review_survives_next_session",
+      "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_difference_bins_quantiles_and_top_five",
+      "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_duplicate_and_saved_date_mismatch_fail",
+      "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_equal_and_reordered_rows_align_by_date_without_mutation",
+      "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_holiday_and_outside_regular_session_fail",
+      "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_invalid_prices_and_timestamps_fail_before_comparison",
+      "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_new_and_missing_dates_are_distinct_from_revisions",
+      "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_ny_dst_timestamp_alignment",
+      "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_percentile_linear_interpolation",
+      "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_read_json_rejects_nonfinite_literals_without_writes",
+      "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_timestamp_or_close_changes_do_not_become_adjclose_revisions",
+      "tests.test_revision_diagnostics.SavedEvidenceAndScenarioTests.test_all_nine_real_snapshots_reproduce_1139_revisions_read_only",
+      "tests.test_revision_diagnostics.SavedEvidenceAndScenarioTests.test_scenarios_a_to_e_expose_suppression_and_idempotence_without_state_write",
+      "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_candidate_tolerances_only_change_classification_not_inputs",
+      "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_current_tolerance_distinguishes_raw_numeric_difference",
+      "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_future_rows_do_not_change_target_session_metrics",
+      "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_metric_impacts_are_actual_full_precision_differences",
+      "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_relaxed_tolerance_can_hide_tier_boundary_change",
+      "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_short_history_requires_explicit_permission_and_has_null_sma200"
+    ],
+    "categories": {
+      "test_market_calendar": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0
+      },
+      "test_yahoo_nine_offline": {
+        "total": 18,
+        "passed": 18,
+        "failed": 0
+      },
+      "test_phase3": {
+        "total": 42,
+        "passed": 42,
+        "failed": 0
+      },
+      "test_phase4": {
+        "total": 17,
+        "passed": 17,
+        "failed": 0
+      },
+      "test_phase4_1": {
+        "total": 24,
+        "passed": 24,
+        "failed": 0
+      },
+      "test_phase4_1_1": {
+        "total": 20,
+        "passed": 20,
+        "failed": 0
+      },
+      "test_phase4_1_guardrails": {
+        "total": 6,
+        "passed": 6,
+        "failed": 0
+      },
+      "test_revision_diagnostics": {
+        "total": 18,
+        "passed": 18,
+        "failed": 0
+      }
+    },
+    "test_results": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_1_trial/acceptance_20261031_144336/tests.json",
+    "log": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_1_trial/acceptance_20261031_144336/tests.txt"
+  },
+  "scenarios": {
+    "U1": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_u1_full_pipeline_escalates_same_id_and_repeat_is_unchanged",
+        "tests.test_phase4_1_1.SafetyCases.test_u1_same_revision_id_escalates_risk"
+      ]
+    },
+    "U2": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_u2_identical_evidence_is_byte_idempotent"
+      ]
+    },
+    "U3": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_u3_pending_is_sticky_until_explicit_review"
+      ]
+    },
+    "U4": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_u4_rejected_new_evidence_blocks_without_mutation"
+      ]
+    },
+    "U5": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_u5_escalated_refs_and_next_session_risk_are_consistent"
+      ]
+    },
+    "M1": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_m1_missing_state_fails_closed"
+      ]
+    },
+    "M2": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_m2_missing_primary_with_backup_lists_verified_recovery"
+      ]
+    },
+    "M3": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_m3_explicit_init_first_baseline_then_normal_repeat"
+      ]
+    },
+    "M4": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_m4_existing_or_previously_initialized_state_cannot_reinitialize"
+      ]
+    },
+    "M5": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_m5_explicit_init_refuses_unrelated_existing_directory",
+        "tests.test_phase4_1_1.SafetyCases.test_m5_formal_path_is_rejected_before_optional_fetch",
+        "tests.test_phase4_1_1.SafetyCases.test_m5_wrong_path_all_normal_entrypoints_fail_without_baseline"
+      ]
+    },
+    "C1": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_c1_gap_identified_and_old_checkpoint_retained"
+      ]
+    },
+    "C2": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_c2_fixed_consecutive_archives_preserve_order_and_ids"
+      ]
+    },
+    "C3": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_c3_backdated_reconstruction_cannot_claim_original_capture",
+        "tests.test_phase4_1_1.SafetyCases.test_c3_later_snapshot_only_yields_blocked_reconstructed_plan"
+      ]
+    },
+    "C4": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_c4_incomplete_missing_day_blocks_progress"
+      ]
+    },
+    "C5": {
+      "status": "PASS",
+      "tests": [
+        "tests.test_phase4_1_1.SafetyCases.test_c5_interruption_resumes_from_last_complete_checkpoint"
+      ]
+    }
+  },
+  "defects_and_fixes": [
+    {
+      "defect": "Existing revision ID kept CONFIRMED despite new higher-risk evidence",
+      "fix": "Only new REVISION_OBSERVATION evidence with explicit requires_review escalates to pending; evidence versions, risk audit and references commit together."
+    },
+    {
+      "defect": "Missing file implicitly became empty state",
+      "fix": "Strict load/save default. Explicit init only in a new existing isolated directory; prior backup/initialization/recovery artifacts block reset. Recovery is operator-selected and audited."
+    },
+    {
+      "defect": "Nonconsecutive sessions could still advance successful date",
+      "fix": "Per-symbol missing-session plan and CATCHUP_REQUIRED preserves checkpoint; other stocks can continue. Read-only RECONSTRUCTED_CATCHUP plan blocks automatic application."
+    }
+  ],
+  "modified_files": [
+    "src/state.py",
+    "src/monitor.py",
+    "src/observations.py",
+    "src/review.py",
+    "src/phase4.py",
+    "README.md",
+    "tests/test_phase3.py",
+    "tests/test_phase4_1.py",
+    "tests/test_phase4_1_guardrails.py"
+  ],
+  "new_files": [
+    "src/catchup.py",
+    "tests/test_phase4_1_1.py",
+    "diagnostics/validate_phase4_1_1.py"
+  ],
+  "existing_test_updates": [
+    "Phase3 IntegrationTests explicitly initialize each fresh temporary checkpoint before normal runs; all original baseline/byte-idempotence assertions remain.",
+    "Phase4.1 fixture creation uses explicit initialize(value) instead of save() implicitly creating a missing file. No old test deleted/skipped or expectation weakened.",
+    "Phase4 replay explicitly initializes its newly requested isolated replay state; replay is not live monitoring."
+  ],
+  "integration": {
+    "state_file": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_1_trial/acceptance_20261031_144336/state.json",
+    "phase2_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_1_trial/acceptance_20261031_144336/phase2/monitor_indicators_20261031_144403.json",
+    "phase4_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_1_trial/acceptance_20261031_144336/phase4/monitor_indicators_20261031_144404.json",
+    "repeat_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_1_trial/acceptance_20261031_144336/repeat/monitor_indicators_20261031_144404.json",
+    "retained_revisions": 1139,
+    "pending_records": 12,
+    "legacy_ambiguities": 11,
+    "false_market_events": 0,
+    "metrics_equal_original_phase4": true,
+    "repeat_state_byte_identical": true,
+    "state_sha256": "b89147c179d56eb579ed83e558fac3d768e7af76da90e9559e02ba8b68dcf532",
+    "stocks": [
+      {
+        "symbol": "NVDA",
+        "adjclose": 213.66000366210938,
+        "drawdown": -0.10692192461007777,
+        "rsi14": 42.28469133153823,
+        "sma50": 221.92396942138672,
+        "sma200": 203.98253143310546,
+        "watch_tier": "WATCH_10",
+        "data_quality": "PASS",
+        "historical_revision_count": 210
+      },
+      {
+        "symbol": "AAPL",
+        "adjclose": 348.9100036621094,
+        "drawdown": 0.0,
+        "rsi14": 61.391477357180534,
+        "sma50": 332.37420043945315,
+        "sma200": 295.8423233795166,
+        "watch_tier": "NONE",
+        "data_quality": "PASS",
+        "historical_revision_count": 204
+      },
+      {
+        "symbol": "GOOGL",
+        "adjclose": 283.82000732421875,
+        "drawdown": -0.2941928510666587,
+        "rsi14": 22.32247057499991,
+        "sma50": 340.24004638671875,
+        "sma200": 340.6192111206055,
+        "watch_tier": "WATCH_20",
+        "data_quality": "PASS",
+        "historical_revision_count": 189
+      },
+      {
+        "symbol": "MSFT",
+        "adjclose": 530.1400146484375,
+        "drawdown": -0.024491668524469934,
+        "rsi14": 55.370026605263874,
+        "sma50": 512.0954016113282,
+        "sma200": 436.5268180847168,
+        "watch_tier": "NONE",
+        "data_quality": "PASS",
+        "historical_revision_count": 162
+      },
+      {
+        "symbol": "AMZN",
+        "adjclose": 243.7899932861328,
+        "drawdown": -0.1416449450168893,
+        "rsi14": 40.71893879436871,
+        "sma50": 254.67419982910155,
+        "sma200": 243.3820999145508,
+        "watch_tier": "WATCH_10",
+        "data_quality": "PASS",
+        "historical_revision_count": 0
+      },
+      {
+        "symbol": "SPCX",
+        "adjclose": 143.88999938964844,
+        "drawdown": -0.3193150110927405,
+        "rsi14": 43.6925956861474,
+        "sma50": 149.54700073242188,
+        "sma200": null,
+        "watch_tier": "WATCH_30",
+        "data_quality": "PASS_PROVISIONAL",
+        "historical_revision_count": 0
+      },
+      {
+        "symbol": "META",
+        "adjclose": 624.52001953125,
+        "drawdown": -0.1968518139863823,
+        "rsi14": 34.99358253721165,
+        "sma50": 668.3969262695313,
+        "sma200": 631.2700811767578,
+        "watch_tier": "WATCH_10",
+        "data_quality": "PASS",
+        "historical_revision_count": 156
+      },
+      {
+        "symbol": "AVGO",
+        "adjclose": 345.0,
+        "drawdown": -0.28115283526915125,
+        "rsi14": 49.10487430698172,
+        "sma50": 353.29072143554686,
+        "sma200": 366.69759719848633,
+        "watch_tier": "WATCH_20",
+        "data_quality": "PASS",
+        "historical_revision_count": 218
+      },
+      {
+        "symbol": "TSLA",
+        "adjclose": 403.29998779296875,
+        "drawdown": -0.17673719324501747,
+        "rsi14": 63.03468778458573,
+        "sma50": 368.5089984130859,
+        "sma200": 385.4955490112305,
+        "watch_tier": "WATCH_10",
+        "data_quality": "PASS",
+        "historical_revision_count": 0
+      }
+    ]
+  },
+  "state_schema": 2,
+  "event_model_version": "revision-market-v2",
+  "formal_migration_performed": false,
+  "formal_state_sha256": "26e0f3f84e579b448e6e57fad9abd8b550568520c0088c0ff106f34eae727fa6",
+  "protected_evidence_count": 160,
+  "protected_evidence_unchanged": true,
+  "unchanged_core": {
+    "src/indicators.py": true,
+    "src/signals.py": true
+  },
+  "revision_tolerances": {
+    "abs_tol": 1e-08,
+    "rel_tol": 1e-10
+  },
+  "production_code_sha256": {
+    "src/__init__.py": "ed488043b8b3f3079b50760bd7a8cd2c1ecc00b7c2e8f178e66a8ca4f4ca7f24",
+    "src/catchup.py": "5e7d2a3439890cfa73e89ec63b97d5e372411d9cacecd2de7b8185cc463ae312",
+    "src/indicators.py": "1aebe52383eb7d256149bfe7c70767f23953c5ed129ab01c2e824dc8d45a1505",
+    "src/monitor.py": "39fc8754d6a99431ca95a0ab9853b3e65860cac6036311ecb84ce43ba84fa5b0",
+    "src/observations.py": "fc0ab48429bcbf722058e3791a5010e595166d3af5789d561b0f13e903e7ee34",
+    "src/phase4.py": "cf19ae9b776fd8e7366daf97f49301072b875d1f2b72f3c21c8c53ff75da12fc",
+    "src/review.py": "e918e5653b6f2c2b836045deb406cf9f11c2ae5ba55ad25a26f565c2511aa01f",
+    "src/signals.py": "44482262d61470fc0ff857076350ce934ea09d1319dd04a1c595b617cf63d8f2",
+    "src/state.py": "42406fc660cbfdb10bf4b5e8df73a6e744f5dfae808effedca880fa83447904a"
+  },
+  "manual_recovery_commands": [
+    ".venv/bin/python -m src.review --state ISOLATED/state.json --list-backups",
+    ".venv/bin/python -m src.phase4 --state ISOLATED/state.json --recover-backup SELECTED_VERIFIED_BACKUP.json",
+    ".venv/bin/python -m src.review --state ISOLATED/state.json --catchup-plan --input SAVED_PRICES.json",
+    ".venv/bin/python -m src.monitor --state ISOLATED/state.json --input ORIGINAL_ARCHIVED_DAY.json --archived-catchup --archive-attestation \"Verified original capture and source hashes\" --output-dir ISOLATED/reports"
+  ],
+  "limitations": [
+    "No automatic backfill/reconstruction. Later adjusted histories do not establish historical Point-in-Time snapshots.",
+    "Original archive capture timestamps and hashes are local evidence, not independently authenticated; operator must verify trust.",
+    "Backup rollback may restore earlier event decisions; reconcile stable event IDs before future external delivery.",
+    "Yahoo remains single source; SPCX dispute and live cross-day verification remain unresolved.",
+    "No live requests, scheduled jobs, external delivery, trading, formal migration or Phase5 performed."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-11-03T13:15:12.634841+00:00",
+  "cwd": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal",
+  "python": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/.venv/bin/python",
+  "state_schema": 2,
+  "state_sha256": "48aca297e54965b1169487be61969b152591f424c19ea3d8e22fdabbb67724ee",
+  "state_lock": true,
+  "ledger_lock": true,
+  "tls_ca_loaded": true,
+  "http_requests": 0
+}

@@ -1,0 +1,150 @@
+{
+  "mode": "OFFLINE_REPLAY",
+  "not_live_discoveries": true,
+  "days": [
+    {
+      "target": "2026-10-23",
+      "report": "phase4_trial/replay/2026-10-23/phase4_e2e_20261030_162946_045171.json",
+      "repeat_report": "phase4_trial/replay/2026-10-23/phase4_e2e_20261030_162946_117025.json",
+      "idempotent": true,
+      "events": []
+    },
+    {
+      "target": "2026-10-26",
+      "report": "phase4_trial/replay/2026-10-26/phase4_e2e_20261030_162946_251015.json",
+      "repeat_report": "phase4_trial/replay/2026-10-26/phase4_e2e_20261030_162946_324061.json",
+      "idempotent": true,
+      "events": [
+        {
+          "symbol": "NVDA",
+          "trading_date": "2026-10-26",
+          "change_event": "RECOVERY",
+          "crossed_thresholds_this_run": [],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS"
+        },
+        {
+          "symbol": "META",
+          "trading_date": "2026-10-26",
+          "change_event": "DEEPER_DRAWDOWN",
+          "crossed_thresholds_this_run": [],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS"
+        }
+      ]
+    },
+    {
+      "target": "2026-10-27",
+      "report": "phase4_trial/replay/2026-10-27/phase4_e2e_20261030_162946_457534.json",
+      "repeat_report": "phase4_trial/replay/2026-10-27/phase4_e2e_20261030_162946_531450.json",
+      "idempotent": true,
+      "events": [
+        {
+          "symbol": "SPCX",
+          "trading_date": "2026-10-27",
+          "change_event": "RECOVERY",
+          "crossed_thresholds_this_run": [],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS_PROVISIONAL"
+        },
+        {
+          "symbol": "META",
+          "trading_date": "2026-10-27",
+          "change_event": "NEW_THRESHOLD",
+          "crossed_thresholds_this_run": [
+            20
+          ],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS"
+        },
+        {
+          "symbol": "AVGO",
+          "trading_date": "2026-10-27",
+          "change_event": "RECOVERY",
+          "crossed_thresholds_this_run": [],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS"
+        },
+        {
+          "symbol": "TSLA",
+          "trading_date": "2026-10-27",
+          "change_event": "RECOVERY",
+          "crossed_thresholds_this_run": [],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS"
+        }
+      ]
+    },
+    {
+      "target": "2026-10-28",
+      "report": "phase4_trial/replay/2026-10-28/phase4_e2e_20261030_162946_667965.json",
+      "repeat_report": "phase4_trial/replay/2026-10-28/phase4_e2e_20261030_162946_741235.json",
+      "idempotent": true,
+      "events": [
+        {
+          "symbol": "GOOGL",
+          "trading_date": "2026-10-28",
+          "change_event": "RECOVERY",
+          "crossed_thresholds_this_run": [],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS"
+        },
+        {
+          "symbol": "SPCX",
+          "trading_date": "2026-10-28",
+          "change_event": "REENTRY",
+          "crossed_thresholds_this_run": [
+            30
+          ],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS_PROVISIONAL"
+        }
+      ]
+    },
+    {
+      "target": "2026-10-29",
+      "report": "phase4_trial/replay/2026-10-29/phase4_e2e_20261030_162946_879055.json",
+      "repeat_report": "phase4_trial/replay/2026-10-29/phase4_e2e_20261030_162946_954435.json",
+      "idempotent": true,
+      "events": [
+        {
+          "symbol": "NVDA",
+          "trading_date": "2026-10-29",
+          "change_event": "REENTRY",
+          "crossed_thresholds_this_run": [
+            10
+          ],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS"
+        },
+        {
+          "symbol": "GOOGL",
+          "trading_date": "2026-10-29",
+          "change_event": "REENTRY",
+          "crossed_thresholds_this_run": [
+            20
+          ],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS"
+        },
+        {
+          "symbol": "AMZN",
+          "trading_date": "2026-10-29",
+          "change_event": "DEEPER_DRAWDOWN",
+          "crossed_thresholds_this_run": [],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS"
+        },
+        {
+          "symbol": "META",
+          "trading_date": "2026-10-29",
+          "change_event": "RECOVERY",
+          "crossed_thresholds_this_run": [],
+          "rules_version": "adjclose-wilder14-sma-252-v1",
+          "data_quality": "PASS"
+        }
+      ]
+    }
+  ],
+  "final_state": "phase4_trial/replay/state.json"
+}

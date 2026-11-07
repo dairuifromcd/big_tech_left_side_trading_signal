@@ -1,0 +1,72 @@
+{
+  "trial_id": "phase4_2_20261103_20261107",
+  "root": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal",
+  "python": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/.venv/bin/python",
+  "python_version": "3.13.0",
+  "state_path": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/state/monitor_state.json",
+  "ledger_path": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/execution_ledger.json",
+  "plan": [
+    {
+      "run": 1,
+      "scheduled_brisbane": "2026-11-03T09:00:00+10:00",
+      "target_date": "2026-11-02"
+    },
+    {
+      "run": 2,
+      "scheduled_brisbane": "2026-11-04T09:00:00+10:00",
+      "target_date": "2026-11-03"
+    },
+    {
+      "run": 3,
+      "scheduled_brisbane": "2026-11-05T09:00:00+10:00",
+      "target_date": "2026-11-04"
+    },
+    {
+      "run": 4,
+      "scheduled_brisbane": "2026-11-06T09:00:00+10:00",
+      "target_date": "2026-11-05"
+    },
+    {
+      "run": 5,
+      "scheduled_brisbane": "2026-11-07T09:00:00+10:00",
+      "target_date": "2026-11-06"
+    }
+  ],
+  "symbols": [
+    "NVDA",
+    "AAPL",
+    "GOOGL",
+    "MSFT",
+    "AMZN",
+    "SPCX",
+    "META",
+    "AVGO",
+    "TSLA"
+  ],
+  "max_attempts": 5,
+  "deadline_brisbane": "2026-11-07",
+  "start_window_minutes": 15,
+  "request_start_interval_seconds": 5,
+  "batch_extra_wait_seconds": 30,
+  "initial_state_sha256": "384e1f8489f194e52079ea5544c67d000e19a8e2578034406cd55f7d8d38905d",
+  "launchd_manifest_sha256": "7bfd4cd9354b64dce24cd6f60d17e045cea27e9605be33e48833e74e1f94f776",
+  "protected_manifest": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/preflight/protected_manifest.json",
+  "code_sha256": {
+    "src/__init__.py": "ed488043b8b3f3079b50760bd7a8cd2c1ecc00b7c2e8f178e66a8ca4f4ca7f24",
+    "src/catchup.py": "5e7d2a3439890cfa73e89ec63b97d5e372411d9cacecd2de7b8185cc463ae312",
+    "src/indicators.py": "1aebe52383eb7d256149bfe7c70767f23953c5ed129ab01c2e824dc8d45a1505",
+    "src/monitor.py": "39fc8754d6a99431ca95a0ab9853b3e65860cac6036311ecb84ce43ba84fa5b0",
+    "src/observations.py": "fc0ab48429bcbf722058e3791a5010e595166d3af5789d561b0f13e903e7ee34",
+    "src/phase4.py": "cf19ae9b776fd8e7366daf97f49301072b875d1f2b72f3c21c8c53ff75da12fc",
+    "src/phase4_2.py": "4442eb47de9d08c5661344e1148d2c7e4b5bfaafec54e50933ba780626445520",
+    "src/review.py": "e918e5653b6f2c2b836045deb406cf9f11c2ae5ba55ad25a26f565c2511aa01f",
+    "src/signals.py": "44482262d61470fc0ff857076350ce934ea09d1319dd04a1c595b617cf63d8f2",
+    "src/state.py": "42406fc660cbfdb10bf4b5e8df73a6e744f5dfae808effedca880fa83447904a",
+    "market_calendar.py": "c20f2f64e29fcd4160537ef204772df135c03f9df429296c9d445c04194241d9",
+    "test_yahoo_nine.py": "fbe2c5cab02535454b3addb23dab2172947861dd5c88de0898e99ee1ce5dcdaf",
+    "test_yahoo_nvda.py": "d650bfcc98ffe5a20edc269a3bf2a2efe84714d1a08c36dcf0da19eaeb6503e6",
+    "diagnostics/run_phase4_2.py": "da658bb5e2305a60d718e67f5b48d198eb3898d9c4fbbbcf32fff345858df215",
+    "diagnostics/phase4_2_cleanup.py": "ad3425f3f8e782decf3f80e35df54727925c1f016e1f6c2777593a75d1fa7d81",
+    "diagnostics/setup_phase4_2.py": "a1c3a262e081a25b7f78af1e6ce1a21648314ac4fefffe2dfb337eb5a661aa4d"
+  }
+}

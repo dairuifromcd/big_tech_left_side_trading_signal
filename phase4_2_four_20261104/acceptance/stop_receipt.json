@@ -1,0 +1,64 @@
+{
+  "at_utc": "2026-11-07T00:01:50.747702+00:00",
+  "scope": "all",
+  "reason": "COMPLETED",
+  "http_requests": 0,
+  "jobs": [
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run1",
+      "bootout_returncode": 3,
+      "bootout_stderr": "Boot-out failed: 3: No such process\n",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.four20261104.run1\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run2",
+      "bootout_returncode": 3,
+      "bootout_stderr": "Boot-out failed: 3: No such process\n",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.four20261104.run2\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run3",
+      "bootout_returncode": 3,
+      "bootout_stderr": "Boot-out failed: 3: No such process\n",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.four20261104.run3\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run4",
+      "bootout_returncode": 3,
+      "bootout_stderr": "Boot-out failed: 3: No such process\n",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.four20261104.run4\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.deadline",
+      "bootout_returncode": 0,
+      "bootout_stderr": "",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.four20261104.deadline\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    }
+  ],
+  "all_removed": true
+}

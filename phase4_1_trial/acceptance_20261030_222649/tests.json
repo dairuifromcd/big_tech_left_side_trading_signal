@@ -1,0 +1,536 @@
+{
+  "total": 132,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "test": "test_market_calendar.CalendarTests.test_dst_changes_utc_close",
+      "status": "PASS"
+    },
+    {
+      "test": "test_market_calendar.CalendarTests.test_early_close",
+      "status": "PASS"
+    },
+    {
+      "test": "test_market_calendar.CalendarTests.test_exact_session_enumeration",
+      "status": "PASS"
+    },
+    {
+      "test": "test_market_calendar.CalendarTests.test_fail_closed",
+      "status": "PASS"
+    },
+    {
+      "test": "test_market_calendar.CalendarTests.test_holidays",
+      "status": "PASS"
+    },
+    {
+      "test": "test_market_calendar.CalendarTests.test_no_observation_for_saturday_new_year_2028",
+      "status": "PASS"
+    },
+    {
+      "test": "test_market_calendar.CalendarTests.test_regular_close_boundary",
+      "status": "PASS"
+    },
+    {
+      "test": "test_market_calendar.CalendarTests.test_weekend_and_premarket",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.CollectionAndRunnerTests.test_429_stops_immediately_and_marks_remaining_six",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.CollectionAndRunnerTests.test_all_nine_serial_schedule_and_atomic_reports",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.CollectionAndRunnerTests.test_dns_failure_has_zero_http_invocations",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.CollectionAndRunnerTests.test_invalid_json_fails_one_stock_without_retry",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.CollectionAndRunnerTests.test_network_exception_classification_prioritizes_ssl",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.CollectionAndRunnerTests.test_one_401_continues_but_consecutive_401_403_stops",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_bad_prices_are_quality_errors",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_close_timestamp_duplicate_and_array_mismatch",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_complete_history_and_separate_price_evidence",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_in_progress_daily_bar_is_excluded",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_latest_missing_session_is_stale",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_missing_adjclose",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_spcx_etf_identity_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_spcx_independently_verified_short_ipo_history_passes",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_spcx_ipo_gap_cannot_be_excused_as_short_listing",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_spcx_pre_ipo_history_is_identity_contamination",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_unexplained_short_history_is_not_assumed_new_listing",
+      "status": "PASS"
+    },
+    {
+      "test": "test_yahoo_nine_offline.PayloadValidationTests.test_unsupported_calendar_fails_closed",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_duplicate_and_unsorted",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_high_leaves_window",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_invalid_prices",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_missing_session",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_new_high",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_no_drawdown",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_normal_drawdown",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_rsi_14_prices_insufficient",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_rsi_falling",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_rsi_flat",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_rsi_rising",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_short_listing",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_short_not_assumed_ipo",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_sma200",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_sma50",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_sma_includes_latest",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_sma_insufficient",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_stale_target",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_tie_latest_date",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IndicatorTests.test_wilder_published_example_and_independent_decimal",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_all_nine_independent_decimal_reference",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_baseline_repeat_state_unchanged_and_recovery",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_close_not_used_in_indicators",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_corrupted_state_never_reset",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_failed_stock_preserves_state_others_continue",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_input_hash_tampering_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_logically_corrupt_state_fails_closed",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_missing_stock_in_partial_fetch_keeps_others",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_old_snapshot_cannot_overwrite_new_state",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_revision_overlapping_date_recomputes",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_revision_tolerance",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_rolling_hash_not_revision",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.IntegrationTests.test_spcx_independent_indicator_availability",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.SignalTests.test_accumulated_deepening_anchor",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.SignalTests.test_all_three_thresholds",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.SignalTests.test_baseline_no_new_signals",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.SignalTests.test_deepening_percentage_points",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.SignalTests.test_invalid_configuration",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.SignalTests.test_multiple_crossings",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.SignalTests.test_recovery_and_reentry",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.SignalTests.test_revision_not_market_drop",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase3.SignalTests.test_same_day_no_duplicate",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_401_403_not_retried",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_429_halts_and_preserves_failed_and_skipped_stocks",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_abnormal_process_exit_releases_lock",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_backup_limit",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_commit_interruption_old_state_intact",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_competing_process_lock",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_corrupt_state_clear_report_no_reset",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_directory_sync_failure_complete_new_state",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_dns_tls_timeout_preserve_all_state",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_explicit_backup_recovery_and_hash_validation",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_invalid_json_partial_stock_preserved",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_missing_adjclose_partial_failure",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_mock_live_entire_pipeline_and_repeat",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_phase4_refuses_formal_state",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_replay_five_sessions_no_future_prices",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_report_failure_preserves_committed_event_ledger",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4.ReliabilityTests.test_stale_capture_rejected_before_commit",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_a_micro_revision_alone_keeps_revision_fact_without_market_event",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_c_historical_high_revision_alone_does_not_confirm_market_crossing",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_d_mixed_high_revision_and_new_price_remains_pending",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_e_repeating_same_snapshot_has_no_duplicate_market_event",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_f_same_day_new_micro_capture_never_becomes_new_market_day",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_g_new_day_can_cross_ten_and_twenty_together",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_h_recovery_then_reentry_preserves_first_confirmation_history",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_i_natural_high_expiration_is_not_historical_revision",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_j_float32_high_revision_near_boundary_is_not_automatically_harmless",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_k_material_adjustment_unit_change_does_not_confirm_market_event",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_l_normal_close_move_with_incomparable_adjclose_is_pending",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_m_short_spcx_stays_provisional_with_unavailable_sma200",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.ObservationScenarios.test_n_one_pending_symbol_does_not_block_other_valid_symbol",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.P0RevisionAndMarketEventTests.test_b_stable_close_evidence_confirms_real_new_twenty_percent_event",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.P0RevisionAndMarketEventTests.test_scenario_b_preserves_twenty_percent_market_candidate",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_n_e_pending_and_confirmed_symbols_commit_together_and_repeat_is_byte_idempotent",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_o_failed_atomic_commit_preserves_old_state_and_explicit_backup_recovery",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_p_malformed_migration_source_is_preserved",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_p_migration_is_pure_preserves_prices_and_is_byte_idempotent",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_q_legacy_consumed_threshold_without_verified_event_is_ambiguous",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_r_event_ids_separate_revision_and_market_and_ignore_evidence_time",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_r_pending_event_promotes_in_place_only_after_explicit_review",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_s_rejected_revision_restores_previous_valid_stock_and_blocks_bad_snapshot",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1.PersistenceAndMigrationScenarios.test_t_process_lock_and_event_ledger_remain_consistent",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1_guardrails.Guardrails.test_all_failed_run_keeps_even_v1_checkpoint_byte_identical",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1_guardrails.Guardrails.test_comparison_evidence_tamper_fails_closed",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1_guardrails.Guardrails.test_formal_state_cannot_be_implicitly_migrated",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1_guardrails.Guardrails.test_partial_event_registration_cannot_leak_into_failed_stock",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_phase4_1_guardrails.Guardrails.test_tiny_adjustment_factor_changes_require_review",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_difference_bins_quantiles_and_top_five",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_duplicate_and_saved_date_mismatch_fail",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_equal_and_reordered_rows_align_by_date_without_mutation",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_holiday_and_outside_regular_session_fail",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_invalid_prices_and_timestamps_fail_before_comparison",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_new_and_missing_dates_are_distinct_from_revisions",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_ny_dst_timestamp_alignment",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_percentile_linear_interpolation",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_read_json_rejects_nonfinite_literals_without_writes",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.IndexAndStatisticsTests.test_timestamp_or_close_changes_do_not_become_adjclose_revisions",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.SavedEvidenceAndScenarioTests.test_all_nine_real_snapshots_reproduce_1139_revisions_read_only",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.SavedEvidenceAndScenarioTests.test_scenarios_a_to_e_expose_suppression_and_idempotence_without_state_write",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_candidate_tolerances_only_change_classification_not_inputs",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_current_tolerance_distinguishes_raw_numeric_difference",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_future_rows_do_not_change_target_session_metrics",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_metric_impacts_are_actual_full_precision_differences",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_relaxed_tolerance_can_hide_tier_boundary_change",
+      "status": "PASS"
+    },
+    {
+      "test": "tests.test_revision_diagnostics.ToleranceAndImpactTests.test_short_history_requires_explicit_permission_and_has_null_sma200",
+      "status": "PASS"
+    }
+  ]
+}

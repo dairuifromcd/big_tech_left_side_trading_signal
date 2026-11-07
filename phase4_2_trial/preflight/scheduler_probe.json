@@ -1,0 +1,17 @@
+{
+  "launched_at_utc": "2026-11-01T00:53:15.130092+00:00",
+  "python": "3.13.0 (v3.13.0:60403a5409f, Oct  7 2024, 00:37:40) [Clang 15.0.0 (clang-1500.3.9.4)]",
+  "executable": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/.venv/bin/python",
+  "cwd": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal",
+  "uid": 501,
+  "project_import": true,
+  "tls_ca_loaded": true,
+  "http_requests": 0,
+  "bootout_returncode": 3,
+  "bootout_stderr": "Boot-out failed: 3: No such process\n",
+  "print_returncode": 113,
+  "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.offline-probe2\" in domain for user gui: 501\n",
+  "automatic_unregistration_verified": true,
+  "cleanup_at_utc": "2026-11-01T00:53:16.225041+00:00",
+  "plist_removed": true
+}

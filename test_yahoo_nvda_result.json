@@ -1,0 +1,105 @@
+{
+  "tested_at_utc": "2026-10-30T02:18:12.497587+00:00",
+  "tested_at_local": "2026-10-30T12:18:12.497866+10:00",
+  "environment": {
+    "execution_context": "codex-unsandboxed",
+    "python_version": "3.13.0 (v3.13.0:60403a5409f, Oct  7 2024, 00:37:40) [Clang 15.0.0 (clang-1500.3.9.4)]",
+    "python_executable": "/usr/local/bin/python3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "working_directory": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal",
+    "tls_library": "OpenSSL 3.0.15 3 Sep 2024"
+  },
+  "request": {
+    "method": "GET",
+    "symbol": "NVDA",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?range=2y&interval=1d&events=div%2Csplits&includeAdjustedClose=true",
+    "parameters": {
+      "range": "2y",
+      "interval": "1d",
+      "events": "div,splits",
+      "includeAdjustedClose": "true"
+    },
+    "user_agent": "NVDA-AdjClose-Diagnostic/1.0 (Python standard library)",
+    "socket_timeout_seconds": 20,
+    "max_http_requests": 1,
+    "retries": 0,
+    "follow_redirects": false,
+    "use_proxy": false
+  },
+  "dns": {
+    "success": true,
+    "addresses": [
+      "183.177.68.210",
+      "183.177.68.211",
+      "2406:6e00:f048:1fa::2000",
+      "2406:6e00:f048:1fa::3000"
+    ],
+    "elapsed_seconds": 0.058508
+  },
+  "http": {
+    "request_attempted": true,
+    "request_invocations": 1,
+    "status_code": null,
+    "reason": null,
+    "elapsed_seconds": 0.541388,
+    "response_headers": {},
+    "response_byte_count": null,
+    "response_complete": false,
+    "response_json": null
+  },
+  "metrics": {
+    "has_indicators_adjclose": null,
+    "valid_adjclose_count": null,
+    "earliest_trading_date": null,
+    "latest_trading_date": null,
+    "latest_valid_adjclose": null,
+    "covers_2026_10_27": null,
+    "has_at_least_252_valid_days": null,
+    "data_stale_before_required_date": null
+  },
+  "freshness_policy": {
+    "required_trading_date": "2026-10-27",
+    "description": "最新有效日期不得早于要求日期，且必须包含要求日期；不验证此后交易日的完整性。"
+  },
+  "limitations": [
+    "range=2y 仅验证请求的两年区间，不是上市以来全部历史。",
+    "可检查返回行的完整性；未用独立交易所日历逐日验证整个两年区间。",
+    "最新日线可能属于尚未收盘的交易日；此测试不据此计算交易信号。"
+  ],
+  "success": false,
+  "errors": [
+    {
+      "category": "tls_error",
+      "message": "HTTPS: TLS 连接或证书验证失败。",
+      "exception_type": "SSLCertVerificationError",
+      "exception_message": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1020)",
+      "errno": 1
+    }
+  ],
+  "finished_at_utc": "2026-10-30T02:18:13.133413+00:00",
+  "total_elapsed_seconds": 0.635953,
+  "post_run_offline_checks": {
+    "checked_at_utc": "2026-10-30T02:18:45.711155+00:00",
+    "classification_correction": {
+      "from": "network_permission_denied",
+      "to": "tls_error",
+      "reason": "SSL error code 1 overlaps OS EPERM; classify SSL exceptions before OS errno."
+    },
+    "ssl_default_verify_paths": {
+      "cafile": null,
+      "capath": null,
+      "openssl_cafile_env": "SSL_CERT_FILE",
+      "openssl_cafile": "/Library/Frameworks/Python.framework/Versions/3.13/etc/openssl/cert.pem",
+      "openssl_capath_env": "SSL_CERT_DIR",
+      "openssl_capath": "/Library/Frameworks/Python.framework/Versions/3.13/etc/openssl/certs"
+    },
+    "verify_path_existence": {
+      "cafile": null,
+      "capath": null,
+      "openssl_cafile": false,
+      "openssl_capath": false
+    },
+    "additional_network_requests": 0
+  }
+}

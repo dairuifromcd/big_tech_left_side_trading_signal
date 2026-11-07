@@ -1,0 +1,301 @@
+"""Finite, fail-closed live trial. Production CLI never accepts an override clock."""
+import argparse
+import copy
+import datetime as dt
+import hashlib
+import json
+import os
+from pathlib import Path
+import platform
+import sys
+from zoneinfo import ZoneInfo
+
+import market_calendar as calendar
+import test_yahoo_nine as collector
+from src import monitor, observations, state
+
+ROOT = Path(__file__).resolve().parents[1]
+TRIAL = ROOT / "phase4_2_trial"
+CONFIG = TRIAL / "config/trial.json"
+TRIAL_ID = "phase4_2_20261103_20261107"
+PLAN = tuple({"run": i, "scheduled_brisbane": f"2026-11-{i+2:02d}T09:00:00+10:00",
+              "target_date": f"2026-11-{i+1:02d}"} for i in range(1, 6))
+ZONE = ZoneInfo("Australia/Brisbane")
+TERMINAL = {"COMPLETED", "STOPPED", "BLOCKED"}
+IGNORED_EVIDENCE_BASENAMES = frozenset({".DS_Store"})
+
+
+def digest(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def utc():
+    return dt.datetime.now(dt.timezone.utc).isoformat()
+
+
+def read_json(path):
+    return json.loads(Path(path).read_text())
+
+
+class GuardError(state.StateError):
+    pass
+
+
+def protected_differences(config):
+    manifest = Path(config["protected_manifest"])
+    if config.get("protected_manifest_sha256") is not None and digest(manifest) != config["protected_manifest_sha256"]:
+        raise GuardError("PROTECTED_MANIFEST_CHANGED")
+    differences = []
+    for name, expected in read_json(manifest)["sha256"].items():
+        if Path(name).name in IGNORED_EVIDENCE_BASENAMES:
+            continue  # Finder presentation metadata never constitutes business evidence.
+        path = ROOT / name
+        if not path.resolve().is_relative_to(ROOT):
+            raise GuardError("PROTECTED_PATH_OUTSIDE_PROJECT")
+        actual, modified, error = None, None, None
+        try:
+            if path.is_file():
+                actual = digest(path)
+                modified = dt.datetime.fromtimestamp(path.stat().st_mtime, dt.timezone.utc).isoformat()
+        except OSError as exc:
+            error = str(exc)
+        if actual != expected:
+            differences.append({"file": name, "expected_sha256": expected, "current_sha256": actual,
+                                "mtime_utc": modified, "error": error})
+    return differences
+
+
+def protected_ok(config):
+    return not protected_differences(config)
+
+
+def validate_ledger(config, ledger):
+    if (ledger.get("trial_id") != TRIAL_ID or ledger.get("config_sha256") != digest(CONFIG)
+            or [r.get("plan") for r in ledger.get("runs", [])] != list(PLAN)):
+        raise GuardError("LEDGER_INTEGRITY_ERROR: trial/config/plan mismatch")
+    if ledger.get("status") not in {"ARMED", *TERMINAL}:
+        raise GuardError("LEDGER_INTEGRITY_ERROR: unknown lifecycle status")
+    if len(ledger["runs"]) != 5 or any(type(r.get("claimed")) is not bool for r in ledger["runs"]):
+        raise GuardError("LEDGER_INTEGRITY_ERROR: invalid attempt claims")
+    if sum(r["claimed"] for r in ledger["runs"]) > 5:
+        raise GuardError("ATTEMPT_LIMIT_ERROR")
+
+
+def guard(config, ledger, checkpoint, run_number, now):
+    """Pure pre-request checks. Call only while BOTH persistent locks are held."""
+    validate_ledger(config, ledger)
+    if ledger["status"] in TERMINAL:
+        raise GuardError("TRIAL_TERMINAL: " + ledger["status"])
+    if checkpoint.get("schema_version") != 2 or checkpoint.get("trial_id") != TRIAL_ID:
+        raise GuardError("STATE_IDENTITY_ERROR: requires this trial's existing v2 checkpoint")
+    if run_number not in range(1, 6):
+        raise GuardError("ATTEMPT_LIMIT_ERROR: only runs 1..5")
+    if sum(r["claimed"] for r in ledger["runs"]) >= 5:
+        raise GuardError("ATTEMPT_LIMIT_ERROR: five attempts already claimed")
+    row = ledger["runs"][run_number - 1]
+    if row["claimed"]:
+        raise GuardError("DUPLICATE_CLAIM: never repeat an uncertain or finished capture")
+    if any(r["claimed"] and r.get("result") == "CLAIMED" for r in ledger["runs"]):
+        raise GuardError("UNCERTAIN_PREVIOUS_EXECUTION: manual evidence reconciliation required")
+    planned = dt.datetime.fromisoformat(row["plan"]["scheduled_brisbane"])
+    local = now.astimezone(ZONE)
+    if local.date() != planned.date() or not planned <= local < planned + dt.timedelta(minutes=15):
+        raise GuardError("OUTSIDE_WINDOW: only the scheduled date 09:00–09:14:59 Brisbane")
+    if calendar.latest_completed_session(now).isoformat() != row["plan"]["target_date"]:
+        raise GuardError("CALENDAR_TARGET_MISMATCH")
+    if any(not r["claimed"] or r.get("result") != "SUCCESS" for r in ledger["runs"][:run_number-1]):
+        raise GuardError("CATCHUP_REQUIRED: prior scheduled run did not succeed; no automatic backfill")
+    expected_hash = ledger["runs"][run_number-2]["state_hash_after"] if run_number > 1 else config["initial_state_sha256"]
+    if digest(config["state_path"]) != expected_hash:
+        raise GuardError("STATE_CONTINUITY_ERROR: checkpoint differs from last durable receipt")
+    if run_number == 1 and (checkpoint["stocks"] or checkpoint["event_records"]):
+        raise GuardError("BASELINE_NOT_EMPTY")
+    for symbol in state.SYMBOLS:
+        old = checkpoint["stocks"].get(symbol)
+        if run_number > 1 and (old is None or old["trading_date"] != PLAN[run_number-2]["target_date"]
+                               or observations.missing_sessions(old["trading_date"], row["plan"]["target_date"])):
+            raise GuardError(f"CATCHUP_REQUIRED: {symbol} has no consecutive trusted checkpoint")
+
+
+def environment_guard(config):
+    if (TRIAL / "acceptance/BLOCKED.json").exists():
+        raise GuardError("PERSISTENT_BLOCK: manual reconciliation required")
+    expected = "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal"
+    if (str(ROOT) != expected or str(ROOT.resolve()) != expected or Path.cwd().resolve() != ROOT
+            or config["root"] != expected or config["trial_id"] != TRIAL_ID
+            or config["state_path"] != str(TRIAL / "state/monitor_state.json")
+            or config["ledger_path"] != str(TRIAL / "execution_ledger.json")
+            or config["symbols"] != list(state.SYMBOLS) or config["plan"] != list(PLAN)):
+        raise GuardError("PATH_OR_TRIAL_MISMATCH: no worktrees, substitutes or temporary state")
+    if sys.executable != str(ROOT / ".venv/bin/python") or platform.python_version() != config["python_version"]:
+        raise GuardError("PYTHON_VERSION_MISMATCH")
+    if digest(TRIAL / "config/launchd_manifest.json") != config["launchd_manifest_sha256"]:
+        raise GuardError("SCHEDULE_MANIFEST_CHANGED")
+    if any(not (ROOT / p).is_file() or digest(ROOT / p) != h for p, h in config["code_sha256"].items()):
+        raise GuardError("PINNED_CODE_CHANGED: stop before Yahoo")
+    differences = protected_differences(config)
+    if differences:
+        raise GuardError("PROTECTED_EVIDENCE_CHANGED: " + json.dumps(differences, ensure_ascii=False))
+    if collector.REQUEST_START_INTERVAL_SECONDS != 5.0 or collector.BATCH_EXTRA_WAIT_SECONDS != 30.0:
+        raise GuardError("COLLECTION_POLICY_CHANGED")
+
+
+def request_guard(run_number, ledger_path):
+    """Recheck cancellation after batch sleep, immediately before every HTTP call."""
+    seen = set()
+
+    def check(row):
+        if (TRIAL / "acceptance/BLOCKED.json").exists():
+            raise GuardError("PERSISTENT_BLOCK: stop remaining HTTP requests")
+        ledger = read_json(ledger_path)
+        claim = ledger["runs"][run_number - 1]
+        if ledger["status"] != "ARMED" or not claim["claimed"] or claim["result"] != "CLAIMED":
+            raise GuardError("CLAIM_CHANGED_DURING_COLLECTION")
+        if row["symbol"] not in state.SYMBOLS or row["symbol"] in seen or len(seen) >= 9:
+            raise GuardError("DUPLICATE_OR_UNEXPECTED_SYMBOL_REQUEST")
+        if dt.datetime.now(ZONE).date().isoformat() != PLAN[run_number-1]["scheduled_brisbane"][:10]:
+            raise GuardError("REQUEST_DATE_EXPIRED")
+        seen.add(row["symbol"])
+
+    return check
+
+
+def write_acceptance(config, ledger):
+    """Report live evidence separately from offline proof and future planned rows."""
+    completed = [r for r in ledger["runs"] if r["claimed"] and r.get("result") != "CLAIMED"]
+    successful = [r for r in completed if r.get("result") == "SUCCESS"]
+    pre = read_json(TRIAL / "preflight/readiness.json") if (TRIAL / "preflight/readiness.json").exists() else {}
+    proof = read_json(TRIAL / "preflight/scheduler_probe.json")
+    stop_path = TRIAL / "acceptance/stop_receipt.json"
+    stop = read_json(stop_path) if stop_path.exists() else None
+    unchanged = protected_ok(config)
+    scheduler_pass = pre.get("scheduler_installed", False) and proof.get("automatic_unregistration_verified", False)
+    keys = {"SCHEDULER_CAPABILITY": "PASS" if scheduler_pass else "BLOCKED",
+            "PERSISTENT_STATE_CONTINUITY": "PASS" if len(successful) == 5 else "BLOCKED",
+            "LIVE_YAHOO_COLLECTION": "PASS" if len(successful) == 5 else "BLOCKED",
+            "CROSS_DAY_LIVE_VALIDATION": "PASS" if len(successful) == 5 else ("PARTIAL" if len(successful) > 1 else "PENDING"),
+            "EVENT_LEDGER_IDEMPOTENCY": "PASS" if pre.get("offline_guards_pass") else "BLOCKED",
+            "REVISION_MARKET_SEPARATION": "PASS" if pre.get("regression_153_pass") else "BLOCKED",
+            "FAIL_CLOSED_BEHAVIOUR": "PASS" if pre.get("offline_guards_pass") else "BLOCKED",
+            "FINITE_RUN_ENFORCEMENT": "PASS" if pre.get("offline_guards_pass") else "BLOCKED",
+            "AUTOMATIC_STOP": "PASS" if stop and stop.get("all_removed") else "BLOCKED",
+            "FORMAL_STATE_UNCHANGED": "PASS" if digest(ROOT / "state/monitor_state.json") == read_json(config["protected_manifest"])["sha256"]["state/monitor_state.json"] else "FAIL",
+            "PROTECTED_EVIDENCE_UNCHANGED": "PASS" if unchanged else "FAIL",
+            "UNATTENDED_CATCHUP_RECOVERY": "NOT_VALIDATED"}
+    keys["PHASE_4_2_ACCEPTANCE"] = ("PASS" if len(successful) == 5 and all(v == "PASS" for k, v in keys.items() if k != "UNATTENDED_CATCHUP_RECOVERY")
+                                      else "FAIL" if completed and not successful else "PARTIAL" if completed or scheduler_pass else "BLOCKED")
+    if not unchanged:
+        keys["PHASE_4_2_ACCEPTANCE"] = "FAIL"
+    report = {"phase": "4.2", "trial_id": TRIAL_ID, "dry_run": True, "updated_at_utc": utc(),
+              "acceptance": keys, "status": ledger["status"], "block_reason": ledger.get("block_reason"),
+              "scheduler": "macOS launchd / five one-shot collection jobs plus one cleanup-only deadline job",
+              "state_path": config["state_path"], "ledger_path": config["ledger_path"],
+              "initial_state_sha256": config["initial_state_sha256"], "max_attempts": 5,
+              "claimed_attempts": sum(r["claimed"] for r in ledger["runs"]),
+              "actual_http_request_count": (None if any(r["claimed"] and r.get("network_outcome") != "RECORDED" for r in ledger["runs"])
+                                            else sum(r.get("actual_http_request_count", 0) for r in ledger["runs"])),
+              "runs": ledger["runs"], "stop_receipt": stop,
+              "offline_proof": pre,
+              "pending_live_evidence": ([] if keys["PHASE_4_2_ACCEPTANCE"] == "PASS" else
+                                        ["Five actual capture dates and four consecutive transitions", "Real revision handling and event deduplication", "Actual final scheduler removal"]),
+              "live_threshold_detection": live_threshold_status(completed),
+              "live_revision_observation": "OBSERVED" if any(r.get("revision_count", 0) for r in completed) else "NOT_OBSERVED",
+              "recovery": {"automatic": False, "validated_backup_inventory": state.list_backups(config["state_path"]) if ledger["status"] == "BLOCKED" else [],
+                           "manual_action": "Preserve evidence; inspect verified backups and reconcile claimed requests and stable event IDs. Never reinitialize or automatically resume this finite trial.",
+                           "inventory_command": f".venv/bin/python -m src.review --state {config['state_path']} --list-backups"},
+              "spcx": "PASS_PROVISIONAL / YAHOO_ONLY/HISTORICAL_ANOMALY_UNVERIFIED",
+              "network_permission": "launchd executes outside Codex sandbox; CA loading passed offline; Yahoo reachability remains untested until scheduled first capture"}
+    path = TRIAL / "acceptance/phase4_2_acceptance.json"
+    state.durable_json(path, report)
+    lines = ["# Phase 4.2 有限期真实试运行", "", "DRY_RUN；未来执行仍待真实日志证明，离线测试不计作跨日成功。", "",
+             f"状态：{ledger['status']}；已认领 {report['claimed_attempts']}/5；HTTP 请求 {report['actual_http_request_count']}。", "",
+             "| Run | Brisbane | Target Date | HTTP | State Updated | Events | Result |", "|---|---|---|---|---|---|---|"]
+    lines += [f"| {r['plan']['run']} | {r['plan']['scheduled_brisbane']} | {r['plan']['target_date']} | {r.get('actual_http_request_count', '—')} | {r.get('state_updated', '—')} | {len(r.get('confirmed_events', []))} | {r['result']} |" for r in ledger["runs"]]
+    lines += ["", "验收中 BLOCKED 表示尚缺真实证据；离线保护 PASS 的范围仅为回归测试。", ""] + [f"- {k}: {v}" for k, v in keys.items()]
+    lines += ["", "SPCX 保留暂定身份与历史异常警告。无真实交易、无正式状态迁移、无自动补跑。",
+              "Mac 必须开机、登录该用户、连接网络，并在计划时刻保持唤醒；迟到超过15分钟将阻断。无需保持 Codex App 打开。",
+              "11月7日09:30清理任务不请求Yahoo，仅清理全部本次调度并汇总；睡眠错过时在恢复后拒绝过期采集并清理。", ""]
+    for r in completed:
+        lines += [f"## Run {r['plan']['run']} — {r['result']}", "", "| 股票 | 日期 | Adj Close | 回撤 | RSI14 | SMA50 | SMA200 | WATCH | 质量 | 修订 |", "|---|---|---|---|---|---|---|---|---|---|"]
+        lines += ["| " + " | ".join(str(s.get(k, "—")) for k in ("symbol", "trading_date", "adjclose", "drawdown", "rsi14", "sma50", "sma200", "watch_tier", "data_quality", "historical_revision_count")) + " |" for s in r.get("stocks", [])]
+        lines += ["", f"状态哈希：{r.get('state_hash_before')} → {r.get('state_hash_after')}；版本 {r.get('commit_version_before')} → {r.get('commit_version_after')}。", ""]
+    path.with_suffix(".md").write_text("\n".join(lines) + "\n")
+    return report
+
+
+def live_threshold_status(completed):
+    return "OBSERVED" if any(e.get("event_type") == "THRESHOLD_CROSSING" and e.get("status") == "CONFIRMED"
+                             for row in completed for e in row.get("confirmed_events", [])) else "NOT_OBSERVED"
+
+
+def execute(run_number):
+    """Only this production entry can collect; it always uses the wall clock."""
+    config = read_json(CONFIG)
+    ledger_path = TRIAL / "execution_ledger.json"
+    # A missing ledger is never recreated. Wrapper will persist a separate block receipt.
+    ledger = read_json(ledger_path)
+    with state.lock(ledger_path):
+        ledger = read_json(ledger_path)
+        try:
+            environment_guard(config)
+            state_path = Path(config["state_path"])
+            state.load(state_path)  # strict before lock, no substitute directory
+            with state.lock(state_path):
+                checkpoint = state.load(state_path)
+                guard(config, ledger, checkpoint, run_number, dt.datetime.now(dt.timezone.utc))
+                row = ledger["runs"][run_number - 1]
+                before = digest(state_path)
+                row.update(claimed=True, result="CLAIMED", started_at_utc=utc(),
+                           python_version=platform.python_version(), code_sha256=config["code_sha256"],
+                           state_hash_before=before, commit_version_before=checkpoint["commit_version"],
+                           network_outcome="UNCERTAIN_UNTIL_COMPLETED_RECEIPT")
+                # fsync claim BEFORE any Yahoo socket. A crash cannot create an unclaimed retry.
+                state.durable_json(ledger_path, ledger)
+                directory = TRIAL / "reports" / f"run_{run_number}"
+                directory.mkdir()
+                fetched = collector.run(output_dir=TRIAL / "collection" / f"run_{run_number}", execution_context="phase4.2-local-launchd",
+                                        request_guard=request_guard(run_number, ledger_path))
+                row.update({k: fetched[k] for k in ("actual_http_request_count", "http_200_count", "rate_limited", "request_intervals", "timing_pass", "price_evidence_file")})
+                row.update(collection_report=fetched["report_file"],
+                           price_evidence_sha256=digest(fetched["price_evidence_file"]),
+                           collection_results=fetched["stocks"], network_outcome="RECORDED")
+                state.durable_json(ledger_path, ledger)
+                if (TRIAL / "acceptance/BLOCKED.json").exists():
+                    raise GuardError("PERSISTENT_BLOCK_BEFORE_COMMIT: keep checkpoint unchanged")
+                result = monitor._run_unlocked(Path(fetched["price_evidence_file"]), state_path, directory,
+                                               mode="PHASE4_2_LIVE_DRY_RUN", expected_target=row["plan"]["target_date"])
+                after = state.load(state_path)
+                row.update(stocks=result["stocks"], monitor_report=result["report_file"],
+                           confirmed_events=result["new_observation_events"], pending_review_events=result["pending_review_events"],
+                           event_ids=sorted(after["event_records"]),
+                           revision_count=sum(s.get("historical_revision_count", 0) for s in result["stocks"]),
+                           state_hash_after=digest(state_path), commit_version_after=after["commit_version"],
+                           state_updated=result["state_updated"], ended_at_utc=utc(),
+                           baseline="TRIAL_FIRST_BASELINE" if run_number == 1 else "CONTINUOUS_LIVE_DAY",
+                           result="RATE_LIMITED" if fetched["rate_limited"] else "SUCCESS" if result["success_count"] == 9 and fetched["timing_pass"] else "PARTIAL_SUCCESS" if result["success_count"] else "DATA_ERROR")
+                if row["result"] != "SUCCESS":
+                    ledger.update(status="BLOCKED", block_reason="CATCHUP_REQUIRED_OR_DATA_FAILURE: preserve successful stocks; manual reconciliation before any further capture")
+                elif run_number == 5:
+                    ledger["status"] = "COMPLETED"
+                if not protected_ok(config):
+                    raise GuardError("PROTECTED_EVIDENCE_CHANGED_AFTER_RUN")
+        except Exception as exc:
+            ledger.update(status="BLOCKED", block_reason=f"{type(exc).__name__}: {exc}")
+            if run_number in range(1, 6) and ledger["runs"][run_number - 1]["claimed"] and ledger["runs"][run_number - 1]["result"] == "CLAIMED":
+                ledger["runs"][run_number - 1].update(result="STATE_ERROR" if isinstance(exc, state.StateError) else "EXECUTION_ERROR",
+                                                      error=str(exc), ended_at_utc=utc(), requires_manual_reconciliation=True)
+            state.durable_json(TRIAL / "acceptance/BLOCKED.json", {"at_utc": utc(), "reason": ledger["block_reason"], "no_automatic_retry": True})
+        state.durable_json(ledger_path, ledger)
+        write_acceptance(config, ledger)
+        print(json.dumps({"status": ledger["status"], "run": run_number, "block_reason": ledger.get("block_reason")}))
+        return 0 if ledger["status"] != "BLOCKED" else 2
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--run", type=int, required=True)
+    return execute(parser.parse_args().run)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

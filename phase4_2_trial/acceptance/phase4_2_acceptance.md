@@ -1,0 +1,34 @@
+# Phase 4.2 有限期真实试运行
+
+DRY_RUN；未来执行仍待真实日志证明，离线测试不计作跨日成功。
+
+状态：BLOCKED；已认领 0/5；HTTP 请求 0。
+
+| Run | Brisbane | Target Date | HTTP | State Updated | Events | Result |
+|---|---|---|---|---|---|---|
+| 1 | 2026-11-03T09:00:00+10:00 | 2026-11-02 | — | — | 0 | NOT_RUN_STOPPED |
+| 2 | 2026-11-04T09:00:00+10:00 | 2026-11-03 | — | — | 0 | NOT_RUN_STOPPED |
+| 3 | 2026-11-05T09:00:00+10:00 | 2026-11-04 | — | — | 0 | NOT_RUN_STOPPED |
+| 4 | 2026-11-06T09:00:00+10:00 | 2026-11-05 | — | — | 0 | NOT_RUN_STOPPED |
+| 5 | 2026-11-07T09:00:00+10:00 | 2026-11-06 | — | — | 0 | NOT_RUN_STOPPED |
+
+验收中 BLOCKED 表示尚缺真实证据；离线保护 PASS 的范围仅为回归测试。
+
+- SCHEDULER_CAPABILITY: PASS
+- PERSISTENT_STATE_CONTINUITY: BLOCKED
+- LIVE_YAHOO_COLLECTION: BLOCKED
+- CROSS_DAY_LIVE_VALIDATION: PENDING
+- EVENT_LEDGER_IDEMPOTENCY: PASS
+- REVISION_MARKET_SEPARATION: PASS
+- FAIL_CLOSED_BEHAVIOUR: PASS
+- FINITE_RUN_ENFORCEMENT: PASS
+- AUTOMATIC_STOP: PASS
+- FORMAL_STATE_UNCHANGED: PASS
+- PROTECTED_EVIDENCE_UNCHANGED: FAIL
+- UNATTENDED_CATCHUP_RECOVERY: NOT_VALIDATED
+- PHASE_4_2_ACCEPTANCE: FAIL
+
+SPCX 保留暂定身份与历史异常警告。无真实交易、无正式状态迁移、无自动补跑。
+Mac 必须开机、登录该用户、连接网络，并在计划时刻保持唤醒；迟到超过15分钟将阻断。无需保持 Codex App 打开。
+11月7日09:30清理任务不请求Yahoo，仅清理全部本次调度并汇总；睡眠错过时在恢复后拒绝过期采集并清理。
+

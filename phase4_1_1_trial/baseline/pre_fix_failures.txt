@@ -1,0 +1,38 @@
+test_c1_gap_identified_and_old_checkpoint_retained (tests.test_phase4_1_1.SafetyCases.test_c1_gap_identified_and_old_checkpoint_retained) ... FAIL
+test_m1_missing_state_fails_closed (tests.test_phase4_1_1.SafetyCases.test_m1_missing_state_fails_closed) ... FAIL
+test_u1_same_revision_id_escalates_risk (tests.test_phase4_1_1.SafetyCases.test_u1_same_revision_id_escalates_risk) ... FAIL
+
+======================================================================
+FAIL: test_c1_gap_identified_and_old_checkpoint_retained (tests.test_phase4_1_1.SafetyCases.test_c1_gap_identified_and_old_checkpoint_retained)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/tests/test_phase4_1_1.py", line 58, in test_c1_gap_identified_and_old_checkpoint_retained
+    with self.assertRaisesRegex(ValueError,'CATCHUP_REQUIRED'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_m1_missing_state_fails_closed (tests.test_phase4_1_1.SafetyCases.test_m1_missing_state_fails_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/tests/test_phase4_1_1.py", line 50, in test_m1_missing_state_fails_closed
+    with self.assertRaisesRegex(state.StateError,'MISSING_EXISTING_STATE'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: StateError not raised
+
+======================================================================
+FAIL: test_u1_same_revision_id_escalates_risk (tests.test_phase4_1_1.SafetyCases.test_u1_same_revision_id_escalates_risk)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/tests/test_phase4_1_1.py", line 44, in test_u1_same_revision_id_escalates_risk
+    self.assertEqual(event['status'],'PENDING_REVIEW','P0: worse revision remained CONFIRMED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'CONFIRMED' != 'PENDING_REVIEW'
+- CONFIRMED
++ PENDING_REVIEW
+ : P0: worse revision remained CONFIRMED
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.105s
+
+FAILED (failures=3)

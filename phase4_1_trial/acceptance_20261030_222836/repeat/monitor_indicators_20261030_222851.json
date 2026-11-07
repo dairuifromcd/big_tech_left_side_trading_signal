@@ -1,0 +1,4498 @@
+{
+  "schema_version": 2,
+  "mode": "OFFLINE_SNAPSHOT",
+  "run_at_utc": "2026-10-30T12:28:50.896573+00:00",
+  "input_file": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_trial/reports/collection/yahoo_nine_prices_20261030_162751.json",
+  "input_sha256": "eabe9c1a4513956329b74f85eeb7b571a798069f178e653434d151c03ed18ea9",
+  "rules_version": "adjclose-wilder14-sma-252-v1",
+  "significant_deepening_pp": 1.0,
+  "numeric_policy": "Float64; abs_tol=1e-8, rel_tol=1e-10 for overlap revisions; display-only rounding; RSI flat=50",
+  "python_version": "3.13.0",
+  "calendar_version": "us-cash-equities-2024-2028-verified-2026-10-30",
+  "state_file": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_trial/acceptance_20261030_222836/monitor_state.json",
+  "stocks": [
+    {
+      "symbol": "NVDA",
+      "close": 213.66000366210938,
+      "trading_date": "2026-10-29",
+      "adjclose": 213.66000366210938,
+      "window_samples": 252,
+      "highest_adjclose": 239.24000549316406,
+      "highest_date": "2026-10-06",
+      "drawdown": -0.10692192461007777,
+      "rsi14": 42.28469133153823,
+      "sma50": 221.92396942138672,
+      "sma200": 203.98253143310546,
+      "rsi_warmup_prices": 501,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "VALID"
+      },
+      "revision_observation": {
+        "detected": false,
+        "classification": "NO_REVISION",
+        "count": 0,
+        "raw_differences": [],
+        "dates": [],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "requires_review": false,
+        "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+        "impact_at_current_target": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        },
+        "impact_on_previous_session": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        }
+      },
+      "market_observation": {
+        "previous_trading_date": "2026-10-29",
+        "current_trading_date": "2026-10-29",
+        "previous_adjclose": 213.66000366210938,
+        "current_adjclose": 213.66000366210938,
+        "previous_drawdown": -0.10692192461007777,
+        "current_drawdown": -0.10692192461007777,
+        "previous_watch_tier": "WATCH_10",
+        "current_watch_tier": "WATCH_10",
+        "candidate_thresholds": [],
+        "crossed_thresholds": [],
+        "confirmed_thresholds_this_run": [],
+        "pending_thresholds_this_run": [],
+        "comparability_proven": true,
+        "comparability_reasons": [],
+        "event_type": "NO_CHANGE",
+        "status": "NO_EVENT",
+        "can_confirm": false,
+        "old_basis_counterfactual": {
+          "trading_date": "2026-10-29",
+          "adjclose": 213.66000366210938,
+          "window_samples": 252,
+          "highest_adjclose": 239.24000549316406,
+          "highest_date": "2026-10-06",
+          "drawdown": -0.10692192461007777,
+          "rsi14": 42.28469133153823,
+          "sma50": 221.92396942138672,
+          "sma200": 203.98253143310546,
+          "conditional_only_until_comparability_proven": true
+        },
+        "previous_recomputed_metrics": {
+          "trading_date": "2026-10-29",
+          "adjclose": 213.66000366210938,
+          "window_samples": 252,
+          "highest_adjclose": 239.24000549316406,
+          "highest_date": "2026-10-06",
+          "drawdown": -0.10692192461007777,
+          "rsi14": 42.28469133153823,
+          "sma50": 221.92396942138672,
+          "sma200": 203.98253143310546
+        },
+        "adjustment_factor_evidence": {
+          "previous_anchor_factor": 1.0,
+          "current_factor": 1.0
+        },
+        "window_high_expired_naturally": false,
+        "unrevised_basis_event": "NO_CHANGE",
+        "revised_basis_event": "NO_CHANGE",
+        "significant_deepening": false,
+        "recovery": false,
+        "reentry": false
+      },
+      "threshold_state": {
+        "observed": [
+          10
+        ],
+        "confirmed": [],
+        "baseline": [
+          10
+        ],
+        "pending_event_ids": [
+          "ec6da250144fa0e619420170ec85dc1a980576ed24bfdf8a6c85e506ecdce2d2"
+        ]
+      },
+      "market_events": [],
+      "change_event": "NO_CHANGE",
+      "watch_tier": "WATCH_10",
+      "previous_watch_tier": "WATCH_10",
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [],
+      "confirmed_thresholds": [],
+      "baseline_observed_thresholds": [
+        10
+      ],
+      "last_new_trigger_date": null,
+      "deepening_anchor": -0.10692192461007777,
+      "raw_revision_differences": [],
+      "data_quality": "PASS",
+      "warnings": [
+        "YAHOO_ONLY: history is not independently price-verified",
+        "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"
+      ],
+      "historical_anomaly": null,
+      "historical_revision_count": 0,
+      "historical_revision_examples": [],
+      "excluded_incomplete_dates": [],
+      "source_as_of_utc": "2026-10-30T06:27:53.306313+00:00",
+      "source": "YAHOO_CHART_ADJCLOSE",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "independently_price_verified": false,
+      "event_ids": [],
+      "revision_review_event_ids": []
+    },
+    {
+      "symbol": "AAPL",
+      "close": 348.9100036621094,
+      "trading_date": "2026-10-29",
+      "adjclose": 348.9100036621094,
+      "window_samples": 252,
+      "highest_adjclose": 348.9100036621094,
+      "highest_date": "2026-10-29",
+      "drawdown": 0.0,
+      "rsi14": 61.391477357180534,
+      "sma50": 332.37420043945315,
+      "sma200": 295.8423233795166,
+      "rsi_warmup_prices": 501,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "VALID"
+      },
+      "revision_observation": {
+        "detected": false,
+        "classification": "NO_REVISION",
+        "count": 0,
+        "raw_differences": [],
+        "dates": [],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "requires_review": false,
+        "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+        "impact_at_current_target": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        },
+        "impact_on_previous_session": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        }
+      },
+      "market_observation": {
+        "previous_trading_date": "2026-10-29",
+        "current_trading_date": "2026-10-29",
+        "previous_adjclose": 348.9100036621094,
+        "current_adjclose": 348.9100036621094,
+        "previous_drawdown": 0.0,
+        "current_drawdown": 0.0,
+        "previous_watch_tier": "NONE",
+        "current_watch_tier": "NONE",
+        "candidate_thresholds": [],
+        "crossed_thresholds": [],
+        "confirmed_thresholds_this_run": [],
+        "pending_thresholds_this_run": [],
+        "comparability_proven": true,
+        "comparability_reasons": [],
+        "event_type": "NO_CHANGE",
+        "status": "NO_EVENT",
+        "can_confirm": false,
+        "old_basis_counterfactual": {
+          "trading_date": "2026-10-29",
+          "adjclose": 348.9100036621094,
+          "window_samples": 252,
+          "highest_adjclose": 348.9100036621094,
+          "highest_date": "2026-10-29",
+          "drawdown": 0.0,
+          "rsi14": 61.391477357180534,
+          "sma50": 332.37420043945315,
+          "sma200": 295.8423233795166,
+          "conditional_only_until_comparability_proven": true
+        },
+        "previous_recomputed_metrics": {
+          "trading_date": "2026-10-29",
+          "adjclose": 348.9100036621094,
+          "window_samples": 252,
+          "highest_adjclose": 348.9100036621094,
+          "highest_date": "2026-10-29",
+          "drawdown": 0.0,
+          "rsi14": 61.391477357180534,
+          "sma50": 332.37420043945315,
+          "sma200": 295.8423233795166
+        },
+        "adjustment_factor_evidence": {
+          "previous_anchor_factor": 1.0,
+          "current_factor": 1.0
+        },
+        "window_high_expired_naturally": false,
+        "unrevised_basis_event": "NO_CHANGE",
+        "revised_basis_event": "NO_CHANGE",
+        "significant_deepening": false,
+        "recovery": false,
+        "reentry": false
+      },
+      "threshold_state": {
+        "observed": [],
+        "confirmed": [],
+        "baseline": [],
+        "pending_event_ids": []
+      },
+      "market_events": [],
+      "change_event": "NO_CHANGE",
+      "watch_tier": "NONE",
+      "previous_watch_tier": "NONE",
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [],
+      "confirmed_thresholds": [],
+      "baseline_observed_thresholds": [],
+      "last_new_trigger_date": null,
+      "deepening_anchor": 0.0,
+      "raw_revision_differences": [],
+      "data_quality": "PASS",
+      "warnings": [
+        "YAHOO_ONLY: history is not independently price-verified",
+        "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"
+      ],
+      "historical_anomaly": null,
+      "historical_revision_count": 0,
+      "historical_revision_examples": [],
+      "excluded_incomplete_dates": [],
+      "source_as_of_utc": "2026-10-30T06:27:58.316869+00:00",
+      "source": "YAHOO_CHART_ADJCLOSE",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "independently_price_verified": false,
+      "event_ids": [],
+      "revision_review_event_ids": []
+    },
+    {
+      "symbol": "GOOGL",
+      "close": 283.82000732421875,
+      "trading_date": "2026-10-29",
+      "adjclose": 283.82000732421875,
+      "window_samples": 252,
+      "highest_adjclose": 402.1211853027344,
+      "highest_date": "2026-05-13",
+      "drawdown": -0.2941928510666587,
+      "rsi14": 22.32247057499991,
+      "sma50": 340.24004638671875,
+      "sma200": 340.6192111206055,
+      "rsi_warmup_prices": 501,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "VALID"
+      },
+      "revision_observation": {
+        "detected": false,
+        "classification": "NO_REVISION",
+        "count": 0,
+        "raw_differences": [],
+        "dates": [],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "requires_review": false,
+        "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+        "impact_at_current_target": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        },
+        "impact_on_previous_session": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        }
+      },
+      "market_observation": {
+        "previous_trading_date": "2026-10-29",
+        "current_trading_date": "2026-10-29",
+        "previous_adjclose": 283.82000732421875,
+        "current_adjclose": 283.82000732421875,
+        "previous_drawdown": -0.2941928510666587,
+        "current_drawdown": -0.2941928510666587,
+        "previous_watch_tier": "WATCH_20",
+        "current_watch_tier": "WATCH_20",
+        "candidate_thresholds": [],
+        "crossed_thresholds": [],
+        "confirmed_thresholds_this_run": [],
+        "pending_thresholds_this_run": [],
+        "comparability_proven": true,
+        "comparability_reasons": [],
+        "event_type": "NO_CHANGE",
+        "status": "NO_EVENT",
+        "can_confirm": false,
+        "old_basis_counterfactual": {
+          "trading_date": "2026-10-29",
+          "adjclose": 283.82000732421875,
+          "window_samples": 252,
+          "highest_adjclose": 402.1211853027344,
+          "highest_date": "2026-05-13",
+          "drawdown": -0.2941928510666587,
+          "rsi14": 22.32247057499991,
+          "sma50": 340.24004638671875,
+          "sma200": 340.6192111206055,
+          "conditional_only_until_comparability_proven": true
+        },
+        "previous_recomputed_metrics": {
+          "trading_date": "2026-10-29",
+          "adjclose": 283.82000732421875,
+          "window_samples": 252,
+          "highest_adjclose": 402.1211853027344,
+          "highest_date": "2026-05-13",
+          "drawdown": -0.2941928510666587,
+          "rsi14": 22.32247057499991,
+          "sma50": 340.24004638671875,
+          "sma200": 340.6192111206055
+        },
+        "adjustment_factor_evidence": {
+          "previous_anchor_factor": 1.0,
+          "current_factor": 1.0
+        },
+        "window_high_expired_naturally": false,
+        "unrevised_basis_event": "NO_CHANGE",
+        "revised_basis_event": "NO_CHANGE",
+        "significant_deepening": false,
+        "recovery": false,
+        "reentry": false
+      },
+      "threshold_state": {
+        "observed": [
+          10,
+          20
+        ],
+        "confirmed": [],
+        "baseline": [
+          10,
+          20
+        ],
+        "pending_event_ids": [
+          "2794ffbe9e11f38d39ca399ac0e0245a8cbda6954d4e3c4c86e36e69ff033f26",
+          "9c00696d96dfba1f7b853b5dfe0c528c58004cdcdccfbd56029726978cc75bd8"
+        ]
+      },
+      "market_events": [],
+      "change_event": "NO_CHANGE",
+      "watch_tier": "WATCH_20",
+      "previous_watch_tier": "WATCH_20",
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [],
+      "confirmed_thresholds": [],
+      "baseline_observed_thresholds": [
+        10,
+        20
+      ],
+      "last_new_trigger_date": null,
+      "deepening_anchor": -0.2941928510666587,
+      "raw_revision_differences": [],
+      "data_quality": "PASS",
+      "warnings": [
+        "YAHOO_ONLY: history is not independently price-verified",
+        "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"
+      ],
+      "historical_anomaly": null,
+      "historical_revision_count": 0,
+      "historical_revision_examples": [],
+      "excluded_incomplete_dates": [],
+      "source_as_of_utc": "2026-10-30T06:28:03.252694+00:00",
+      "source": "YAHOO_CHART_ADJCLOSE",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "independently_price_verified": false,
+      "event_ids": [],
+      "revision_review_event_ids": []
+    },
+    {
+      "symbol": "MSFT",
+      "close": 530.1400146484375,
+      "trading_date": "2026-10-29",
+      "adjclose": 530.1400146484375,
+      "window_samples": 252,
+      "highest_adjclose": 543.4500122070312,
+      "highest_date": "2026-10-13",
+      "drawdown": -0.024491668524469934,
+      "rsi14": 55.370026605263874,
+      "sma50": 512.0954016113282,
+      "sma200": 436.5268180847168,
+      "rsi_warmup_prices": 501,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "VALID"
+      },
+      "revision_observation": {
+        "detected": false,
+        "classification": "NO_REVISION",
+        "count": 0,
+        "raw_differences": [],
+        "dates": [],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "requires_review": false,
+        "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+        "impact_at_current_target": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        },
+        "impact_on_previous_session": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        }
+      },
+      "market_observation": {
+        "previous_trading_date": "2026-10-29",
+        "current_trading_date": "2026-10-29",
+        "previous_adjclose": 530.1400146484375,
+        "current_adjclose": 530.1400146484375,
+        "previous_drawdown": -0.024491668524469934,
+        "current_drawdown": -0.024491668524469934,
+        "previous_watch_tier": "NONE",
+        "current_watch_tier": "NONE",
+        "candidate_thresholds": [],
+        "crossed_thresholds": [],
+        "confirmed_thresholds_this_run": [],
+        "pending_thresholds_this_run": [],
+        "comparability_proven": true,
+        "comparability_reasons": [],
+        "event_type": "NO_CHANGE",
+        "status": "NO_EVENT",
+        "can_confirm": false,
+        "old_basis_counterfactual": {
+          "trading_date": "2026-10-29",
+          "adjclose": 530.1400146484375,
+          "window_samples": 252,
+          "highest_adjclose": 543.4500122070312,
+          "highest_date": "2026-10-13",
+          "drawdown": -0.024491668524469934,
+          "rsi14": 55.370026605263874,
+          "sma50": 512.0954016113282,
+          "sma200": 436.5268180847168,
+          "conditional_only_until_comparability_proven": true
+        },
+        "previous_recomputed_metrics": {
+          "trading_date": "2026-10-29",
+          "adjclose": 530.1400146484375,
+          "window_samples": 252,
+          "highest_adjclose": 543.4500122070312,
+          "highest_date": "2026-10-13",
+          "drawdown": -0.024491668524469934,
+          "rsi14": 55.370026605263874,
+          "sma50": 512.0954016113282,
+          "sma200": 436.5268180847168
+        },
+        "adjustment_factor_evidence": {
+          "previous_anchor_factor": 1.0,
+          "current_factor": 1.0
+        },
+        "window_high_expired_naturally": false,
+        "unrevised_basis_event": "NO_CHANGE",
+        "revised_basis_event": "NO_CHANGE",
+        "significant_deepening": false,
+        "recovery": false,
+        "reentry": false
+      },
+      "threshold_state": {
+        "observed": [],
+        "confirmed": [],
+        "baseline": [],
+        "pending_event_ids": []
+      },
+      "market_events": [],
+      "change_event": "NO_CHANGE",
+      "watch_tier": "NONE",
+      "previous_watch_tier": "NONE",
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [],
+      "confirmed_thresholds": [],
+      "baseline_observed_thresholds": [],
+      "last_new_trigger_date": null,
+      "deepening_anchor": -0.024491668524469934,
+      "raw_revision_differences": [],
+      "data_quality": "PASS",
+      "warnings": [
+        "YAHOO_ONLY: history is not independently price-verified",
+        "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"
+      ],
+      "historical_anomaly": null,
+      "historical_revision_count": 0,
+      "historical_revision_examples": [],
+      "excluded_incomplete_dates": [],
+      "source_as_of_utc": "2026-10-30T06:28:38.231119+00:00",
+      "source": "YAHOO_CHART_ADJCLOSE",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "independently_price_verified": false,
+      "event_ids": [],
+      "revision_review_event_ids": []
+    },
+    {
+      "symbol": "AMZN",
+      "close": 243.7899932861328,
+      "trading_date": "2026-10-29",
+      "adjclose": 243.7899932861328,
+      "window_samples": 252,
+      "highest_adjclose": 284.0199890136719,
+      "highest_date": "2026-08-03",
+      "drawdown": -0.1416449450168893,
+      "rsi14": 40.71893879436871,
+      "sma50": 254.67419982910155,
+      "sma200": 243.3820999145508,
+      "rsi_warmup_prices": 501,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "VALID"
+      },
+      "revision_observation": {
+        "detected": false,
+        "classification": "NO_REVISION",
+        "count": 0,
+        "raw_differences": [],
+        "dates": [],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "requires_review": false,
+        "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+        "impact_at_current_target": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        },
+        "impact_on_previous_session": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        }
+      },
+      "market_observation": {
+        "previous_trading_date": "2026-10-29",
+        "current_trading_date": "2026-10-29",
+        "previous_adjclose": 243.7899932861328,
+        "current_adjclose": 243.7899932861328,
+        "previous_drawdown": -0.1416449450168893,
+        "current_drawdown": -0.1416449450168893,
+        "previous_watch_tier": "WATCH_10",
+        "current_watch_tier": "WATCH_10",
+        "candidate_thresholds": [],
+        "crossed_thresholds": [],
+        "confirmed_thresholds_this_run": [],
+        "pending_thresholds_this_run": [],
+        "comparability_proven": true,
+        "comparability_reasons": [],
+        "event_type": "NO_CHANGE",
+        "status": "NO_EVENT",
+        "can_confirm": false,
+        "old_basis_counterfactual": {
+          "trading_date": "2026-10-29",
+          "adjclose": 243.7899932861328,
+          "window_samples": 252,
+          "highest_adjclose": 284.0199890136719,
+          "highest_date": "2026-08-03",
+          "drawdown": -0.1416449450168893,
+          "rsi14": 40.71893879436871,
+          "sma50": 254.67419982910155,
+          "sma200": 243.3820999145508,
+          "conditional_only_until_comparability_proven": true
+        },
+        "previous_recomputed_metrics": {
+          "trading_date": "2026-10-29",
+          "adjclose": 243.7899932861328,
+          "window_samples": 252,
+          "highest_adjclose": 284.0199890136719,
+          "highest_date": "2026-08-03",
+          "drawdown": -0.1416449450168893,
+          "rsi14": 40.71893879436871,
+          "sma50": 254.67419982910155,
+          "sma200": 243.3820999145508
+        },
+        "adjustment_factor_evidence": {
+          "previous_anchor_factor": 1.0,
+          "current_factor": 1.0
+        },
+        "window_high_expired_naturally": false,
+        "unrevised_basis_event": "NO_CHANGE",
+        "revised_basis_event": "NO_CHANGE",
+        "significant_deepening": false,
+        "recovery": false,
+        "reentry": false
+      },
+      "threshold_state": {
+        "observed": [
+          10
+        ],
+        "confirmed": [],
+        "baseline": [
+          10
+        ],
+        "pending_event_ids": [
+          "e573dd8ffde35a7d557d9ffdf08bcafd5e1f27b7fb0497409a8568257eb5a98b"
+        ]
+      },
+      "market_events": [],
+      "change_event": "NO_CHANGE",
+      "watch_tier": "WATCH_10",
+      "previous_watch_tier": "WATCH_10",
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [],
+      "confirmed_thresholds": [],
+      "baseline_observed_thresholds": [
+        10
+      ],
+      "last_new_trigger_date": null,
+      "deepening_anchor": -0.1416449450168893,
+      "raw_revision_differences": [],
+      "data_quality": "PASS",
+      "warnings": [
+        "YAHOO_ONLY: history is not independently price-verified",
+        "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"
+      ],
+      "historical_anomaly": null,
+      "historical_revision_count": 0,
+      "historical_revision_examples": [],
+      "excluded_incomplete_dates": [],
+      "source_as_of_utc": "2026-10-30T06:28:43.209938+00:00",
+      "source": "YAHOO_CHART_ADJCLOSE",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "independently_price_verified": false,
+      "event_ids": [],
+      "revision_review_event_ids": []
+    },
+    {
+      "symbol": "SPCX",
+      "close": 143.88999938964844,
+      "trading_date": "2026-10-29",
+      "adjclose": 143.88999938964844,
+      "window_samples": 97,
+      "highest_adjclose": 211.38999938964844,
+      "highest_date": "2026-06-16",
+      "drawdown": -0.3193150110927405,
+      "rsi14": 43.6925956861474,
+      "sma50": 149.54700073242188,
+      "sma200": null,
+      "rsi_warmup_prices": 97,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "INSUFFICIENT_HISTORY"
+      },
+      "revision_observation": {
+        "detected": false,
+        "classification": "NO_REVISION",
+        "count": 0,
+        "raw_differences": [],
+        "dates": [],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "requires_review": false,
+        "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+        "impact_at_current_target": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": null
+          }
+        },
+        "impact_on_previous_session": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": null
+          }
+        }
+      },
+      "market_observation": {
+        "previous_trading_date": "2026-10-29",
+        "current_trading_date": "2026-10-29",
+        "previous_adjclose": 143.88999938964844,
+        "current_adjclose": 143.88999938964844,
+        "previous_drawdown": -0.3193150110927405,
+        "current_drawdown": -0.3193150110927405,
+        "previous_watch_tier": "WATCH_30",
+        "current_watch_tier": "WATCH_30",
+        "candidate_thresholds": [],
+        "crossed_thresholds": [],
+        "confirmed_thresholds_this_run": [],
+        "pending_thresholds_this_run": [],
+        "comparability_proven": false,
+        "comparability_reasons": [
+          "SPCX_HISTORICAL_ANOMALY_UNVERIFIED"
+        ],
+        "event_type": "NO_CHANGE",
+        "status": "NO_EVENT",
+        "can_confirm": false,
+        "old_basis_counterfactual": {
+          "trading_date": "2026-10-29",
+          "adjclose": 143.88999938964844,
+          "window_samples": 97,
+          "highest_adjclose": 211.38999938964844,
+          "highest_date": "2026-06-16",
+          "drawdown": -0.3193150110927405,
+          "rsi14": 43.6925956861474,
+          "sma50": 149.54700073242188,
+          "sma200": null,
+          "conditional_only_until_comparability_proven": true
+        },
+        "previous_recomputed_metrics": {
+          "trading_date": "2026-10-29",
+          "adjclose": 143.88999938964844,
+          "window_samples": 97,
+          "highest_adjclose": 211.38999938964844,
+          "highest_date": "2026-06-16",
+          "drawdown": -0.3193150110927405,
+          "rsi14": 43.6925956861474,
+          "sma50": 149.54700073242188,
+          "sma200": null
+        },
+        "adjustment_factor_evidence": {
+          "previous_anchor_factor": 1.0,
+          "current_factor": 1.0
+        },
+        "window_high_expired_naturally": false,
+        "unrevised_basis_event": "NO_CHANGE",
+        "revised_basis_event": "NO_CHANGE",
+        "significant_deepening": false,
+        "recovery": false,
+        "reentry": false
+      },
+      "threshold_state": {
+        "observed": [
+          10,
+          20,
+          30
+        ],
+        "confirmed": [],
+        "baseline": [
+          10,
+          20,
+          30
+        ],
+        "pending_event_ids": [
+          "10afed7ed61f13676a72b6faa6be77ca5ff314c007104b914f9c5fb31bc2c544",
+          "1510cd0cc726f4054da3c2c00e5c5dae723cf81481250ae00f12023ea757efd3",
+          "990899023e2fb0ae61da5052388cb14bacdb0d9bfa03f14eac28f0668e0388a7"
+        ]
+      },
+      "market_events": [],
+      "change_event": "NO_CHANGE",
+      "watch_tier": "WATCH_30",
+      "previous_watch_tier": "WATCH_30",
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [],
+      "confirmed_thresholds": [],
+      "baseline_observed_thresholds": [
+        10,
+        20,
+        30
+      ],
+      "last_new_trigger_date": null,
+      "deepening_anchor": -0.3193150110927405,
+      "raw_revision_differences": [],
+      "data_quality": "PASS_PROVISIONAL",
+      "warnings": [
+        "YAHOO_ONLY: history is not independently price-verified",
+        "TECHNICAL_OBSERVATION_ONLY: investment value not assessed",
+        "YAHOO_ONLY/HISTORICAL_ANOMALY_UNVERIFIED: all SPCX observations provisional",
+        "Close discrepancy cannot establish the Adj Close correction or its effect on tiers",
+        "SMA200: INSUFFICIENT_HISTORY"
+      ],
+      "historical_anomaly": {
+        "date": "2026-06-16",
+        "yahoo_close_reported": 211.39,
+        "nasdaq_close_reported": 201.8,
+        "field": "Close",
+        "source": "User-provided historical conflict; not independently verified in Phase 3",
+        "adjclose_conflict_established": false,
+        "observed_yahoo_close": 211.38999938964844,
+        "date_is_window_high": true
+      },
+      "historical_revision_count": 0,
+      "historical_revision_examples": [],
+      "excluded_incomplete_dates": [],
+      "source_as_of_utc": "2026-10-30T06:28:48.047612+00:00",
+      "source": "YAHOO_CHART_ADJCLOSE",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "independently_price_verified": false,
+      "event_ids": [],
+      "revision_review_event_ids": []
+    },
+    {
+      "symbol": "META",
+      "close": 624.52001953125,
+      "trading_date": "2026-10-29",
+      "adjclose": 624.52001953125,
+      "window_samples": 252,
+      "highest_adjclose": 777.5900268554688,
+      "highest_date": "2026-09-24",
+      "drawdown": -0.1968518139863823,
+      "rsi14": 34.99358253721165,
+      "sma50": 668.3969262695313,
+      "sma200": 631.2700811767578,
+      "rsi_warmup_prices": 501,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "VALID"
+      },
+      "revision_observation": {
+        "detected": false,
+        "classification": "NO_REVISION",
+        "count": 0,
+        "raw_differences": [],
+        "dates": [],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "requires_review": false,
+        "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+        "impact_at_current_target": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        },
+        "impact_on_previous_session": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        }
+      },
+      "market_observation": {
+        "previous_trading_date": "2026-10-29",
+        "current_trading_date": "2026-10-29",
+        "previous_adjclose": 624.52001953125,
+        "current_adjclose": 624.52001953125,
+        "previous_drawdown": -0.1968518139863823,
+        "current_drawdown": -0.1968518139863823,
+        "previous_watch_tier": "WATCH_10",
+        "current_watch_tier": "WATCH_10",
+        "candidate_thresholds": [],
+        "crossed_thresholds": [],
+        "confirmed_thresholds_this_run": [],
+        "pending_thresholds_this_run": [],
+        "comparability_proven": true,
+        "comparability_reasons": [],
+        "event_type": "NO_CHANGE",
+        "status": "NO_EVENT",
+        "can_confirm": false,
+        "old_basis_counterfactual": {
+          "trading_date": "2026-10-29",
+          "adjclose": 624.52001953125,
+          "window_samples": 252,
+          "highest_adjclose": 777.5900268554688,
+          "highest_date": "2026-09-24",
+          "drawdown": -0.1968518139863823,
+          "rsi14": 34.99358253721165,
+          "sma50": 668.3969262695313,
+          "sma200": 631.2700811767578,
+          "conditional_only_until_comparability_proven": true
+        },
+        "previous_recomputed_metrics": {
+          "trading_date": "2026-10-29",
+          "adjclose": 624.52001953125,
+          "window_samples": 252,
+          "highest_adjclose": 777.5900268554688,
+          "highest_date": "2026-09-24",
+          "drawdown": -0.1968518139863823,
+          "rsi14": 34.99358253721165,
+          "sma50": 668.3969262695313,
+          "sma200": 631.2700811767578
+        },
+        "adjustment_factor_evidence": {
+          "previous_anchor_factor": 1.0,
+          "current_factor": 1.0
+        },
+        "window_high_expired_naturally": false,
+        "unrevised_basis_event": "NO_CHANGE",
+        "revised_basis_event": "NO_CHANGE",
+        "significant_deepening": false,
+        "recovery": false,
+        "reentry": false
+      },
+      "threshold_state": {
+        "observed": [
+          10
+        ],
+        "confirmed": [],
+        "baseline": [
+          10
+        ],
+        "pending_event_ids": [
+          "3ae0df55460b6ffb7d03b38f28528c447981792981632ec222e7cc22c7009b4d"
+        ]
+      },
+      "market_events": [],
+      "change_event": "NO_CHANGE",
+      "watch_tier": "WATCH_10",
+      "previous_watch_tier": "WATCH_10",
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [],
+      "confirmed_thresholds": [],
+      "baseline_observed_thresholds": [
+        10
+      ],
+      "last_new_trigger_date": null,
+      "deepening_anchor": -0.1968518139863823,
+      "raw_revision_differences": [],
+      "data_quality": "PASS",
+      "warnings": [
+        "YAHOO_ONLY: history is not independently price-verified",
+        "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"
+      ],
+      "historical_anomaly": null,
+      "historical_revision_count": 0,
+      "historical_revision_examples": [],
+      "excluded_incomplete_dates": [],
+      "source_as_of_utc": "2026-10-30T06:29:23.897809+00:00",
+      "source": "YAHOO_CHART_ADJCLOSE",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "independently_price_verified": false,
+      "event_ids": [],
+      "revision_review_event_ids": []
+    },
+    {
+      "symbol": "AVGO",
+      "close": 345.0,
+      "trading_date": "2026-10-29",
+      "adjclose": 345.0,
+      "window_samples": 252,
+      "highest_adjclose": 479.93511962890625,
+      "highest_date": "2026-06-02",
+      "drawdown": -0.28115283526915125,
+      "rsi14": 49.10487430698172,
+      "sma50": 353.29072143554686,
+      "sma200": 366.69759719848633,
+      "rsi_warmup_prices": 501,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "VALID"
+      },
+      "revision_observation": {
+        "detected": false,
+        "classification": "NO_REVISION",
+        "count": 0,
+        "raw_differences": [],
+        "dates": [],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "requires_review": false,
+        "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+        "impact_at_current_target": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        },
+        "impact_on_previous_session": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        }
+      },
+      "market_observation": {
+        "previous_trading_date": "2026-10-29",
+        "current_trading_date": "2026-10-29",
+        "previous_adjclose": 345.0,
+        "current_adjclose": 345.0,
+        "previous_drawdown": -0.28115283526915125,
+        "current_drawdown": -0.28115283526915125,
+        "previous_watch_tier": "WATCH_20",
+        "current_watch_tier": "WATCH_20",
+        "candidate_thresholds": [],
+        "crossed_thresholds": [],
+        "confirmed_thresholds_this_run": [],
+        "pending_thresholds_this_run": [],
+        "comparability_proven": false,
+        "comparability_reasons": [
+          "UNRESOLVED_PRIOR_REVISION_REVIEW"
+        ],
+        "event_type": "NO_CHANGE",
+        "status": "NO_EVENT",
+        "can_confirm": false,
+        "old_basis_counterfactual": {
+          "trading_date": "2026-10-29",
+          "adjclose": 345.0,
+          "window_samples": 252,
+          "highest_adjclose": 479.93511962890625,
+          "highest_date": "2026-06-02",
+          "drawdown": -0.28115283526915125,
+          "rsi14": 49.10487430698172,
+          "sma50": 353.29072143554686,
+          "sma200": 366.69759719848633,
+          "conditional_only_until_comparability_proven": true
+        },
+        "previous_recomputed_metrics": {
+          "trading_date": "2026-10-29",
+          "adjclose": 345.0,
+          "window_samples": 252,
+          "highest_adjclose": 479.93511962890625,
+          "highest_date": "2026-06-02",
+          "drawdown": -0.28115283526915125,
+          "rsi14": 49.10487430698172,
+          "sma50": 353.29072143554686,
+          "sma200": 366.69759719848633
+        },
+        "adjustment_factor_evidence": {
+          "previous_anchor_factor": 1.0,
+          "current_factor": 1.0
+        },
+        "window_high_expired_naturally": false,
+        "unrevised_basis_event": "NO_CHANGE",
+        "revised_basis_event": "NO_CHANGE",
+        "significant_deepening": false,
+        "recovery": false,
+        "reentry": false
+      },
+      "threshold_state": {
+        "observed": [
+          10,
+          20
+        ],
+        "confirmed": [],
+        "baseline": [
+          10,
+          20
+        ],
+        "pending_event_ids": [
+          "0276846e483855be69e4c5fba05bb11c29853efe0cb0980dfe26dc88ef1e0e57",
+          "2bceec4be4c282ecebc981e6c253f6087b4759562045094632a15985403b3aa3",
+          "5096cf6711b698926c9f3812586ac9a46fa4d75eac18b12951da3208f73db8b7"
+        ]
+      },
+      "market_events": [],
+      "change_event": "NO_CHANGE",
+      "watch_tier": "WATCH_20",
+      "previous_watch_tier": "WATCH_20",
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [],
+      "confirmed_thresholds": [],
+      "baseline_observed_thresholds": [
+        10,
+        20
+      ],
+      "last_new_trigger_date": null,
+      "deepening_anchor": -0.28115283526915125,
+      "raw_revision_differences": [],
+      "data_quality": "PASS",
+      "warnings": [
+        "YAHOO_ONLY: history is not independently price-verified",
+        "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"
+      ],
+      "historical_anomaly": null,
+      "historical_revision_count": 0,
+      "historical_revision_examples": [],
+      "excluded_incomplete_dates": [],
+      "source_as_of_utc": "2026-10-30T06:29:28.168425+00:00",
+      "source": "YAHOO_CHART_ADJCLOSE",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "independently_price_verified": false,
+      "event_ids": [],
+      "revision_review_event_ids": [
+        "0276846e483855be69e4c5fba05bb11c29853efe0cb0980dfe26dc88ef1e0e57"
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "close": 403.29998779296875,
+      "trading_date": "2026-10-29",
+      "adjclose": 403.29998779296875,
+      "window_samples": 252,
+      "highest_adjclose": 489.8800048828125,
+      "highest_date": "2025-12-16",
+      "drawdown": -0.17673719324501747,
+      "rsi14": 63.03468778458573,
+      "sma50": 368.5089984130859,
+      "sma200": 385.4955490112305,
+      "rsi_warmup_prices": 501,
+      "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+      "indicator_status": {
+        "drawdown": "VALID",
+        "rsi14": "VALID",
+        "sma50": "VALID",
+        "sma200": "VALID"
+      },
+      "revision_observation": {
+        "detected": false,
+        "classification": "NO_REVISION",
+        "count": 0,
+        "raw_differences": [],
+        "dates": [],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "requires_review": false,
+        "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+        "impact_at_current_target": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        },
+        "impact_on_previous_session": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": false,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 0.0,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        }
+      },
+      "market_observation": {
+        "previous_trading_date": "2026-10-29",
+        "current_trading_date": "2026-10-29",
+        "previous_adjclose": 403.29998779296875,
+        "current_adjclose": 403.29998779296875,
+        "previous_drawdown": -0.17673719324501747,
+        "current_drawdown": -0.17673719324501747,
+        "previous_watch_tier": "WATCH_10",
+        "current_watch_tier": "WATCH_10",
+        "candidate_thresholds": [],
+        "crossed_thresholds": [],
+        "confirmed_thresholds_this_run": [],
+        "pending_thresholds_this_run": [],
+        "comparability_proven": true,
+        "comparability_reasons": [],
+        "event_type": "NO_CHANGE",
+        "status": "NO_EVENT",
+        "can_confirm": false,
+        "old_basis_counterfactual": {
+          "trading_date": "2026-10-29",
+          "adjclose": 403.29998779296875,
+          "window_samples": 252,
+          "highest_adjclose": 489.8800048828125,
+          "highest_date": "2025-12-16",
+          "drawdown": -0.17673719324501747,
+          "rsi14": 63.03468778458573,
+          "sma50": 368.5089984130859,
+          "sma200": 385.4955490112305,
+          "conditional_only_until_comparability_proven": true
+        },
+        "previous_recomputed_metrics": {
+          "trading_date": "2026-10-29",
+          "adjclose": 403.29998779296875,
+          "window_samples": 252,
+          "highest_adjclose": 489.8800048828125,
+          "highest_date": "2025-12-16",
+          "drawdown": -0.17673719324501747,
+          "rsi14": 63.03468778458573,
+          "sma50": 368.5089984130859,
+          "sma200": 385.4955490112305
+        },
+        "adjustment_factor_evidence": {
+          "previous_anchor_factor": 1.0,
+          "current_factor": 1.0
+        },
+        "window_high_expired_naturally": false,
+        "unrevised_basis_event": "NO_CHANGE",
+        "revised_basis_event": "NO_CHANGE",
+        "significant_deepening": false,
+        "recovery": false,
+        "reentry": false
+      },
+      "threshold_state": {
+        "observed": [
+          10
+        ],
+        "confirmed": [],
+        "baseline": [
+          10
+        ],
+        "pending_event_ids": [
+          "1872805709c1a392b4938ae86f8372468998382a62e5a61bc650c7748554501b"
+        ]
+      },
+      "market_events": [],
+      "change_event": "NO_CHANGE",
+      "watch_tier": "WATCH_10",
+      "previous_watch_tier": "WATCH_10",
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [],
+      "confirmed_thresholds": [],
+      "baseline_observed_thresholds": [
+        10
+      ],
+      "last_new_trigger_date": null,
+      "deepening_anchor": -0.17673719324501747,
+      "raw_revision_differences": [],
+      "data_quality": "PASS",
+      "warnings": [
+        "YAHOO_ONLY: history is not independently price-verified",
+        "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"
+      ],
+      "historical_anomaly": null,
+      "historical_revision_count": 0,
+      "historical_revision_examples": [],
+      "excluded_incomplete_dates": [],
+      "source_as_of_utc": "2026-10-30T06:29:33.292720+00:00",
+      "source": "YAHOO_CHART_ADJCLOSE",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "independently_price_verified": false,
+      "event_ids": [],
+      "revision_review_event_ids": []
+    }
+  ],
+  "migration": {
+    "changed": false,
+    "from_schema": 2,
+    "to_schema": 2,
+    "ambiguous_thresholds": []
+  },
+  "event_model_version": "revision-market-v2",
+  "new_observation_events": [],
+  "pending_review_events": [
+    {
+      "symbol": "NVDA",
+      "trading_date": "2026-10-29",
+      "event_type": "LEGACY_THRESHOLD_REVIEW",
+      "threshold": 10,
+      "status": "PENDING_REVIEW",
+      "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "event_id": "ec6da250144fa0e619420170ec85dc1a980576ed24bfdf8a6c85e506ecdce2d2",
+      "evidence_versions": [
+        {
+          "evidence_hash": "73ea2767de8995e0cdd78fb9032e8d1cc7933287a59cc671cc6a65ac7d73517f",
+          "evidence": {
+            "legacy_triggered_thresholds": [
+              10
+            ],
+            "migration": true
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+          "at_utc": "2026-10-30T12:28:50.278955+00:00"
+        }
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "trading_date": "2026-10-29",
+      "event_type": "LEGACY_THRESHOLD_REVIEW",
+      "threshold": 10,
+      "status": "PENDING_REVIEW",
+      "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "event_id": "2794ffbe9e11f38d39ca399ac0e0245a8cbda6954d4e3c4c86e36e69ff033f26",
+      "evidence_versions": [
+        {
+          "evidence_hash": "48be1b7eeff8c48a3d849b20b824c958de4553f49401c01426db12055ef768ec",
+          "evidence": {
+            "legacy_triggered_thresholds": [
+              10,
+              20
+            ],
+            "migration": true
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+          "at_utc": "2026-10-30T12:28:50.278985+00:00"
+        }
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "trading_date": "2026-10-29",
+      "event_type": "LEGACY_THRESHOLD_REVIEW",
+      "threshold": 20,
+      "status": "PENDING_REVIEW",
+      "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "event_id": "9c00696d96dfba1f7b853b5dfe0c528c58004cdcdccfbd56029726978cc75bd8",
+      "evidence_versions": [
+        {
+          "evidence_hash": "48be1b7eeff8c48a3d849b20b824c958de4553f49401c01426db12055ef768ec",
+          "evidence": {
+            "legacy_triggered_thresholds": [
+              10,
+              20
+            ],
+            "migration": true
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+          "at_utc": "2026-10-30T12:28:50.279007+00:00"
+        }
+      ]
+    },
+    {
+      "symbol": "AMZN",
+      "trading_date": "2026-10-29",
+      "event_type": "LEGACY_THRESHOLD_REVIEW",
+      "threshold": 10,
+      "status": "PENDING_REVIEW",
+      "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "event_id": "e573dd8ffde35a7d557d9ffdf08bcafd5e1f27b7fb0497409a8568257eb5a98b",
+      "evidence_versions": [
+        {
+          "evidence_hash": "73ea2767de8995e0cdd78fb9032e8d1cc7933287a59cc671cc6a65ac7d73517f",
+          "evidence": {
+            "legacy_triggered_thresholds": [
+              10
+            ],
+            "migration": true
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+          "at_utc": "2026-10-30T12:28:50.279030+00:00"
+        }
+      ]
+    },
+    {
+      "symbol": "SPCX",
+      "trading_date": "2026-10-29",
+      "event_type": "LEGACY_THRESHOLD_REVIEW",
+      "threshold": 10,
+      "status": "PENDING_REVIEW",
+      "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "event_id": "10afed7ed61f13676a72b6faa6be77ca5ff314c007104b914f9c5fb31bc2c544",
+      "evidence_versions": [
+        {
+          "evidence_hash": "407d2dc8d28eb1c652671b5794fad4395cd788730d540d0f9f7ddf6521d3d6d2",
+          "evidence": {
+            "legacy_triggered_thresholds": [
+              10,
+              20,
+              30
+            ],
+            "migration": true
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+          "at_utc": "2026-10-30T12:28:50.279052+00:00"
+        }
+      ]
+    },
+    {
+      "symbol": "SPCX",
+      "trading_date": "2026-10-29",
+      "event_type": "LEGACY_THRESHOLD_REVIEW",
+      "threshold": 20,
+      "status": "PENDING_REVIEW",
+      "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "event_id": "1510cd0cc726f4054da3c2c00e5c5dae723cf81481250ae00f12023ea757efd3",
+      "evidence_versions": [
+        {
+          "evidence_hash": "407d2dc8d28eb1c652671b5794fad4395cd788730d540d0f9f7ddf6521d3d6d2",
+          "evidence": {
+            "legacy_triggered_thresholds": [
+              10,
+              20,
+              30
+            ],
+            "migration": true
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+          "at_utc": "2026-10-30T12:28:50.279071+00:00"
+        }
+      ]
+    },
+    {
+      "symbol": "SPCX",
+      "trading_date": "2026-10-29",
+      "event_type": "LEGACY_THRESHOLD_REVIEW",
+      "threshold": 30,
+      "status": "PENDING_REVIEW",
+      "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "event_id": "990899023e2fb0ae61da5052388cb14bacdb0d9bfa03f14eac28f0668e0388a7",
+      "evidence_versions": [
+        {
+          "evidence_hash": "407d2dc8d28eb1c652671b5794fad4395cd788730d540d0f9f7ddf6521d3d6d2",
+          "evidence": {
+            "legacy_triggered_thresholds": [
+              10,
+              20,
+              30
+            ],
+            "migration": true
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+          "at_utc": "2026-10-30T12:28:50.279091+00:00"
+        }
+      ]
+    },
+    {
+      "symbol": "META",
+      "trading_date": "2026-10-29",
+      "event_type": "LEGACY_THRESHOLD_REVIEW",
+      "threshold": 10,
+      "status": "PENDING_REVIEW",
+      "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "event_id": "3ae0df55460b6ffb7d03b38f28528c447981792981632ec222e7cc22c7009b4d",
+      "evidence_versions": [
+        {
+          "evidence_hash": "73ea2767de8995e0cdd78fb9032e8d1cc7933287a59cc671cc6a65ac7d73517f",
+          "evidence": {
+            "legacy_triggered_thresholds": [
+              10
+            ],
+            "migration": true
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+          "at_utc": "2026-10-30T12:28:50.279112+00:00"
+        }
+      ]
+    },
+    {
+      "symbol": "AVGO",
+      "trading_date": "2026-10-29",
+      "event_type": "LEGACY_THRESHOLD_REVIEW",
+      "threshold": 10,
+      "status": "PENDING_REVIEW",
+      "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "event_id": "5096cf6711b698926c9f3812586ac9a46fa4d75eac18b12951da3208f73db8b7",
+      "evidence_versions": [
+        {
+          "evidence_hash": "48be1b7eeff8c48a3d849b20b824c958de4553f49401c01426db12055ef768ec",
+          "evidence": {
+            "legacy_triggered_thresholds": [
+              10,
+              20
+            ],
+            "migration": true
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+          "at_utc": "2026-10-30T12:28:50.279133+00:00"
+        }
+      ]
+    },
+    {
+      "symbol": "AVGO",
+      "trading_date": "2026-10-29",
+      "event_type": "LEGACY_THRESHOLD_REVIEW",
+      "threshold": 20,
+      "status": "PENDING_REVIEW",
+      "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "event_id": "2bceec4be4c282ecebc981e6c253f6087b4759562045094632a15985403b3aa3",
+      "evidence_versions": [
+        {
+          "evidence_hash": "48be1b7eeff8c48a3d849b20b824c958de4553f49401c01426db12055ef768ec",
+          "evidence": {
+            "legacy_triggered_thresholds": [
+              10,
+              20
+            ],
+            "migration": true
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+          "at_utc": "2026-10-30T12:28:50.279152+00:00"
+        }
+      ]
+    },
+    {
+      "symbol": "AVGO",
+      "trading_date": "2026-10-29",
+      "event_type": "REVISION_OBSERVATION",
+      "threshold": null,
+      "status": "PENDING_REVIEW",
+      "reason": "History revision fact; does not confirm a market threshold",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "data_quality": "PASS",
+      "event_model_version": "revision-market-v2",
+      "event_id": "0276846e483855be69e4c5fba05bb11c29853efe0cb0980dfe26dc88ef1e0e57",
+      "evidence_versions": [
+        {
+          "evidence_hash": "2862017e68f453e683e1eb67a75c24253b76f040398440c8e87a68dbf752379a",
+          "evidence": {
+            "revision_observation": {
+              "detected": true,
+              "classification": "REVISION_REVIEW_REQUIRED",
+              "count": 218,
+              "raw_differences": [
+                {
+                  "date": "2024-10-31",
+                  "previous": 166.8802947998047,
+                  "current": 166.88031005859375
+                },
+                {
+                  "date": "2024-11-05",
+                  "previous": 170.94000244140625,
+                  "current": 170.9399871826172
+                },
+                {
+                  "date": "2024-11-07",
+                  "previous": 180.68130493164062,
+                  "current": 180.68133544921875
+                },
+                {
+                  "date": "2024-11-08",
+                  "previous": 180.51422119140625,
+                  "current": 180.5142059326172
+                },
+                {
+                  "date": "2024-11-11",
+                  "previous": 175.86473083496094,
+                  "current": 175.86476135253906
+                },
+                {
+                  "date": "2024-11-12",
+                  "previous": 173.2205047607422,
+                  "current": 173.2205352783203
+                },
+                {
+                  "date": "2024-11-14",
+                  "previous": 167.4799041748047,
+                  "current": 167.4799346923828
+                },
+                {
+                  "date": "2024-11-19",
+                  "previous": 162.5355224609375,
+                  "current": 162.53553771972656
+                },
+                {
+                  "date": "2024-11-21",
+                  "previous": 161.14952087402344,
+                  "current": 161.1495361328125
+                },
+                {
+                  "date": "2024-11-26",
+                  "previous": 161.93592834472656,
+                  "current": 161.9359130859375
+                },
+                {
+                  "date": "2024-11-27",
+                  "previous": 156.95220947265625,
+                  "current": 156.9522247314453
+                },
+                {
+                  "date": "2024-11-29",
+                  "previous": 159.32118225097656,
+                  "current": 159.3212127685547
+                },
+                {
+                  "date": "2024-12-02",
+                  "previous": 163.67578125,
+                  "current": 163.67579650878906
+                },
+                {
+                  "date": "2024-12-03",
+                  "previous": 165.28785705566406,
+                  "current": 165.287841796875
+                },
+                {
+                  "date": "2024-12-04",
+                  "previous": 167.6568603515625,
+                  "current": 167.65684509277344
+                },
+                {
+                  "date": "2024-12-05",
+                  "previous": 167.56838989257812,
+                  "current": 167.56842041015625
+                },
+                {
+                  "date": "2024-12-10",
+                  "previous": 168.8855743408203,
+                  "current": 168.88558959960938
+                },
+                {
+                  "date": "2024-12-11",
+                  "previous": 180.08169555664062,
+                  "current": 180.08168029785156
+                },
+                {
+                  "date": "2024-12-12",
+                  "previous": 177.58493041992188,
+                  "current": 177.58494567871094
+                },
+                {
+                  "date": "2024-12-13",
+                  "previous": 220.9736328125,
+                  "current": 220.97361755371094
+                },
+                {
+                  "date": "2024-12-16",
+                  "previous": 245.74468994140625,
+                  "current": 245.7446746826172
+                },
+                {
+                  "date": "2024-12-17",
+                  "previous": 236.14097595214844,
+                  "current": 236.14096069335938
+                },
+                {
+                  "date": "2024-12-18",
+                  "previous": 219.81370544433594,
+                  "current": 219.81369018554688
+                },
+                {
+                  "date": "2024-12-20",
+                  "previous": 217.0318603515625,
+                  "current": 217.03187561035156
+                },
+                {
+                  "date": "2024-12-23",
+                  "previous": 229.007080078125,
+                  "current": 229.00706481933594
+                },
+                {
+                  "date": "2024-12-24",
+                  "previous": 236.23158264160156,
+                  "current": 236.2316131591797
+                },
+                {
+                  "date": "2024-12-26",
+                  "previous": 241.82989501953125,
+                  "current": 241.8298797607422
+                },
+                {
+                  "date": "2024-12-27",
+                  "previous": 238.27183532714844,
+                  "current": 238.27182006835938
+                },
+                {
+                  "date": "2025-01-02",
+                  "previous": 228.64239501953125,
+                  "current": 228.6423797607422
+                },
+                {
+                  "date": "2025-01-06",
+                  "previous": 233.00865173339844,
+                  "current": 233.0086669921875
+                },
+                {
+                  "date": "2025-01-07",
+                  "previous": 225.35044860839844,
+                  "current": 225.3504180908203
+                },
+                {
+                  "date": "2025-01-08",
+                  "previous": 226.01080322265625,
+                  "current": 226.0108184814453
+                },
+                {
+                  "date": "2025-01-10",
+                  "previous": 221.08274841308594,
+                  "current": 221.08270263671875
+                },
+                {
+                  "date": "2025-01-13",
+                  "previous": 222.0486297607422,
+                  "current": 222.04861450195312
+                },
+                {
+                  "date": "2025-01-14",
+                  "previous": 221.46714782714844,
+                  "current": 221.46713256835938
+                },
+                {
+                  "date": "2025-01-15",
+                  "previous": 224.7196502685547,
+                  "current": 224.71963500976562
+                },
+                {
+                  "date": "2025-01-16",
+                  "previous": 226.109375,
+                  "current": 226.10935974121094
+                },
+                {
+                  "date": "2025-01-21",
+                  "previous": 236.85255432128906,
+                  "current": 236.85250854492188
+                },
+                {
+                  "date": "2025-01-24",
+                  "previous": 241.1793670654297,
+                  "current": 241.17938232421875
+                },
+                {
+                  "date": "2025-01-27",
+                  "previous": 199.2218780517578,
+                  "current": 199.2218475341797
+                },
+                {
+                  "date": "2025-01-28",
+                  "previous": 204.37661743164062,
+                  "current": 204.37660217285156
+                },
+                {
+                  "date": "2025-01-30",
+                  "previous": 212.55718994140625,
+                  "current": 212.5572052001953
+                },
+                {
+                  "date": "2025-02-03",
+                  "previous": 214.59738159179688,
+                  "current": 214.59739685058594
+                },
+                {
+                  "date": "2025-02-04",
+                  "previous": 219.2297821044922,
+                  "current": 219.22979736328125
+                },
+                {
+                  "date": "2025-02-05",
+                  "previous": 228.66209411621094,
+                  "current": 228.66207885742188
+                },
+                {
+                  "date": "2025-02-06",
+                  "previous": 228.03131103515625,
+                  "current": 228.0312957763672
+                },
+                {
+                  "date": "2025-02-07",
+                  "previous": 221.63467407226562,
+                  "current": 221.6346893310547
+                },
+                {
+                  "date": "2025-02-10",
+                  "previous": 231.65835571289062,
+                  "current": 231.6583251953125
+                },
+                {
+                  "date": "2025-02-11",
+                  "previous": 231.65835571289062,
+                  "current": 231.6583251953125
+                },
+                {
+                  "date": "2025-02-12",
+                  "previous": 232.9495391845703,
+                  "current": 232.9495086669922
+                },
+                {
+                  "date": "2025-02-13",
+                  "previous": 232.4074249267578,
+                  "current": 232.40740966796875
+                },
+                {
+                  "date": "2025-02-14",
+                  "previous": 229.68711853027344,
+                  "current": 229.68714904785156
+                },
+                {
+                  "date": "2025-02-18",
+                  "previous": 225.24200439453125,
+                  "current": 225.24205017089844
+                },
+                {
+                  "date": "2025-02-19",
+                  "previous": 225.43914794921875,
+                  "current": 225.4391326904297
+                },
+                {
+                  "date": "2025-02-21",
+                  "previous": 215.51402282714844,
+                  "current": 215.5140380859375
+                },
+                {
+                  "date": "2025-02-27",
+                  "previous": 194.95416259765625,
+                  "current": 194.9541473388672
+                },
+                {
+                  "date": "2025-03-03",
+                  "previous": 184.67420959472656,
+                  "current": 184.6741943359375
+                },
+                {
+                  "date": "2025-03-07",
+                  "previous": 192.15501403808594,
+                  "current": 192.155029296875
+                },
+                {
+                  "date": "2025-03-10",
+                  "previous": 181.79624938964844,
+                  "current": 181.79623413085938
+                },
+                {
+                  "date": "2025-03-11",
+                  "previous": 187.35508728027344,
+                  "current": 187.3550567626953
+                },
+                {
+                  "date": "2025-03-13",
+                  "previous": 188.60678100585938,
+                  "current": 188.60679626464844
+                },
+                {
+                  "date": "2025-03-18",
+                  "previous": 185.9554901123047,
+                  "current": 185.95550537109375
+                },
+                {
+                  "date": "2025-03-21",
+                  "previous": 189.47409057617188,
+                  "current": 189.47412109375
+                },
+                {
+                  "date": "2025-03-25",
+                  "previous": 186.11288452148438,
+                  "current": 186.1128692626953
+                },
+                {
+                  "date": "2025-03-26",
+                  "previous": 177.2254180908203,
+                  "current": 177.22540283203125
+                },
+                {
+                  "date": "2025-03-31",
+                  "previous": 165.5204315185547,
+                  "current": 165.52044677734375
+                },
+                {
+                  "date": "2025-04-01",
+                  "previous": 166.59800720214844,
+                  "current": 166.59803771972656
+                },
+                {
+                  "date": "2025-04-02",
+                  "previous": 170.12730407714844,
+                  "current": 170.12728881835938
+                },
+                {
+                  "date": "2025-04-09",
+                  "previous": 183.03836059570312,
+                  "current": 183.03834533691406
+                },
+                {
+                  "date": "2025-04-10",
+                  "previous": 170.33489990234375,
+                  "current": 170.33493041992188
+                },
+                {
+                  "date": "2025-04-14",
+                  "previous": 176.32579040527344,
+                  "current": 176.3258056640625
+                },
+                {
+                  "date": "2025-04-21",
+                  "previous": 164.3143768310547,
+                  "current": 164.31436157226562
+                },
+                {
+                  "date": "2025-04-22",
+                  "previous": 167.64590454101562,
+                  "current": 167.6459197998047
+                },
+                {
+                  "date": "2025-04-23",
+                  "previous": 174.89234924316406,
+                  "current": 174.892333984375
+                },
+                {
+                  "date": "2025-04-24",
+                  "previous": 186.00411987304688,
+                  "current": 186.00413513183594
+                },
+                {
+                  "date": "2025-04-28",
+                  "previous": 190.27487182617188,
+                  "current": 190.27488708496094
+                },
+                {
+                  "date": "2025-04-29",
+                  "previous": 188.98968505859375,
+                  "current": 188.9897003173828
+                },
+                {
+                  "date": "2025-04-30",
+                  "previous": 190.27487182617188,
+                  "current": 190.27488708496094
+                },
+                {
+                  "date": "2025-05-02",
+                  "previous": 201.31747436523438,
+                  "current": 201.31748962402344
+                },
+                {
+                  "date": "2025-05-05",
+                  "previous": 198.43077087402344,
+                  "current": 198.4307861328125
+                },
+                {
+                  "date": "2025-05-06",
+                  "previous": 197.8079376220703,
+                  "current": 197.80795288085938
+                },
+                {
+                  "date": "2025-05-07",
+                  "previous": 202.47413635253906,
+                  "current": 202.47412109375
+                },
+                {
+                  "date": "2025-05-08",
+                  "previous": 205.4003448486328,
+                  "current": 205.40037536621094
+                },
+                {
+                  "date": "2025-05-12",
+                  "previous": 219.0528564453125,
+                  "current": 219.05287170410156
+                },
+                {
+                  "date": "2025-05-15",
+                  "previous": 229.98672485351562,
+                  "current": 229.9867401123047
+                },
+                {
+                  "date": "2025-05-19",
+                  "previous": 227.99964904785156,
+                  "current": 227.9996337890625
+                },
+                {
+                  "date": "2025-05-20",
+                  "previous": 229.0376739501953,
+                  "current": 229.0376434326172
+                },
+                {
+                  "date": "2025-05-21",
+                  "previous": 227.10992431640625,
+                  "current": 227.1099090576172
+                },
+                {
+                  "date": "2025-05-22",
+                  "previous": 227.9008026123047,
+                  "current": 227.90078735351562
+                },
+                {
+                  "date": "2025-05-23",
+                  "previous": 226.11141967773438,
+                  "current": 226.1114044189453
+                },
+                {
+                  "date": "2025-05-28",
+                  "previous": 236.6992645263672,
+                  "current": 236.69927978515625
+                },
+                {
+                  "date": "2025-06-02",
+                  "previous": 245.87342834472656,
+                  "current": 245.8734588623047
+                },
+                {
+                  "date": "2025-06-03",
+                  "previous": 253.92062377929688,
+                  "current": 253.92063903808594
+                },
+                {
+                  "date": "2025-06-04",
+                  "previous": 258.1023254394531,
+                  "current": 258.10235595703125
+                },
+                {
+                  "date": "2025-06-06",
+                  "previous": 244.11375427246094,
+                  "current": 244.1137237548828
+                },
+                {
+                  "date": "2025-06-09",
+                  "previous": 241.49398803710938,
+                  "current": 241.4939727783203
+                },
+                {
+                  "date": "2025-06-12",
+                  "previous": 253.1494903564453,
+                  "current": 253.14950561523438
+                },
+                {
+                  "date": "2025-06-13",
+                  "previous": 245.86354064941406,
+                  "current": 245.86355590820312
+                },
+                {
+                  "date": "2025-06-16",
+                  "previous": 249.22479248046875,
+                  "current": 249.2247772216797
+                },
+                {
+                  "date": "2025-06-23",
+                  "previous": 251.46621704101562,
+                  "current": 251.46624755859375
+                },
+                {
+                  "date": "2025-06-24",
+                  "previous": 261.3754577636719,
+                  "current": 261.37542724609375
+                },
+                {
+                  "date": "2025-06-25",
+                  "previous": 262.2474365234375,
+                  "current": 262.2474670410156
+                },
+                {
+                  "date": "2025-06-26",
+                  "previous": 267.71734619140625,
+                  "current": 267.7173767089844
+                },
+                {
+                  "date": "2025-06-27",
+                  "previous": 266.9048156738281,
+                  "current": 266.90478515625
+                },
+                {
+                  "date": "2025-07-02",
+                  "previous": 267.44976806640625,
+                  "current": 267.4497985839844
+                },
+                {
+                  "date": "2025-07-03",
+                  "previous": 272.68182373046875,
+                  "current": 272.6818542480469
+                },
+                {
+                  "date": "2025-07-08",
+                  "previous": 269.3324890136719,
+                  "current": 269.33251953125
+                },
+                {
+                  "date": "2025-07-10",
+                  "previous": 272.89984130859375,
+                  "current": 272.8998107910156
+                },
+                {
+                  "date": "2025-07-11",
+                  "previous": 271.88909912109375,
+                  "current": 271.8891296386719
+                },
+                {
+                  "date": "2025-07-14",
+                  "previous": 273.0980224609375,
+                  "current": 273.09808349609375
+                },
+                {
+                  "date": "2025-07-16",
+                  "previous": 278.2607421875,
+                  "current": 278.2607116699219
+                },
+                {
+                  "date": "2025-07-17",
+                  "previous": 283.8495178222656,
+                  "current": 283.84954833984375
+                },
+                {
+                  "date": "2025-07-18",
+                  "previous": 280.76776123046875,
+                  "current": 280.7677917480469
+                },
+                {
+                  "date": "2025-07-24",
+                  "previous": 286.0890197753906,
+                  "current": 286.0889892578125
+                },
+                {
+                  "date": "2025-07-25",
+                  "previous": 287.54571533203125,
+                  "current": 287.5456237792969
+                },
+                {
+                  "date": "2025-08-01",
+                  "previous": 286.0196838378906,
+                  "current": 286.0196533203125
+                },
+                {
+                  "date": "2025-08-05",
+                  "previous": 290.27069091796875,
+                  "current": 290.2707214355469
+                },
+                {
+                  "date": "2025-08-07",
+                  "previous": 301.0024108886719,
+                  "current": 301.00238037109375
+                },
+                {
+                  "date": "2025-08-08",
+                  "previous": 302.2014465332031,
+                  "current": 302.201416015625
+                },
+                {
+                  "date": "2025-08-11",
+                  "previous": 301.1411437988281,
+                  "current": 301.1410827636719
+                },
+                {
+                  "date": "2025-08-13",
+                  "previous": 306.2840270996094,
+                  "current": 306.28399658203125
+                },
+                {
+                  "date": "2025-08-14",
+                  "previous": 308.4045715332031,
+                  "current": 308.4046325683594
+                },
+                {
+                  "date": "2025-08-15",
+                  "previous": 303.5589904785156,
+                  "current": 303.5589599609375
+                },
+                {
+                  "date": "2025-08-18",
+                  "previous": 302.9842834472656,
+                  "current": 302.9842529296875
+                },
+                {
+                  "date": "2025-08-20",
+                  "previous": 288.5267333984375,
+                  "current": 288.5267028808594
+                },
+                {
+                  "date": "2025-08-21",
+                  "previous": 286.9709167480469,
+                  "current": 286.970947265625
+                },
+                {
+                  "date": "2025-08-26",
+                  "previous": 295.3045959472656,
+                  "current": 295.3045654296875
+                },
+                {
+                  "date": "2025-08-27",
+                  "previous": 297.5242919921875,
+                  "current": 297.5242614746094
+                },
+                {
+                  "date": "2025-09-02",
+                  "previous": 295.53253173828125,
+                  "current": 295.5325012207031
+                },
+                {
+                  "date": "2025-09-04",
+                  "previous": 303.3211364746094,
+                  "current": 303.3211669921875
+                },
+                {
+                  "date": "2025-09-05",
+                  "previous": 331.84979248046875,
+                  "current": 331.849853515625
+                },
+                {
+                  "date": "2025-09-08",
+                  "previous": 342.5121154785156,
+                  "current": 342.51214599609375
+                },
+                {
+                  "date": "2025-09-09",
+                  "previous": 333.6136474609375,
+                  "current": 333.6136779785156
+                },
+                {
+                  "date": "2025-09-12",
+                  "previous": 356.60302734375,
+                  "current": 356.6029968261719
+                },
+                {
+                  "date": "2025-09-16",
+                  "previous": 356.7318115234375,
+                  "current": 356.7318420410156
+                },
+                {
+                  "date": "2025-09-17",
+                  "previous": 343.02740478515625,
+                  "current": 343.0274353027344
+                },
+                {
+                  "date": "2025-09-19",
+                  "previous": 341.80853271484375,
+                  "current": 341.8085632324219
+                },
+                {
+                  "date": "2025-09-24",
+                  "previous": 336.8057556152344,
+                  "current": 336.80572509765625
+                },
+                {
+                  "date": "2025-09-25",
+                  "previous": 333.6194152832031,
+                  "current": 333.6194763183594
+                },
+                {
+                  "date": "2025-09-30",
+                  "previous": 327.47515869140625,
+                  "current": 327.4751281738281
+                },
+                {
+                  "date": "2025-10-02",
+                  "previous": 335.6840515136719,
+                  "current": 335.68408203125
+                },
+                {
+                  "date": "2025-10-03",
+                  "previous": 335.8726501464844,
+                  "current": 335.8727111816406
+                },
+                {
+                  "date": "2025-10-08",
+                  "previous": 342.9500427246094,
+                  "current": 342.9501037597656
+                },
+                {
+                  "date": "2025-10-14",
+                  "previous": 341.5902099609375,
+                  "current": 341.5901794433594
+                },
+                {
+                  "date": "2025-10-15",
+                  "previous": 348.7370300292969,
+                  "current": 348.73699951171875
+                },
+                {
+                  "date": "2025-10-20",
+                  "previous": 346.6624755859375,
+                  "current": 346.6624450683594
+                },
+                {
+                  "date": "2025-10-21",
+                  "previous": 340.1310119628906,
+                  "current": 340.13104248046875
+                },
+                {
+                  "date": "2025-10-22",
+                  "previous": 337.7884216308594,
+                  "current": 337.7884521484375
+                },
+                {
+                  "date": "2025-10-24",
+                  "previous": 351.516357421875,
+                  "current": 351.5163879394531
+                },
+                {
+                  "date": "2025-10-28",
+                  "previous": 370.2173156738281,
+                  "current": 370.21734619140625
+                },
+                {
+                  "date": "2025-10-30",
+                  "previous": 373.6914978027344,
+                  "current": 373.6915283203125
+                },
+                {
+                  "date": "2025-11-06",
+                  "previous": 352.9656066894531,
+                  "current": 352.965576171875
+                },
+                {
+                  "date": "2025-11-07",
+                  "previous": 346.85107421875,
+                  "current": 346.8510437011719
+                },
+                {
+                  "date": "2025-11-12",
+                  "previous": 352.59832763671875,
+                  "current": 352.5983581542969
+                },
+                {
+                  "date": "2025-11-13",
+                  "previous": 337.4707946777344,
+                  "current": 337.47076416015625
+                },
+                {
+                  "date": "2025-11-17",
+                  "previous": 340.1211242675781,
+                  "current": 340.1210632324219
+                },
+                {
+                  "date": "2025-11-18",
+                  "previous": 337.9869689941406,
+                  "current": 337.98699951171875
+                },
+                {
+                  "date": "2025-11-19",
+                  "previous": 351.80426025390625,
+                  "current": 351.8042297363281
+                },
+                {
+                  "date": "2025-11-20",
+                  "previous": 344.2603454589844,
+                  "current": 344.26031494140625
+                },
+                {
+                  "date": "2025-11-21",
+                  "previous": 337.6891784667969,
+                  "current": 337.68914794921875
+                },
+                {
+                  "date": "2025-11-25",
+                  "previous": 382.1883239746094,
+                  "current": 382.18829345703125
+                },
+                {
+                  "date": "2025-11-26",
+                  "previous": 394.63580322265625,
+                  "current": 394.6357421875
+                },
+                {
+                  "date": "2025-11-28",
+                  "previous": 399.9859619140625,
+                  "current": 399.9859313964844
+                },
+                {
+                  "date": "2025-12-01",
+                  "previous": 383.2305603027344,
+                  "current": 383.23052978515625
+                },
+                {
+                  "date": "2025-12-02",
+                  "previous": 378.75384521484375,
+                  "current": 378.7538757324219
+                },
+                {
+                  "date": "2025-12-08",
+                  "previous": 398.1397399902344,
+                  "current": 398.1396789550781
+                },
+                {
+                  "date": "2025-12-12",
+                  "previous": 357.2735290527344,
+                  "current": 357.2735595703125
+                },
+                {
+                  "date": "2025-12-15",
+                  "previous": 337.3020324707031,
+                  "current": 337.30206298828125
+                },
+                {
+                  "date": "2025-12-18",
+                  "previous": 327.44537353515625,
+                  "current": 327.4453430175781
+                },
+                {
+                  "date": "2025-12-19",
+                  "previous": 337.8479919433594,
+                  "current": 337.84796142578125
+                },
+                {
+                  "date": "2025-12-22",
+                  "previous": 339.5784606933594,
+                  "current": 339.5784912109375
+                },
+                {
+                  "date": "2025-12-23",
+                  "previous": 347.4053039550781,
+                  "current": 347.40533447265625
+                },
+                {
+                  "date": "2025-12-24",
+                  "previous": 348.3004150390625,
+                  "current": 348.3003845214844
+                },
+                {
+                  "date": "2025-12-30",
+                  "previous": 347.93243408203125,
+                  "current": 347.9324035644531
+                },
+                {
+                  "date": "2025-12-31",
+                  "previous": 344.2029724121094,
+                  "current": 344.2030029296875
+                },
+                {
+                  "date": "2026-01-02",
+                  "previous": 345.71466064453125,
+                  "current": 345.7146301269531
+                },
+                {
+                  "date": "2026-01-05",
+                  "previous": 341.53765869140625,
+                  "current": 341.5376892089844
+                },
+                {
+                  "date": "2026-01-06",
+                  "previous": 341.8857116699219,
+                  "current": 341.8857421875
+                },
+                {
+                  "date": "2026-01-09",
+                  "previous": 343.0791320800781,
+                  "current": 343.07916259765625
+                },
+                {
+                  "date": "2026-01-13",
+                  "previous": 352.6662902832031,
+                  "current": 352.66632080078125
+                },
+                {
+                  "date": "2026-01-14",
+                  "previous": 338.0270080566406,
+                  "current": 338.02703857421875
+                },
+                {
+                  "date": "2026-01-20",
+                  "previous": 330.7769470214844,
+                  "current": 330.7769775390625
+                },
+                {
+                  "date": "2026-01-21",
+                  "previous": 326.99774169921875,
+                  "current": 326.9977722167969
+                },
+                {
+                  "date": "2026-01-23",
+                  "previous": 318.2957458496094,
+                  "current": 318.2957763671875
+                },
+                {
+                  "date": "2026-01-28",
+                  "previous": 331.4134216308594,
+                  "current": 331.4134521484375
+                },
+                {
+                  "date": "2026-01-30",
+                  "previous": 329.4841003417969,
+                  "current": 329.48406982421875
+                },
+                {
+                  "date": "2026-02-04",
+                  "previous": 306.36151123046875,
+                  "current": 306.3615417480469
+                },
+                {
+                  "date": "2026-02-06",
+                  "previous": 331.09521484375,
+                  "current": 331.0952453613281
+                },
+                {
+                  "date": "2026-02-09",
+                  "previous": 342.0548400878906,
+                  "current": 342.0548095703125
+                },
+                {
+                  "date": "2026-02-10",
+                  "previous": 338.573974609375,
+                  "current": 338.5740051269531
+                },
+                {
+                  "date": "2026-02-12",
+                  "previous": 329.35479736328125,
+                  "current": 329.3548278808594
+                },
+                {
+                  "date": "2026-02-13",
+                  "previous": 323.3877258300781,
+                  "current": 323.3876953125
+                },
+                {
+                  "date": "2026-02-17",
+                  "previous": 330.7173156738281,
+                  "current": 330.71728515625
+                },
+                {
+                  "date": "2026-02-18",
+                  "previous": 331.6820068359375,
+                  "current": 331.6819763183594
+                },
+                {
+                  "date": "2026-02-19",
+                  "previous": 332.1593322753906,
+                  "current": 332.1593017578125
+                },
+                {
+                  "date": "2026-02-25",
+                  "previous": 330.488525390625,
+                  "current": 330.4885559082031
+                },
+                {
+                  "date": "2026-03-04",
+                  "previous": 315.7895812988281,
+                  "current": 315.78955078125
+                },
+                {
+                  "date": "2026-03-05",
+                  "previous": 330.946044921875,
+                  "current": 330.9460144042969
+                },
+                {
+                  "date": "2026-03-06",
+                  "previous": 328.6685791015625,
+                  "current": 328.6686096191406
+                },
+                {
+                  "date": "2026-03-09",
+                  "previous": 343.8548889160156,
+                  "current": 343.85491943359375
+                },
+                {
+                  "date": "2026-03-12",
+                  "previous": 334.12847900390625,
+                  "current": 334.1285095214844
+                },
+                {
+                  "date": "2026-03-26",
+                  "previous": 308.36956787109375,
+                  "current": 308.3695373535156
+                },
+                {
+                  "date": "2026-03-27",
+                  "previous": 299.6591796875,
+                  "current": 299.6592102050781
+                },
+                {
+                  "date": "2026-03-31",
+                  "previous": 308.459228515625,
+                  "current": 308.4592590332031
+                },
+                {
+                  "date": "2026-04-01",
+                  "previous": 312.4256896972656,
+                  "current": 312.42572021484375
+                },
+                {
+                  "date": "2026-04-02",
+                  "previous": 313.4820861816406,
+                  "current": 313.48211669921875
+                },
+                {
+                  "date": "2026-04-07",
+                  "previous": 332.8362121582031,
+                  "current": 332.836181640625
+                },
+                {
+                  "date": "2026-04-09",
+                  "previous": 353.705078125,
+                  "current": 353.7051086425781
+                },
+                {
+                  "date": "2026-04-14",
+                  "previous": 379.4872741699219,
+                  "current": 379.48724365234375
+                },
+                {
+                  "date": "2026-04-17",
+                  "previous": 405.1598205566406,
+                  "current": 405.15985107421875
+                },
+                {
+                  "date": "2026-04-20",
+                  "previous": 398.2732849121094,
+                  "current": 398.27325439453125
+                },
+                {
+                  "date": "2026-04-21",
+                  "previous": 400.8046875,
+                  "current": 400.8046569824219
+                },
+                {
+                  "date": "2026-04-23",
+                  "previous": 418.5143127441406,
+                  "current": 418.51434326171875
+                },
+                {
+                  "date": "2026-05-12",
+                  "previous": 417.87646484375,
+                  "current": 417.8764953613281
+                },
+                {
+                  "date": "2026-05-26",
+                  "previous": 420.5773010253906,
+                  "current": 420.57733154296875
+                },
+                {
+                  "date": "2026-05-27",
+                  "previous": 420.42779541015625,
+                  "current": 420.4277648925781
+                },
+                {
+                  "date": "2026-06-02",
+                  "previous": 479.9350891113281,
+                  "current": 479.93511962890625
+                },
+                {
+                  "date": "2026-06-16",
+                  "previous": 375.43109130859375,
+                  "current": 375.4310607910156
+                }
+              ],
+              "dates": [
+                "2024-10-31",
+                "2024-11-05",
+                "2024-11-07",
+                "2024-11-08",
+                "2024-11-11",
+                "2024-11-12",
+                "2024-11-14",
+                "2024-11-19",
+                "2024-11-21",
+                "2024-11-26",
+                "2024-11-27",
+                "2024-11-29",
+                "2024-12-02",
+                "2024-12-03",
+                "2024-12-04",
+                "2024-12-05",
+                "2024-12-10",
+                "2024-12-11",
+                "2024-12-12",
+                "2024-12-13",
+                "2024-12-16",
+                "2024-12-17",
+                "2024-12-18",
+                "2024-12-20",
+                "2024-12-23",
+                "2024-12-24",
+                "2024-12-26",
+                "2024-12-27",
+                "2025-01-02",
+                "2025-01-06",
+                "2025-01-07",
+                "2025-01-08",
+                "2025-01-10",
+                "2025-01-13",
+                "2025-01-14",
+                "2025-01-15",
+                "2025-01-16",
+                "2025-01-21",
+                "2025-01-24",
+                "2025-01-27",
+                "2025-01-28",
+                "2025-01-30",
+                "2025-02-03",
+                "2025-02-04",
+                "2025-02-05",
+                "2025-02-06",
+                "2025-02-07",
+                "2025-02-10",
+                "2025-02-11",
+                "2025-02-12",
+                "2025-02-13",
+                "2025-02-14",
+                "2025-02-18",
+                "2025-02-19",
+                "2025-02-21",
+                "2025-02-27",
+                "2025-03-03",
+                "2025-03-07",
+                "2025-03-10",
+                "2025-03-11",
+                "2025-03-13",
+                "2025-03-18",
+                "2025-03-21",
+                "2025-03-25",
+                "2025-03-26",
+                "2025-03-31",
+                "2025-04-01",
+                "2025-04-02",
+                "2025-04-09",
+                "2025-04-10",
+                "2025-04-14",
+                "2025-04-21",
+                "2025-04-22",
+                "2025-04-23",
+                "2025-04-24",
+                "2025-04-28",
+                "2025-04-29",
+                "2025-04-30",
+                "2025-05-02",
+                "2025-05-05",
+                "2025-05-06",
+                "2025-05-07",
+                "2025-05-08",
+                "2025-05-12",
+                "2025-05-15",
+                "2025-05-19",
+                "2025-05-20",
+                "2025-05-21",
+                "2025-05-22",
+                "2025-05-23",
+                "2025-05-28",
+                "2025-06-02",
+                "2025-06-03",
+                "2025-06-04",
+                "2025-06-06",
+                "2025-06-09",
+                "2025-06-12",
+                "2025-06-13",
+                "2025-06-16",
+                "2025-06-23",
+                "2025-06-24",
+                "2025-06-25",
+                "2025-06-26",
+                "2025-06-27",
+                "2025-07-02",
+                "2025-07-03",
+                "2025-07-08",
+                "2025-07-10",
+                "2025-07-11",
+                "2025-07-14",
+                "2025-07-16",
+                "2025-07-17",
+                "2025-07-18",
+                "2025-07-24",
+                "2025-07-25",
+                "2025-08-01",
+                "2025-08-05",
+                "2025-08-07",
+                "2025-08-08",
+                "2025-08-11",
+                "2025-08-13",
+                "2025-08-14",
+                "2025-08-15",
+                "2025-08-18",
+                "2025-08-20",
+                "2025-08-21",
+                "2025-08-26",
+                "2025-08-27",
+                "2025-09-02",
+                "2025-09-04",
+                "2025-09-05",
+                "2025-09-08",
+                "2025-09-09",
+                "2025-09-12",
+                "2025-09-16",
+                "2025-09-17",
+                "2025-09-19",
+                "2025-09-24",
+                "2025-09-25",
+                "2025-09-30",
+                "2025-10-02",
+                "2025-10-03",
+                "2025-10-08",
+                "2025-10-14",
+                "2025-10-15",
+                "2025-10-20",
+                "2025-10-21",
+                "2025-10-22",
+                "2025-10-24",
+                "2025-10-28",
+                "2025-10-30",
+                "2025-11-06",
+                "2025-11-07",
+                "2025-11-12",
+                "2025-11-13",
+                "2025-11-17",
+                "2025-11-18",
+                "2025-11-19",
+                "2025-11-20",
+                "2025-11-21",
+                "2025-11-25",
+                "2025-11-26",
+                "2025-11-28",
+                "2025-12-01",
+                "2025-12-02",
+                "2025-12-08",
+                "2025-12-12",
+                "2025-12-15",
+                "2025-12-18",
+                "2025-12-19",
+                "2025-12-22",
+                "2025-12-23",
+                "2025-12-24",
+                "2025-12-30",
+                "2025-12-31",
+                "2026-01-02",
+                "2026-01-05",
+                "2026-01-06",
+                "2026-01-09",
+                "2026-01-13",
+                "2026-01-14",
+                "2026-01-20",
+                "2026-01-21",
+                "2026-01-23",
+                "2026-01-28",
+                "2026-01-30",
+                "2026-02-04",
+                "2026-02-06",
+                "2026-02-09",
+                "2026-02-10",
+                "2026-02-12",
+                "2026-02-13",
+                "2026-02-17",
+                "2026-02-18",
+                "2026-02-19",
+                "2026-02-25",
+                "2026-03-04",
+                "2026-03-05",
+                "2026-03-06",
+                "2026-03-09",
+                "2026-03-12",
+                "2026-03-26",
+                "2026-03-27",
+                "2026-03-31",
+                "2026-04-01",
+                "2026-04-02",
+                "2026-04-07",
+                "2026-04-09",
+                "2026-04-14",
+                "2026-04-17",
+                "2026-04-20",
+                "2026-04-21",
+                "2026-04-23",
+                "2026-05-12",
+                "2026-05-26",
+                "2026-05-27",
+                "2026-06-02",
+                "2026-06-16"
+              ],
+              "max_absolute_difference": 9.1552734375e-05,
+              "max_relative_difference": 3.1839366576580375e-07,
+              "requires_review": true,
+              "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+              "impact_at_current_target": {
+                "changed": {
+                  "adjclose": false,
+                  "highest_adjclose": true,
+                  "highest_date": false,
+                  "drawdown": true,
+                  "rsi14": true,
+                  "sma50": false,
+                  "sma200": true,
+                  "watch_tier": false
+                },
+                "deltas": {
+                  "adjclose": 0.0,
+                  "highest_adjclose": 3.0517578125e-05,
+                  "drawdown": -4.570925327129771e-08,
+                  "rsi14": 1.5551435694760585e-09,
+                  "sma50": 0.0,
+                  "sma200": 1.2207031545585778e-06
+                }
+              },
+              "impact_on_previous_session": {
+                "changed": {
+                  "adjclose": false,
+                  "highest_adjclose": true,
+                  "highest_date": false,
+                  "drawdown": true,
+                  "rsi14": true,
+                  "sma50": false,
+                  "sma200": true,
+                  "watch_tier": false
+                },
+                "deltas": {
+                  "adjclose": 0.0,
+                  "highest_adjclose": 3.0517578125e-05,
+                  "drawdown": -4.570925327129771e-08,
+                  "rsi14": 1.5551435694760585e-09,
+                  "sma50": 0.0,
+                  "sma200": 1.2207031545585778e-06
+                }
+              }
+            },
+            "previous_valid_stock": {
+              "symbol": "AVGO",
+              "close": 345.0,
+              "trading_date": "2026-10-29",
+              "adjclose": 345.0,
+              "window_samples": 252,
+              "highest_adjclose": 479.9350891113281,
+              "highest_date": "2026-06-02",
+              "drawdown": -0.281152789559898,
+              "rsi14": 49.10487430542658,
+              "sma50": 353.29072143554686,
+              "sma200": 366.6975959777832,
+              "rsi_warmup_prices": 501,
+              "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+              "indicator_status": {
+                "drawdown": "VALID",
+                "rsi14": "VALID",
+                "sma50": "VALID",
+                "sma200": "VALID"
+              },
+              "revision_observation": {
+                "detected": false,
+                "classification": "NO_REVISION",
+                "count": 0,
+                "raw_differences": [],
+                "dates": [],
+                "max_absolute_difference": 0.0,
+                "max_relative_difference": 0.0,
+                "requires_review": false,
+                "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+                "impact_at_current_target": {
+                  "changed": {
+                    "adjclose": false,
+                    "highest_adjclose": false,
+                    "highest_date": false,
+                    "drawdown": false,
+                    "rsi14": false,
+                    "sma50": false,
+                    "sma200": false,
+                    "watch_tier": false
+                  },
+                  "deltas": {
+                    "adjclose": 0.0,
+                    "highest_adjclose": 0.0,
+                    "drawdown": 0.0,
+                    "rsi14": 0.0,
+                    "sma50": 0.0,
+                    "sma200": 0.0
+                  }
+                },
+                "impact_on_previous_session": {
+                  "changed": {
+                    "adjclose": false,
+                    "highest_adjclose": false,
+                    "highest_date": false,
+                    "drawdown": false,
+                    "rsi14": false,
+                    "sma50": false,
+                    "sma200": false,
+                    "watch_tier": false
+                  },
+                  "deltas": {
+                    "adjclose": 0.0,
+                    "highest_adjclose": 0.0,
+                    "drawdown": 0.0,
+                    "rsi14": 0.0,
+                    "sma50": 0.0,
+                    "sma200": 0.0
+                  }
+                }
+              },
+              "market_observation": {
+                "previous_trading_date": "2026-10-29",
+                "current_trading_date": "2026-10-29",
+                "previous_adjclose": 345.0,
+                "current_adjclose": 345.0,
+                "previous_drawdown": -0.281152789559898,
+                "current_drawdown": -0.281152789559898,
+                "previous_watch_tier": "WATCH_20",
+                "current_watch_tier": "WATCH_20",
+                "candidate_thresholds": [],
+                "crossed_thresholds": [],
+                "confirmed_thresholds_this_run": [],
+                "pending_thresholds_this_run": [],
+                "comparability_proven": true,
+                "comparability_reasons": [],
+                "event_type": "NO_CHANGE",
+                "status": "NO_EVENT",
+                "can_confirm": false,
+                "old_basis_counterfactual": {
+                  "trading_date": "2026-10-29",
+                  "adjclose": 345.0,
+                  "window_samples": 252,
+                  "highest_adjclose": 479.9350891113281,
+                  "highest_date": "2026-06-02",
+                  "drawdown": -0.281152789559898,
+                  "rsi14": 49.10487430542658,
+                  "sma50": 353.29072143554686,
+                  "sma200": 366.6975959777832,
+                  "conditional_only_until_comparability_proven": true
+                },
+                "previous_recomputed_metrics": {
+                  "trading_date": "2026-10-29",
+                  "adjclose": 345.0,
+                  "window_samples": 252,
+                  "highest_adjclose": 479.9350891113281,
+                  "highest_date": "2026-06-02",
+                  "drawdown": -0.281152789559898,
+                  "rsi14": 49.10487430542658,
+                  "sma50": 353.29072143554686,
+                  "sma200": 366.6975959777832
+                },
+                "adjustment_factor_evidence": {
+                  "previous_anchor_factor": 1.0,
+                  "current_factor": 1.0
+                },
+                "window_high_expired_naturally": false,
+                "unrevised_basis_event": "NO_CHANGE",
+                "revised_basis_event": "NO_CHANGE",
+                "significant_deepening": false,
+                "recovery": false,
+                "reentry": false
+              },
+              "threshold_state": {
+                "observed": [
+                  10,
+                  20
+                ],
+                "confirmed": [],
+                "baseline": [
+                  10,
+                  20
+                ],
+                "pending_event_ids": [
+                  "2bceec4be4c282ecebc981e6c253f6087b4759562045094632a15985403b3aa3",
+                  "5096cf6711b698926c9f3812586ac9a46fa4d75eac18b12951da3208f73db8b7"
+                ]
+              },
+              "market_events": [],
+              "change_event": "NO_CHANGE",
+              "watch_tier": "WATCH_20",
+              "previous_watch_tier": "WATCH_20",
+              "crossed_thresholds_this_run": [],
+              "new_thresholds": [],
+              "reentered_thresholds": [],
+              "triggered_thresholds": [],
+              "confirmed_thresholds": [],
+              "baseline_observed_thresholds": [
+                10,
+                20
+              ],
+              "last_new_trigger_date": null,
+              "deepening_anchor": -0.281152789559898,
+              "raw_revision_differences": [],
+              "data_quality": "PASS",
+              "warnings": [
+                "YAHOO_ONLY: history is not independently price-verified",
+                "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"
+              ],
+              "historical_anomaly": null,
+              "historical_revision_count": 0,
+              "historical_revision_examples": [],
+              "excluded_incomplete_dates": [],
+              "source_as_of_utc": "2026-10-30T04:17:14.771783+00:00",
+              "source": "YAHOO_CHART_ADJCLOSE",
+              "rules_version": "adjclose-wilder14-sma-252-v1",
+              "event_model_version": "revision-market-v2",
+              "independently_price_verified": false,
+              "history_prices": {
+                "2024-10-30": 173.63336181640625,
+                "2024-10-31": 166.8802947998047,
+                "2024-11-01": 166.04476928710938,
+                "2024-11-04": 165.6810760498047,
+                "2024-11-05": 170.94000244140625,
+                "2024-11-06": 176.4938507080078,
+                "2024-11-07": 180.68130493164062,
+                "2024-11-08": 180.51422119140625,
+                "2024-11-11": 175.86473083496094,
+                "2024-11-12": 173.2205047607422,
+                "2024-11-13": 170.62545776367188,
+                "2024-11-14": 167.4799041748047,
+                "2024-11-15": 162.0342254638672,
+                "2024-11-18": 162.85008239746094,
+                "2024-11-19": 162.5355224609375,
+                "2024-11-20": 160.47128295898438,
+                "2024-11-21": 161.14952087402344,
+                "2024-11-22": 161.4346160888672,
+                "2024-11-25": 162.01455688476562,
+                "2024-11-26": 161.93592834472656,
+                "2024-11-27": 156.95220947265625,
+                "2024-11-29": 159.32118225097656,
+                "2024-12-02": 163.67578125,
+                "2024-12-03": 165.28785705566406,
+                "2024-12-04": 167.6568603515625,
+                "2024-12-05": 167.56838989257812,
+                "2024-12-06": 176.4741668701172,
+                "2024-12-09": 175.8942413330078,
+                "2024-12-10": 168.8855743408203,
+                "2024-12-11": 180.08169555664062,
+                "2024-12-12": 177.58493041992188,
+                "2024-12-13": 220.9736328125,
+                "2024-12-16": 245.74468994140625,
+                "2024-12-17": 236.14097595214844,
+                "2024-12-18": 219.81370544433594,
+                "2024-12-19": 214.60391235351562,
+                "2024-12-20": 217.0318603515625,
+                "2024-12-23": 229.007080078125,
+                "2024-12-24": 236.23158264160156,
+                "2024-12-26": 241.82989501953125,
+                "2024-12-27": 238.27183532714844,
+                "2024-12-30": 232.1905975341797,
+                "2024-12-31": 228.50439453125,
+                "2025-01-02": 228.64239501953125,
+                "2025-01-03": 229.2041778564453,
+                "2025-01-06": 233.00865173339844,
+                "2025-01-07": 225.35044860839844,
+                "2025-01-08": 226.01080322265625,
+                "2025-01-10": 221.08274841308594,
+                "2025-01-13": 222.0486297607422,
+                "2025-01-14": 221.46714782714844,
+                "2025-01-15": 224.7196502685547,
+                "2025-01-16": 226.109375,
+                "2025-01-17": 234.02383422851562,
+                "2025-01-21": 236.85255432128906,
+                "2025-01-22": 237.44390869140625,
+                "2025-01-23": 236.82296752929688,
+                "2025-01-24": 241.1793670654297,
+                "2025-01-27": 199.2218780517578,
+                "2025-01-28": 204.37661743164062,
+                "2025-01-29": 203.3811492919922,
+                "2025-01-30": 212.55718994140625,
+                "2025-01-31": 218.08648681640625,
+                "2025-02-03": 214.59738159179688,
+                "2025-02-04": 219.2297821044922,
+                "2025-02-05": 228.66209411621094,
+                "2025-02-06": 228.03131103515625,
+                "2025-02-07": 221.63467407226562,
+                "2025-02-10": 231.65835571289062,
+                "2025-02-11": 231.65835571289062,
+                "2025-02-12": 232.9495391845703,
+                "2025-02-13": 232.4074249267578,
+                "2025-02-14": 229.68711853027344,
+                "2025-02-18": 225.24200439453125,
+                "2025-02-19": 225.43914794921875,
+                "2025-02-20": 223.477783203125,
+                "2025-02-21": 215.51402282714844,
+                "2025-02-24": 204.9384002685547,
+                "2025-02-25": 199.62594604492188,
+                "2025-02-26": 209.87632751464844,
+                "2025-02-27": 194.95416259765625,
+                "2025-02-28": 196.56069946289062,
+                "2025-03-03": 184.67420959472656,
+                "2025-03-04": 184.78262329101562,
+                "2025-03-05": 188.82363891601562,
+                "2025-03-06": 176.8681640625,
+                "2025-03-07": 192.15501403808594,
+                "2025-03-10": 181.79624938964844,
+                "2025-03-11": 187.35508728027344,
+                "2025-03-12": 191.43551635742188,
+                "2025-03-13": 188.60678100585938,
+                "2025-03-14": 192.72665405273438,
+                "2025-03-17": 191.70162963867188,
+                "2025-03-18": 185.9554901123047,
+                "2025-03-19": 192.75624084472656,
+                "2025-03-20": 188.3668670654297,
+                "2025-03-21": 189.47409057617188,
+                "2025-03-24": 189.0687713623047,
+                "2025-03-25": 186.11288452148438,
+                "2025-03-26": 177.2254180908203,
+                "2025-03-27": 170.0284423828125,
+                "2025-03-28": 167.19117736816406,
+                "2025-03-31": 165.5204315185547,
+                "2025-04-01": 166.59800720214844,
+                "2025-04-02": 170.12730407714844,
+                "2025-04-03": 152.2534942626953,
+                "2025-04-04": 144.6215362548828,
+                "2025-04-07": 152.3820343017578,
+                "2025-04-08": 154.25047302246094,
+                "2025-04-09": 183.03836059570312,
+                "2025-04-10": 170.33489990234375,
+                "2025-04-11": 179.86495971679688,
+                "2025-04-14": 176.32579040527344,
+                "2025-04-15": 176.9090576171875,
+                "2025-04-16": 172.6185760498047,
+                "2025-04-17": 169.0398406982422,
+                "2025-04-21": 164.3143768310547,
+                "2025-04-22": 167.64590454101562,
+                "2025-04-23": 174.89234924316406,
+                "2025-04-24": 186.00411987304688,
+                "2025-04-25": 190.11668395996094,
+                "2025-04-28": 190.27487182617188,
+                "2025-04-29": 188.98968505859375,
+                "2025-04-30": 190.27487182617188,
+                "2025-05-01": 195.07945251464844,
+                "2025-05-02": 201.31747436523438,
+                "2025-05-05": 198.43077087402344,
+                "2025-05-06": 197.8079376220703,
+                "2025-05-07": 202.47413635253906,
+                "2025-05-08": 205.4003448486328,
+                "2025-05-09": 205.82545471191406,
+                "2025-05-12": 219.0528564453125,
+                "2025-05-13": 229.76922607421875,
+                "2025-05-14": 229.47265625,
+                "2025-05-15": 229.98672485351562,
+                "2025-05-16": 226.002685546875,
+                "2025-05-19": 227.99964904785156,
+                "2025-05-20": 229.0376739501953,
+                "2025-05-21": 227.10992431640625,
+                "2025-05-22": 227.9008026123047,
+                "2025-05-23": 226.11141967773438,
+                "2025-05-27": 232.96240234375,
+                "2025-05-28": 236.6992645263672,
+                "2025-05-29": 239.21031188964844,
+                "2025-05-30": 239.30918884277344,
+                "2025-06-02": 245.87342834472656,
+                "2025-06-03": 253.92062377929688,
+                "2025-06-04": 258.1023254394531,
+                "2025-06-05": 256.9654541015625,
+                "2025-06-06": 244.11375427246094,
+                "2025-06-09": 241.49398803710938,
+                "2025-06-10": 241.83998107910156,
+                "2025-06-11": 250.02554321289062,
+                "2025-06-12": 253.1494903564453,
+                "2025-06-13": 245.86354064941406,
+                "2025-06-16": 249.22479248046875,
+                "2025-06-17": 246.52590942382812,
+                "2025-06-18": 248.39434814453125,
+                "2025-06-20": 247.72055053710938,
+                "2025-06-23": 251.46621704101562,
+                "2025-06-24": 261.3754577636719,
+                "2025-06-25": 262.2474365234375,
+                "2025-06-26": 267.71734619140625,
+                "2025-06-27": 266.9048156738281,
+                "2025-06-30": 273.1475524902344,
+                "2025-07-01": 262.33660888671875,
+                "2025-07-02": 267.44976806640625,
+                "2025-07-03": 272.68182373046875,
+                "2025-07-07": 271.69091796875,
+                "2025-07-08": 269.3324890136719,
+                "2025-07-09": 275.377197265625,
+                "2025-07-10": 272.89984130859375,
+                "2025-07-11": 271.88909912109375,
+                "2025-07-14": 273.0980224609375,
+                "2025-07-15": 278.3895568847656,
+                "2025-07-16": 278.2607421875,
+                "2025-07-17": 283.8495178222656,
+                "2025-07-18": 280.76776123046875,
+                "2025-07-21": 285.59356689453125,
+                "2025-07-22": 276.0608825683594,
+                "2025-07-23": 281.1145935058594,
+                "2025-07-24": 286.0890197753906,
+                "2025-07-25": 287.54571533203125,
+                "2025-07-28": 291.6282653808594,
+                "2025-07-29": 294.719970703125,
+                "2025-07-30": 299.87274169921875,
+                "2025-07-31": 291.0337219238281,
+                "2025-08-01": 286.0196838378906,
+                "2025-08-04": 295.0172119140625,
+                "2025-08-05": 290.27069091796875,
+                "2025-08-06": 298.931396484375,
+                "2025-08-07": 301.0024108886719,
+                "2025-08-08": 302.2014465332031,
+                "2025-08-11": 301.1411437988281,
+                "2025-08-12": 309.99005126953125,
+                "2025-08-13": 306.2840270996094,
+                "2025-08-14": 308.4045715332031,
+                "2025-08-15": 303.5589904785156,
+                "2025-08-18": 302.9842834472656,
+                "2025-08-19": 292.2327575683594,
+                "2025-08-20": 288.5267333984375,
+                "2025-08-21": 286.9709167480469,
+                "2025-08-22": 291.3310241699219,
+                "2025-08-25": 291.5589294433594,
+                "2025-08-26": 295.3045959472656,
+                "2025-08-27": 297.5242919921875,
+                "2025-08-28": 305.8479919433594,
+                "2025-08-29": 294.69024658203125,
+                "2025-09-02": 295.53253173828125,
+                "2025-09-03": 299.6448669433594,
+                "2025-09-04": 303.3211364746094,
+                "2025-09-05": 331.84979248046875,
+                "2025-09-08": 342.5121154785156,
+                "2025-09-09": 333.6136474609375,
+                "2025-09-10": 366.2149658203125,
+                "2025-09-11": 356.3652038574219,
+                "2025-09-12": 356.60302734375,
+                "2025-09-15": 360.7846984863281,
+                "2025-09-16": 356.7318115234375,
+                "2025-09-17": 343.02740478515625,
+                "2025-09-18": 342.21484375,
+                "2025-09-19": 341.80853271484375,
+                "2025-09-22": 336.28961181640625,
+                "2025-09-23": 336.4384765625,
+                "2025-09-24": 336.8057556152344,
+                "2025-09-25": 333.6194152832031,
+                "2025-09-26": 332.06103515625,
+                "2025-09-29": 325.4799499511719,
+                "2025-09-30": 327.47515869140625,
+                "2025-10-01": 330.9294738769531,
+                "2025-10-02": 335.6840515136719,
+                "2025-10-03": 335.8726501464844,
+                "2025-10-06": 333.013916015625,
+                "2025-10-07": 333.9271545410156,
+                "2025-10-08": 342.9500427246094,
+                "2025-10-09": 342.4736022949219,
+                "2025-10-10": 322.2341003417969,
+                "2025-10-13": 354.0674133300781,
+                "2025-10-14": 341.5902099609375,
+                "2025-10-15": 348.7370300292969,
+                "2025-10-16": 351.5362243652344,
+                "2025-10-17": 346.75177001953125,
+                "2025-10-20": 346.6624755859375,
+                "2025-10-21": 340.1310119628906,
+                "2025-10-22": 337.7884216308594,
+                "2025-10-23": 341.7489929199219,
+                "2025-10-24": 351.516357421875,
+                "2025-10-27": 359.3778991699219,
+                "2025-10-28": 370.2173156738281,
+                "2025-10-29": 383.1313171386719,
+                "2025-10-30": 373.6914978027344,
+                "2025-10-31": 366.9019775390625,
+                "2025-11-03": 359.87420654296875,
+                "2025-11-04": 349.342529296875,
+                "2025-11-05": 356.3305969238281,
+                "2025-11-06": 352.9656066894531,
+                "2025-11-07": 346.85107421875,
+                "2025-11-10": 355.7449645996094,
+                "2025-11-11": 349.3623962402344,
+                "2025-11-12": 352.59832763671875,
+                "2025-11-13": 337.4707946777344,
+                "2025-11-14": 339.9324951171875,
+                "2025-11-17": 340.1211242675781,
+                "2025-11-18": 337.9869689941406,
+                "2025-11-19": 351.80426025390625,
+                "2025-11-20": 344.2603454589844,
+                "2025-11-21": 337.6891784667969,
+                "2025-11-24": 375.17047119140625,
+                "2025-11-25": 382.1883239746094,
+                "2025-11-26": 394.63580322265625,
+                "2025-11-28": 399.9859619140625,
+                "2025-12-01": 383.2305603027344,
+                "2025-12-02": 378.75384521484375,
+                "2025-12-03": 377.8009338378906,
+                "2025-12-04": 378.21783447265625,
+                "2025-12-05": 387.35986328125,
+                "2025-12-08": 398.1397399902344,
+                "2025-12-09": 403.2914123535156,
+                "2025-12-10": 409.9220886230469,
+                "2025-12-11": 403.3708190917969,
+                "2025-12-12": 357.2735290527344,
+                "2025-12-15": 337.3020324707031,
+                "2025-12-16": 338.7810363769531,
+                "2025-12-17": 323.6138000488281,
+                "2025-12-18": 327.44537353515625,
+                "2025-12-19": 337.8479919433594,
+                "2025-12-22": 339.5784606933594,
+                "2025-12-23": 347.4053039550781,
+                "2025-12-24": 348.3004150390625,
+                "2025-12-26": 350.1999206542969,
+                "2025-12-29": 347.4749755859375,
+                "2025-12-30": 347.93243408203125,
+                "2025-12-31": 344.2029724121094,
+                "2026-01-02": 345.71466064453125,
+                "2026-01-05": 341.53765869140625,
+                "2026-01-06": 341.8857116699219,
+                "2026-01-07": 341.6172180175781,
+                "2026-01-08": 330.6576232910156,
+                "2026-01-09": 343.0791320800781,
+                "2026-01-12": 350.27947998046875,
+                "2026-01-13": 352.6662902832031,
+                "2026-01-14": 338.0270080566406,
+                "2026-01-15": 341.1398620605469,
+                "2026-01-16": 349.7822265625,
+                "2026-01-20": 330.7769470214844,
+                "2026-01-21": 326.99774169921875,
+                "2026-01-22": 323.7059326171875,
+                "2026-01-23": 318.2957458496094,
+                "2026-01-26": 323.0694580078125,
+                "2026-01-27": 330.9659423828125,
+                "2026-01-28": 331.4134216308594,
+                "2026-01-29": 328.917236328125,
+                "2026-01-30": 329.4841003417969,
+                "2026-02-02": 329.29510498046875,
+                "2026-02-03": 318.5741882324219,
+                "2026-02-04": 306.36151123046875,
+                "2026-02-05": 308.8080749511719,
+                "2026-02-06": 331.09521484375,
+                "2026-02-09": 342.0548400878906,
+                "2026-02-10": 338.573974609375,
+                "2026-02-11": 340.88128662109375,
+                "2026-02-12": 329.35479736328125,
+                "2026-02-13": 323.3877258300781,
+                "2026-02-17": 330.7173156738281,
+                "2026-02-18": 331.6820068359375,
+                "2026-02-19": 332.1593322753906,
+                "2026-02-20": 330.8266906738281,
+                "2026-02-23": 328.52935791015625,
+                "2026-02-24": 323.7059326171875,
+                "2026-02-25": 330.488525390625,
+                "2026-02-26": 319.93670654296875,
+                "2026-02-27": 317.7984924316406,
+                "2026-03-02": 317.072509765625,
+                "2026-03-03": 312.11981201171875,
+                "2026-03-04": 315.7895812988281,
+                "2026-03-05": 330.946044921875,
+                "2026-03-06": 328.6685791015625,
+                "2026-03-09": 343.8548889160156,
+                "2026-03-10": 340.7022705078125,
+                "2026-03-11": 339.69781494140625,
+                "2026-03-12": 334.12847900390625,
+                "2026-03-13": 320.3941955566406,
+                "2026-03-16": 323.13909912109375,
+                "2026-03-17": 319.5488586425781,
+                "2026-03-18": 314.1983337402344,
+                "2026-03-19": 318.0869140625,
+                "2026-03-20": 308.8080749511719,
+                "2026-03-23": 321.41510009765625,
+                "2026-03-24": 317.20941162109375,
+                "2026-03-25": 317.7276611328125,
+                "2026-03-26": 308.36956787109375,
+                "2026-03-27": 299.6591796875,
+                "2026-03-30": 292.41387939453125,
+                "2026-03-31": 308.459228515625,
+                "2026-04-01": 312.4256896972656,
+                "2026-04-02": 313.4820861816406,
+                "2026-04-06": 313.3625183105469,
+                "2026-04-07": 332.8362121582031,
+                "2026-04-08": 349.43963623046875,
+                "2026-04-09": 353.705078125,
+                "2026-04-10": 370.28857421875,
+                "2026-04-13": 378.4607849121094,
+                "2026-04-14": 379.4872741699219,
+                "2026-04-15": 395.3731384277344,
+                "2026-04-16": 397.1172180175781,
+                "2026-04-17": 405.1598205566406,
+                "2026-04-20": 398.2732849121094,
+                "2026-04-21": 400.8046875,
+                "2026-04-22": 421.2151184082031,
+                "2026-04-23": 418.5143127441406,
+                "2026-04-24": 421.32476806640625,
+                "2026-04-27": 416.7802429199219,
+                "2026-04-28": 398.47259521484375,
+                "2026-04-29": 404.0735168457031,
+                "2026-04-30": 416.0128479003906,
+                "2026-05-01": 419.8497619628906,
+                "2026-05-04": 415.08599853515625,
+                "2026-05-05": 425.90911865234375,
+                "2026-05-06": 423.99566650390625,
+                "2026-05-07": 411.1593933105469,
+                "2026-05-08": 428.5401611328125,
+                "2026-05-11": 426.9754943847656,
+                "2026-05-12": 417.87646484375,
+                "2026-05-13": 415.3750305175781,
+                "2026-05-14": 438.29693603515625,
+                "2026-05-15": 423.7464904785156,
+                "2026-05-18": 419.2817077636719,
+                "2026-05-19": 409.6744384765625,
+                "2026-05-20": 416.34173583984375,
+                "2026-05-21": 413.1625671386719,
+                "2026-05-22": 412.7340393066406,
+                "2026-05-26": 420.5773010253906,
+                "2026-05-27": 420.42779541015625,
+                "2026-05-28": 425.13177490234375,
+                "2026-05-29": 445.25323486328125,
+                "2026-06-01": 458.4084167480469,
+                "2026-06-02": 479.9350891113281,
+                "2026-06-03": 477.6030578613281,
+                "2026-06-04": 417.4878234863281,
+                "2026-06-05": 384.42047119140625,
+                "2026-06-08": 395.2535705566406,
+                "2026-06-09": 390.8286437988281,
+                "2026-06-10": 370.8367614746094,
+                "2026-06-11": 384.2610168457031,
+                "2026-06-12": 380.7729187011719,
+                "2026-06-15": 392.60260009765625,
+                "2026-06-16": 375.43109130859375,
+                "2026-06-17": 391.5661315917969,
+                "2026-06-18": 409.9534912109375,
+                "2026-06-22": 391.4172668457031,
+                "2026-06-23": 379.4590148925781,
+                "2026-06-24": 381.37554931640625,
+                "2026-06-25": 378.2212829589844,
+                "2026-06-26": 364.35650634765625,
+                "2026-06-29": 371.7730407714844,
+                "2026-06-30": 377.0633850097656,
+                "2026-07-01": 368.6686706542969,
+                "2026-07-02": 359.7948303222656,
+                "2026-07-06": 373.2203674316406,
+                "2026-07-07": 370.1060485839844,
+                "2026-07-08": 387.9834899902344,
+                "2026-07-09": 400.38092041015625,
+                "2026-07-10": 399.2430114746094,
+                "2026-07-13": 383.3519287109375,
+                "2026-07-14": 388.4027099609375,
+                "2026-07-15": 393.5633239746094,
+                "2026-07-16": 373.7694091796875,
+                "2026-07-17": 370.15594482421875,
+                "2026-07-20": 377.47265625,
+                "2026-07-21": 385.7974853515625,
+                "2026-07-22": 396.0887451171875,
+                "2026-07-23": 391.7566223144531,
+                "2026-07-24": 381.225830078125,
+                "2026-07-27": 382.5234375,
+                "2026-07-28": 380.2176513671875,
+                "2026-07-29": 369.64691162109375,
+                "2026-07-30": 387.1350402832031,
+                "2026-07-31": 388.5724182128906,
+                "2026-08-03": 391.51708984375,
+                "2026-08-04": 417.3999328613281,
+                "2026-08-05": 417.51971435546875,
+                "2026-08-06": 419.8055725097656,
+                "2026-08-07": 426.98248291015625,
+                "2026-08-10": 421.6322326660156,
+                "2026-08-11": 415.3236999511719,
+                "2026-08-12": 415.29376220703125,
+                "2026-08-13": 417.060546875,
+                "2026-08-14": 392.2756652832031,
+                "2026-08-17": 391.7167053222656,
+                "2026-08-18": 379.3092956542969,
+                "2026-08-19": 361.8211364746094,
+                "2026-08-20": 363.3683166503906,
+                "2026-08-21": 367.7803039550781,
+                "2026-08-24": 358.10791015625,
+                "2026-08-25": 356.091552734375,
+                "2026-08-26": 354.94366455078125,
+                "2026-08-27": 370.86468505859375,
+                "2026-08-28": 368.11968994140625,
+                "2026-08-31": 369.6668395996094,
+                "2026-09-01": 369.008056640625,
+                "2026-09-02": 366.5724792480469,
+                "2026-09-03": 356.51080322265625,
+                "2026-09-04": 357.24945068359375,
+                "2026-09-08": 367.89007568359375,
+                "2026-09-09": 363.7176818847656,
+                "2026-09-10": 360.17413330078125,
+                "2026-09-11": 361.33203125,
+                "2026-09-14": 344.0934143066406,
+                "2026-09-15": 338.6533203125,
+                "2026-09-16": 338.8929138183594,
+                "2026-09-17": 346.6687316894531,
+                "2026-09-18": 356.9599914550781,
+                "2026-09-21": 362.6600036621094,
+                "2026-09-22": 364.5400085449219,
+                "2026-09-23": 354.989990234375,
+                "2026-09-24": 350.3599853515625,
+                "2026-09-25": 352.80999755859375,
+                "2026-09-28": 349.57000732421875,
+                "2026-09-29": 355.1000061035156,
+                "2026-09-30": 351.19000244140625,
+                "2026-10-01": 343.6400146484375,
+                "2026-10-02": 355.1400146484375,
+                "2026-10-05": 362.510009765625,
+                "2026-10-06": 375.80999755859375,
+                "2026-10-07": 376.510009765625,
+                "2026-10-08": 360.1400146484375,
+                "2026-10-09": 361.5400085449219,
+                "2026-10-12": 354.7300109863281,
+                "2026-10-13": 357.30999755859375,
+                "2026-10-14": 346.25,
+                "2026-10-15": 344.3299865722656,
+                "2026-10-16": 328.75,
+                "2026-10-19": 334.5899963378906,
+                "2026-10-20": 334.3699951171875,
+                "2026-10-21": 337.79998779296875,
+                "2026-10-22": 323.239990234375,
+                "2026-10-23": 321.67999267578125,
+                "2026-10-26": 329.1700134277344,
+                "2026-10-27": 342.3299865722656,
+                "2026-10-28": 351.80999755859375,
+                "2026-10-29": 345.0
+              },
+              "history_closes": {
+                "2024-10-30": 176.63999938964844,
+                "2024-10-31": 169.77000427246094,
+                "2024-11-01": 168.9199981689453,
+                "2024-11-04": 168.5500030517578,
+                "2024-11-05": 173.89999389648438,
+                "2024-11-06": 179.5500030517578,
+                "2024-11-07": 183.80999755859375,
+                "2024-11-08": 183.63999938964844,
+                "2024-11-11": 178.91000366210938,
+                "2024-11-12": 176.22000122070312,
+                "2024-11-13": 173.5800018310547,
+                "2024-11-14": 170.3800048828125,
+                "2024-11-15": 164.83999633789062,
+                "2024-11-18": 165.6699981689453,
+                "2024-11-19": 165.35000610351562,
+                "2024-11-20": 163.25,
+                "2024-11-21": 163.94000244140625,
+                "2024-11-22": 164.22999572753906,
+                "2024-11-25": 164.82000732421875,
+                "2024-11-26": 164.74000549316406,
+                "2024-11-27": 159.6699981689453,
+                "2024-11-29": 162.0800018310547,
+                "2024-12-02": 166.50999450683594,
+                "2024-12-03": 168.14999389648438,
+                "2024-12-04": 170.55999755859375,
+                "2024-12-05": 170.47000122070312,
+                "2024-12-06": 179.52999877929688,
+                "2024-12-09": 178.94000244140625,
+                "2024-12-10": 171.80999755859375,
+                "2024-12-11": 183.1999969482422,
+                "2024-12-12": 180.66000366210938,
+                "2024-12-13": 224.8000030517578,
+                "2024-12-16": 250.0,
+                "2024-12-17": 240.22999572753906,
+                "2024-12-18": 223.6199951171875,
+                "2024-12-19": 218.32000732421875,
+                "2024-12-20": 220.7899932861328,
+                "2024-12-23": 232.35000610351562,
+                "2024-12-24": 239.67999267578125,
+                "2024-12-26": 245.36000061035156,
+                "2024-12-27": 241.75,
+                "2024-12-30": 235.5800018310547,
+                "2024-12-31": 231.83999633789062,
+                "2025-01-02": 231.97999572753906,
+                "2025-01-03": 232.5500030517578,
+                "2025-01-06": 236.41000366210938,
+                "2025-01-07": 228.63999938964844,
+                "2025-01-08": 229.30999755859375,
+                "2025-01-10": 224.30999755859375,
+                "2025-01-13": 225.2899932861328,
+                "2025-01-14": 224.6999969482422,
+                "2025-01-15": 228.0,
+                "2025-01-16": 229.41000366210938,
+                "2025-01-17": 237.44000244140625,
+                "2025-01-21": 240.30999755859375,
+                "2025-01-22": 240.91000366210938,
+                "2025-01-23": 240.27999877929688,
+                "2025-01-24": 244.6999969482422,
+                "2025-01-27": 202.1300048828125,
+                "2025-01-28": 207.36000061035156,
+                "2025-01-29": 206.35000610351562,
+                "2025-01-30": 215.66000366210938,
+                "2025-01-31": 221.27000427246094,
+                "2025-02-03": 217.72999572753906,
+                "2025-02-04": 222.42999267578125,
+                "2025-02-05": 232.0,
+                "2025-02-06": 231.36000061035156,
+                "2025-02-07": 224.8699951171875,
+                "2025-02-10": 235.0399932861328,
+                "2025-02-11": 235.0399932861328,
+                "2025-02-12": 236.35000610351562,
+                "2025-02-13": 235.8000030517578,
+                "2025-02-14": 233.0399932861328,
+                "2025-02-18": 228.52999877929688,
+                "2025-02-19": 228.72999572753906,
+                "2025-02-20": 226.74000549316406,
+                "2025-02-21": 218.66000366210938,
+                "2025-02-24": 207.92999267578125,
+                "2025-02-25": 202.5399932861328,
+                "2025-02-26": 212.94000244140625,
+                "2025-02-27": 197.8000030517578,
+                "2025-02-28": 199.42999267578125,
+                "2025-03-03": 187.3699951171875,
+                "2025-03-04": 187.47999572753906,
+                "2025-03-05": 191.5800018310547,
+                "2025-03-06": 179.4499969482422,
+                "2025-03-07": 194.9600067138672,
+                "2025-03-10": 184.4499969482422,
+                "2025-03-11": 190.08999633789062,
+                "2025-03-12": 194.22999572753906,
+                "2025-03-13": 191.36000061035156,
+                "2025-03-14": 195.5399932861328,
+                "2025-03-17": 194.5,
+                "2025-03-18": 188.6699981689453,
+                "2025-03-19": 195.57000732421875,
+                "2025-03-20": 190.5399932861328,
+                "2025-03-21": 191.66000366210938,
+                "2025-03-24": 191.25,
+                "2025-03-25": 188.25999450683594,
+                "2025-03-26": 179.27000427246094,
+                "2025-03-27": 171.99000549316406,
+                "2025-03-28": 169.1199951171875,
+                "2025-03-31": 167.42999267578125,
+                "2025-04-01": 168.52000427246094,
+                "2025-04-02": 172.08999633789062,
+                "2025-04-03": 154.00999450683594,
+                "2025-04-04": 146.2899932861328,
+                "2025-04-07": 154.13999938964844,
+                "2025-04-08": 156.02999877929688,
+                "2025-04-09": 185.14999389648438,
+                "2025-04-10": 172.3000030517578,
+                "2025-04-11": 181.94000244140625,
+                "2025-04-14": 178.36000061035156,
+                "2025-04-15": 178.9499969482422,
+                "2025-04-16": 174.61000061035156,
+                "2025-04-17": 170.99000549316406,
+                "2025-04-21": 166.2100067138672,
+                "2025-04-22": 169.5800018310547,
+                "2025-04-23": 176.91000366210938,
+                "2025-04-24": 188.14999389648438,
+                "2025-04-25": 192.30999755859375,
+                "2025-04-28": 192.47000122070312,
+                "2025-04-29": 191.1699981689453,
+                "2025-04-30": 192.47000122070312,
+                "2025-05-01": 197.3300018310547,
+                "2025-05-02": 203.63999938964844,
+                "2025-05-05": 200.72000122070312,
+                "2025-05-06": 200.08999633789062,
+                "2025-05-07": 204.80999755859375,
+                "2025-05-08": 207.77000427246094,
+                "2025-05-09": 208.1999969482422,
+                "2025-05-12": 221.5800018310547,
+                "2025-05-13": 232.4199981689453,
+                "2025-05-14": 232.1199951171875,
+                "2025-05-15": 232.63999938964844,
+                "2025-05-16": 228.61000061035156,
+                "2025-05-19": 230.6300048828125,
+                "2025-05-20": 231.67999267578125,
+                "2025-05-21": 229.72999572753906,
+                "2025-05-22": 230.52999877929688,
+                "2025-05-23": 228.72000122070312,
+                "2025-05-27": 235.64999389648438,
+                "2025-05-28": 239.42999267578125,
+                "2025-05-29": 241.97000122070312,
+                "2025-05-30": 242.07000732421875,
+                "2025-06-02": 248.7100067138672,
+                "2025-06-03": 256.8500061035156,
+                "2025-06-04": 261.0799865722656,
+                "2025-06-05": 259.92999267578125,
+                "2025-06-06": 246.92999267578125,
+                "2025-06-09": 244.27999877929688,
+                "2025-06-10": 244.6300048828125,
+                "2025-06-11": 252.91000366210938,
+                "2025-06-12": 256.07000732421875,
+                "2025-06-13": 248.6999969482422,
+                "2025-06-16": 252.10000610351562,
+                "2025-06-17": 249.3699951171875,
+                "2025-06-18": 251.25999450683594,
+                "2025-06-20": 249.99000549316406,
+                "2025-06-23": 253.77000427246094,
+                "2025-06-24": 263.7699890136719,
+                "2025-06-25": 264.6499938964844,
+                "2025-06-26": 270.1700134277344,
+                "2025-06-27": 269.3500061035156,
+                "2025-06-30": 275.6499938964844,
+                "2025-07-01": 264.739990234375,
+                "2025-07-02": 269.8999938964844,
+                "2025-07-03": 275.17999267578125,
+                "2025-07-07": 274.17999267578125,
+                "2025-07-08": 271.79998779296875,
+                "2025-07-09": 277.8999938964844,
+                "2025-07-10": 275.3999938964844,
+                "2025-07-11": 274.3800048828125,
+                "2025-07-14": 275.6000061035156,
+                "2025-07-15": 280.94000244140625,
+                "2025-07-16": 280.80999755859375,
+                "2025-07-17": 286.45001220703125,
+                "2025-07-18": 283.3399963378906,
+                "2025-07-21": 288.2099914550781,
+                "2025-07-22": 278.5899963378906,
+                "2025-07-23": 283.69000244140625,
+                "2025-07-24": 288.7099914550781,
+                "2025-07-25": 290.17999267578125,
+                "2025-07-28": 294.29998779296875,
+                "2025-07-29": 297.4200134277344,
+                "2025-07-30": 302.6199951171875,
+                "2025-07-31": 293.70001220703125,
+                "2025-08-01": 288.6400146484375,
+                "2025-08-04": 297.7200012207031,
+                "2025-08-05": 292.92999267578125,
+                "2025-08-06": 301.6700134277344,
+                "2025-08-07": 303.760009765625,
+                "2025-08-08": 304.9700012207031,
+                "2025-08-11": 303.8999938964844,
+                "2025-08-12": 312.8299865722656,
+                "2025-08-13": 309.0899963378906,
+                "2025-08-14": 311.2300109863281,
+                "2025-08-15": 306.3399963378906,
+                "2025-08-18": 305.760009765625,
+                "2025-08-19": 294.9100036621094,
+                "2025-08-20": 291.1700134277344,
+                "2025-08-21": 289.6000061035156,
+                "2025-08-22": 294.0,
+                "2025-08-25": 294.2300109863281,
+                "2025-08-26": 298.010009765625,
+                "2025-08-27": 300.25,
+                "2025-08-28": 308.6499938964844,
+                "2025-08-29": 297.3900146484375,
+                "2025-09-02": 298.239990234375,
+                "2025-09-03": 302.3900146484375,
+                "2025-09-04": 306.1000061035156,
+                "2025-09-05": 334.8900146484375,
+                "2025-09-08": 345.6499938964844,
+                "2025-09-09": 336.6700134277344,
+                "2025-09-10": 369.57000732421875,
+                "2025-09-11": 359.6300048828125,
+                "2025-09-12": 359.8699951171875,
+                "2025-09-15": 364.0899963378906,
+                "2025-09-16": 360.0,
+                "2025-09-17": 346.1700134277344,
+                "2025-09-18": 345.3500061035156,
+                "2025-09-19": 344.94000244140625,
+                "2025-09-22": 338.7900085449219,
+                "2025-09-23": 338.94000244140625,
+                "2025-09-24": 339.30999755859375,
+                "2025-09-25": 336.1000061035156,
+                "2025-09-26": 334.5299987792969,
+                "2025-09-29": 327.8999938964844,
+                "2025-09-30": 329.9100036621094,
+                "2025-10-01": 333.3900146484375,
+                "2025-10-02": 338.17999267578125,
+                "2025-10-03": 338.3699951171875,
+                "2025-10-06": 335.489990234375,
+                "2025-10-07": 336.4100036621094,
+                "2025-10-08": 345.5,
+                "2025-10-09": 345.0199890136719,
+                "2025-10-10": 324.6300048828125,
+                "2025-10-13": 356.70001220703125,
+                "2025-10-14": 344.1300048828125,
+                "2025-10-15": 351.3299865722656,
+                "2025-10-16": 354.1499938964844,
+                "2025-10-17": 349.3299865722656,
+                "2025-10-20": 349.239990234375,
+                "2025-10-21": 342.6600036621094,
+                "2025-10-22": 340.29998779296875,
+                "2025-10-23": 344.2900085449219,
+                "2025-10-24": 354.1300048828125,
+                "2025-10-27": 362.04998779296875,
+                "2025-10-28": 372.9700012207031,
+                "2025-10-29": 385.9800109863281,
+                "2025-10-30": 376.4700012207031,
+                "2025-10-31": 369.6300048828125,
+                "2025-11-03": 362.54998779296875,
+                "2025-11-04": 351.94000244140625,
+                "2025-11-05": 358.9800109863281,
+                "2025-11-06": 355.5899963378906,
+                "2025-11-07": 349.42999267578125,
+                "2025-11-10": 358.3900146484375,
+                "2025-11-11": 351.9599914550781,
+                "2025-11-12": 355.2200012207031,
+                "2025-11-13": 339.9800109863281,
+                "2025-11-14": 342.4599914550781,
+                "2025-11-17": 342.6499938964844,
+                "2025-11-18": 340.5,
+                "2025-11-19": 354.4200134277344,
+                "2025-11-20": 346.82000732421875,
+                "2025-11-21": 340.20001220703125,
+                "2025-11-24": 377.9599914550781,
+                "2025-11-25": 385.0299987792969,
+                "2025-11-26": 397.57000732421875,
+                "2025-11-28": 402.9599914550781,
+                "2025-12-01": 386.0799865722656,
+                "2025-12-02": 381.57000732421875,
+                "2025-12-03": 380.6099853515625,
+                "2025-12-04": 381.0299987792969,
+                "2025-12-05": 390.239990234375,
+                "2025-12-08": 401.1000061035156,
+                "2025-12-09": 406.2900085449219,
+                "2025-12-10": 412.9700012207031,
+                "2025-12-11": 406.3699951171875,
+                "2025-12-12": 359.92999267578125,
+                "2025-12-15": 339.80999755859375,
+                "2025-12-16": 341.29998779296875,
+                "2025-12-17": 326.0199890136719,
+                "2025-12-18": 329.8800048828125,
+                "2025-12-19": 340.3599853515625,
+                "2025-12-22": 341.45001220703125,
+                "2025-12-23": 349.32000732421875,
+                "2025-12-24": 350.2200012207031,
+                "2025-12-26": 352.1300048828125,
+                "2025-12-29": 349.3900146484375,
+                "2025-12-30": 349.8500061035156,
+                "2025-12-31": 346.1000061035156,
+                "2026-01-02": 347.6199951171875,
+                "2026-01-05": 343.4200134277344,
+                "2026-01-06": 343.7699890136719,
+                "2026-01-07": 343.5,
+                "2026-01-08": 332.4800109863281,
+                "2026-01-09": 344.9700012207031,
+                "2026-01-12": 352.2099914550781,
+                "2026-01-13": 354.6099853515625,
+                "2026-01-14": 339.8900146484375,
+                "2026-01-15": 343.0199890136719,
+                "2026-01-16": 351.7099914550781,
+                "2026-01-20": 332.6000061035156,
+                "2026-01-21": 328.79998779296875,
+                "2026-01-22": 325.489990234375,
+                "2026-01-23": 320.04998779296875,
+                "2026-01-26": 324.8500061035156,
+                "2026-01-27": 332.7900085449219,
+                "2026-01-28": 333.239990234375,
+                "2026-01-29": 330.7300109863281,
+                "2026-01-30": 331.29998779296875,
+                "2026-02-02": 331.1099853515625,
+                "2026-02-03": 320.3299865722656,
+                "2026-02-04": 308.04998779296875,
+                "2026-02-05": 310.510009765625,
+                "2026-02-06": 332.9200134277344,
+                "2026-02-09": 343.94000244140625,
+                "2026-02-10": 340.44000244140625,
+                "2026-02-11": 342.760009765625,
+                "2026-02-12": 331.1700134277344,
+                "2026-02-13": 325.1700134277344,
+                "2026-02-17": 332.5400085449219,
+                "2026-02-18": 333.510009765625,
+                "2026-02-19": 333.989990234375,
+                "2026-02-20": 332.6499938964844,
+                "2026-02-23": 330.3399963378906,
+                "2026-02-24": 325.489990234375,
+                "2026-02-25": 332.30999755859375,
+                "2026-02-26": 321.70001220703125,
+                "2026-02-27": 319.54998779296875,
+                "2026-03-02": 318.82000732421875,
+                "2026-03-03": 313.8399963378906,
+                "2026-03-04": 317.5299987792969,
+                "2026-03-05": 332.7699890136719,
+                "2026-03-06": 330.4800109863281,
+                "2026-03-09": 345.75,
+                "2026-03-10": 342.5799865722656,
+                "2026-03-11": 341.57000732421875,
+                "2026-03-12": 335.9700012207031,
+                "2026-03-13": 322.1600036621094,
+                "2026-03-16": 324.9200134277344,
+                "2026-03-17": 321.30999755859375,
+                "2026-03-18": 315.92999267578125,
+                "2026-03-19": 319.8399963378906,
+                "2026-03-20": 310.510009765625,
+                "2026-03-23": 322.510009765625,
+                "2026-03-24": 318.2900085449219,
+                "2026-03-25": 318.80999755859375,
+                "2026-03-26": 309.4200134277344,
+                "2026-03-27": 300.67999267578125,
+                "2026-03-30": 293.4100036621094,
+                "2026-03-31": 309.510009765625,
+                "2026-04-01": 313.489990234375,
+                "2026-04-02": 314.54998779296875,
+                "2026-04-06": 314.42999267578125,
+                "2026-04-07": 333.9700012207031,
+                "2026-04-08": 350.6300048828125,
+                "2026-04-09": 354.9100036621094,
+                "2026-04-10": 371.54998779296875,
+                "2026-04-13": 379.75,
+                "2026-04-14": 380.7799987792969,
+                "2026-04-15": 396.7200012207031,
+                "2026-04-16": 398.4700012207031,
+                "2026-04-17": 406.5400085449219,
+                "2026-04-20": 399.6300048828125,
+                "2026-04-21": 402.1700134277344,
+                "2026-04-22": 422.6499938964844,
+                "2026-04-23": 419.94000244140625,
+                "2026-04-24": 422.760009765625,
+                "2026-04-27": 418.20001220703125,
+                "2026-04-28": 399.8299865722656,
+                "2026-04-29": 405.45001220703125,
+                "2026-04-30": 417.42999267578125,
+                "2026-05-01": 421.2799987792969,
+                "2026-05-04": 416.5,
+                "2026-05-05": 427.3599853515625,
+                "2026-05-06": 425.44000244140625,
+                "2026-05-07": 412.55999755859375,
+                "2026-05-08": 430.0,
+                "2026-05-11": 428.42999267578125,
+                "2026-05-12": 419.29998779296875,
+                "2026-05-13": 416.7900085449219,
+                "2026-05-14": 439.7900085449219,
+                "2026-05-15": 425.19000244140625,
+                "2026-05-18": 420.7099914550781,
+                "2026-05-19": 411.07000732421875,
+                "2026-05-20": 417.760009765625,
+                "2026-05-21": 414.57000732421875,
+                "2026-05-22": 414.1400146484375,
+                "2026-05-26": 422.010009765625,
+                "2026-05-27": 421.8599853515625,
+                "2026-05-28": 426.5799865722656,
+                "2026-05-29": 446.7699890136719,
+                "2026-06-01": 459.9700012207031,
+                "2026-06-02": 481.57000732421875,
+                "2026-06-03": 479.2300109863281,
+                "2026-06-04": 418.9100036621094,
+                "2026-06-05": 385.7300109863281,
+                "2026-06-08": 396.6000061035156,
+                "2026-06-09": 392.1600036621094,
+                "2026-06-10": 372.1000061035156,
+                "2026-06-11": 385.57000732421875,
+                "2026-06-12": 382.07000732421875,
+                "2026-06-15": 393.94000244140625,
+                "2026-06-16": 376.7099914550781,
+                "2026-06-17": 392.8999938964844,
+                "2026-06-18": 411.3500061035156,
+                "2026-06-22": 392.1300048828125,
+                "2026-06-23": 380.1499938964844,
+                "2026-06-24": 382.07000732421875,
+                "2026-06-25": 378.9100036621094,
+                "2026-06-26": 365.0199890136719,
+                "2026-06-29": 372.45001220703125,
+                "2026-06-30": 377.75,
+                "2026-07-01": 369.3399963378906,
+                "2026-07-02": 360.45001220703125,
+                "2026-07-06": 373.8999938964844,
+                "2026-07-07": 370.7799987792969,
+                "2026-07-08": 388.69000244140625,
+                "2026-07-09": 401.1099853515625,
+                "2026-07-10": 399.9700012207031,
+                "2026-07-13": 384.04998779296875,
+                "2026-07-14": 389.1099853515625,
+                "2026-07-15": 394.2799987792969,
+                "2026-07-16": 374.45001220703125,
+                "2026-07-17": 370.8299865722656,
+                "2026-07-20": 378.1600036621094,
+                "2026-07-21": 386.5,
+                "2026-07-22": 396.80999755859375,
+                "2026-07-23": 392.4700012207031,
+                "2026-07-24": 381.9200134277344,
+                "2026-07-27": 383.2200012207031,
+                "2026-07-28": 380.9100036621094,
+                "2026-07-29": 370.32000732421875,
+                "2026-07-30": 387.8399963378906,
+                "2026-07-31": 389.2799987792969,
+                "2026-08-03": 392.2300109863281,
+                "2026-08-04": 418.1600036621094,
+                "2026-08-05": 418.2799987792969,
+                "2026-08-06": 420.57000732421875,
+                "2026-08-07": 427.760009765625,
+                "2026-08-10": 422.3999938964844,
+                "2026-08-11": 416.0799865722656,
+                "2026-08-12": 416.04998779296875,
+                "2026-08-13": 417.82000732421875,
+                "2026-08-14": 392.989990234375,
+                "2026-08-17": 392.42999267578125,
+                "2026-08-18": 380.0,
+                "2026-08-19": 362.4800109863281,
+                "2026-08-20": 364.0299987792969,
+                "2026-08-21": 368.45001220703125,
+                "2026-08-24": 358.760009765625,
+                "2026-08-25": 356.739990234375,
+                "2026-08-26": 355.5899963378906,
+                "2026-08-27": 371.5400085449219,
+                "2026-08-28": 368.7900085449219,
+                "2026-08-31": 370.3399963378906,
+                "2026-09-01": 369.67999267578125,
+                "2026-09-02": 367.239990234375,
+                "2026-09-03": 357.1600036621094,
+                "2026-09-04": 357.8999938964844,
+                "2026-09-08": 368.55999755859375,
+                "2026-09-09": 364.3800048828125,
+                "2026-09-10": 360.8299865722656,
+                "2026-09-11": 361.989990234375,
+                "2026-09-14": 344.7200012207031,
+                "2026-09-15": 339.2699890136719,
+                "2026-09-16": 339.510009765625,
+                "2026-09-17": 347.29998779296875,
+                "2026-09-18": 357.6099853515625,
+                "2026-09-21": 362.6600036621094,
+                "2026-09-22": 364.5400085449219,
+                "2026-09-23": 354.989990234375,
+                "2026-09-24": 350.3599853515625,
+                "2026-09-25": 352.80999755859375,
+                "2026-09-28": 349.57000732421875,
+                "2026-09-29": 355.1000061035156,
+                "2026-09-30": 351.19000244140625,
+                "2026-10-01": 343.6400146484375,
+                "2026-10-02": 355.1400146484375,
+                "2026-10-05": 362.510009765625,
+                "2026-10-06": 375.80999755859375,
+                "2026-10-07": 376.510009765625,
+                "2026-10-08": 360.1400146484375,
+                "2026-10-09": 361.5400085449219,
+                "2026-10-12": 354.7300109863281,
+                "2026-10-13": 357.30999755859375,
+                "2026-10-14": 346.25,
+                "2026-10-15": 344.3299865722656,
+                "2026-10-16": 328.75,
+                "2026-10-19": 334.5899963378906,
+                "2026-10-20": 334.3699951171875,
+                "2026-10-21": 337.79998779296875,
+                "2026-10-22": 323.239990234375,
+                "2026-10-23": 321.67999267578125,
+                "2026-10-26": 329.1700134277344,
+                "2026-10-27": 342.3299865722656,
+                "2026-10-28": 351.80999755859375,
+                "2026-10-29": 345.0
+              },
+              "identity_snapshot": {
+                "symbol": "AVGO",
+                "longName": "Broadcom Inc.",
+                "instrumentType": "EQUITY",
+                "exchangeName": "NMS",
+                "fullExchangeName": "NasdaqGS",
+                "currency": "USD",
+                "exchangeTimezoneName": "America/New_York"
+              },
+              "history_fingerprint": "6139a27a20b594ffe07aea8ffba1f16291454ebfe8029549cece268216bd7e48",
+              "comparison_evidence_fingerprint": "b39952100fcd3175ad6e6a162851a5bddc1f06cf21418b6dfdcdc8c35519cf79",
+              "legacy_triggered_thresholds": [
+                10,
+                20
+              ],
+              "migration_ambiguities": [
+                {
+                  "symbol": "AVGO",
+                  "threshold": 10,
+                  "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+                  "event_id": "5096cf6711b698926c9f3812586ac9a46fa4d75eac18b12951da3208f73db8b7"
+                },
+                {
+                  "symbol": "AVGO",
+                  "threshold": 20,
+                  "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+                  "event_id": "2bceec4be4c282ecebc981e6c253f6087b4759562045094632a15985403b3aa3"
+                }
+              ],
+              "event_ids": [],
+              "revision_review_event_ids": []
+            },
+            "snapshot_fingerprint": "d46e0932c1076e0b9badd7a7fa96953e69e3db0d5a7dc7b46cafc4ea63058591"
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "History revision fact; does not confirm a market threshold",
+          "at_utc": "2026-10-30T12:28:50.708942+00:00"
+        }
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "trading_date": "2026-10-29",
+      "event_type": "LEGACY_THRESHOLD_REVIEW",
+      "threshold": 10,
+      "status": "PENDING_REVIEW",
+      "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+      "rules_version": "adjclose-wilder14-sma-252-v1",
+      "event_model_version": "revision-market-v2",
+      "event_id": "1872805709c1a392b4938ae86f8372468998382a62e5a61bc650c7748554501b",
+      "evidence_versions": [
+        {
+          "evidence_hash": "73ea2767de8995e0cdd78fb9032e8d1cc7933287a59cc671cc6a65ac7d73517f",
+          "evidence": {
+            "legacy_triggered_thresholds": [
+              10
+            ],
+            "migration": true
+          }
+        }
+      ],
+      "audit_trail": [
+        {
+          "from_status": null,
+          "to_status": "PENDING_REVIEW",
+          "action": "REGISTER",
+          "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+          "at_utc": "2026-10-30T12:28:50.279172+00:00"
+        }
+      ]
+    }
+  ],
+  "success_count": 9,
+  "failure_count": 0,
+  "state_updated": false,
+  "report_file": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_trial/acceptance_20261030_222836/repeat/monitor_indicators_20261030_222851.json"
+}

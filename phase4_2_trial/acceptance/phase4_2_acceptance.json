@@ -1,0 +1,268 @@
+{
+  "phase": "4.2",
+  "trial_id": "phase4_2_20261103_20261107",
+  "dry_run": true,
+  "updated_at_utc": "2026-11-02T23:00:07.259099+00:00",
+  "acceptance": {
+    "SCHEDULER_CAPABILITY": "PASS",
+    "PERSISTENT_STATE_CONTINUITY": "BLOCKED",
+    "LIVE_YAHOO_COLLECTION": "BLOCKED",
+    "CROSS_DAY_LIVE_VALIDATION": "PENDING",
+    "EVENT_LEDGER_IDEMPOTENCY": "PASS",
+    "REVISION_MARKET_SEPARATION": "PASS",
+    "FAIL_CLOSED_BEHAVIOUR": "PASS",
+    "FINITE_RUN_ENFORCEMENT": "PASS",
+    "AUTOMATIC_STOP": "PASS",
+    "FORMAL_STATE_UNCHANGED": "PASS",
+    "PROTECTED_EVIDENCE_UNCHANGED": "FAIL",
+    "UNATTENDED_CATCHUP_RECOVERY": "NOT_VALIDATED",
+    "PHASE_4_2_ACCEPTANCE": "FAIL"
+  },
+  "status": "BLOCKED",
+  "block_reason": "GuardError: PROTECTED_EVIDENCE_CHANGED",
+  "scheduler": "macOS launchd / five one-shot collection jobs plus one cleanup-only deadline job",
+  "state_path": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/state/monitor_state.json",
+  "ledger_path": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/execution_ledger.json",
+  "initial_state_sha256": "384e1f8489f194e52079ea5544c67d000e19a8e2578034406cd55f7d8d38905d",
+  "max_attempts": 5,
+  "claimed_attempts": 0,
+  "actual_http_request_count": 0,
+  "runs": [
+    {
+      "plan": {
+        "run": 1,
+        "scheduled_brisbane": "2026-11-03T09:00:00+10:00",
+        "target_date": "2026-11-02"
+      },
+      "claimed": false,
+      "result": "NOT_RUN_STOPPED"
+    },
+    {
+      "plan": {
+        "run": 2,
+        "scheduled_brisbane": "2026-11-04T09:00:00+10:00",
+        "target_date": "2026-11-03"
+      },
+      "claimed": false,
+      "result": "NOT_RUN_STOPPED"
+    },
+    {
+      "plan": {
+        "run": 3,
+        "scheduled_brisbane": "2026-11-05T09:00:00+10:00",
+        "target_date": "2026-11-04"
+      },
+      "claimed": false,
+      "result": "NOT_RUN_STOPPED"
+    },
+    {
+      "plan": {
+        "run": 4,
+        "scheduled_brisbane": "2026-11-06T09:00:00+10:00",
+        "target_date": "2026-11-05"
+      },
+      "claimed": false,
+      "result": "NOT_RUN_STOPPED"
+    },
+    {
+      "plan": {
+        "run": 5,
+        "scheduled_brisbane": "2026-11-07T09:00:00+10:00",
+        "target_date": "2026-11-06"
+      },
+      "claimed": false,
+      "result": "NOT_RUN_STOPPED"
+    }
+  ],
+  "stop_receipt": {
+    "at_utc": "2026-11-02T23:00:07.224399+00:00",
+    "reason": "GuardError: PROTECTED_EVIDENCE_CHANGED",
+    "scope": "all",
+    "http_requests": 0,
+    "jobs": [
+      {
+        "label": "com.rui.bigtech.phase42.run1-20261103",
+        "bootout_returncode": 3,
+        "bootout_stderr": "Boot-out failed: 3: No such process\n",
+        "print_returncode": 113,
+        "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.run1-20261103\" in domain for user gui: 501\n",
+        "service_absent": true,
+        "owned_plist": true,
+        "plist_absent": true,
+        "removed": true
+      },
+      {
+        "label": "com.rui.bigtech.phase42.run2-20261104",
+        "bootout_returncode": 0,
+        "bootout_stderr": "",
+        "print_returncode": 113,
+        "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.run2-20261104\" in domain for user gui: 501\n",
+        "service_absent": true,
+        "owned_plist": true,
+        "plist_absent": true,
+        "removed": true
+      },
+      {
+        "label": "com.rui.bigtech.phase42.run3-20261105",
+        "bootout_returncode": 0,
+        "bootout_stderr": "",
+        "print_returncode": 113,
+        "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.run3-20261105\" in domain for user gui: 501\n",
+        "service_absent": true,
+        "owned_plist": true,
+        "plist_absent": true,
+        "removed": true
+      },
+      {
+        "label": "com.rui.bigtech.phase42.run4-20261106",
+        "bootout_returncode": 0,
+        "bootout_stderr": "",
+        "print_returncode": 113,
+        "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.run4-20261106\" in domain for user gui: 501\n",
+        "service_absent": true,
+        "owned_plist": true,
+        "plist_absent": true,
+        "removed": true
+      },
+      {
+        "label": "com.rui.bigtech.phase42.run5-20261107",
+        "bootout_returncode": 0,
+        "bootout_stderr": "",
+        "print_returncode": 113,
+        "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.run5-20261107\" in domain for user gui: 501\n",
+        "service_absent": true,
+        "owned_plist": true,
+        "plist_absent": true,
+        "removed": true
+      },
+      {
+        "label": "com.rui.bigtech.phase42.deadline-20261107",
+        "bootout_returncode": 0,
+        "bootout_stderr": "",
+        "print_returncode": 113,
+        "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.deadline-20261107\" in domain for user gui: 501\n",
+        "service_absent": true,
+        "owned_plist": true,
+        "plist_absent": true,
+        "removed": true
+      }
+    ],
+    "all_removed": true
+  },
+  "offline_proof": {
+    "at_utc": "2026-11-01T01:14:13.033724+00:00",
+    "regression_153_pass": true,
+    "offline_guards_pass": true,
+    "regression_total": 179,
+    "new_guard_tests": 26,
+    "scheduler_launch_pass": true,
+    "automatic_stop_mechanism_offline_pass": true,
+    "scheduler_installed": true,
+    "http_requests": 0,
+    "protected_files": 217,
+    "protected_evidence_unchanged": true,
+    "state_initialized_empty_v2": true,
+    "state_initial_hash_unchanged": true,
+    "claimed_attempts": 0,
+    "network_capability": "NOT_YET_TESTED: first Yahoo request only on scheduled date",
+    "automations_assessment": {
+      "official_documentation": "https://learn.chatgpt.com/docs/automations",
+      "local_mode_available": true,
+      "worktree_option_exists": true,
+      "strict_expiry_removal_not_proven": true,
+      "selection": "launchd selected for deterministic executable/path, tested one-shot removal and owned plist cleanup"
+    },
+    "proof_files": [
+      "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/preflight/regression_153.json",
+      "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/preflight/regression_final.json",
+      "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/preflight/scheduler_probe.json",
+      "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/preflight/cleanup_probe_launch.json",
+      "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/preflight/cleanup_probe_receipt.json"
+    ],
+    "requirements": [
+      "Mac powered on, logged in as UID 501, awake at 09:00 Brisbane",
+      "Internet access; secure CA verification enabled",
+      "Keep project, virtualenv, pinned code and trial files in place",
+      "No automatic catchup or recovery; any blocked run requires manual review"
+    ],
+    "deadline_cleanup": "2026-11-07T09:30:00+10:00; cleanup only; zero Yahoo requests",
+    "sleep_policy": "No wakeup is configured. Calendar triggers coalesce on wake; expired/late captures are refused. Unregistration can only execute when Mac is running.",
+    "installed_at_utc": "2026-11-01T01:11:13.175563+00:00",
+    "jobs": [
+      {
+        "label": "com.rui.bigtech.phase42.run1-20261103",
+        "run": 1,
+        "source_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/config/com.rui.bigtech.phase42.run1-20261103.plist",
+        "installed_plist": "/Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.run1-20261103.plist",
+        "plist_sha256": "904394cb8e4d4c57c82c3511802222c6d8c90d8aaf6336a69b43c971bf1b790a",
+        "scheduled_brisbane": "2026-11-03T09:00:00+10:00",
+        "collection_allowed": true
+      },
+      {
+        "label": "com.rui.bigtech.phase42.run2-20261104",
+        "run": 2,
+        "source_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/config/com.rui.bigtech.phase42.run2-20261104.plist",
+        "installed_plist": "/Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.run2-20261104.plist",
+        "plist_sha256": "971f79685d9a41f00e8087a04f90c9e190891570af83d5b91591644597ab8085",
+        "scheduled_brisbane": "2026-11-04T09:00:00+10:00",
+        "collection_allowed": true
+      },
+      {
+        "label": "com.rui.bigtech.phase42.run3-20261105",
+        "run": 3,
+        "source_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/config/com.rui.bigtech.phase42.run3-20261105.plist",
+        "installed_plist": "/Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.run3-20261105.plist",
+        "plist_sha256": "46298d6b23fd54c7c6dc863ff33a93e24178aea7f1acf3252c3f1b5e66ef33d6",
+        "scheduled_brisbane": "2026-11-05T09:00:00+10:00",
+        "collection_allowed": true
+      },
+      {
+        "label": "com.rui.bigtech.phase42.run4-20261106",
+        "run": 4,
+        "source_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/config/com.rui.bigtech.phase42.run4-20261106.plist",
+        "installed_plist": "/Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.run4-20261106.plist",
+        "plist_sha256": "4a8b7b0f67af119176a7f85e20459df2f2aa9a5e04b736401609cf7cebe35125",
+        "scheduled_brisbane": "2026-11-06T09:00:00+10:00",
+        "collection_allowed": true
+      },
+      {
+        "label": "com.rui.bigtech.phase42.run5-20261107",
+        "run": 5,
+        "source_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/config/com.rui.bigtech.phase42.run5-20261107.plist",
+        "installed_plist": "/Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.run5-20261107.plist",
+        "plist_sha256": "b454264d052ea901887447d566ce852057fd102ac25d277cb42404fd6db56d6f",
+        "scheduled_brisbane": "2026-11-07T09:00:00+10:00",
+        "collection_allowed": true
+      },
+      {
+        "label": "com.rui.bigtech.phase42.deadline-20261107",
+        "run": "deadline",
+        "source_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/config/com.rui.bigtech.phase42.deadline-20261107.plist",
+        "installed_plist": "/Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.deadline-20261107.plist",
+        "plist_sha256": "a42555ea3ee44de0ca626395f84037e17a19dacb11883ede2f459cfd0335a7ad",
+        "scheduled_brisbane": "2026-11-07T09:30:00+10:00",
+        "collection_allowed": false
+      }
+    ],
+    "system_timezone": [
+      "AEST",
+      "AEST"
+    ],
+    "system_utc_offset_seconds": 36000
+  },
+  "pending_live_evidence": [
+    "Five actual capture dates and four consecutive transitions",
+    "Real revision handling and event deduplication",
+    "Actual final scheduler removal"
+  ],
+  "live_threshold_detection": "NOT_OBSERVED",
+  "live_revision_observation": "NOT_OBSERVED",
+  "recovery": {
+    "automatic": false,
+    "validated_backup_inventory": [],
+    "manual_action": "Preserve evidence; inspect verified backups and reconcile claimed requests and stable event IDs. Never reinitialize or automatically resume this finite trial.",
+    "inventory_command": ".venv/bin/python -m src.review --state /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/state/monitor_state.json --list-backups"
+  },
+  "spcx": "PASS_PROVISIONAL / YAHOO_ONLY/HISTORICAL_ANOMALY_UNVERIFIED",
+  "network_permission": "launchd executes outside Codex sandbox; CA loading passed offline; Yahoo reachability remains untested until scheduled first capture"
+}

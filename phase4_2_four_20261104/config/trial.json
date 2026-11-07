@@ -1,0 +1,62 @@
+{
+  "trial_id": "phase4_2_four_20261104_20261107",
+  "root": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal",
+  "python_version": "3.13.0",
+  "plan": [
+    {
+      "run": 1,
+      "scheduled_brisbane": "2026-11-04T10:00:00+10:00",
+      "target_date": "2026-11-03"
+    },
+    {
+      "run": 2,
+      "scheduled_brisbane": "2026-11-05T10:00:00+10:00",
+      "target_date": "2026-11-04"
+    },
+    {
+      "run": 3,
+      "scheduled_brisbane": "2026-11-06T10:00:00+10:00",
+      "target_date": "2026-11-05"
+    },
+    {
+      "run": 4,
+      "scheduled_brisbane": "2026-11-07T10:00:00+10:00",
+      "target_date": "2026-11-06"
+    }
+  ],
+  "max_attempts": 4,
+  "state_path": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/state/monitor_state.json",
+  "initial_state_sha256": "48aca297e54965b1169487be61969b152591f424c19ea3d8e22fdabbb67724ee",
+  "baseline": {
+    "source_state": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_manual_20261103/state/monitor_state.json",
+    "source_state_sha256": "539de7be40c062e8c2bc346d44afcc161a3b111ef6797357d6b1068509c33b35",
+    "source_commit_version": 2,
+    "trading_date": "2026-11-02",
+    "capture_summary": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_manual_20261103/summary.json",
+    "capture_finished_at_utc": "2026-11-03T12:53:35.584337+00:00",
+    "kind": "VERIFIED_MANUAL_LIVE_BASELINE_NOT_AN_AUTOMATED_RUN"
+  },
+  "protected_manifest": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/config/protected_manifest.json",
+  "protected_manifest_sha256": "9bad3d204f79c27227a07a27c69232b56bf874caa93d49e81db3f8961de9545d",
+  "launchd_manifest_sha256": "184faec75216eb133fef7d1caf6ac9674fe0f51c9e2d400eda9ad4e125975de2",
+  "code_sha256": {
+    "src/__init__.py": "ed488043b8b3f3079b50760bd7a8cd2c1ecc00b7c2e8f178e66a8ca4f4ca7f24",
+    "src/catchup.py": "5e7d2a3439890cfa73e89ec63b97d5e372411d9cacecd2de7b8185cc463ae312",
+    "src/indicators.py": "1aebe52383eb7d256149bfe7c70767f23953c5ed129ab01c2e824dc8d45a1505",
+    "src/monitor.py": "39fc8754d6a99431ca95a0ab9853b3e65860cac6036311ecb84ce43ba84fa5b0",
+    "src/observations.py": "fc0ab48429bcbf722058e3791a5010e595166d3af5789d561b0f13e903e7ee34",
+    "src/phase4.py": "cf19ae9b776fd8e7366daf97f49301072b875d1f2b72f3c21c8c53ff75da12fc",
+    "src/phase4_2.py": "7c5c3e497157305ac7dfcc74124d38ebc368e503e8ee56ed3b2d1f841b5b29d7",
+    "src/review.py": "e918e5653b6f2c2b836045deb406cf9f11c2ae5ba55ad25a26f565c2511aa01f",
+    "src/signals.py": "44482262d61470fc0ff857076350ce934ea09d1319dd04a1c595b617cf63d8f2",
+    "src/state.py": "42406fc660cbfdb10bf4b5e8df73a6e744f5dfae808effedca880fa83447904a",
+    "market_calendar.py": "c20f2f64e29fcd4160537ef204772df135c03f9df429296c9d445c04194241d9",
+    "test_yahoo_nine.py": "fbe2c5cab02535454b3addb23dab2172947861dd5c88de0898e99ee1ce5dcdaf",
+    "test_yahoo_nvda.py": "d650bfcc98ffe5a20edc269a3bf2a2efe84714d1a08c36dcf0da19eaeb6503e6",
+    "diagnostics/run_phase4_2.py": "da658bb5e2305a60d718e67f5b48d198eb3898d9c4fbbbcf32fff345858df215",
+    "diagnostics/phase4_2_cleanup.py": "ad3425f3f8e782decf3f80e35df54727925c1f016e1f6c2777593a75d1fa7d81",
+    "diagnostics/setup_phase4_2.py": "a1c3a262e081a25b7f78af1e6ce1a21648314ac4fefffe2dfb337eb5a661aa4d",
+    "diagnostics/run_phase4_2_once.py": "86578f9b6432838f9737910bbebf6165c538b4459524c7ba49a2b52b61a0f829",
+    "diagnostics/phase4_2_four.py": "8058cbcb6cb26f9d776a6b8ea78075f011aaaf6d6d339b9a7cd29a4cfef48ede"
+  }
+}

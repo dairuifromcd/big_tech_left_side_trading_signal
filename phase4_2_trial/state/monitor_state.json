@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "rules_version": "adjclose-wilder14-sma-252-v1",
+  "stocks": {},
+  "event_model_version": "revision-market-v2",
+  "legacy_event_records": {},
+  "event_records": {},
+  "review_history": [],
+  "migration_report": {
+    "changed": true,
+    "from_schema": 1,
+    "to_schema": 2,
+    "ambiguous_thresholds": [],
+    "verified_legacy_confirmations": [],
+    "alert_delivery": "NONE"
+  },
+  "trial_id": "phase4_2_20261103_20261107",
+  "commit_version": 1
+}

@@ -1,0 +1,29 @@
+test_claim_is_durable_before_collector_and_crash_blocks (tests.test_phase4_2.ClaimOrderingTests.test_claim_is_durable_before_collector_and_crash_blocks) ... ok
+test_after_deadline_refused (tests.test_phase4_2.TrialGuardTests.test_after_deadline_refused) ... ok
+test_after_fifteen_minutes_refused (tests.test_phase4_2.TrialGuardTests.test_after_fifteen_minutes_refused) ... ok
+test_all_five_targets_dynamically_match_calendar (tests.test_phase4_2.TrialGuardTests.test_all_five_targets_dynamically_match_calendar) ... ok
+test_all_terminal_states_refused (tests.test_phase4_2.TrialGuardTests.test_all_terminal_states_refused) ... ok
+test_before_window_refused (tests.test_phase4_2.TrialGuardTests.test_before_window_refused) ... ok
+test_calendar_mismatch_refused (tests.test_phase4_2.TrialGuardTests.test_calendar_mismatch_refused) ... ok
+test_changed_config_refused (tests.test_phase4_2.TrialGuardTests.test_changed_config_refused) ... ok
+test_changed_plan_refused (tests.test_phase4_2.TrialGuardTests.test_changed_plan_refused) ... ok
+test_crashed_uncertain_claim_refused (tests.test_phase4_2.TrialGuardTests.test_crashed_uncertain_claim_refused) ... ok
+test_duplicate_claim_refused (tests.test_phase4_2.TrialGuardTests.test_duplicate_claim_refused) ... ok
+test_existing_state_lock_excludes_second_process (tests.test_phase4_2.TrialGuardTests.test_existing_state_lock_excludes_second_process) ... ok
+test_first_scheduled_baseline_allowed (tests.test_phase4_2.TrialGuardTests.test_first_scheduled_baseline_allowed) ... ok
+test_five_claims_including_failures_exhaust_limit (tests.test_phase4_2.TrialGuardTests.test_five_claims_including_failures_exhaust_limit) ... ok
+test_missed_or_failed_previous_run_refused (tests.test_phase4_2.TrialGuardTests.test_missed_or_failed_previous_run_refused) ... ok
+test_missing_state_never_reinitialized (tests.test_phase4_2.TrialGuardTests.test_missing_state_never_reinitialized) ... ok
+test_next_completed_session_allowed (tests.test_phase4_2.TrialGuardTests.test_next_completed_session_allowed) ... ok
+test_nonempty_first_baseline_refused (tests.test_phase4_2.TrialGuardTests.test_nonempty_first_baseline_refused) ... ok
+test_single_stock_missing_day_refused (tests.test_phase4_2.TrialGuardTests.test_single_stock_missing_day_refused) ... ok
+test_sixth_run_refused (tests.test_phase4_2.TrialGuardTests.test_sixth_run_refused) ... ok
+test_tampered_checkpoint_refused (tests.test_phase4_2.TrialGuardTests.test_tampered_checkpoint_refused) ... ok
+test_v1_state_refused (tests.test_phase4_2.TrialGuardTests.test_v1_state_refused) ... ok
+test_wrong_trial_state_refused (tests.test_phase4_2.TrialGuardTests.test_wrong_trial_state_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.032s
+
+OK
+{"status": "BLOCKED", "run": 1, "block_reason": "RuntimeError: injected collector failure before any network"}

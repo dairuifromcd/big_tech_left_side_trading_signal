@@ -1,0 +1,26 @@
+Batch 1 NVDA: HTTP 200, valid=501, latest=2026-11-03, PASS 
+Batch 1 AAPL: HTTP 200, valid=501, latest=2026-11-03, PASS 
+Batch 1 GOOGL: HTTP 200, valid=501, latest=2026-11-03, PASS 
+Batch 1 -> 2: extra 30s wait
+Batch 2 MSFT: HTTP 200, valid=501, latest=2026-11-03, PASS 
+Batch 2 AMZN: HTTP 200, valid=501, latest=2026-11-03, PASS 
+Batch 2 SPCX: HTTP 200, valid=100, latest=2026-11-03, PASS 
+Batch 2 -> 3: extra 30s wait
+Batch 3 META: HTTP 200, valid=501, latest=2026-11-03, PASS 
+Batch 3 AVGO: HTTP 200, valid=501, latest=2026-11-03, PASS 
+Batch 3 TSLA: HTTP 200, valid=501, latest=2026-11-03, PASS 
+{
+  "report_file": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/collection/run_1/yahoo_nine_diagnostic_20261104_100006.json",
+  "price_evidence_file": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/collection/run_1/yahoo_nine_prices_20261104_100006.json",
+  "actual_http_request_count": 9,
+  "http_200_count": 9,
+  "success_count": 9,
+  "failure_count": 0,
+  "skipped_count": 0,
+  "rate_limited": false,
+  "timing_pass": true,
+  "elapsed_seconds": 101.34128491701267,
+  "overall_conclusion": "PASS_WITH_EXPECTED_SHORT_IPO_HISTORY"
+}
+{"mode": "FOUR_DAY_LIVE_DRY_RUN", "success_count": 9, "failure_count": 0, "state_updated": true, "report_file": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/reports/run_1/monitor_indicators_20261104_100148.json"}
+{"status": "ARMED", "run": 1, "block_reason": null}

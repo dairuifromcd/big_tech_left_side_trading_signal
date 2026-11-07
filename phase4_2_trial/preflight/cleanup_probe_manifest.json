@@ -1,0 +1,17 @@
+{
+  "uid": 501,
+  "jobs": [
+    {
+      "label": "com.rui.bigtech.phase42.cleanup-probe",
+      "run": "cleanup-probe",
+      "installed_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/preflight/com.rui.bigtech.phase42.cleanup-probe.plist",
+      "plist_sha256": "0f938cff852c7fa1e8b04e066bbe175c9ee447bd5a29f80e736c18227c0116c5"
+    },
+    {
+      "label": "com.rui.bigtech.phase42.idle-probe",
+      "run": "idle-probe",
+      "installed_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/preflight/com.rui.bigtech.phase42.idle-probe.plist",
+      "plist_sha256": "89a20c1db5126878a51754129f4de39d3d4dcceb296d9c816da31129157f12f6"
+    }
+  ]
+}

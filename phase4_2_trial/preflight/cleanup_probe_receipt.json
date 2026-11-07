@@ -1,0 +1,31 @@
+{
+  "at_utc": "2026-11-01T01:05:55.015990+00:00",
+  "reason": "OFFLINE_CLEANUP_PROOF",
+  "scope": "all",
+  "http_requests": 0,
+  "jobs": [
+    {
+      "label": "com.rui.bigtech.phase42.cleanup-probe",
+      "bootout_returncode": 3,
+      "bootout_stderr": "Boot-out failed: 3: No such process\n",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.cleanup-probe\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.idle-probe",
+      "bootout_returncode": 0,
+      "bootout_stderr": "",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.idle-probe\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    }
+  ],
+  "all_removed": true
+}

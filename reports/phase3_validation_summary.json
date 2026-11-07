@@ -1,0 +1,41 @@
+{
+  "phase": 3,
+  "offline_only": true,
+  "new_yahoo_http_requests": 0,
+  "test_command": ".venv/bin/python -m unittest discover -v",
+  "tests_total": 68,
+  "tests_phase3": 42,
+  "tests_existing": 26,
+  "failures": 0,
+  "errors": 0,
+  "numeric_reference": "Hand-checkable Wilder seed70.4641350211; independent 50-digit Decimal expanded weighted sum for all9 RSI; Decimal SMA/drawdown",
+  "numeric_tolerances": {
+    "rsi_decimal_comparison_decimal_places": 9,
+    "sma_decimal_comparison_decimal_places": 10,
+    "drawdown_decimal_comparison_decimal_places": 12
+  },
+  "baseline_report": "reports/monitor_indicators_20261030_152105.json",
+  "repeat_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/reports/monitor_indicators_20261030_152207.json",
+  "state_byte_identical_after_repeat": true,
+  "phase2_evidence_unchanged": true,
+  "simulation_file": "simulations/phase3_state_changes.json",
+  "simulation_events": [
+    "FIRST_BASELINE",
+    "NEW_THRESHOLD",
+    "NEW_THRESHOLD",
+    "NEW_THRESHOLD",
+    "RECOVERY",
+    "REENTRY",
+    "HISTORICAL_REVISION",
+    "DATA_ERROR"
+  ],
+  "spcx_anomaly_date_is_window_high": true,
+  "INDICATOR_CALCULATION": "PASS",
+  "STATE_PERSISTENCE": "PASS",
+  "SIGNAL_CHANGE_DETECTION": "PASS",
+  "limitations": [
+    "Fetch mode not live-executed duringPhase3",
+    "All prices Yahoo-only, SPCX anomaly unresolved",
+    "Finite RSI warmup, bounded calendar2024–2028, no concurrent-process locking"
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "result": "PASS_PROVISIONAL",
+  "tests": {
+    "total": 187,
+    "passed": 187,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "original_153_retained": true
+  },
+  "rows": [
+    {
+      "symbol": "NVDA",
+      "http": 200,
+      "valid_count": 500,
+      "latest_date": "2026-11-02",
+      "latest_adjclose": 202.05999755859375,
+      "quality": "PASS",
+      "change_event": "FIRST_BASELINE",
+      "watch_tier": "WATCH_10",
+      "error": null
+    },
+    {
+      "symbol": "AAPL",
+      "http": 200,
+      "valid_count": 500,
+      "latest_date": "2026-11-02",
+      "latest_adjclose": 338.32000732421875,
+      "quality": "PASS",
+      "change_event": "FIRST_BASELINE",
+      "watch_tier": "NONE",
+      "error": null
+    },
+    {
+      "symbol": "GOOGL",
+      "http": 200,
+      "valid_count": 500,
+      "latest_date": "2026-11-02",
+      "latest_adjclose": 278.989990234375,
+      "quality": "PASS",
+      "change_event": "FIRST_BASELINE",
+      "watch_tier": "WATCH_30",
+      "error": null
+    },
+    {
+      "symbol": "MSFT",
+      "http": 200,
+      "valid_count": 500,
+      "latest_date": "2026-11-02",
+      "latest_adjclose": 507.1199951171875,
+      "quality": "PASS",
+      "change_event": "FIRST_BASELINE",
+      "watch_tier": "NONE",
+      "error": null
+    },
+    {
+      "symbol": "AMZN",
+      "http": 200,
+      "valid_count": 500,
+      "latest_date": "2026-11-02",
+      "latest_adjclose": 245.6300048828125,
+      "quality": "PASS",
+      "change_event": "FIRST_BASELINE",
+      "watch_tier": "WATCH_10",
+      "error": null
+    },
+    {
+      "symbol": "SPCX",
+      "http": 200,
+      "valid_count": 99,
+      "latest_date": "2026-11-02",
+      "latest_adjclose": 136.3699951171875,
+      "quality": "PASS_PROVISIONAL",
+      "change_event": "FIRST_BASELINE",
+      "watch_tier": "WATCH_30",
+      "error": null
+    },
+    {
+      "symbol": "META",
+      "http": 200,
+      "valid_count": 500,
+      "latest_date": "2026-11-02",
+      "latest_adjclose": 606.72998046875,
+      "quality": "PASS",
+      "change_event": "FIRST_BASELINE",
+      "watch_tier": "WATCH_20",
+      "error": null
+    },
+    {
+      "symbol": "AVGO",
+      "http": 200,
+      "valid_count": 500,
+      "latest_date": "2026-11-02",
+      "latest_adjclose": 322.2300109863281,
+      "quality": "PASS",
+      "change_event": "FIRST_BASELINE",
+      "watch_tier": "WATCH_30",
+      "error": null
+    },
+    {
+      "symbol": "TSLA",
+      "http": 200,
+      "valid_count": 500,
+      "latest_date": "2026-11-02",
+      "latest_adjclose": 403.82000732421875,
+      "quality": "PASS",
+      "change_event": "FIRST_BASELINE",
+      "watch_tier": "WATCH_10",
+      "error": null
+    }
+  ],
+  "actual_http_requests": 9,
+  "http_200_count": 9,
+  "rate_limited": false,
+  "elapsed_seconds": 101.24128766699869,
+  "minimum_adjacent_start_gap_seconds": 5.001522083999589,
+  "batch_extra_wait_seconds": [
+    30.005338167000446,
+    30.004894917001366
+  ],
+  "all_intervals_pass": true,
+  "state_schema": 2,
+  "state_commit_version": 2,
+  "state_symbols": [
+    "NVDA",
+    "AAPL",
+    "GOOGL",
+    "MSFT",
+    "AMZN",
+    "SPCX",
+    "META",
+    "AVGO",
+    "TSLA"
+  ],
+  "state_trading_dates": [
+    "2026-11-02"
+  ],
+  "event_count": 0,
+  "confirmed_events": 0,
+  "pending_events": 0,
+  "manual_claimed": true,
+  "manual_status": "PASS_PROVISIONAL",
+  "old_trial_status": "BLOCKED",
+  "old_trial_changed_files": [],
+  "code_pin_mismatches": [],
+  "protected_evidence_mismatches": [],
+  "formal_state_sha256": "26e0f3f84e579b448e6e57fad9abd8b550568520c0088c0ff106f34eae727fa6",
+  "scheduler_created": false
+}

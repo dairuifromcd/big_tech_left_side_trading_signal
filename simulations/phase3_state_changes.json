@@ -1,0 +1,154 @@
+{
+  "synthetic": true,
+  "description": "Fixed test inputs, not market prices or formal monitor state",
+  "results": [
+    {
+      "synthetic": true,
+      "trading_date": "2026-10-20",
+      "drawdown": -0.08,
+      "change_event": "FIRST_BASELINE",
+      "watch_tier": "NONE",
+      "previous_watch_tier": null,
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [],
+      "last_new_trigger_date": null,
+      "deepening_anchor": -0.08
+    },
+    {
+      "synthetic": true,
+      "trading_date": "2026-10-21",
+      "drawdown": -0.12,
+      "change_event": "NEW_THRESHOLD",
+      "watch_tier": "WATCH_10",
+      "previous_watch_tier": "NONE",
+      "crossed_thresholds_this_run": [
+        10
+      ],
+      "new_thresholds": [
+        10
+      ],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [
+        10
+      ],
+      "last_new_trigger_date": "2026-10-21",
+      "deepening_anchor": -0.12
+    },
+    {
+      "synthetic": true,
+      "trading_date": "2026-10-22",
+      "drawdown": -0.24,
+      "change_event": "NEW_THRESHOLD",
+      "watch_tier": "WATCH_20",
+      "previous_watch_tier": "WATCH_10",
+      "crossed_thresholds_this_run": [
+        20
+      ],
+      "new_thresholds": [
+        20
+      ],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [
+        10,
+        20
+      ],
+      "last_new_trigger_date": "2026-10-22",
+      "deepening_anchor": -0.24
+    },
+    {
+      "synthetic": true,
+      "trading_date": "2026-10-23",
+      "drawdown": -0.33,
+      "change_event": "NEW_THRESHOLD",
+      "watch_tier": "WATCH_30",
+      "previous_watch_tier": "WATCH_20",
+      "crossed_thresholds_this_run": [
+        30
+      ],
+      "new_thresholds": [
+        30
+      ],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [
+        10,
+        20,
+        30
+      ],
+      "last_new_trigger_date": "2026-10-23",
+      "deepening_anchor": -0.33
+    },
+    {
+      "synthetic": true,
+      "trading_date": "2026-10-26",
+      "drawdown": -0.18,
+      "change_event": "RECOVERY",
+      "watch_tier": "WATCH_10",
+      "previous_watch_tier": "WATCH_30",
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [
+        10,
+        20,
+        30
+      ],
+      "last_new_trigger_date": "2026-10-23",
+      "deepening_anchor": -0.18
+    },
+    {
+      "synthetic": true,
+      "trading_date": "2026-10-27",
+      "drawdown": -0.24,
+      "change_event": "REENTRY",
+      "watch_tier": "WATCH_20",
+      "previous_watch_tier": "WATCH_10",
+      "crossed_thresholds_this_run": [
+        20
+      ],
+      "new_thresholds": [],
+      "reentered_thresholds": [
+        20
+      ],
+      "triggered_thresholds": [
+        10,
+        20,
+        30
+      ],
+      "last_new_trigger_date": "2026-10-23",
+      "deepening_anchor": -0.24
+    },
+    {
+      "synthetic": true,
+      "trading_date": "2026-10-28",
+      "drawdown": -0.4933333333333333,
+      "change_event": "HISTORICAL_REVISION",
+      "watch_tier": "WATCH_30",
+      "previous_watch_tier": "WATCH_20",
+      "crossed_thresholds_this_run": [],
+      "new_thresholds": [],
+      "reentered_thresholds": [],
+      "triggered_thresholds": [
+        10,
+        20,
+        30
+      ],
+      "last_new_trigger_date": "2026-10-23",
+      "deepening_anchor": -0.4933333333333333,
+      "revisions": [
+        {
+          "date": "2026-10-19",
+          "previous": 100,
+          "current": 150
+        }
+      ]
+    },
+    {
+      "synthetic": true,
+      "change_event": "DATA_ERROR",
+      "reason": "Injected missing Adj Close",
+      "previous_state_preserved": true
+    }
+  ]
+}

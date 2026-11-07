@@ -1,0 +1,54 @@
+{
+  "trial_id": "phase4_2_20261103_20261107",
+  "config_sha256": "49c1b6f3619692169b558f46c709d56fe09b563e81500ce3ee3b149298edd278",
+  "status": "BLOCKED",
+  "initialized_at_utc": "2026-11-01T01:05:22.147834+00:00",
+  "runs": [
+    {
+      "plan": {
+        "run": 1,
+        "scheduled_brisbane": "2026-11-03T09:00:00+10:00",
+        "target_date": "2026-11-02"
+      },
+      "claimed": false,
+      "result": "NOT_RUN_STOPPED"
+    },
+    {
+      "plan": {
+        "run": 2,
+        "scheduled_brisbane": "2026-11-04T09:00:00+10:00",
+        "target_date": "2026-11-03"
+      },
+      "claimed": false,
+      "result": "NOT_RUN_STOPPED"
+    },
+    {
+      "plan": {
+        "run": 3,
+        "scheduled_brisbane": "2026-11-05T09:00:00+10:00",
+        "target_date": "2026-11-04"
+      },
+      "claimed": false,
+      "result": "NOT_RUN_STOPPED"
+    },
+    {
+      "plan": {
+        "run": 4,
+        "scheduled_brisbane": "2026-11-06T09:00:00+10:00",
+        "target_date": "2026-11-05"
+      },
+      "claimed": false,
+      "result": "NOT_RUN_STOPPED"
+    },
+    {
+      "plan": {
+        "run": 5,
+        "scheduled_brisbane": "2026-11-07T09:00:00+10:00",
+        "target_date": "2026-11-06"
+      },
+      "claimed": false,
+      "result": "NOT_RUN_STOPPED"
+    }
+  ],
+  "block_reason": "GuardError: PROTECTED_EVIDENCE_CHANGED"
+}

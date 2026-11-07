@@ -1,0 +1,337 @@
+{
+  "phase": "4.1",
+  "mode": "OFFLINE_FIX_REGRESSION",
+  "new_http_requests": 0,
+  "network_attempts": [],
+  "source_baseline": "phase4_1_trial/baseline/snapshot",
+  "pre_fix_test_result": {
+    "tests": 103,
+    "failures": 0,
+    "errors": 0
+  },
+  "pre_fix_P0_failure": "phase4_1_trial/baseline/p0_failure.txt",
+  "design": "phase4_1_trial/design.md",
+  "tests": {
+    "total": 133,
+    "passed": 133,
+    "failed": 0,
+    "skipped": 0,
+    "categories": {
+      "test_market_calendar": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0
+      },
+      "test_yahoo_nine_offline": {
+        "total": 18,
+        "passed": 18,
+        "failed": 0
+      },
+      "test_phase3": {
+        "total": 42,
+        "passed": 42,
+        "failed": 0
+      },
+      "test_phase4": {
+        "total": 17,
+        "passed": 17,
+        "failed": 0
+      },
+      "test_phase4_1": {
+        "total": 24,
+        "passed": 24,
+        "failed": 0
+      },
+      "test_phase4_1_guardrails": {
+        "total": 6,
+        "passed": 6,
+        "failed": 0
+      },
+      "test_revision_diagnostics": {
+        "total": 18,
+        "passed": 18,
+        "failed": 0
+      }
+    },
+    "log": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_trial/acceptance_20261030_222836/tests.txt"
+  },
+  "schema_version": 2,
+  "event_model_version": "revision-market-v2",
+  "migration": {
+    "changed": true,
+    "from_schema": 1,
+    "to_schema": 2,
+    "ambiguous_thresholds": [
+      {
+        "symbol": "NVDA",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "ec6da250144fa0e619420170ec85dc1a980576ed24bfdf8a6c85e506ecdce2d2"
+      },
+      {
+        "symbol": "GOOGL",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "2794ffbe9e11f38d39ca399ac0e0245a8cbda6954d4e3c4c86e36e69ff033f26"
+      },
+      {
+        "symbol": "GOOGL",
+        "threshold": 20,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "9c00696d96dfba1f7b853b5dfe0c528c58004cdcdccfbd56029726978cc75bd8"
+      },
+      {
+        "symbol": "AMZN",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "e573dd8ffde35a7d557d9ffdf08bcafd5e1f27b7fb0497409a8568257eb5a98b"
+      },
+      {
+        "symbol": "SPCX",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "10afed7ed61f13676a72b6faa6be77ca5ff314c007104b914f9c5fb31bc2c544"
+      },
+      {
+        "symbol": "SPCX",
+        "threshold": 20,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "1510cd0cc726f4054da3c2c00e5c5dae723cf81481250ae00f12023ea757efd3"
+      },
+      {
+        "symbol": "SPCX",
+        "threshold": 30,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "990899023e2fb0ae61da5052388cb14bacdb0d9bfa03f14eac28f0668e0388a7"
+      },
+      {
+        "symbol": "META",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "3ae0df55460b6ffb7d03b38f28528c447981792981632ec222e7cc22c7009b4d"
+      },
+      {
+        "symbol": "AVGO",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "5096cf6711b698926c9f3812586ac9a46fa4d75eac18b12951da3208f73db8b7"
+      },
+      {
+        "symbol": "AVGO",
+        "threshold": 20,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "2bceec4be4c282ecebc981e6c253f6087b4759562045094632a15985403b3aa3"
+      },
+      {
+        "symbol": "TSLA",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "1872805709c1a392b4938ae86f8372468998382a62e5a61bc650c7748554501b"
+      }
+    ],
+    "verified_legacy_confirmations": [],
+    "alert_delivery": "NONE"
+  },
+  "repeat_migration": {
+    "changed": false,
+    "from_schema": 2,
+    "to_schema": 2,
+    "ambiguous_thresholds": []
+  },
+  "formal_migration_performed": false,
+  "integration": {
+    "phase2_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_trial/acceptance_20261030_222836/phase2/monitor_indicators_20261030_222850.json",
+    "phase4_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_trial/acceptance_20261030_222836/phase4/monitor_indicators_20261030_222850.json",
+    "repeat_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_trial/acceptance_20261030_222836/repeat/monitor_indicators_20261030_222851.json",
+    "state_file": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_trial/acceptance_20261030_222836/monitor_state.json",
+    "state_sha256": "27b2a476027594adac08ca194c8cb0104558dc391da1bfb7dd00902b673f0ce9",
+    "repeat_byte_identical": true,
+    "retained_revision_count": 1139,
+    "false_market_events": 0,
+    "indicators_equal_old_phase4": true,
+    "pending_records": 12,
+    "spcx_quality": "PASS_PROVISIONAL"
+  },
+  "B_result": {
+    "stable_Close_market": {
+      "previous_trading_date": "2026-10-28",
+      "current_trading_date": "2026-10-29",
+      "previous_adjclose": 85.0,
+      "current_adjclose": 79.0,
+      "previous_drawdown": -0.15000000000000002,
+      "current_drawdown": -0.20999999999999996,
+      "previous_watch_tier": "WATCH_10",
+      "current_watch_tier": "WATCH_20",
+      "candidate_thresholds": [
+        20
+      ],
+      "crossed_thresholds": [
+        20
+      ],
+      "confirmed_thresholds_this_run": [
+        20
+      ],
+      "pending_thresholds_this_run": [],
+      "comparability_proven": true,
+      "comparability_reasons": [],
+      "event_type": "NEW_THRESHOLD",
+      "status": "CONFIRMED",
+      "can_confirm": true,
+      "old_basis_counterfactual": {
+        "trading_date": "2026-10-29",
+        "adjclose": 79.0,
+        "window_samples": 252,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.20999999999999996,
+        "rsi14": 1.0279147915071007e-06,
+        "sma50": 89.68,
+        "sma200": 89.92,
+        "conditional_only_until_comparability_proven": true
+      },
+      "previous_recomputed_metrics": {
+        "trading_date": "2026-10-28",
+        "adjclose": 85.0,
+        "window_samples": 252,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.15000000000000002,
+        "rsi14": 2.3563440265661484e-06,
+        "sma50": 89.9,
+        "sma200": 89.975
+      },
+      "adjustment_factor_evidence": {
+        "previous_anchor_factor": 1.0,
+        "current_factor": 1.0
+      },
+      "window_high_expired_naturally": false,
+      "unrevised_basis_event": "NEW_THRESHOLD",
+      "revised_basis_event": "NEW_THRESHOLD",
+      "revision_drawdown_error_bound": 2.2222222222367805e-06,
+      "nearest_tested_threshold_margin": 0.009999999999999953,
+      "significant_deepening": false,
+      "recovery": false,
+      "reentry": false
+    },
+    "insufficient_evidence_market": {
+      "previous_trading_date": "2026-10-28",
+      "current_trading_date": "2026-10-29",
+      "previous_adjclose": 85.0,
+      "current_adjclose": 79.0,
+      "previous_drawdown": -0.15000000000000002,
+      "current_drawdown": -0.20999999999999996,
+      "previous_watch_tier": "WATCH_10",
+      "current_watch_tier": "WATCH_20",
+      "candidate_thresholds": [
+        20
+      ],
+      "crossed_thresholds": [
+        20
+      ],
+      "confirmed_thresholds_this_run": [],
+      "pending_thresholds_this_run": [
+        20
+      ],
+      "comparability_proven": false,
+      "comparability_reasons": [
+        "OVERLAP_CLOSE_CHANGED"
+      ],
+      "event_type": "NEW_THRESHOLD",
+      "status": "PENDING_REVIEW",
+      "can_confirm": false,
+      "old_basis_counterfactual": {
+        "trading_date": "2026-10-29",
+        "adjclose": 79.0,
+        "window_samples": 252,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.20999999999999996,
+        "rsi14": 1.0279147915071007e-06,
+        "sma50": 89.68,
+        "sma200": 89.92,
+        "conditional_only_until_comparability_proven": true
+      },
+      "previous_recomputed_metrics": {
+        "trading_date": "2026-10-28",
+        "adjclose": 85.0,
+        "window_samples": 252,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.15000000000000002,
+        "rsi14": 2.3563440265661484e-06,
+        "sma50": 89.9,
+        "sma200": 89.975
+      },
+      "adjustment_factor_evidence": {
+        "previous_anchor_factor": 1.0,
+        "current_factor": 1.0
+      },
+      "window_high_expired_naturally": false,
+      "unrevised_basis_event": "NEW_THRESHOLD",
+      "revised_basis_event": "NEW_THRESHOLD",
+      "revision_drawdown_error_bound": 2.2222222222367805e-06,
+      "nearest_tested_threshold_margin": 0.009999999999999953,
+      "significant_deepening": false,
+      "recovery": false,
+      "reentry": false
+    },
+    "pending_confirmed_thresholds": [],
+    "confirmed_thresholds": [
+      20
+    ]
+  },
+  "synthetic_scenario_file": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_trial/acceptance_20261030_222836/scenarios.json",
+  "original_protected_file_count": 94,
+  "original_evidence_unchanged": true,
+  "formal_state_sha256": "26e0f3f84e579b448e6e57fad9abd8b550568520c0088c0ff106f34eae727fa6",
+  "indicator_source_unchanged": true,
+  "revision_tolerances_unchanged": true,
+  "production_source_sha256": {
+    "src/__init__.py": "ed488043b8b3f3079b50760bd7a8cd2c1ecc00b7c2e8f178e66a8ca4f4ca7f24",
+    "src/indicators.py": "1aebe52383eb7d256149bfe7c70767f23953c5ed129ab01c2e824dc8d45a1505",
+    "src/monitor.py": "722d972150336fc21e7ba2467eac00dc5dc8be8e61ea7f7bb74159890c5addf4",
+    "src/observations.py": "7bfe2baa57ee902f3e7572ee83336022b672b650ad00d64b7b257d196f704560",
+    "src/phase4.py": "e3da3e4f76e60527a3f9377f69cf75d7dd3d993633861fddf21f27374d00ea5f",
+    "src/review.py": "0292046f83b08861433ea636e8bb01ec1d633fc28da3433eed18f62cc3f482b7",
+    "src/signals.py": "44482262d61470fc0ff857076350ce934ea09d1319dd04a1c595b617cf63d8f2",
+    "src/state.py": "c97948b63e18cb2aaac42c54b312513b2de9dbf14279b940a161253c5a8b709b"
+  },
+  "modified_files": [
+    "src/monitor.py",
+    "src/state.py",
+    "src/signals.py (legacy API documentation)",
+    "src/phase4.py",
+    "diagnostics/revision_scenarios.py",
+    "tests/test_phase4.py",
+    "tests/test_revision_diagnostics.py",
+    "README.md"
+  ],
+  "new_files": [
+    "src/observations.py",
+    "src/review.py",
+    "tests/test_phase4_1.py",
+    "tests/test_phase4_1_guardrails.py",
+    "diagnostics/validate_phase4_1.py"
+  ],
+  "old_test_expectation_updates": [
+    "Phase4 fault tests migrate the isolated fixture before fault injection; exact unchanged-state assertions remain. Added all-failed-v1 no-write guard.",
+    "Revision scenario B now asserts preserved pending candidate and unconsumed confirmation rather than asserting the former known defect. The pre-fix failure remains archived."
+  ],
+  "acceptance": {
+    "P0_SIGNAL_DECOUPLING": "PASS",
+    "REVISION_FACT_PRESERVATION": "PASS",
+    "NO_FALSE_MARKET_CROSSING": "PASS",
+    "STATE_MIGRATION": "PASS",
+    "PENDING_REVIEW_LIFECYCLE": "PASS",
+    "ATOMICITY_AND_IDEMPOTENCY": "PASS",
+    "PROTECTED_DATA": "PASS"
+  },
+  "limitations": [
+    "Yahoo upstream precision cause remains unconfirmed; SPCX unresolved anomaly remains provisional.",
+    "Unit comparability proof is deliberately conservative; real dividends/splits or missing provenance may need review.",
+    "Legacy scalar transition(revision=True) is revision-only compatibility; full production monitor uses independent observations.",
+    "Confirmed is a technical observation, never DELIVERED; no external notifications exist.",
+    "Recovery to an older backup may restore older decisions; stable IDs permit reconciliation but no external delivery ledger exists.",
+    "Real cross-day live validation remains pending; no Phase5 or network execution performed."
+  ]
+}

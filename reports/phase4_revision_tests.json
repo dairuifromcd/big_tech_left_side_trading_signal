@@ -1,0 +1,9 @@
+{
+  "mode": "OFFLINE_REVISION_DIAGNOSTIC_TESTS",
+  "network_access_prohibited": true,
+  "tests": 103,
+  "passed": 103,
+  "failures": 0,
+  "errors": 0,
+  "failure_details": []
+}

@@ -1,0 +1,20 @@
+{
+  "at_utc": "2026-11-06T00:01:49.521265+00:00",
+  "scope": "3",
+  "reason": "ARMED",
+  "http_requests": 0,
+  "jobs": [
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run3",
+      "bootout_returncode": 3,
+      "bootout_stderr": "Boot-out failed: 3: No such process\n",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.four20261104.run3\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    }
+  ],
+  "all_removed": true
+}

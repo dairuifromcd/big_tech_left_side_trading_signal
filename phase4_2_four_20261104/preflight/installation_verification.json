@@ -1,0 +1,103 @@
+{
+  "verified_at_utc": "2026-11-03T13:16:32.541775+00:00",
+  "status": "ARMED",
+  "claims": 0,
+  "new_yahoo_requests": 0,
+  "jobs": [
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run1",
+      "registered": true,
+      "runs_zero": true,
+      "installed_hash_matches": true,
+      "calendar": {
+        "Day": 4,
+        "Hour": 10,
+        "Minute": 0,
+        "Month": 11
+      },
+      "run_at_load": false,
+      "launch_only_once": true,
+      "collection_allowed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run2",
+      "registered": true,
+      "runs_zero": true,
+      "installed_hash_matches": true,
+      "calendar": {
+        "Day": 5,
+        "Hour": 10,
+        "Minute": 0,
+        "Month": 11
+      },
+      "run_at_load": false,
+      "launch_only_once": true,
+      "collection_allowed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run3",
+      "registered": true,
+      "runs_zero": true,
+      "installed_hash_matches": true,
+      "calendar": {
+        "Day": 6,
+        "Hour": 10,
+        "Minute": 0,
+        "Month": 11
+      },
+      "run_at_load": false,
+      "launch_only_once": true,
+      "collection_allowed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run4",
+      "registered": true,
+      "runs_zero": true,
+      "installed_hash_matches": true,
+      "calendar": {
+        "Day": 7,
+        "Hour": 10,
+        "Minute": 0,
+        "Month": 11
+      },
+      "run_at_load": false,
+      "launch_only_once": true,
+      "collection_allowed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.deadline",
+      "registered": true,
+      "runs_zero": true,
+      "installed_hash_matches": true,
+      "calendar": {
+        "Day": 7,
+        "Hour": 10,
+        "Minute": 30,
+        "Month": 11
+      },
+      "run_at_load": false,
+      "launch_only_once": true,
+      "collection_allowed": false
+    }
+  ],
+  "probe_auto_cleanup_pass": true,
+  "probe_state_and_ledger_locks": true,
+  "baseline_source_unchanged": true,
+  "seed_state_unchanged": true,
+  "seed_symbols": 9,
+  "seed_dates": [
+    "2026-11-02"
+  ],
+  "state_schema": 2,
+  "event_model_version": "revision-market-v2",
+  "protected_evidence_mismatches": [],
+  "regression": {
+    "total": 208,
+    "passed": 208,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "original_153_retained": true
+  },
+  "summary_after_saturday_fourth_run": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/acceptance/summary.md"
+}

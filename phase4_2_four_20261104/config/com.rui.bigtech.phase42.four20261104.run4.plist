@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AbandonProcessGroup</key>
+	<true/>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PYTHONDONTWRITEBYTECODE</key>
+		<string>1</string>
+		<key>PYTHONPATH</key>
+		<string>/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal</string>
+		<key>PYTHONUNBUFFERED</key>
+		<string>1</string>
+		<key>TMPDIR</key>
+		<string>/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/preflight/tmp</string>
+	</dict>
+	<key>KeepAlive</key>
+	<false/>
+	<key>Label</key>
+	<string>com.rui.bigtech.phase42.four20261104.run4</string>
+	<key>LaunchOnlyOnce</key>
+	<true/>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/.venv/bin/python</string>
+		<string>-B</string>
+		<string>-m</string>
+		<string>diagnostics.phase4_2_four</string>
+		<string>supervise</string>
+		<string>4</string>
+	</array>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>StandardErrorPath</key>
+	<string>/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/logs/com.rui.bigtech.phase42.four20261104.run4.stderr.log</string>
+	<key>StandardOutPath</key>
+	<string>/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/logs/com.rui.bigtech.phase42.four20261104.run4.stdout.log</string>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Day</key>
+		<integer>7</integer>
+		<key>Hour</key>
+		<integer>10</integer>
+		<key>Minute</key>
+		<integer>0</integer>
+		<key>Month</key>
+		<integer>11</integer>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal</string>
+</dict>
+</plist>

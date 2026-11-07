@@ -1,0 +1,24 @@
+test_scenario_b_preserves_twenty_percent_market_candidate (tests.test_phase4_1.P0RevisionAndMarketEventTests.test_scenario_b_preserves_twenty_percent_market_candidate)
+An old low revision must not erase or pre-consume the new -20% event. ... FAIL
+
+======================================================================
+FAIL: test_scenario_b_preserves_twenty_percent_market_candidate (tests.test_phase4_1.P0RevisionAndMarketEventTests.test_scenario_b_preserves_twenty_percent_market_candidate)
+An old low revision must not erase or pre-consume the new -20% event.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/tests/test_phase4_1.py", line 22, in test_scenario_b_preserves_twenty_percent_market_candidate
+    self.assertIn(20, candidates, (
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+        "P0: real WATCH_20 event vanished while a historical revision was present; "
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        f"triggered={updated['triggered_thresholds']}"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ))
+    ^^
+AssertionError: 20 not found in set() : P0: real WATCH_20 event vanished while a historical revision was present; change_event=HISTORICAL_REVISION, crossed=[], new=[], triggered=[10, 20]
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)

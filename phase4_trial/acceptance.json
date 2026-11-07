@@ -1,0 +1,157 @@
+{
+  "dry_run": true,
+  "acceptance": {
+    "END_TO_END_EXECUTION": "PASS",
+    "LIVE_DATA_VALIDATION": "PASS",
+    "STATE_RECOVERY": "PASS",
+    "FAILURE_HANDLING": "PASS",
+    "IDEMPOTENCY": "PASS",
+    "CROSS_DAY_LIVE_VALIDATION": "PENDING_LIVE_VALIDATION"
+  },
+  "tests": {
+    "total": 85,
+    "passed": 85,
+    "failed": 0,
+    "phase4_new": 17
+  },
+  "live_report": "phase4_trial/reports/phase4_e2e_20261030_162933_473474.json",
+  "repeat_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_trial/reports/phase4_e2e_20261030_162945_882501.json",
+  "fault_report": "phase4_trial/fault_injection/phase4_e2e_20261030_162906.json",
+  "replay_summary": "phase4_trial/replay/summary.json",
+  "formal_state_unchanged": true,
+  "formal_state_sha256": "26e0f3f84e579b448e6e57fad9abd8b550568520c0088c0ff106f34eae727fa6",
+  "live_status": "PASS_PROVISIONAL",
+  "live_http_requests": 9,
+  "live_http_200": 9,
+  "live_429": false,
+  "live_elapsed_seconds": 102.1192516670053,
+  "live_request_intervals": [
+    {
+      "previous_symbol": "NVDA",
+      "symbol": "AAPL",
+      "batch_boundary": false,
+      "start_gap_seconds": 5.005095458000142,
+      "normal_wait_seconds": 3.2273507499994594,
+      "batch_extra_wait_seconds": 0.0,
+      "minimum_start_gap_seconds": 5.0,
+      "interval_pass": true,
+      "batch_wait_pass": true
+    },
+    {
+      "previous_symbol": "AAPL",
+      "symbol": "GOOGL",
+      "batch_boundary": false,
+      "start_gap_seconds": 5.001895000001241,
+      "normal_wait_seconds": 3.199930624999979,
+      "batch_extra_wait_seconds": 0.0,
+      "minimum_start_gap_seconds": 5.0,
+      "interval_pass": true,
+      "batch_wait_pass": true
+    },
+    {
+      "previous_symbol": "GOOGL",
+      "symbol": "MSFT",
+      "batch_boundary": true,
+      "start_gap_seconds": 35.01039970900456,
+      "normal_wait_seconds": 3.264825500002189,
+      "batch_extra_wait_seconds": 30.00520220799808,
+      "minimum_start_gap_seconds": 35.0,
+      "interval_pass": true,
+      "batch_wait_pass": true
+    },
+    {
+      "previous_symbol": "MSFT",
+      "symbol": "AMZN",
+      "batch_boundary": false,
+      "start_gap_seconds": 5.005069457998616,
+      "normal_wait_seconds": 3.2908541670039995,
+      "batch_extra_wait_seconds": 0.0,
+      "minimum_start_gap_seconds": 5.0,
+      "interval_pass": true,
+      "batch_wait_pass": true
+    },
+    {
+      "previous_symbol": "AMZN",
+      "symbol": "SPCX",
+      "batch_boundary": false,
+      "start_gap_seconds": 5.005048082995927,
+      "normal_wait_seconds": 3.3156272919950425,
+      "batch_extra_wait_seconds": 0.0,
+      "minimum_start_gap_seconds": 5.0,
+      "interval_pass": true,
+      "batch_wait_pass": true
+    },
+    {
+      "previous_symbol": "SPCX",
+      "symbol": "META",
+      "batch_boundary": true,
+      "start_gap_seconds": 35.008738333999645,
+      "normal_wait_seconds": 3.484997542000201,
+      "batch_extra_wait_seconds": 30.00353462500061,
+      "minimum_start_gap_seconds": 35.0,
+      "interval_pass": true,
+      "batch_wait_pass": true
+    },
+    {
+      "previous_symbol": "META",
+      "symbol": "AVGO",
+      "batch_boundary": false,
+      "start_gap_seconds": 5.002837541003828,
+      "normal_wait_seconds": 2.6358752919986728,
+      "batch_extra_wait_seconds": 0.0,
+      "minimum_start_gap_seconds": 5.0,
+      "interval_pass": true,
+      "batch_wait_pass": true
+    },
+    {
+      "previous_symbol": "AVGO",
+      "symbol": "TSLA",
+      "batch_boundary": false,
+      "start_gap_seconds": 5.005079208996904,
+      "normal_wait_seconds": 3.3700207919973764,
+      "batch_extra_wait_seconds": 0.0,
+      "minimum_start_gap_seconds": 5.0,
+      "interval_pass": true,
+      "batch_wait_pass": true
+    }
+  ],
+  "live_new_observation_events": [],
+  "live_historical_revisions": {
+    "NVDA": 210,
+    "AAPL": 204,
+    "GOOGL": 189,
+    "MSFT": 162,
+    "META": 156,
+    "AVGO": 218
+  },
+  "replay_dates": [
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29"
+  ],
+  "replay_event_count": 12,
+  "state_hash_before": "26e0f3f84e579b448e6e57fad9abd8b550568520c0088c0ff106f34eae727fa6",
+  "state_hash_after": "8a14a581d942d80caaccf6a9a80c5c7afb6cadebf2fe6a784f87de70718ce754",
+  "repeated_state_byte_identical": true,
+  "backup_files": [
+    "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_trial/state/monitor_state.json.backups/00000000_e380ae5527d543f6701e5cf537e34f46d3cf8ffecbfd4454edbe6f81363e79b0.json"
+  ],
+  "limitations": [
+    "Yahoo single source; SPCX provisional and disputed high unresolved",
+    "Historical replay truncates a captured adjusted-price snapshot; does not reconstruct historical point-in-time revision vintages",
+    "Real separate-trading-day executions have not occurred",
+    "Calendar2024–2028 and emergency closures require maintenance",
+    "Local backup/fsync cannot guarantee hardware durability; explicitly selected recovery can roll back consumed events"
+  ],
+  "modified_files": [
+    "src/state.py",
+    "src/monitor.py",
+    "README.md"
+  ],
+  "new_source_files": [
+    "src/phase4.py",
+    "tests/test_phase4.py"
+  ]
+}

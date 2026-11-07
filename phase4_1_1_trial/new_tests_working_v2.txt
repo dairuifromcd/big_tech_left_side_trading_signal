@@ -1,0 +1,23 @@
+test_c1_gap_identified_and_old_checkpoint_retained (tests.test_phase4_1_1.SafetyCases.test_c1_gap_identified_and_old_checkpoint_retained) ... ok
+test_c2_fixed_consecutive_archives_preserve_order_and_ids (tests.test_phase4_1_1.SafetyCases.test_c2_fixed_consecutive_archives_preserve_order_and_ids) ... ok
+test_c3_backdated_reconstruction_cannot_claim_original_capture (tests.test_phase4_1_1.SafetyCases.test_c3_backdated_reconstruction_cannot_claim_original_capture) ... ok
+test_c3_later_snapshot_only_yields_blocked_reconstructed_plan (tests.test_phase4_1_1.SafetyCases.test_c3_later_snapshot_only_yields_blocked_reconstructed_plan) ... ok
+test_c4_incomplete_missing_day_blocks_progress (tests.test_phase4_1_1.SafetyCases.test_c4_incomplete_missing_day_blocks_progress) ... ok
+test_c5_interruption_resumes_from_last_complete_checkpoint (tests.test_phase4_1_1.SafetyCases.test_c5_interruption_resumes_from_last_complete_checkpoint) ... ok
+test_m1_missing_state_fails_closed (tests.test_phase4_1_1.SafetyCases.test_m1_missing_state_fails_closed) ... ok
+test_m2_missing_primary_with_backup_lists_verified_recovery (tests.test_phase4_1_1.SafetyCases.test_m2_missing_primary_with_backup_lists_verified_recovery) ... ok
+test_m3_explicit_init_first_baseline_then_normal_repeat (tests.test_phase4_1_1.SafetyCases.test_m3_explicit_init_first_baseline_then_normal_repeat) ... ok
+test_m4_existing_or_previously_initialized_state_cannot_reinitialize (tests.test_phase4_1_1.SafetyCases.test_m4_existing_or_previously_initialized_state_cannot_reinitialize) ... ok
+test_m5_wrong_path_all_normal_entrypoints_fail_without_baseline (tests.test_phase4_1_1.SafetyCases.test_m5_wrong_path_all_normal_entrypoints_fail_without_baseline) ... ok
+test_u1_full_pipeline_escalates_same_id_and_repeat_is_unchanged (tests.test_phase4_1_1.SafetyCases.test_u1_full_pipeline_escalates_same_id_and_repeat_is_unchanged) ... ok
+test_u1_same_revision_id_escalates_risk (tests.test_phase4_1_1.SafetyCases.test_u1_same_revision_id_escalates_risk) ... ok
+test_u2_identical_evidence_is_byte_idempotent (tests.test_phase4_1_1.SafetyCases.test_u2_identical_evidence_is_byte_idempotent) ... ok
+test_u3_pending_is_sticky_until_explicit_review (tests.test_phase4_1_1.SafetyCases.test_u3_pending_is_sticky_until_explicit_review) ... ok
+test_u4_rejected_new_evidence_blocks_without_mutation (tests.test_phase4_1_1.SafetyCases.test_u4_rejected_new_evidence_blocks_without_mutation) ... ok
+test_u5_escalated_refs_and_next_session_risk_are_consistent (tests.test_phase4_1_1.SafetyCases.test_u5_escalated_refs_and_next_session_risk_are_consistent) ... ok
+test_u_market_confirmation_is_flagged_not_silently_revoked (tests.test_phase4_1_1.SafetyCases.test_u_market_confirmation_is_flagged_not_silently_revoked) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 1.999s
+
+OK

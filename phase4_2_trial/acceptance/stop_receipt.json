@@ -1,0 +1,75 @@
+{
+  "at_utc": "2026-11-02T23:00:07.224399+00:00",
+  "reason": "GuardError: PROTECTED_EVIDENCE_CHANGED",
+  "scope": "all",
+  "http_requests": 0,
+  "jobs": [
+    {
+      "label": "com.rui.bigtech.phase42.run1-20261103",
+      "bootout_returncode": 3,
+      "bootout_stderr": "Boot-out failed: 3: No such process\n",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.run1-20261103\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.run2-20261104",
+      "bootout_returncode": 0,
+      "bootout_stderr": "",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.run2-20261104\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.run3-20261105",
+      "bootout_returncode": 0,
+      "bootout_stderr": "",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.run3-20261105\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.run4-20261106",
+      "bootout_returncode": 0,
+      "bootout_stderr": "",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.run4-20261106\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.run5-20261107",
+      "bootout_returncode": 0,
+      "bootout_stderr": "",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.run5-20261107\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.deadline-20261107",
+      "bootout_returncode": 0,
+      "bootout_stderr": "",
+      "print_returncode": 113,
+      "print_stderr": "Bad request.\nCould not find service \"com.rui.bigtech.phase42.deadline-20261107\" in domain for user gui: 501\n",
+      "service_absent": true,
+      "owned_plist": true,
+      "plist_absent": true,
+      "removed": true
+    }
+  ],
+  "all_removed": true
+}

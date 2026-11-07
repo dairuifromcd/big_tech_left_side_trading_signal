@@ -1,0 +1,45 @@
+{
+  "mode": "FAULT_INJECTION",
+  "dry_run": true,
+  "synthetic": true,
+  "new_yahoo_http_requests": 0,
+  "tested_at_utc": "2026-10-30T06:29:06.485572+00:00",
+  "test_command": ".venv/bin/python -m unittest discover -v",
+  "total_tests": 85,
+  "passed": 85,
+  "failed": 0,
+  "phase4_tests": [
+    "test_401_403_not_retried",
+    "test_429_halts_and_preserves_failed_and_skipped_stocks",
+    "test_abnormal_process_exit_releases_lock",
+    "test_backup_limit",
+    "test_commit_interruption_old_state_intact",
+    "test_competing_process_lock",
+    "test_corrupt_state_clear_report_no_reset",
+    "test_directory_sync_failure_complete_new_state",
+    "test_dns_tls_timeout_preserve_all_state",
+    "test_explicit_backup_recovery_and_hash_validation",
+    "test_invalid_json_partial_stock_preserved",
+    "test_missing_adjclose_partial_failure",
+    "test_mock_live_entire_pipeline_and_repeat",
+    "test_phase4_refuses_formal_state",
+    "test_replay_five_sessions_no_future_prices",
+    "test_report_failure_preserves_committed_event_ledger",
+    "test_stale_capture_rejected_before_commit"
+  ],
+  "state_hash_before": "26e0f3f84e579b448e6e57fad9abd8b550568520c0088c0ff106f34eae727fa6",
+  "state_hash_after_recovery": "26e0f3f84e579b448e6e57fad9abd8b550568520c0088c0ff106f34eae727fa6",
+  "recovery": {
+    "recovered": true,
+    "backup": "phase4_trial/fault_injection/state.json.backups/00000000_e380ae5527d543f6701e5cf537e34f46d3cf8ffecbfd4454edbe6f81363e79b0.json",
+    "state_hash": "e380ae5527d543f6701e5cf537e34f46d3cf8ffecbfd4454edbe6f81363e79b0"
+  },
+  "backup_count": 1,
+  "formal_state_unchanged": true,
+  "notes": [
+    "All network fault cases use fake_network mocks; no requests sent to Yahoo for fault injection.",
+    "Two-process flock and abnormal process exit tested with local subprocesses.",
+    "Before-replace failure preserves old state; after-replace fsync failure leaves fully validated new state.",
+    "Initial fault-loop reused a frozen clock/path and collided; each case now uses its own output directory."
+  ]
+}

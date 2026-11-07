@@ -1,0 +1,1004 @@
+{
+  "synthetic": true,
+  "A_to_E": [
+    {
+      "scenario": "A",
+      "synthetic": true,
+      "symbol": "NVDA",
+      "description": "Only an older low is microscopically revised; same latest date and price.",
+      "expectation": "Record revision without a new market-drop event.",
+      "inputs": {
+        "previous_session": "2026-10-28",
+        "current_session": "2026-10-28",
+        "previous_latest_adjclose": 85.0,
+        "current_latest_adjclose": 85.0,
+        "previous_samples": 252,
+        "current_samples": 252,
+        "changed_overlap_dates": [
+          {
+            "date": "2025-11-11",
+            "previous": 90.0,
+            "current": 90.0001
+          }
+        ]
+      },
+      "previous_metrics": {
+        "trading_date": "2026-10-28",
+        "adjclose": 85.0,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.15000000000000002,
+        "rsi14": 2.3562969033719128e-06,
+        "sma50": 89.9,
+        "sma200": 89.975,
+        "watch_tier": "WATCH_10"
+      },
+      "old_basis_counterfactual": {
+        "drawdown": -0.15000000000000002,
+        "watch_tier": "WATCH_10",
+        "highest_adjclose": 100.0,
+        "latest_adjclose": 85.0,
+        "assumption": "New observed Adj Close is comparable in units to the old history; not generally established for real adjustment revisions."
+      },
+      "revised_basis_metrics": {
+        "trading_date": "2026-10-28",
+        "adjclose": 85.0,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.15000000000000002,
+        "rsi14": 2.3563440265661484e-06,
+        "sma50": 89.9,
+        "sma200": 89.975,
+        "watch_tier": "WATCH_10"
+      },
+      "actual_production_result": {
+        "change_event": "HISTORICAL_REVISION",
+        "crossed_thresholds_this_run": [],
+        "new_thresholds": [],
+        "reentered_thresholds": [],
+        "triggered_thresholds": [],
+        "last_new_trigger_date": null,
+        "historical_revision_count": 1,
+        "historical_revision_examples": [
+          {
+            "date": "2025-11-11",
+            "previous": 90.0,
+            "current": 90.0001
+          }
+        ]
+      },
+      "diagnostic_assessment": "EXPECTED_REVISION_ONLY",
+      "signal_suppression_risk": false,
+      "requires_review": false,
+      "safe_to_notify_as_buy_signal": false,
+      "fixture_recipe": {
+        "synthetic": true,
+        "all_prices_are_adjclose": true,
+        "session_start": "2025-10-28",
+        "session_end": "2026-10-28",
+        "date_source": "252 consecutive calendar sessions ending before 2026-10-29",
+        "default_price": 90.0,
+        "exceptions_zero_based": {
+          "0": 95.0,
+          "1": 100.0,
+          "251": 85.0
+        },
+        "revision_index": 10,
+        "tiny_revision_from": 90.0,
+        "tiny_revision_to": 90.0001,
+        "note": "All timestamps are regular session opens; evaluated one minute after close. Close is synthetic and equal to Adj Close, but never used in indicator formulas."
+      },
+      "production_logic_modified": false
+    },
+    {
+      "scenario": "B",
+      "synthetic": true,
+      "symbol": "NVDA",
+      "description": "Tiny old-low revision plus a new session falling from85 to79; unchanged100 high. Legacy fixture also changes old Close, requiring review in v2.",
+      "expectation": "Preserve separate revision evidence and market-only -20% crossing; never blindly treat it as a safe buy signal.",
+      "inputs": {
+        "previous_session": "2026-10-28",
+        "current_session": "2026-10-29",
+        "previous_latest_adjclose": 85.0,
+        "current_latest_adjclose": 79.0,
+        "previous_samples": 252,
+        "current_samples": 253,
+        "changed_overlap_dates": [
+          {
+            "date": "2025-11-11",
+            "previous": 90.0,
+            "current": 90.0001
+          }
+        ]
+      },
+      "previous_metrics": {
+        "trading_date": "2026-10-28",
+        "adjclose": 85.0,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.15000000000000002,
+        "rsi14": 2.3562969033719128e-06,
+        "sma50": 89.9,
+        "sma200": 89.975,
+        "watch_tier": "WATCH_10"
+      },
+      "old_basis_counterfactual": {
+        "drawdown": -0.20999999999999996,
+        "watch_tier": "WATCH_20",
+        "highest_adjclose": 100.0,
+        "latest_adjclose": 79.0,
+        "assumption": "New observed Adj Close is comparable in units to the old history; not generally established for real adjustment revisions."
+      },
+      "revised_basis_metrics": {
+        "trading_date": "2026-10-29",
+        "adjclose": 79.0,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.20999999999999996,
+        "rsi14": 1.0279353546138736e-06,
+        "sma50": 89.68,
+        "sma200": 89.92,
+        "watch_tier": "WATCH_20"
+      },
+      "actual_production_result": {
+        "change_event": "PENDING_REVIEW",
+        "crossed_thresholds_this_run": [],
+        "new_thresholds": [],
+        "reentered_thresholds": [],
+        "triggered_thresholds": [],
+        "last_new_trigger_date": null,
+        "historical_revision_count": 1,
+        "historical_revision_examples": [
+          {
+            "date": "2025-11-11",
+            "previous": 90.0,
+            "current": 90.0001
+          }
+        ]
+      },
+      "diagnostic_assessment": "MARKET_CANDIDATE_PRESERVED_PENDING_REVIEW",
+      "signal_suppression_risk": false,
+      "requires_review": true,
+      "safe_to_notify_as_buy_signal": false,
+      "unrevised_control_event": "NEW_THRESHOLD",
+      "suppressed_threshold_marked_triggered": false,
+      "market_observation": {
+        "previous_trading_date": "2026-10-28",
+        "current_trading_date": "2026-10-29",
+        "previous_adjclose": 85.0,
+        "current_adjclose": 79.0,
+        "previous_drawdown": -0.15000000000000002,
+        "current_drawdown": -0.20999999999999996,
+        "previous_watch_tier": "WATCH_10",
+        "current_watch_tier": "WATCH_20",
+        "candidate_thresholds": [
+          20
+        ],
+        "crossed_thresholds": [
+          20
+        ],
+        "confirmed_thresholds_this_run": [],
+        "pending_thresholds_this_run": [
+          20
+        ],
+        "comparability_proven": false,
+        "comparability_reasons": [
+          "OVERLAP_CLOSE_CHANGED"
+        ],
+        "event_type": "NEW_THRESHOLD",
+        "status": "PENDING_REVIEW",
+        "can_confirm": false,
+        "old_basis_counterfactual": {
+          "trading_date": "2026-10-29",
+          "adjclose": 79.0,
+          "window_samples": 252,
+          "highest_adjclose": 100.0,
+          "highest_date": "2025-10-29",
+          "drawdown": -0.20999999999999996,
+          "rsi14": 1.0279147915071007e-06,
+          "sma50": 89.68,
+          "sma200": 89.92,
+          "conditional_only_until_comparability_proven": true
+        },
+        "previous_recomputed_metrics": {
+          "trading_date": "2026-10-28",
+          "adjclose": 85.0,
+          "window_samples": 252,
+          "highest_adjclose": 100.0,
+          "highest_date": "2025-10-29",
+          "drawdown": -0.15000000000000002,
+          "rsi14": 2.3563440265661484e-06,
+          "sma50": 89.9,
+          "sma200": 89.975
+        },
+        "adjustment_factor_evidence": {
+          "previous_anchor_factor": 1.0,
+          "current_factor": 1.0
+        },
+        "window_high_expired_naturally": false,
+        "unrevised_basis_event": "NEW_THRESHOLD",
+        "revised_basis_event": "NEW_THRESHOLD",
+        "revision_drawdown_error_bound": 2.2222222222367805e-06,
+        "nearest_tested_threshold_margin": 0.009999999999999953,
+        "significant_deepening": false,
+        "recovery": false,
+        "reentry": false
+      },
+      "revision_observation": {
+        "detected": true,
+        "classification": "REVISION_REVIEW_REQUIRED",
+        "count": 1,
+        "raw_differences": [
+          {
+            "date": "2025-11-11",
+            "previous": 90.0,
+            "current": 90.0001
+          }
+        ],
+        "dates": [
+          "2025-11-11"
+        ],
+        "max_absolute_difference": 0.00010000000000331966,
+        "max_relative_difference": 1.1111111111183902e-06,
+        "requires_review": true,
+        "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+        "impact_at_current_target": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": true,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 2.05631067728973e-11,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        },
+        "impact_on_previous_session": {
+          "changed": {
+            "adjclose": false,
+            "highest_adjclose": false,
+            "highest_date": false,
+            "drawdown": false,
+            "rsi14": true,
+            "sma50": false,
+            "sma200": false,
+            "watch_tier": false
+          },
+          "deltas": {
+            "adjclose": 0.0,
+            "highest_adjclose": 0.0,
+            "drawdown": 0.0,
+            "rsi14": 4.7123194235609844e-11,
+            "sma50": 0.0,
+            "sma200": 0.0
+          }
+        }
+      },
+      "candidate_threshold_preserved": true,
+      "fixture_recipe": {
+        "synthetic": true,
+        "all_prices_are_adjclose": true,
+        "session_start": "2025-10-28",
+        "session_end": "2026-10-28",
+        "date_source": "252 consecutive calendar sessions ending before 2026-10-29",
+        "default_price": 90.0,
+        "exceptions_zero_based": {
+          "0": 95.0,
+          "1": 100.0,
+          "251": 85.0
+        },
+        "revision_index": 10,
+        "tiny_revision_from": 90.0,
+        "tiny_revision_to": 90.0001,
+        "note": "All timestamps are regular session opens; evaluated one minute after close. Close is synthetic and equal to Adj Close, but never used in indicator formulas."
+      },
+      "production_logic_modified": false
+    },
+    {
+      "scenario": "C",
+      "synthetic": true,
+      "symbol": "NVDA",
+      "description": "Only historical high changes from100 to110; latest85 and date unchanged.",
+      "expectation": "High-driven -20% crossing must not be emitted as a fresh market decline.",
+      "inputs": {
+        "previous_session": "2026-10-28",
+        "current_session": "2026-10-28",
+        "previous_latest_adjclose": 85.0,
+        "current_latest_adjclose": 85.0,
+        "previous_samples": 252,
+        "current_samples": 252,
+        "changed_overlap_dates": [
+          {
+            "date": "2025-10-29",
+            "previous": 100.0,
+            "current": 110.0
+          }
+        ]
+      },
+      "previous_metrics": {
+        "trading_date": "2026-10-28",
+        "adjclose": 85.0,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.15000000000000002,
+        "rsi14": 2.3562969033719128e-06,
+        "sma50": 89.9,
+        "sma200": 89.975,
+        "watch_tier": "WATCH_10"
+      },
+      "old_basis_counterfactual": {
+        "drawdown": -0.15000000000000002,
+        "watch_tier": "WATCH_10",
+        "highest_adjclose": 100.0,
+        "latest_adjclose": 85.0,
+        "assumption": "New observed Adj Close is comparable in units to the old history; not generally established for real adjustment revisions."
+      },
+      "revised_basis_metrics": {
+        "trading_date": "2026-10-28",
+        "adjclose": 85.0,
+        "highest_adjclose": 110.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.2272727272727273,
+        "rsi14": 7.068890013783857e-06,
+        "sma50": 89.9,
+        "sma200": 89.975,
+        "watch_tier": "WATCH_20"
+      },
+      "actual_production_result": {
+        "change_event": "HISTORICAL_REVISION",
+        "crossed_thresholds_this_run": [],
+        "new_thresholds": [],
+        "reentered_thresholds": [],
+        "triggered_thresholds": [],
+        "last_new_trigger_date": null,
+        "historical_revision_count": 1,
+        "historical_revision_examples": [
+          {
+            "date": "2025-10-29",
+            "previous": 100.0,
+            "current": 110.0
+          }
+        ]
+      },
+      "diagnostic_assessment": "EXPECTED_REVISION_DRIVEN_TIER_CHANGE",
+      "signal_suppression_risk": false,
+      "requires_review": false,
+      "safe_to_notify_as_buy_signal": false,
+      "fixture_recipe": {
+        "synthetic": true,
+        "all_prices_are_adjclose": true,
+        "session_start": "2025-10-28",
+        "session_end": "2026-10-28",
+        "date_source": "252 consecutive calendar sessions ending before 2026-10-29",
+        "default_price": 90.0,
+        "exceptions_zero_based": {
+          "0": 95.0,
+          "1": 100.0,
+          "251": 85.0
+        },
+        "revision_index": 10,
+        "tiny_revision_from": 90.0,
+        "tiny_revision_to": 90.0001,
+        "note": "All timestamps are regular session opens; evaluated one minute after close. Close is synthetic and equal to Adj Close, but never used in indicator formulas."
+      },
+      "production_logic_modified": false
+    },
+    {
+      "scenario": "D",
+      "synthetic": true,
+      "symbol": "NVDA",
+      "description": "New session85->81 plus historical high100->110. Old and revised bases disagree on -20% crossing.",
+      "expectation": "Report both bases and require review; attribution is conditional because real adjustment revisions can alter units.",
+      "inputs": {
+        "previous_session": "2026-10-28",
+        "current_session": "2026-10-29",
+        "previous_latest_adjclose": 85.0,
+        "current_latest_adjclose": 81.0,
+        "previous_samples": 252,
+        "current_samples": 253,
+        "changed_overlap_dates": [
+          {
+            "date": "2025-10-29",
+            "previous": 100.0,
+            "current": 110.0
+          }
+        ]
+      },
+      "previous_metrics": {
+        "trading_date": "2026-10-28",
+        "adjclose": 85.0,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.15000000000000002,
+        "rsi14": 2.3562969033719128e-06,
+        "sma50": 89.9,
+        "sma200": 89.975,
+        "watch_tier": "WATCH_10"
+      },
+      "old_basis_counterfactual": {
+        "drawdown": -0.18999999999999995,
+        "watch_tier": "WATCH_10",
+        "highest_adjclose": 100.0,
+        "latest_adjclose": 81.0,
+        "assumption": "New observed Adj Close is comparable in units to the old history; not generally established for real adjustment revisions."
+      },
+      "revised_basis_metrics": {
+        "trading_date": "2026-10-29",
+        "adjclose": 81.0,
+        "highest_adjclose": 110.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.26363636363636367,
+        "rsi14": 3.797337896571662e-06,
+        "sma50": 89.72,
+        "sma200": 89.93,
+        "watch_tier": "WATCH_20"
+      },
+      "actual_production_result": {
+        "change_event": "PENDING_REVIEW",
+        "crossed_thresholds_this_run": [],
+        "new_thresholds": [],
+        "reentered_thresholds": [],
+        "triggered_thresholds": [],
+        "last_new_trigger_date": null,
+        "historical_revision_count": 1,
+        "historical_revision_examples": [
+          {
+            "date": "2025-10-29",
+            "previous": 100.0,
+            "current": 110.0
+          }
+        ]
+      },
+      "diagnostic_assessment": "MIXED_REVISION_AND_MARKET_MOVE_REQUIRES_REVIEW",
+      "signal_suppression_risk": false,
+      "requires_review": true,
+      "safe_to_notify_as_buy_signal": false,
+      "conditional_market_effect_pp": -3.9999999999999925,
+      "conditional_revision_effect_pp": -7.363636363636372,
+      "causal_attribution_confirmed": false,
+      "fixture_recipe": {
+        "synthetic": true,
+        "all_prices_are_adjclose": true,
+        "session_start": "2025-10-28",
+        "session_end": "2026-10-28",
+        "date_source": "252 consecutive calendar sessions ending before 2026-10-29",
+        "default_price": 90.0,
+        "exceptions_zero_based": {
+          "0": 95.0,
+          "1": 100.0,
+          "251": 85.0
+        },
+        "revision_index": 10,
+        "tiny_revision_from": 90.0,
+        "tiny_revision_to": 90.0001,
+        "note": "All timestamps are regular session opens; evaluated one minute after close. Close is synthetic and equal to Adj Close, but never used in indicator formulas."
+      },
+      "production_logic_modified": false
+    },
+    {
+      "scenario": "E",
+      "synthetic": true,
+      "symbol": "NVDA",
+      "description": "Repeat exactly the same B snapshot after accepting its revised state; no file writes performed.",
+      "inputs": {
+        "snapshot_from_scenario": "B",
+        "current_session": "2026-10-29",
+        "latest_adjclose": 79.0,
+        "samples": 253
+      },
+      "expectation": "NO_CHANGE, no repeated revision or market event, monitor would not rewrite state.",
+      "actual_production_result": {
+        "change_event": "NO_CHANGE",
+        "crossed_thresholds_this_run": [],
+        "new_thresholds": [],
+        "reentered_thresholds": [],
+        "triggered_thresholds": [],
+        "last_new_trigger_date": null,
+        "historical_revision_count": 0,
+        "historical_revision_examples": []
+      },
+      "overlap_revision_count": 0,
+      "history_fingerprint_equal": true,
+      "production_monitor_would_write_state": false,
+      "diagnostic_assessment": "IDEMPOTENT_SAME_SNAPSHOT",
+      "signal_suppression_risk": false,
+      "requires_review": false,
+      "safe_to_notify_as_buy_signal": false,
+      "fixture_recipe": {
+        "synthetic": true,
+        "all_prices_are_adjclose": true,
+        "session_start": "2025-10-28",
+        "session_end": "2026-10-28",
+        "date_source": "252 consecutive calendar sessions ending before 2026-10-29",
+        "default_price": 90.0,
+        "exceptions_zero_based": {
+          "0": 95.0,
+          "1": 100.0,
+          "251": 85.0
+        },
+        "revision_index": 10,
+        "tiny_revision_from": 90.0,
+        "tiny_revision_to": 90.0001,
+        "note": "All timestamps are regular session opens; evaluated one minute after close. Close is synthetic and equal to Adj Close, but never used in indicator formulas."
+      },
+      "production_logic_modified": false
+    }
+  ],
+  "B_stable_Close": {
+    "symbol": "NVDA",
+    "close": 79.0,
+    "trading_date": "2026-10-29",
+    "adjclose": 79.0,
+    "window_samples": 252,
+    "highest_adjclose": 100.0,
+    "highest_date": "2025-10-29",
+    "drawdown": -0.20999999999999996,
+    "rsi14": 1.0279353546138736e-06,
+    "sma50": 89.68,
+    "sma200": 89.92,
+    "rsi_warmup_prices": 253,
+    "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+    "indicator_status": {
+      "drawdown": "VALID",
+      "rsi14": "VALID",
+      "sma50": "VALID",
+      "sma200": "VALID"
+    },
+    "revision_observation": {
+      "detected": true,
+      "classification": "NUMERIC_PRECISION_CANDIDATE",
+      "count": 1,
+      "raw_differences": [
+        {
+          "date": "2025-11-11",
+          "previous": 90.0,
+          "current": 90.0001
+        }
+      ],
+      "dates": [
+        "2025-11-11"
+      ],
+      "max_absolute_difference": 0.00010000000000331966,
+      "max_relative_difference": 1.1111111111183902e-06,
+      "requires_review": false,
+      "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+      "impact_at_current_target": {
+        "changed": {
+          "adjclose": false,
+          "highest_adjclose": false,
+          "highest_date": false,
+          "drawdown": false,
+          "rsi14": true,
+          "sma50": false,
+          "sma200": false,
+          "watch_tier": false
+        },
+        "deltas": {
+          "adjclose": 0.0,
+          "highest_adjclose": 0.0,
+          "drawdown": 0.0,
+          "rsi14": 2.05631067728973e-11,
+          "sma50": 0.0,
+          "sma200": 0.0
+        }
+      },
+      "impact_on_previous_session": {
+        "changed": {
+          "adjclose": false,
+          "highest_adjclose": false,
+          "highest_date": false,
+          "drawdown": false,
+          "rsi14": true,
+          "sma50": false,
+          "sma200": false,
+          "watch_tier": false
+        },
+        "deltas": {
+          "adjclose": 0.0,
+          "highest_adjclose": 0.0,
+          "drawdown": 0.0,
+          "rsi14": 4.7123194235609844e-11,
+          "sma50": 0.0,
+          "sma200": 0.0
+        }
+      }
+    },
+    "market_observation": {
+      "previous_trading_date": "2026-10-28",
+      "current_trading_date": "2026-10-29",
+      "previous_adjclose": 85.0,
+      "current_adjclose": 79.0,
+      "previous_drawdown": -0.15000000000000002,
+      "current_drawdown": -0.20999999999999996,
+      "previous_watch_tier": "WATCH_10",
+      "current_watch_tier": "WATCH_20",
+      "candidate_thresholds": [
+        20
+      ],
+      "crossed_thresholds": [
+        20
+      ],
+      "confirmed_thresholds_this_run": [
+        20
+      ],
+      "pending_thresholds_this_run": [],
+      "comparability_proven": true,
+      "comparability_reasons": [],
+      "event_type": "NEW_THRESHOLD",
+      "status": "CONFIRMED",
+      "can_confirm": true,
+      "old_basis_counterfactual": {
+        "trading_date": "2026-10-29",
+        "adjclose": 79.0,
+        "window_samples": 252,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.20999999999999996,
+        "rsi14": 1.0279147915071007e-06,
+        "sma50": 89.68,
+        "sma200": 89.92,
+        "conditional_only_until_comparability_proven": true
+      },
+      "previous_recomputed_metrics": {
+        "trading_date": "2026-10-28",
+        "adjclose": 85.0,
+        "window_samples": 252,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.15000000000000002,
+        "rsi14": 2.3563440265661484e-06,
+        "sma50": 89.9,
+        "sma200": 89.975
+      },
+      "adjustment_factor_evidence": {
+        "previous_anchor_factor": 1.0,
+        "current_factor": 1.0
+      },
+      "window_high_expired_naturally": false,
+      "unrevised_basis_event": "NEW_THRESHOLD",
+      "revised_basis_event": "NEW_THRESHOLD",
+      "revision_drawdown_error_bound": 2.2222222222367805e-06,
+      "nearest_tested_threshold_margin": 0.009999999999999953,
+      "significant_deepening": false,
+      "recovery": false,
+      "reentry": false
+    },
+    "threshold_state": {
+      "observed": [
+        10,
+        20
+      ],
+      "confirmed": [
+        20
+      ],
+      "baseline": [
+        10
+      ],
+      "pending_event_ids": []
+    },
+    "market_events": [
+      {
+        "symbol": "NVDA",
+        "trading_date": "2026-10-29",
+        "event_type": "THRESHOLD_CROSSING",
+        "event_subtype": "NEW_THRESHOLD",
+        "threshold": 20,
+        "status": "CONFIRMED",
+        "rules_version": "adjclose-wilder14-sma-252-v1",
+        "evidence": {
+          "previous_trading_date": "2026-10-28",
+          "previous_adjclose": 85.0,
+          "previous_drawdown": -0.15000000000000002,
+          "current_adjclose": 79.0,
+          "current_drawdown": -0.20999999999999996,
+          "old_basis_counterfactual": {
+            "trading_date": "2026-10-29",
+            "adjclose": 79.0,
+            "window_samples": 252,
+            "highest_adjclose": 100.0,
+            "highest_date": "2025-10-29",
+            "drawdown": -0.20999999999999996,
+            "rsi14": 1.0279147915071007e-06,
+            "sma50": 89.68,
+            "sma200": 89.92,
+            "conditional_only_until_comparability_proven": true
+          },
+          "comparability_proven": true,
+          "comparability_reasons": [],
+          "revision_count": 1,
+          "revision_dates": [
+            "2025-11-11"
+          ]
+        }
+      }
+    ],
+    "change_event": "NEW_THRESHOLD",
+    "watch_tier": "WATCH_20",
+    "previous_watch_tier": "WATCH_10",
+    "crossed_thresholds_this_run": [
+      20
+    ],
+    "new_thresholds": [
+      20
+    ],
+    "reentered_thresholds": [],
+    "triggered_thresholds": [
+      20
+    ],
+    "confirmed_thresholds": [
+      20
+    ],
+    "baseline_observed_thresholds": [
+      10
+    ],
+    "last_new_trigger_date": "2026-10-29",
+    "deepening_anchor": -0.20999999999999996,
+    "raw_revision_differences": [
+      {
+        "date": "2025-11-11",
+        "previous": 90.0,
+        "current": 90.0001
+      }
+    ],
+    "data_quality": "PASS",
+    "warnings": [
+      "YAHOO_ONLY: history is not independently price-verified",
+      "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"
+    ],
+    "historical_anomaly": null,
+    "historical_revision_count": 1,
+    "historical_revision_examples": [
+      {
+        "date": "2025-11-11",
+        "previous": 90.0,
+        "current": 90.0001
+      }
+    ],
+    "excluded_incomplete_dates": [],
+    "source_as_of_utc": "2026-10-29T20:01:00+00:00",
+    "source": "YAHOO_CHART_ADJCLOSE",
+    "rules_version": "adjclose-wilder14-sma-252-v1",
+    "event_model_version": "revision-market-v2",
+    "independently_price_verified": false
+  },
+  "B_missing_comparable_Close": {
+    "symbol": "NVDA",
+    "close": 79.0,
+    "trading_date": "2026-10-29",
+    "adjclose": 79.0,
+    "window_samples": 252,
+    "highest_adjclose": 100.0,
+    "highest_date": "2025-10-29",
+    "drawdown": -0.20999999999999996,
+    "rsi14": 1.0279353546138736e-06,
+    "sma50": 89.68,
+    "sma200": 89.92,
+    "rsi_warmup_prices": 253,
+    "high_tie_rule": "LATEST_DATE_EXACT_EQUAL_PRICE",
+    "indicator_status": {
+      "drawdown": "VALID",
+      "rsi14": "VALID",
+      "sma50": "VALID",
+      "sma200": "VALID"
+    },
+    "revision_observation": {
+      "detected": true,
+      "classification": "REVISION_REVIEW_REQUIRED",
+      "count": 1,
+      "raw_differences": [
+        {
+          "date": "2025-11-11",
+          "previous": 90.0,
+          "current": 90.0001
+        }
+      ],
+      "dates": [
+        "2025-11-11"
+      ],
+      "max_absolute_difference": 0.00010000000000331966,
+      "max_relative_difference": 1.1111111111183902e-06,
+      "requires_review": true,
+      "confidence": "Observed overlapping-date differences; Yahoo upstream cause unconfirmed",
+      "impact_at_current_target": {
+        "changed": {
+          "adjclose": false,
+          "highest_adjclose": false,
+          "highest_date": false,
+          "drawdown": false,
+          "rsi14": true,
+          "sma50": false,
+          "sma200": false,
+          "watch_tier": false
+        },
+        "deltas": {
+          "adjclose": 0.0,
+          "highest_adjclose": 0.0,
+          "drawdown": 0.0,
+          "rsi14": 2.05631067728973e-11,
+          "sma50": 0.0,
+          "sma200": 0.0
+        }
+      },
+      "impact_on_previous_session": {
+        "changed": {
+          "adjclose": false,
+          "highest_adjclose": false,
+          "highest_date": false,
+          "drawdown": false,
+          "rsi14": true,
+          "sma50": false,
+          "sma200": false,
+          "watch_tier": false
+        },
+        "deltas": {
+          "adjclose": 0.0,
+          "highest_adjclose": 0.0,
+          "drawdown": 0.0,
+          "rsi14": 4.7123194235609844e-11,
+          "sma50": 0.0,
+          "sma200": 0.0
+        }
+      }
+    },
+    "market_observation": {
+      "previous_trading_date": "2026-10-28",
+      "current_trading_date": "2026-10-29",
+      "previous_adjclose": 85.0,
+      "current_adjclose": 79.0,
+      "previous_drawdown": -0.15000000000000002,
+      "current_drawdown": -0.20999999999999996,
+      "previous_watch_tier": "WATCH_10",
+      "current_watch_tier": "WATCH_20",
+      "candidate_thresholds": [
+        20
+      ],
+      "crossed_thresholds": [
+        20
+      ],
+      "confirmed_thresholds_this_run": [],
+      "pending_thresholds_this_run": [
+        20
+      ],
+      "comparability_proven": false,
+      "comparability_reasons": [
+        "OVERLAP_CLOSE_CHANGED"
+      ],
+      "event_type": "NEW_THRESHOLD",
+      "status": "PENDING_REVIEW",
+      "can_confirm": false,
+      "old_basis_counterfactual": {
+        "trading_date": "2026-10-29",
+        "adjclose": 79.0,
+        "window_samples": 252,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.20999999999999996,
+        "rsi14": 1.0279147915071007e-06,
+        "sma50": 89.68,
+        "sma200": 89.92,
+        "conditional_only_until_comparability_proven": true
+      },
+      "previous_recomputed_metrics": {
+        "trading_date": "2026-10-28",
+        "adjclose": 85.0,
+        "window_samples": 252,
+        "highest_adjclose": 100.0,
+        "highest_date": "2025-10-29",
+        "drawdown": -0.15000000000000002,
+        "rsi14": 2.3563440265661484e-06,
+        "sma50": 89.9,
+        "sma200": 89.975
+      },
+      "adjustment_factor_evidence": {
+        "previous_anchor_factor": 1.0,
+        "current_factor": 1.0
+      },
+      "window_high_expired_naturally": false,
+      "unrevised_basis_event": "NEW_THRESHOLD",
+      "revised_basis_event": "NEW_THRESHOLD",
+      "revision_drawdown_error_bound": 2.2222222222367805e-06,
+      "nearest_tested_threshold_margin": 0.009999999999999953,
+      "significant_deepening": false,
+      "recovery": false,
+      "reentry": false
+    },
+    "threshold_state": {
+      "observed": [
+        10,
+        20
+      ],
+      "confirmed": [],
+      "baseline": [
+        10
+      ],
+      "pending_event_ids": []
+    },
+    "market_events": [
+      {
+        "symbol": "NVDA",
+        "trading_date": "2026-10-29",
+        "event_type": "THRESHOLD_CROSSING",
+        "event_subtype": "NEW_THRESHOLD",
+        "threshold": 20,
+        "status": "PENDING_REVIEW",
+        "rules_version": "adjclose-wilder14-sma-252-v1",
+        "evidence": {
+          "previous_trading_date": "2026-10-28",
+          "previous_adjclose": 85.0,
+          "previous_drawdown": -0.15000000000000002,
+          "current_adjclose": 79.0,
+          "current_drawdown": -0.20999999999999996,
+          "old_basis_counterfactual": {
+            "trading_date": "2026-10-29",
+            "adjclose": 79.0,
+            "window_samples": 252,
+            "highest_adjclose": 100.0,
+            "highest_date": "2025-10-29",
+            "drawdown": -0.20999999999999996,
+            "rsi14": 1.0279147915071007e-06,
+            "sma50": 89.68,
+            "sma200": 89.92,
+            "conditional_only_until_comparability_proven": true
+          },
+          "comparability_proven": false,
+          "comparability_reasons": [
+            "OVERLAP_CLOSE_CHANGED"
+          ],
+          "revision_count": 1,
+          "revision_dates": [
+            "2025-11-11"
+          ]
+        }
+      }
+    ],
+    "change_event": "PENDING_REVIEW",
+    "watch_tier": "WATCH_20",
+    "previous_watch_tier": "WATCH_10",
+    "crossed_thresholds_this_run": [],
+    "new_thresholds": [],
+    "reentered_thresholds": [],
+    "triggered_thresholds": [],
+    "confirmed_thresholds": [],
+    "baseline_observed_thresholds": [
+      10
+    ],
+    "last_new_trigger_date": null,
+    "deepening_anchor": -0.15000000000000002,
+    "raw_revision_differences": [
+      {
+        "date": "2025-11-11",
+        "previous": 90.0,
+        "current": 90.0001
+      }
+    ],
+    "data_quality": "PASS",
+    "warnings": [
+      "YAHOO_ONLY: history is not independently price-verified",
+      "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"
+    ],
+    "historical_anomaly": null,
+    "historical_revision_count": 1,
+    "historical_revision_examples": [
+      {
+        "date": "2025-11-11",
+        "previous": 90.0,
+        "current": 90.0001
+      }
+    ],
+    "excluded_incomplete_dates": [],
+    "source_as_of_utc": "2026-10-29T20:01:00+00:00",
+    "source": "YAHOO_CHART_ADJCLOSE",
+    "rules_version": "adjclose-wilder14-sma-252-v1",
+    "event_model_version": "revision-market-v2",
+    "independently_price_verified": false
+  }
+}

@@ -1,0 +1,75 @@
+gui/501/com.rui.bigtech.phase42.run3-20261105 = {
+	active count = 0
+	path = /Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.run3-20261105.plist
+	type = LaunchAgent
+	state = not running
+
+	program = /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/.venv/bin/python
+	arguments = {
+		/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/.venv/bin/python
+		/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/diagnostics/run_phase4_2.py
+		3
+	}
+
+	working directory = /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal
+
+	stdout path = /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/logs/3.stdout.log
+	stderr path = /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_trial/logs/3.stderr.log
+	inherited environment = {
+		SSH_AUTH_SOCK => /var/run/com.apple.launchd.THpLExSpXo/Listeners
+	}
+
+	default environment = {
+		PATH => /usr/bin:/bin:/usr/sbin:/sbin
+	}
+
+	environment = {
+		OSLogRateLimit => 64
+		PYTHONUNBUFFERED => 1
+		PYTHONPATH => /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal
+		XPC_SERVICE_NAME => com.rui.bigtech.phase42.run3-20261105
+	}
+
+	domain = gui/501 [100023]
+	asid = 100023
+	minimum runtime = 10
+	exit timeout = 5
+	runs = 0
+	last exit code = (never exited)
+
+	event triggers = {
+		com.rui.bigtech.phase42.run3-20261105.268435472 => {
+			keepalive = 0
+			service = com.rui.bigtech.phase42.run3-20261105
+			stream = com.apple.launchd.calendarinterval
+			monitor = com.apple.UserEventAgent-Aqua
+			descriptor = {
+				"Minute" => 0
+				"Hour" => 9
+				"Day" => 5
+				"Month" => 11
+			}
+		}
+	}
+
+	event channels = {
+		"com.apple.launchd.calendarinterval" = {
+			port = 0x0
+			active = 0
+			managed = 1
+			reset = 0
+			hide = 0
+			watching = 1
+		}
+	}
+
+	spawn type = daemon (3)
+	jetsam priority = 40
+	jetsam memory limit (active) = (unlimited)
+	jetsam memory limit (inactive) = (unlimited)
+	jetsamproperties category = daemon
+	jetsam thread limit = 32
+	cpumon = default
+
+	properties = abandon process group | launch only once | inferred program
+}

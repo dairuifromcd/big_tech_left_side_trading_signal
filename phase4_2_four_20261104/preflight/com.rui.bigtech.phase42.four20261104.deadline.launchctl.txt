@@ -1,0 +1,81 @@
+gui/501/com.rui.bigtech.phase42.four20261104.deadline = {
+	active count = 0
+	path = /Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.four20261104.deadline.plist
+	type = LaunchAgent
+	state = not running
+
+	program = /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/.venv/bin/python
+	arguments = {
+		/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/.venv/bin/python
+		-B
+		-m
+		diagnostics.phase4_2_four
+		supervise
+		deadline
+	}
+
+	working directory = /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal
+
+	stdout path = /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/logs/com.rui.bigtech.phase42.four20261104.deadline.stdout.log
+	stderr path = /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/logs/com.rui.bigtech.phase42.four20261104.deadline.stderr.log
+	inherited environment = {
+		SSH_AUTH_SOCK => /var/run/com.apple.launchd.BWa1Uq0QLG/Listeners
+	}
+
+	default environment = {
+		PATH => /usr/bin:/bin:/usr/sbin:/sbin
+	}
+
+	environment = {
+		OSLogRateLimit => 64
+		PYTHONUNBUFFERED => 1
+		PYTHONDONTWRITEBYTECODE => 1
+		PYTHONPATH => /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal
+		TMPDIR => /Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/preflight/tmp
+		XPC_SERVICE_NAME => com.rui.bigtech.phase42.four20261104.deadline
+	}
+
+	domain = gui/501 [100014]
+	asid = 100014
+	minimum runtime = 10
+	exit timeout = 5
+	runs = 0
+	last exit code = (never exited)
+
+	event triggers = {
+		com.rui.bigtech.phase42.four20261104.deadline.268435481 => {
+			keepalive = 0
+			service = com.rui.bigtech.phase42.four20261104.deadline
+			stream = com.apple.launchd.calendarinterval
+			monitor = com.apple.UserEventAgent-Aqua
+			descriptor = {
+				"Minute" => 30
+				"Hour" => 10
+				"Day" => 7
+				"Month" => 11
+			}
+		}
+	}
+
+	event channels = {
+		"com.apple.launchd.calendarinterval" = {
+			port = 0x0
+			active = 0
+			managed = 1
+			reset = 0
+			hide = 0
+			watching = 1
+		}
+	}
+
+	spawn type = daemon (3)
+	jetsam priority = 40
+	jetsam memory limit (active) = (unlimited)
+	jetsam memory limit (inactive) = (unlimited)
+	jetsamproperties category = daemon
+	jetsam thread limit = 32
+	cpumon = default
+	sanitizer flags = 0x0
+
+	properties = abandon process group | launch only once | inferred program
+}

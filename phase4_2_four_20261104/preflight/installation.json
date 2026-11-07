@@ -1,0 +1,52 @@
+{
+  "at_utc": "2026-11-03T13:15:13.981621+00:00",
+  "installed": true,
+  "jobs": [
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run1",
+      "run": 1,
+      "source_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/config/com.rui.bigtech.phase42.four20261104.run1.plist",
+      "installed_plist": "/Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.four20261104.run1.plist",
+      "plist_sha256": "4ca27d76c7e88ccb71ab41d5dd441cd260b90227bbdc2a98a339b2f13dc0a410",
+      "scheduled_brisbane": "2026-11-04T10:00:00+10:00",
+      "collection_allowed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run2",
+      "run": 2,
+      "source_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/config/com.rui.bigtech.phase42.four20261104.run2.plist",
+      "installed_plist": "/Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.four20261104.run2.plist",
+      "plist_sha256": "af26435e0c8df2f2522aa8849153d92b3c14b72c5f309b336cb422594423d4d3",
+      "scheduled_brisbane": "2026-11-05T10:00:00+10:00",
+      "collection_allowed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run3",
+      "run": 3,
+      "source_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/config/com.rui.bigtech.phase42.four20261104.run3.plist",
+      "installed_plist": "/Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.four20261104.run3.plist",
+      "plist_sha256": "868a3b8d036c02ec574ecd0fc6e5c8905f7cee6ea9c9f71fa9d99c0b45c7c59b",
+      "scheduled_brisbane": "2026-11-06T10:00:00+10:00",
+      "collection_allowed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.run4",
+      "run": 4,
+      "source_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/config/com.rui.bigtech.phase42.four20261104.run4.plist",
+      "installed_plist": "/Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.four20261104.run4.plist",
+      "plist_sha256": "7c7c2089cf8156b666387c1d03e6ea2de580284bf1622bf3e6ca33531cdf79ce",
+      "scheduled_brisbane": "2026-11-07T10:00:00+10:00",
+      "collection_allowed": true
+    },
+    {
+      "label": "com.rui.bigtech.phase42.four20261104.deadline",
+      "run": "deadline",
+      "source_plist": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_four_20261104/config/com.rui.bigtech.phase42.four20261104.deadline.plist",
+      "installed_plist": "/Users/rui/Library/LaunchAgents/com.rui.bigtech.phase42.four20261104.deadline.plist",
+      "plist_sha256": "a786860111af79a514efb0a5e34cf74f6ac3ab958839f57079892747e5e3bff1",
+      "scheduled_brisbane": "2026-11-07T10:30:00+10:00",
+      "collection_allowed": false
+    }
+  ],
+  "http_requests": 0
+}

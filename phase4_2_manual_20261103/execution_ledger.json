@@ -1,0 +1,13 @@
+{
+  "trial_id": "phase4_2_manual_20261103",
+  "claimed": true,
+  "status": "PASS_PROVISIONAL",
+  "config_sha256": "c4cf47fccfccdec6e161a6e74e689ce2aaa10a6a4da82cc784667cda1bda64c7",
+  "created_at_utc": "2026-11-03T12:49:34.936193+00:00",
+  "started_at_utc": "2026-11-03T12:51:54.342694+00:00",
+  "actual_http_request_count": 9,
+  "outcome": "RECORDED",
+  "finished_at_utc": "2026-11-03T12:53:35.584337+00:00",
+  "state_hash_after": "539de7be40c062e8c2bc346d44afcc161a3b111ef6797357d6b1068509c33b35",
+  "summary": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_2_manual_20261103/summary.json"
+}

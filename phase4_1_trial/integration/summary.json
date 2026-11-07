@@ -1,0 +1,93 @@
+{
+  "migration": {
+    "changed": true,
+    "from_schema": 1,
+    "to_schema": 2,
+    "ambiguous_thresholds": [
+      {
+        "symbol": "NVDA",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "ec6da250144fa0e619420170ec85dc1a980576ed24bfdf8a6c85e506ecdce2d2"
+      },
+      {
+        "symbol": "GOOGL",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "2794ffbe9e11f38d39ca399ac0e0245a8cbda6954d4e3c4c86e36e69ff033f26"
+      },
+      {
+        "symbol": "GOOGL",
+        "threshold": 20,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "9c00696d96dfba1f7b853b5dfe0c528c58004cdcdccfbd56029726978cc75bd8"
+      },
+      {
+        "symbol": "AMZN",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "e573dd8ffde35a7d557d9ffdf08bcafd5e1f27b7fb0497409a8568257eb5a98b"
+      },
+      {
+        "symbol": "SPCX",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "10afed7ed61f13676a72b6faa6be77ca5ff314c007104b914f9c5fb31bc2c544"
+      },
+      {
+        "symbol": "SPCX",
+        "threshold": 20,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "1510cd0cc726f4054da3c2c00e5c5dae723cf81481250ae00f12023ea757efd3"
+      },
+      {
+        "symbol": "SPCX",
+        "threshold": 30,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "990899023e2fb0ae61da5052388cb14bacdb0d9bfa03f14eac28f0668e0388a7"
+      },
+      {
+        "symbol": "META",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "3ae0df55460b6ffb7d03b38f28528c447981792981632ec222e7cc22c7009b4d"
+      },
+      {
+        "symbol": "AVGO",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "5096cf6711b698926c9f3812586ac9a46fa4d75eac18b12951da3208f73db8b7"
+      },
+      {
+        "symbol": "AVGO",
+        "threshold": 20,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "2bceec4be4c282ecebc981e6c253f6087b4759562045094632a15985403b3aa3"
+      },
+      {
+        "symbol": "TSLA",
+        "threshold": 10,
+        "reason": "Legacy touched level lacks a verified, non-revision market-event record",
+        "event_id": "1872805709c1a392b4938ae86f8372468998382a62e5a61bc650c7748554501b"
+      }
+    ],
+    "verified_legacy_confirmations": [],
+    "alert_delivery": "NONE"
+  },
+  "repeat_migration": {
+    "changed": false,
+    "from_schema": 2,
+    "to_schema": 2,
+    "ambiguous_thresholds": []
+  },
+  "phase2_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_trial/integration/phase2/monitor_indicators_20261030_221755.json",
+  "phase4_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_trial/integration/phase4/monitor_indicators_20261030_221756.json",
+  "repeat_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/phase4_1_trial/integration/repeat/monitor_indicators_20261030_221756.json",
+  "price_revision_count": 1139,
+  "indicators_equal_original_phase4": true,
+  "repeat_state_sha256": "e04628145ecb1623a6f1c4f0a588f9fb444d60a590dd7dcab30e44e7a0486667",
+  "repeat_byte_identical": true,
+  "false_market_events": 0,
+  "pending_event_count": 12,
+  "schema_version": 2
+}

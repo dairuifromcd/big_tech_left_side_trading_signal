@@ -1,0 +1,258 @@
+"""Offline finite-trial protections. No test represents a real trading day."""
+import copy
+import datetime as dt
+import json
+from pathlib import Path
+import tempfile
+import unittest
+from unittest.mock import patch
+
+from src import phase4_2 as trial, state
+
+
+class TrialGuardTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.config_path = self.root / "config.json"
+        self.config_path.write_text("{}")
+        self.path = self.root / "state.json"
+        self.path.write_text("existing valid checkpoint bytes")
+        self.config = {"state_path": str(self.path), "initial_state_sha256": trial.digest(self.path)}
+        self.ledger = {"trial_id": trial.TRIAL_ID, "config_sha256": trial.digest(self.config_path),
+                       "status": "ARMED", "runs": [{"plan": copy.deepcopy(p), "claimed": False, "result": "PENDING"} for p in trial.PLAN]}
+        self.checkpoint = {"schema_version": 2, "trial_id": trial.TRIAL_ID, "stocks": {}, "event_records": {}}
+        self.now = dt.datetime.fromisoformat(trial.PLAN[0]["scheduled_brisbane"])
+        self.patcher = patch.object(trial, "CONFIG", self.config_path)
+        self.patcher.start(); self.addCleanup(self.patcher.stop)
+
+    def check(self, number=1, now=None):
+        return trial.guard(self.config, self.ledger, self.checkpoint, number, now or self.now)
+
+    def blocked(self, text, number=1, now=None):
+        with self.assertRaisesRegex(trial.GuardError, text):
+            self.check(number, now)
+
+    def test_first_scheduled_baseline_allowed(self):
+        self.check()
+
+    def test_before_window_refused(self):
+        self.blocked("OUTSIDE_WINDOW", now=self.now-dt.timedelta(seconds=1))
+
+    def test_after_fifteen_minutes_refused(self):
+        self.blocked("OUTSIDE_WINDOW", now=self.now+dt.timedelta(minutes=15))
+
+    def test_after_deadline_refused(self):
+        self.blocked("OUTSIDE_WINDOW", now=dt.datetime(2026, 11, 8, 9, tzinfo=trial.ZONE))
+
+    def test_sixth_run_refused(self):
+        self.blocked("ATTEMPT_LIMIT", number=6)
+
+    def test_five_claims_including_failures_exhaust_limit(self):
+        for row in self.ledger["runs"]:
+            row.update(claimed=True, result="DATA_ERROR")
+        self.blocked("ATTEMPT_LIMIT")
+
+    def test_duplicate_claim_refused(self):
+        self.ledger["runs"][0].update(claimed=True, result="SUCCESS")
+        self.blocked("DUPLICATE_CLAIM")
+
+    def test_crashed_uncertain_claim_refused(self):
+        self.ledger["runs"][0].update(claimed=True, result="CLAIMED")
+        self.blocked("UNCERTAIN_PREVIOUS", 2, dt.datetime.fromisoformat(trial.PLAN[1]["scheduled_brisbane"]))
+
+    def test_all_terminal_states_refused(self):
+        for status in trial.TERMINAL:
+            with self.subTest(status=status):
+                self.ledger["status"] = status
+                self.blocked("TRIAL_TERMINAL")
+
+    def test_changed_plan_refused(self):
+        self.ledger["runs"][0]["plan"]["target_date"] = "2026-10-29"
+        self.blocked("LEDGER_INTEGRITY")
+
+    def test_changed_config_refused(self):
+        self.config_path.write_text('{"altered":true}')
+        self.blocked("LEDGER_INTEGRITY")
+
+    def test_wrong_trial_state_refused(self):
+        self.checkpoint["trial_id"] = "other-worktree"
+        self.blocked("STATE_IDENTITY")
+
+    def test_v1_state_refused(self):
+        self.checkpoint["schema_version"] = 1
+        self.blocked("STATE_IDENTITY")
+
+    def test_nonempty_first_baseline_refused(self):
+        self.checkpoint["stocks"] = {"NVDA": {}}
+        self.blocked("BASELINE_NOT_EMPTY")
+
+    def test_tampered_checkpoint_refused(self):
+        self.path.write_text("different state")
+        self.blocked("STATE_CONTINUITY")
+
+    def test_calendar_mismatch_refused(self):
+        with patch.object(trial.calendar, "latest_completed_session", return_value=dt.date(2026, 10, 30)):
+            self.blocked("CALENDAR_TARGET")
+
+    def test_missed_or_failed_previous_run_refused(self):
+        for result in ("PENDING", "DATA_ERROR", "PARTIAL_SUCCESS", "RATE_LIMITED"):
+            with self.subTest(result=result):
+                self.ledger["runs"][0].update(claimed=result != "PENDING", result=result)
+                self.blocked("CATCHUP_REQUIRED", 2, dt.datetime.fromisoformat(trial.PLAN[1]["scheduled_brisbane"]))
+
+    def consecutive(self):
+        self.ledger["runs"][0].update(claimed=True, result="SUCCESS", state_hash_after=trial.digest(self.path))
+        self.checkpoint["stocks"] = {s: {"trading_date": "2026-11-02"} for s in state.SYMBOLS}
+
+    def test_next_completed_session_allowed(self):
+        self.consecutive()
+        self.check(2, dt.datetime.fromisoformat(trial.PLAN[1]["scheduled_brisbane"]))
+
+    def test_single_stock_missing_day_refused(self):
+        self.consecutive(); self.checkpoint["stocks"]["NVDA"]["trading_date"] = "2026-10-29"
+        self.blocked("CATCHUP_REQUIRED", 2, dt.datetime.fromisoformat(trial.PLAN[1]["scheduled_brisbane"]))
+
+    def test_all_five_targets_dynamically_match_calendar(self):
+        for row in trial.PLAN:
+            scheduled = dt.datetime.fromisoformat(row["scheduled_brisbane"])
+            self.assertEqual(trial.calendar.latest_completed_session(scheduled).isoformat(), row["target_date"])
+
+    def test_existing_state_lock_excludes_second_process(self):
+        with state.lock(self.path):
+            with self.assertRaisesRegex(state.StateError, "STATE_LOCKED"):
+                with state.lock(self.path):
+                    self.fail("concurrent entry")
+
+    def test_missing_state_never_reinitialized(self):
+        self.path.unlink()
+        with self.assertRaisesRegex(state.StateError, "MISSING_EXISTING_STATE"):
+            state.load(self.path)
+        self.assertFalse(self.path.exists())
+
+
+class ProtectedEvidenceTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.business = self.root / "historical.json"
+        self.metadata = self.root / ".DS_Store"
+        self.business.write_text('{"price":100}')
+        self.metadata.write_bytes(b"original Finder metadata")
+        self.manifest = self.root / "manifest.json"
+        self.manifest.write_text(json.dumps({"sha256": {p.name: trial.digest(p) for p in (self.business, self.metadata)}}))
+        self.config = {"protected_manifest": str(self.manifest)}
+        self.patcher = patch.object(trial, "ROOT", self.root)
+        self.patcher.start(); self.addCleanup(self.patcher.stop)
+
+    def test_changed_finder_metadata_does_not_block_business_evidence(self):
+        self.metadata.write_bytes(b"Finder changed its window layout")
+        self.assertTrue(trial.protected_ok(self.config))
+
+    def test_modified_business_evidence_remains_blocked_with_hash_details(self):
+        expected = trial.digest(self.business)
+        self.business.write_text('{"price":101}')
+        differences = trial.protected_differences(self.config)
+        self.assertEqual(len(differences), 1)
+        self.assertEqual(differences[0]["expected_sha256"], expected)
+        self.assertEqual(differences[0]["current_sha256"], trial.digest(self.business))
+        self.assertIsNotNone(differences[0]["mtime_utc"])
+
+    def test_deleted_business_evidence_stays_blocked(self):
+        self.business.unlink()
+        self.assertFalse(trial.protected_ok(self.config))
+        self.assertIsNone(trial.protected_differences(self.config)[0]["current_sha256"])
+
+    def test_other_hidden_business_files_are_not_ignored(self):
+        hidden = self.root / ".checkpoint.json"
+        hidden.write_text("original")
+        self.manifest.write_text(json.dumps({"sha256": {hidden.name: trial.digest(hidden)}}))
+        hidden.write_text("changed")
+        self.assertFalse(trial.protected_ok(self.config))
+
+    def test_pinned_manifest_cannot_be_rewritten_to_accept_modified_evidence(self):
+        self.config["protected_manifest_sha256"] = trial.digest(self.manifest)
+        self.manifest.write_text('{"sha256":{}}')
+        with self.assertRaisesRegex(trial.GuardError, "PROTECTED_MANIFEST_CHANGED"):
+            trial.protected_ok(self.config)
+
+
+class ManualOneShotTests(unittest.TestCase):
+    def test_manual_authorization_allows_today_after_original_schedule_window(self):
+        from diagnostics import run_phase4_2_once as once
+        once.validate_date(dt.datetime(2026, 11, 3, 22, tzinfo=trial.ZONE))
+
+    def test_manual_authorization_expires_instead_of_allowing_another_day(self):
+        from diagnostics import run_phase4_2_once as once
+        with self.assertRaisesRegex(trial.GuardError, "MANUAL_AUTHORIZATION_EXPIRED"):
+            once.validate_date(dt.datetime(2026, 11, 4, 9, tzinfo=trial.ZONE))
+
+    def test_claimed_manual_run_cannot_start_again_even_after_failure(self):
+        from diagnostics import run_phase4_2_once as once
+        config = {"python_version": once.platform.python_version(), "trial_id": once.IDENTITY,
+                  "state_path": str(once.DIRECTORY / "state/monitor_state.json")}
+        ledger = {"trial_id": once.IDENTITY, "claimed": True, "status": "DATA_ERROR", "config_sha256": "known"}
+        with patch.object(once, "validate_date"), patch.object(once.trial, "digest", return_value="known"):
+            with self.assertRaisesRegex(trial.GuardError, "ONE_SHOT_ALREADY_CLAIMED"):
+                once.verify(config, ledger)
+
+
+class ClaimOrderingTests(unittest.TestCase):
+    def test_confirmed_deepening_does_not_claim_threshold_detection(self):
+        rows = [{"confirmed_events": [{"event_type": "DEEPENING", "status": "CONFIRMED"}]}]
+        self.assertEqual(trial.live_threshold_status(rows), "NOT_OBSERVED")
+
+    def test_only_real_confirmed_threshold_counts_as_observed(self):
+        rows = [{"confirmed_events": [{"event_type": "THRESHOLD_CROSSING", "status": "CONFIRMED"}]}]
+        self.assertEqual(trial.live_threshold_status(rows), "OBSERVED")
+
+    def test_block_during_batch_wait_stops_before_next_http(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); (root / "acceptance").mkdir()
+            ledger_path = root / "ledger.json"
+            ledger_path.write_text(json.dumps({"status": "ARMED", "runs": [{"claimed": True, "result": "CLAIMED"}]}))
+            with patch.object(trial, "TRIAL", root):
+                check = trial.request_guard(1, ledger_path)
+                (root / "acceptance/BLOCKED.json").write_text('{"reason":"duplicate launch"}')
+                scheduler = trial.collector.RequestScheduler(request_guard=check)
+                with self.assertRaisesRegex(trial.GuardError, "PERSISTENT_BLOCK"):
+                    scheduler.begin({"symbol": "AAPL", "batch": 1})
+                self.assertIsNone(scheduler.last_start)
+
+    def test_claim_is_durable_before_collector_and_crash_blocks(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); (root / "state").mkdir(); (root / "reports").mkdir(); (root / "acceptance").mkdir()
+            state_path = root / "state/monitor_state.json"
+            initial = state.migrate({"schema_version": 1, "rules_version": state.RULES_VERSION, "stocks": {}})[0]
+            initial["trial_id"] = trial.TRIAL_ID
+            state.initialize(state_path, initial)
+            config_path = root / "config.json"
+            config = {"state_path": str(state_path), "ledger_path": str(root / "execution_ledger.json"), "code_sha256": {}}
+            config_path.write_text(json.dumps(config))
+            ledger = {"trial_id": trial.TRIAL_ID, "config_sha256": trial.digest(config_path), "status": "ARMED",
+                      "runs": [{"plan": copy.deepcopy(p), "claimed": False, "result": "PENDING"} for p in trial.PLAN]}
+            state.durable_json(root / "execution_ledger.json", ledger)
+            before = state_path.read_bytes()
+
+            def crash(**kwargs):
+                persisted = trial.read_json(root / "execution_ledger.json")
+                self.assertTrue(persisted["runs"][0]["claimed"])
+                self.assertEqual(persisted["runs"][0]["result"], "CLAIMED")
+                raise RuntimeError("injected collector failure before any network")
+
+            with patch.object(trial, "TRIAL", root), patch.object(trial, "CONFIG", config_path), \
+                 patch.object(trial, "environment_guard"), patch.object(trial, "guard"), \
+                 patch.object(trial, "write_acceptance"), patch.object(trial.collector, "run", side_effect=crash) as collect:
+                self.assertEqual(trial.execute(1), 2)
+                self.assertEqual(collect.call_count, 1)
+            final = trial.read_json(root / "execution_ledger.json")
+            self.assertEqual(final["status"], "BLOCKED")
+            self.assertTrue(final["runs"][0]["requires_manual_reconciliation"])
+            self.assertEqual(state_path.read_bytes(), before)
+            self.assertTrue((root / "acceptance/BLOCKED.json").exists())
+
+
+if __name__ == "__main__":
+    unittest.main()

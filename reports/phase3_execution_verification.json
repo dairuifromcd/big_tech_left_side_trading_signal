@@ -1,0 +1,20 @@
+{
+  "synthetic": false,
+  "http_requests_this_phase": 0,
+  "baseline_report": "reports/monitor_indicators_20261030_152105.json",
+  "repeat_report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/reports/monitor_indicators_20261030_152207.json",
+  "state_sha256_before": "26e0f3f84e579b448e6e57fad9abd8b550568520c0088c0ff106f34eae727fa6",
+  "state_sha256_after": "26e0f3f84e579b448e6e57fad9abd8b550568520c0088c0ff106f34eae727fa6",
+  "byte_identical": true,
+  "repeat_events": [
+    "NO_CHANGE",
+    "NO_CHANGE",
+    "NO_CHANGE",
+    "NO_CHANGE",
+    "NO_CHANGE",
+    "NO_CHANGE",
+    "NO_CHANGE",
+    "NO_CHANGE",
+    "NO_CHANGE"
+  ]
+}
