@@ -75,7 +75,7 @@ def validated_prices(symbol, stock, diagnostic):
     return completed, target, checked, excluded
 
 
-def process_symbol(symbol, stock, diagnostic, previous, significant_pp):
+def process_symbol(symbol, stock, diagnostic, previous, significant_pp, *, event_context=None):
     completed, target, checked, excluded = validated_prices(symbol, stock, diagnostic)
     if previous and target < previous["trading_date"]:
         raise ValueError("STALE_DATA: cannot move persisted state backward")
@@ -100,7 +100,7 @@ def process_symbol(symbol, stock, diagnostic, previous, significant_pp):
         previous["history_closes"] = closes
         previous["identity_snapshot"] = identity
         previous["comparison_evidence_hydrated_from_identical_capture"] = True
-    model = observations.evaluate(symbol, pairs, closes, identity, previous, significant_pp)
+    model = observations.evaluate(symbol, pairs, closes, identity, previous, significant_pp, event_context=event_context)
     changes = model["revision_observation"]["raw_differences"]
     warnings = ["YAHOO_ONLY: history is not independently price-verified", "TECHNICAL_OBSERVATION_ONLY: investment value not assessed"]
     anomaly = None
@@ -143,6 +143,12 @@ def markdown(report):
             lines.append(f"| {row['symbol']} | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | DATA_ERROR | FAIL |")
             continue
         lines.append(f"| {row['symbol']} | {row['trading_date']} | {fmt(row['close'])} | {fmt(row['adjclose'])} | {row['window_samples']} | {fmt(row['highest_adjclose'])} | {row['highest_date']} | {row['drawdown'] * 100:.2f}% | {fmt(row['rsi14'])} | {fmt(row['sma50'])} | {fmt(row['sma200'])} | {row['watch_tier']} | {row['change_event']} | {row['data_quality']} |")
+    lines += ["", "Daily movement and cumulative unconfirmed anchor scope:", "",
+              "| Symbol | Daily drawdown change (pp) | New deepening today | Cumulative anchor depth (pp) | Raw candidate | Status | Confirmed |",
+              "|---|---:|---|---:|---|---|---|"]
+    for row in report["stocks"]:
+        if row["change_event"] == "DATA_ERROR":continue
+        lines.append("| "+" | ".join(str(row.get(k,"N/A")) for k in ('symbol','daily_drawdown_change_pp','daily_new_deepening','cumulative_anchor_deepening_pp','raw_market_candidate_type','event_status','candidate_confirmed'))+" |")
     lines += ["", "Warnings and errors:", ""]
     for row in report["stocks"]:
         lines.append(f"- {row['symbol']}: " + (row.get("error_message") or "; ".join(row["warnings"])))
@@ -180,7 +186,8 @@ def _run_unlocked(input_path=DEFAULT_INPUT, state_path=ROOT / "state/monitor_sta
             if mode=='ARCHIVED_CATCHUP':
                 from src.catchup import validate_archive
                 validate_archive(evidence['stocks'][symbol],diagnostic[symbol])
-            observation, updated = process_symbol(symbol, evidence["stocks"][symbol], diagnostic[symbol], previous["stocks"].get(symbol), significant_pp)
+            observation, updated = process_symbol(symbol, evidence["stocks"][symbol], diagnostic[symbol], previous["stocks"].get(symbol), significant_pp,
+                                                  event_context=previous.get("event_records",{}))
             if expected_target is not None and observation["trading_date"] != expected_target:
                 raise ValueError("STALE_DATA: live target mismatch; no candidate update")
             proposed = list(observation["market_events"])

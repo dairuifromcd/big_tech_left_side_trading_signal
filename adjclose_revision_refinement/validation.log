@@ -1,0 +1,21 @@
+{"symbol": "^GSPC", "http_status": 429, "error_category": "RATE_LIMITED", "elapsed_seconds": 0.0009110420360229909}
+{"symbol": "^GSPC", "http_status": 403, "error_category": "HTTP_FORBIDDEN", "elapsed_seconds": 0.0007391670369543135}
+{"status": "BLOCKED", "run": 1, "block_reason": "RuntimeError: injected collector failure before any network"}
+{
+  "ADJCLOSE_REVISION_REFINEMENT": "PASS",
+  "tests": {
+    "total": 271,
+    "passed": 271,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "original_237_retained": true,
+    "new_tests": 34,
+    "network_attempts": []
+  },
+  "protected_files_unchanged": true,
+  "protected_file_count": 412,
+  "old_pending_records_identical": true,
+  "old_pending_count": 7,
+  "before_after_case_count": 30
+}

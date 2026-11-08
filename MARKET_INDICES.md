@@ -53,18 +53,24 @@ state bytes. New evidence versions are retained; pending is sticky, rejected eve
 with new evidence require explicit reopening. No review decision is made by this
 extension, especially for the existing seven equity pending records.
 
-The index revision policy is deliberately conservative and distinct from the stock
-model: any overlapping price revision (same unchanged numeric tolerances) is a
-PENDING_REVIEW revision fact. A counterfactual using the old historical basis must
-agree before creating a market candidate. With revisions or unresolved revision
-risk, a candidate remains pending and cannot consume confirmed thresholds or the
-deepening anchor. Revision-only threshold changes generate no market crossing.
-Old confirmed market decisions are retained. A pending-revision review workflow
-is required before unattended confirmation can be considered in a future phase.
+Current metrics always use the latest validated Adj Close. Attribution compares
+previous/current sessions on both old and latest history bases, with full metric
+impacts retained. Non-extremum micro revisions may coexist with confirmed market
+events only after identity, consecutive-date, relative-error and boundary proofs.
+Revised extrema, material related revisions, unknown provenance or disputed
+crossings remain pending. Disagreement retains meaningful market candidates rather
+than discarding them. Index Close-only changes update provenance without determining
+Adj-Close events; equity Close and adjustment-factor checks remain stricter.
+Pending price-only revisions proven outside both event windows need not block a
+new independent threshold, but their review status never changes automatically.
+Legacy unknown risks and unproven deepening-anchor dependencies remain fail-closed.
+Old confirmed market decisions and semantic event IDs are retained.
 
 `DEEPER_DRAWDOWN` retains the existing cumulative-anchor semantics; index rows also
-display daily drawdown change and cumulative anchor depth separately. All events
-are technical observations, never direct trading signals.
+display daily change on the latest same price basis, whether the day actually
+deepened, cumulative anchor depth, raw candidate and confirmation status separately.
+The stored-previous comparison remains separately labelled for audit. All events are
+technical observations, never direct trading signals.
 
 ## Acceptance scope
 

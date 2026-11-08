@@ -1,0 +1,14 @@
+{
+  "latest_adjclose": "Both current implementations already recompute current metrics from the latest validated series. Preserve this.",
+  "stocks": "Existing identity, Close, adjustment-factor, extrema, relative-error and boundary guards are meaningful. A blanket unresolved-revision flag prevents unrelated future events.",
+  "indices": "Any revision or old pending risk blocks all confirmations; disagreement between old/new candidate levels discards meaningful candidates. Close values are not event inputs and should remain display/provenance.",
+  "minimal_plan": [
+    "Add explicit same-basis previous/current attribution and per-level new-crossing proof in observations; keep equity Close/factor guards.",
+    "Reuse this pure analysis for indices with explicit INDEX identity policy, never bypass data validation.",
+    "Read full pending revision provenance only in memory; unknown or relevant evidence remains fail-closed, proven unrelated old revisions do not globally block new events.",
+    "Add report-only daily/cumulative depth and candidate status fields; preserve event semantic keys and historical files."
+  ],
+  "core_change_reasons": {
+    "src/monitor.py": "Pass validated event-ledger context into the pure observer and display daily/cumulative depth. No state schema or review-decision rewrite required."
+  }
+}

@@ -124,47 +124,42 @@ def evaluate(document, item):
     if old and (target < old["trading_date"] or missing_sessions(old["trading_date"], target)):
         raise ValueError("CATCHUP_REQUIRED: no automatic reconstruction of missing original captures")
     prices = dict(pairs)
-    changes = [{"date": d, "previous": old["history_prices"][d], "current": p} for d,p in pairs
-               if old and d in old["history_prices"] and not math.isclose(p, old["history_prices"][d], abs_tol=1e-8, rel_tol=1e-10)]
-    confirmed = list(old["confirmed_thresholds"]) if old else []
-    baseline = list(old["baseline_thresholds"]) if old else signals.crossed(metrics["drawdown"])
-    prior_risk = any(e["symbol"] == symbol and e["event_type"] == "REVISION_OBSERVATION" and e["status"] == "PENDING_REVIEW" for e in document["event_records"].values())
-    if old and old["identity"] != item["identity"]:
-        raise ValueError("IDENTITY_CHANGED_REVIEW_REQUIRED")
+    from src import observations
+    previous = copy.deepcopy(old)
+    if previous:
+        previous["identity_snapshot"] = previous["identity"]
+        previous["threshold_state"] = {"baseline": previous["baseline_thresholds"], "confirmed": previous["confirmed_thresholds"], "pending_event_ids": []}
+        previous["revision_review_event_ids"] = sorted(key for key,event in document["event_records"].items()
+            if event["symbol"] == symbol and event["event_type"] == "REVISION_OBSERVATION" and event["status"] == "PENDING_REVIEW")
+    model = observations.evaluate(symbol,pairs,item["closes"],item["identity"],previous,
+                                  event_context=document["event_records"],identity_policy="INDEX")
+    changes = model["revision_observation"]["raw_differences"]
     revision_id = None
     if changes:
-        revision_id = register(document, symbol, target, "REVISION_OBSERVATION", None, "PENDING_REVIEW", {"changes": changes, "snapshot_fingerprint": state.fingerprint(prices)})
-    transition_old = dict(old, triggered_thresholds=sorted(set(confirmed+baseline))) if old else None
-    proposed = signals.transition(transition_old, metrics)
-    control = signals.transition(transition_old, indicators.calculate([(d, old["history_prices"].get(d,p)) for d,p in pairs], target)) if old else proposed
-    same_day = bool(old and target == old["trading_date"])
-    comparable = not changes and not prior_risk
-    agreement = proposed["change_event"] == control["change_event"] and proposed["crossed_thresholds_this_run"] == control["crossed_thresholds_this_run"]
+        revision_id = register(document,symbol,target,"REVISION_OBSERVATION",None,
+            "PENDING_REVIEW" if model["revision_observation"]["requires_review"] else "CONFIRMED",
+            {"revision_observation":model["revision_observation"],"changes":changes,"snapshot_fingerprint":state.fingerprint(prices)})
     emitted = []
-    kind = "FIRST_BASELINE" if old is None else "HISTORICAL_REVISION" if changes else "NO_CHANGE"
-    anchor = old["deepening_anchor"] if old else metrics["drawdown"]
-    if old and not same_day and agreement and proposed["change_event"] != "NO_CHANGE":
-        status = "CONFIRMED" if comparable else "PENDING_REVIEW"
-        levels = proposed["crossed_thresholds_this_run"]
-        for threshold in levels or [None]:
-            emitted.append(register(document, symbol, target, "THRESHOLD_CROSSING" if threshold else proposed["change_event"], threshold, status,
-                                    {"previous_drawdown": old["drawdown"], "current_drawdown": metrics["drawdown"], "previous_date": old["trading_date"],
-                                     "counterfactual_event": control["change_event"], "subtype": proposed["change_event"], "comparable": comparable,
-                                     "snapshot_fingerprint": state.fingerprint(prices)}))
-        kind = proposed["change_event"] if comparable else "PENDING_REVIEW"
-        if comparable:
-            confirmed = sorted(set(confirmed+levels)); anchor = metrics["drawdown"]
+    for candidate in model["market_events"]:
+        emitted.append(register(document,symbol,target,candidate["event_type"],candidate["threshold"],candidate["status"],
+                                {**candidate["evidence"],"subtype":candidate["event_subtype"]}))
+    confirmed = sorted(set(old["confirmed_thresholds"] if old else []) | {e["threshold"] for e in document["event_records"].values()
+        if e["symbol"] == symbol and e["event_type"] == "THRESHOLD_CROSSING" and e["status"] == "CONFIRMED" and e["threshold"] is not None})
+    baseline = model["baseline_observed_thresholds"]
+    kind, anchor, comparable = model["change_event"], model["deepening_anchor"], model["market_observation"]["comparability_proven"]
     current = {**metrics, "symbol": symbol, "identity": item["identity"], "as_of_utc": item["as_of_utc"],
                "history_prices": prices, "history_closes": item["closes"], "history_fingerprint": state.fingerprint(prices),
                "comparison_fingerprint": state.fingerprint({"closes": item["closes"], "identity": item["identity"]}),
                "watch_tier": signals.tier(metrics["drawdown"]), "baseline_thresholds": baseline, "confirmed_thresholds": confirmed,
                "deepening_anchor": anchor, "change_event": kind, "market_event_ids": emitted,
-               "revision_observation": {"count": len(changes), "event_id": revision_id, "requires_review": bool(changes) or prior_risk},
-               "comparability_proven": comparable, "revision_policy": "Conservative: all overlapping revisions require review; counterfactual disagreement emits no market event",
+               "revision_observation": {"count": len(changes), "event_id": revision_id, "requires_review": model["revision_observation"]["requires_review"]},
+               "comparability_proven": comparable, "revision_policy": "Same-basis attribution; disputed candidates retained pending; INDEX Close never determines events",
                "technical_observation_only": True}
-    current["daily_drawdown_change_pp"] = (metrics["drawdown"]-old["drawdown"])*100 if old else None
-    current["cumulative_anchor_deepening_pp"] = (old["deepening_anchor"]-metrics["drawdown"])*100 if old else None
-    current["daily_new_deepening"] = bool(old and metrics["drawdown"] < old["drawdown"])
+    current.update({key:model[key] for key in ("daily_drawdown_change_pp","daily_new_deepening","cumulative_anchor_deepening_pp",
+                                               "raw_market_candidate_type","event_status","candidate_confirmed","daily_drawdown_change_basis","stored_previous_drawdown_change_pp")})
+    current["latest_basis_daily_drawdown_change_pp"] = model.get("latest_basis_daily_drawdown_change_pp")
+    current["market_observation"] = model["market_observation"]
+    current["revision_observation"].update({key:value for key,value in model["revision_observation"].items() if key != "event_id"})
     document["indices"][symbol] = current
     return {k:v for k,v in current.items() if k not in ("history_prices", "history_closes")}
 
@@ -180,7 +175,9 @@ def run(items, path=DEFAULT_STATE, output=DIRECTORY/"reports"):
             try:
                 row = evaluate(single, items[symbol])
                 # Identical replay must preserve source, event evidence and state bytes.
-                if original["indices"].get(symbol) and original["indices"][symbol]["history_prices"] == single["indices"][symbol]["history_prices"] and original["event_records"] == single["event_records"]:
+                if (original["indices"].get(symbol) and original["indices"][symbol]["history_prices"] == single["indices"][symbol]["history_prices"]
+                        and original["indices"][symbol]["history_closes"] == single["indices"][symbol]["history_closes"]
+                        and original["event_records"] == single["event_records"]):
                     row["change_event"] = "NO_CHANGE"
                 else:
                     candidate = single
@@ -210,7 +207,10 @@ def run(items, path=DEFAULT_STATE, output=DIRECTORY/"reports"):
         name=output/f"indices_{time.time_ns()}.json"; state.durable_json(name,report)
         lines=["# Market Indices — 技术观察", "", "| Index | 日期 | Adj Close | 回撤 | RSI14 | SMA50 | SMA200 | WATCH | 事件 |", "|---|---|---|---|---|---|---|---|---|"]
         lines += ["| "+" | ".join(str(r.get(k,"N/A")) for k in ("symbol","trading_date","adjclose","drawdown","rsi14","sma50","sma200","watch_tier","change_event"))+" |" for r in rows]
-        lines += ["", "仅为指数技术观察；Yahoo单一数据源；历史修订保守待复核，不直接构成交易信号。"]
+        lines += ["", "| Index | Daily drawdown change (pp) | New deepening today | Cumulative anchor depth (pp) | Raw candidate | Status | Confirmed |",
+                  "|---|---|---|---|---|---|---|"]
+        lines += ["| "+" | ".join(str(r.get(k,"N/A")) for k in ('symbol','daily_drawdown_change_pp','daily_new_deepening','cumulative_anchor_deepening_pp','raw_market_candidate_type','event_status','candidate_confirmed'))+" |" for r in rows]
+        lines += ["", "仅为指数技术观察；Yahoo单一数据源；历史修订按可比性归因，不直接构成交易信号。"]
         name.with_suffix('.md').write_text('\n'.join(lines)+'\n')
         report["report_file"]=str(name)
         return report

@@ -1,0 +1,84 @@
+{
+  "ADJCLOSE_REVISION_REFINEMENT": "PASS",
+  "at_utc": "2026-11-08T12:15:55.131185+00:00",
+  "git_baseline": "bade0acc1016050cf0ddcf21019860e39674cf81",
+  "scope": "Offline development and isolated archive validation only",
+  "modified_files": [
+    "MARKET_INDICES.md",
+    "src/market_indices.py",
+    "src/monitor.py",
+    "src/observations.py"
+  ],
+  "new_files": [
+    "tests/test_adjclose_refinement.py",
+    "diagnostics/validate_adjclose_refinement.py",
+    "adjclose_revision_refinement/"
+  ],
+  "tests": {
+    "total": 271,
+    "passed": 271,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "original_237_retained": true,
+    "new_tests": 34,
+    "network_attempts": []
+  },
+  "protected_files_unchanged": true,
+  "protected_file_count": 412,
+  "old_pending_records_identical": true,
+  "old_pending_count": 7,
+  "source_math_and_state_unchanged": true,
+  "before_after_case_count": 30,
+  "same_basis_independent_confirmation_cases": 6,
+  "candidate_pending_counts": {
+    "before": 22,
+    "after": 19,
+    "interpretation": "Preserving previously dropped candidates can increase pending counts; no old review is resolved or hidden."
+  },
+  "archive_integration": {
+    "stock_replay": {
+      "success_count": 9,
+      "checkpoint_byte_identical": true,
+      "report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/adjclose_revision_refinement/isolated_stock_replay/reports/monitor_indicators_20261108_221554.json"
+    },
+    "index_replay": {
+      "success_count": 3,
+      "checkpoint_byte_identical": true,
+      "report": "/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/adjclose_revision_refinement/isolated_index_replay/reports/indices_1794140154948822000.json"
+    },
+    "avgo": {
+      "archived_file_unchanged": true,
+      "before": {
+        "drawdown": -0.3880631143049248,
+        "deepening_anchor": -0.3285966825576655,
+        "change_event": "PENDING_REVIEW"
+      },
+      "before_nested_candidate": "DEEPER_DRAWDOWN",
+      "after": {
+        "daily_drawdown_change_pp": 0.4500615966132049,
+        "daily_new_deepening": false,
+        "cumulative_anchor_deepening_pp": 5.94664317472593,
+        "raw_market_candidate_type": "DEEPER_DRAWDOWN",
+        "event_status": "PENDING_REVIEW",
+        "candidate_confirmed": false,
+        "daily_drawdown_change_basis": "LATEST_ADJCLOSE_SAME_BASIS_PREVIOUS_SESSION",
+        "stored_previous_drawdown_change_pp": 0.45005773411508354
+      },
+      "stable_market_ids": [
+        "6c807eb892929d3b88b202876319962fa8af4df8731e33fbd7555350fe7273e3"
+      ],
+      "archived_candidate_id_preserved": true
+    }
+  },
+  "identity_and_unit_policy": "Equity identity/Close/adjustment-factor checks retained. Index Close is provenance, never event input.",
+  "legacy_compatibility": "New risk_reasons are additive evidence. Missing/unknown provenance stays blocked. Only known price-only risk outside BOTH event windows can be unrelated; old decisions remain sticky.",
+  "event_identity_policy": "Existing semantic fields and model versions unchanged; report fields do not enter IDs. Archived AVGO candidate ID matches.",
+  "phase5_readiness": "Suitable for Phase5 design discussions; not production authorization. Unattended recovery, long-term reliability and explicit review workflow remain unvalidated.",
+  "limitations": [
+    "Index extrema revisions remain conservatively pending even if a coarse event type agrees.",
+    "Unknown legacy evidence or source/unit risk cannot be automatically discharged.",
+    "Deepening anchor dependencies remain conservative; daily semantics are improved without rewriting historical candidates.",
+    "No new Yahoo requests, scheduler or external services used. No old pending status modified."
+  ]
+}
