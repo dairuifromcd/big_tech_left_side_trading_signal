@@ -97,10 +97,13 @@ export function semanticJson(v:any):string {
   return JSON.stringify(v).replace(/[\u007f-\uffff]/g,c=>'\\u'+c.charCodeAt(0).toString(16).padStart(4,'0'));
 }
 export async function sha(text:string) {return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))].map(x=>x.toString(16).padStart(2,'0')).join('');}
-export async function stableId(e:RecordValue,index=false) {
+export function eventSemantic(e:RecordValue,index=false) {
   if(!(index?INDICES:STOCKS).includes(e.symbol)||!e.event_type||![null,10,20,30].includes(e.threshold??null))throw Error('EVENT_SCHEMA_ERROR');
   checkDate(e.trading_date);
   const semantic:RecordValue={symbol:e.symbol,trading_date:e.trading_date,event_type:e.event_type,threshold:e.threshold??null,rules_version:e.rules_version??RULES,event_model_version:e.event_model_version??(index?'indices-revision-market-v2':'revision-market-v2')};
   if(semantic.rules_version!==RULES||semantic.event_model_version!==(index?'indices-revision-market-v2':'revision-market-v2'))throw Error('EVENT_SCHEMA_ERROR');
-  if(index)semantic.category='Market Indices';return sha(semanticJson(semantic));
+  if(index)semantic.category='Market Indices';return semantic;
+}
+export async function stableId(e:RecordValue,index=false) {
+  return sha(semanticJson(eventSemantic(e,index)));
 }

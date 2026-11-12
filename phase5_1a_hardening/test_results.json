@@ -1,0 +1,116 @@
+{
+  "python": {
+    "total": 271,
+    "passed": 271,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "network_attempts": []
+  },
+  "typescript": {
+    "tests": 203,
+    "pass": 203,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "original_tests_retained": 135,
+    "new_security_tests": 68,
+    "h01": 21,
+    "h02": 47,
+    "new_node_security_tests": 64,
+    "new_workerd_security_tests": 4
+  },
+  "golden": {
+    "golden_fixtures": 76,
+    "validation_fixtures": 32,
+    "passed": 76,
+    "compared_float_fields": 11145,
+    "max_absolute_difference": 0,
+    "tolerance": {
+      "absolute": 1e-12,
+      "relative": 1e-12
+    },
+    "event_ids": "EXACT",
+    "discrete_fields": "EXACT"
+  },
+  "hardening_runtime": {
+    "status": "PASS",
+    "platform": "LOCAL_WORKERD_SQLITE",
+    "blocked_checkpoint_cases": 15,
+    "collector_calls_for_blocked_cases": 0,
+    "outbound_requests": 0,
+    "remote_initialization": "NOT_VERIFIED"
+  },
+  "existing_runtime": {
+    "status": "PASS",
+    "platform": "LOCAL_MINIFLARE_WORKERD_SQLITE",
+    "local_scheduled_handler": true,
+    "platform_alarm_delivery": true,
+    "duplicate_alarm_did_not_collect": true,
+    "metrics": {
+      "state_json_bytes": 369581,
+      "raw_envelope_bytes": 259631,
+      "history_report_bytes": 8337,
+      "event_json_bytes": 0,
+      "reads": 10311,
+      "writes": 247,
+      "statements": 1476,
+      "checkpoint_full_validations": 1,
+      "sqlite_bytes": 753664
+    },
+    "calls": [
+      "NVDA",
+      "AAPL",
+      "GOOGL",
+      "MSFT",
+      "AMZN",
+      "SPCX",
+      "META",
+      "AVGO",
+      "TSLA",
+      "^GSPC",
+      "^NDX",
+      "^SOX"
+    ],
+    "api_readonly": true,
+    "restart_persistence": true,
+    "backup_restore": true,
+    "uncertain_after_restart": true,
+    "outbound_requests": 0,
+    "cpu_host_process_microseconds": {
+      "user": 742407,
+      "system": 97160
+    },
+    "memory_host_before": {
+      "rss": 226902016,
+      "heapTotal": 108363776,
+      "heapUsed": 78916024,
+      "external": 42692387,
+      "arrayBuffers": 38722663
+    },
+    "memory_host_after": {
+      "rss": 253476864,
+      "heapTotal": 129466368,
+      "heapUsed": 102978208,
+      "external": 61192094,
+      "arrayBuffers": 56443148
+    },
+    "real_cloudflare_cpu": "NOT_VERIFIED",
+    "real_cloudflare_memory": "NOT_VERIFIED"
+  },
+  "local_initialization_tool": {
+    "mode": "LOCAL_ONLY",
+    "receipt_id": "08d7238b-0207-45a0-b85b-e68b00004598",
+    "initialized_at_utc": "2026-11-12T09:16:05.205Z",
+    "outbound_requests": 0
+  },
+  "typecheck_exit_code": 0,
+  "cf_build": "PASS",
+  "notes": [
+    "All preflight-failure tests assert zero Collector calls; workerd scenarios additionally assert zero outbound requests.",
+    "Three symbol-commit protection cases inject invalid candidates AFTER a valid preflight and one Mock result; they deliberately assert one prior Mock call and unchanged committed states/events.",
+    "Node SQLite experimental and Miniflare RPC lifetime warnings are retained in logs; all runtime instances are explicitly disposed.",
+    "Miniflare may wrap thrown synchronous transaction errors; exact error categories are checked in Node tests and runtime tests independently assert no requests and no checkpoint mutation."
+  ]
+}

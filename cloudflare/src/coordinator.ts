@@ -2,7 +2,7 @@ import {RecordValue as R,SYMBOLS,INDICES,RULES,calendar,missing,stableId,unique,
 import {Store,register,digest,canonical,pythonPriceFingerprint} from './storage.ts';
 import {validateYahoo} from './yahoo.ts';
 import {evaluate} from './observations.ts';
-export interface Collector {collect(symbol:string):Promise<{status:number;raw:string;asof:string}>}
+export interface Collector {collect(symbol:string, checkpointDate?:string):Promise<{status:number;raw:string;asof:string}>}
 export class Coordinator {
   constructor(readonly store:Store,readonly collector:Collector,readonly clock:(()=>number)|null=null) {}
   start(date:string,now:number) {
@@ -10,13 +10,15 @@ export class Coordinator {
     return this.store.tx(()=> {
       if(this.store.q('SELECT 1 FROM runs WHERE date=?',date).length)return 'DUPLICATE';
       if(this.store.q("SELECT 1 FROM runs WHERE status IN ('RUNNING','UNCERTAIN_EXECUTION','STATE_ERROR') LIMIT 1").length)throw Error('OVERLAPPING_RUN_BLOCKED');
-      for(const symbol of SYMBOLS)this.store.state(symbol); // Missing or corrupt committed state stops before any request.
+      const proof=this.store.validateFullCheckpoint();
       this.store.q("INSERT INTO runs VALUES (?,'RUNNING',?)",date,now);
-      SYMBOLS.forEach((symbol,i)=>this.store.q("INSERT INTO claims(key,date,symbol,ordinal,status) VALUES (?,?,?,?,'READY')",date+'/'+symbol,date,symbol,i));return 'STARTED';
+      SYMBOLS.forEach((symbol,i)=>this.store.q("INSERT INTO claims(key,date,symbol,ordinal,status) VALUES (?,?,?,?,'READY')",date+'/'+symbol,date,symbol,i));
+      this.store.certifyCheckpoint(date,proof);return 'STARTED';
     });
   }
   async tick(date:string,now:number,fault?:string) {
     this.store.guard();const run=this.store.q('SELECT * FROM runs WHERE date=?',date)[0];if(!run||run.status!=='RUNNING')return run?.status??'NO_RUN';
+    this.store.assertRequestCheckpoint(date);
     // Durable request declarations survive crashes. Never retry an ambiguous call.
     const abandoned=this.store.q("SELECT * FROM claims WHERE date=? AND status='REQUEST_CLAIMED' LIMIT 1",date)[0];
     if(abandoned) {this.store.tx(()=> {this.store.q("UPDATE claims SET status='UNCERTAIN_EXECUTION',error='MANUAL_NETWORK_RECONCILIATION_REQUIRED' WHERE key=?",abandoned.key);this.store.q("UPDATE runs SET status='UNCERTAIN_EXECUTION',updated=? WHERE date=?",now,date);});return 'UNCERTAIN_EXECUTION';}
@@ -33,12 +35,12 @@ export class Coordinator {
       // Pace from the completed response, conservatively later than the actual
       // network start. A slow durable sync must not shorten the true start gap.
       if(last&&now<(last.finished??last.started)+wait)return 'WAIT';
-      this.store.tx(()=> {if(this.store.q('SELECT status FROM claims WHERE key=?',task.key)[0].status!=='READY')throw Error('CLAIM_CONFLICT');this.store.q("UPDATE claims SET status='REQUEST_CLAIMED',started=? WHERE key=?",now,task.key);});
+      this.store.tx(()=> {this.store.assertRequestCheckpoint(date);if(this.store.q('SELECT status FROM claims WHERE key=?',task.key)[0].status!=='READY')throw Error('CLAIM_CONFLICT');this.store.q("UPDATE claims SET status='REQUEST_CLAIMED',started=? WHERE key=?",now,task.key);});
       // DO adapter awaits storage.sync() here, before collector is invoked.
       if(fault==='before_request')throw Error('INJECTED_CRASH_BEFORE_REQUEST');
-      try {response=await this.collector.collect(symbol);}catch(e) {this.fail(task,'UNCERTAIN_EXECUTION',e,now);return 'UNCERTAIN_EXECUTION';}
+      try {response=await this.collector.collect(symbol,date);}catch(e) {const status=String(e).includes('STATE_ERROR:')?'STATE_ERROR':'UNCERTAIN_EXECUTION';this.fail(task,status,e,now);return status;}
       if(fault==='after_request'||fault==='raw_write')throw Error('INJECTED_UNKNOWN_RESULT');
-      this.store.tx(()=> {const hash=this.store.putEvidence(task.key,canonical(response));this.store.q("UPDATE claims SET raw_hash=?,finished=? WHERE key=?",hash,this.clock?this.clock():now,task.key);this.store.q("UPDATE claims SET status='EVIDENCE_SAVED' WHERE key=? AND status='REQUEST_CLAIMED'",task.key);});
+      this.store.tx(()=> {this.store.assertRequestCheckpoint(date);const hash=this.store.putEvidence(task.key,canonical(response));this.store.q("UPDATE claims SET raw_hash=?,finished=? WHERE key=?",hash,this.clock?this.clock():now,task.key);this.store.q("UPDATE claims SET status='EVIDENCE_SAVED' WHERE key=? AND status='REQUEST_CLAIMED'",task.key);this.store.advanceCheckpoint(date,{raw_key:task.key,raw_hash:hash});});
       if(this.store.q('SELECT status FROM claims WHERE key=?',task.key)[0]?.status!=='EVIDENCE_SAVED')return 'UNCERTAIN_EXECUTION';
     } else {
       const row=this.store.q('SELECT * FROM evidence WHERE key=?',task.key)[0];if(!row||digest(row.raw)!==row.hash||row.hash!==task.raw_hash){this.fail(task,'STATE_ERROR',Error('RAW_HASH_MISMATCH'),now);return 'STATE_ERROR';}response=JSON.parse(row.raw);
@@ -61,7 +63,8 @@ export class Coordinator {
       this.store.commit(task.key,symbol,previous?.version??null,doc,ledger,fault);return 'COMMITTED';
     }catch(e) {
       if(fault==='state_write'||fault==='event_write')throw e; // Evidence retained; retry processing only.
-      this.fail(task,'DATA_ERROR',e,now);return 'DATA_ERROR';
+      const status=String(e).includes('STATE_ERROR:')?'STATE_ERROR':'DATA_ERROR';
+      this.fail(task,status,e,now);return status;
     }
   }
   fail(task:R,status:string,error:any,now:number) {this.store.tx(()=> {this.store.q('UPDATE claims SET status=?,error=? WHERE key=?',status,String(error.message??error),task.key);if(['UNCERTAIN_EXECUTION','STATE_ERROR'].includes(status))this.store.q('UPDATE runs SET status=?,updated=? WHERE date=?',status,now,task.date);});}

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync,mkdtempSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {Miniflare} from 'miniflare';
+import {writeTestResult} from './test-output.ts';
 const date='2026-11-06',now=Date.parse('2026-11-07T00:00:00Z');
 let outbound=0;
 const root=mkdtempSync(resolve('.tmp/workerd-'));
@@ -73,5 +74,5 @@ test('workerd SQLite: 12 assets, duplicate schedulers, API purity, runtime resta
     const recovered:any=(await mf.getDurableObjectNamespace('COORDINATOR')).getByName('restart-unknown');assert.equal(await recovered.testTick(date,now+35000),'UNCERTAIN_EXECUTION');assert.equal((await recovered.testCalls()).length,0);
     observations.uncertain_after_restart=true;assert.equal(outbound,0);
   } finally {await mf.dispose();}
-  writeFileSync('../phase5_1_cloudflare_free/runtime_results.json',JSON.stringify({status:'PASS',platform:'LOCAL_MINIFLARE_WORKERD_SQLITE',...observations,outbound_requests:outbound,cpu_host_process_microseconds:process.cpuUsage(cpu),memory_host_before:memory,memory_host_after:process.memoryUsage(),real_cloudflare_cpu:'NOT_VERIFIED',real_cloudflare_memory:'NOT_VERIFIED'},null,2)+'\n');
+  writeTestResult('runtime_results.json',{status:'PASS',platform:'LOCAL_MINIFLARE_WORKERD_SQLITE',...observations,outbound_requests:outbound,cpu_host_process_microseconds:process.cpuUsage(cpu),memory_host_before:memory,memory_host_after:process.memoryUsage(),real_cloudflare_cpu:'NOT_VERIFIED',real_cloudflare_memory:'NOT_VERIFIED'});
 });

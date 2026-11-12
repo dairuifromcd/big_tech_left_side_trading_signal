@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "platform": "LOCAL_MINIFLARE_WORKERD_SQLITE",
+  "local_scheduled_handler": true,
+  "platform_alarm_delivery": true,
+  "duplicate_alarm_did_not_collect": true,
+  "metrics": {
+    "state_json_bytes": 369581,
+    "raw_envelope_bytes": 259631,
+    "history_report_bytes": 8337,
+    "event_json_bytes": 0,
+    "reads": 10311,
+    "writes": 247,
+    "statements": 1476,
+    "checkpoint_full_validations": 1,
+    "sqlite_bytes": 753664
+  },
+  "calls": [
+    "NVDA",
+    "AAPL",
+    "GOOGL",
+    "MSFT",
+    "AMZN",
+    "SPCX",
+    "META",
+    "AVGO",
+    "TSLA",
+    "^GSPC",
+    "^NDX",
+    "^SOX"
+  ],
+  "api_readonly": true,
+  "restart_persistence": true,
+  "backup_restore": true,
+  "uncertain_after_restart": true,
+  "outbound_requests": 0,
+  "cpu_host_process_microseconds": {
+    "user": 742407,
+    "system": 97160
+  },
+  "memory_host_before": {
+    "rss": 226902016,
+    "heapTotal": 108363776,
+    "heapUsed": 78916024,
+    "external": 42692387,
+    "arrayBuffers": 38722663
+  },
+  "memory_host_after": {
+    "rss": 253476864,
+    "heapTotal": 129466368,
+    "heapUsed": 102978208,
+    "external": 61192094,
+    "arrayBuffers": 56443148
+  },
+  "real_cloudflare_cpu": "NOT_VERIFIED",
+  "real_cloudflare_memory": "NOT_VERIFIED"
+}

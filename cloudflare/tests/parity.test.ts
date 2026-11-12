@@ -5,6 +5,7 @@ import {evaluate} from '../src/observations.ts';
 import {stableId,RecordValue,calendar,latestSession,calculate,fsum,semanticJson,sha} from '../src/core.ts';
 import {validateYahoo} from '../src/yahoo.ts';
 import {pythonPriceFingerprint} from '../src/storage.ts';
+import {writeTestResult} from './test-output.ts';
 const load=(name:string)=>JSON.parse(readFileSync(new URL('../fixtures/'+name,import.meta.url),'utf8'));
 const cases=load('golden.json'),validation=load('validation.json');
 const results:any[]=[];let floats=0,maxAbs=0;
@@ -52,5 +53,5 @@ test('finite input guard and compensated cancellation',()=> {
 });
 test('sha256 known vector',async()=>assert.equal(await sha('abc'),'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad'));
 test('write parity evidence',()=> {
-  writeFileSync(new URL('../../phase5_1_cloudflare_free/parity_results.json',import.meta.url),JSON.stringify({golden_fixtures:cases.length,validation_fixtures:validation.length,passed:results.length,compared_float_fields:floats,max_absolute_difference:maxAbs,tolerance:{absolute:1e-12,relative:1e-12},event_ids:'EXACT',discrete_fields:'EXACT',results},null,2)+'\n');
+  writeTestResult('parity_results.json',{golden_fixtures:cases.length,validation_fixtures:validation.length,passed:results.length,compared_float_fields:floats,max_absolute_difference:maxAbs,tolerance:{absolute:1e-12,relative:1e-12},event_ids:'EXACT',discrete_fields:'EXACT',results});
 });

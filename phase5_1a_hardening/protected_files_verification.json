@@ -1,0 +1,17 @@
+{
+  "all_protected_unchanged": true,
+  "protected_file_count": 500,
+  "intentional_modified_files": [
+    "cloudflare/scripts/local.mjs",
+    "cloudflare/src/coordinator.ts",
+    "cloudflare/src/core.ts",
+    "cloudflare/src/storage.ts",
+    "cloudflare/src/worker.ts",
+    "cloudflare/tests/parity.test.ts",
+    "cloudflare/tests/runtime.test.ts"
+  ],
+  "unexpected_changes": [],
+  "phase51_acceptance_unchanged": true,
+  "pending_records_identical": true,
+  "pending_count": 7
+}

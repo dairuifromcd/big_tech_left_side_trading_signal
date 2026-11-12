@@ -1,9 +1,11 @@
-import {createHash} from 'node:crypto';
 import {RecordValue as R,sorted,RULES,SYMBOLS,INDICES,calculate,closeEnough,tier,Pair,semanticJson} from './core.ts';
+import {canonical, digest} from './integrity.ts';
+import {InitializationReceipt, localTestReceipt, verifyReceipt} from './initialization.ts';
+import {stateError, validateStateContent, validateEvent, validateReferences, preserveDecisions} from './checkpoint.ts';
+import {validateYahoo} from './yahoo.ts';
+export {canonical, digest} from './integrity.ts';
 export interface Sql {exec(query:string,...bindings:any[]):{toArray():any[];rowsRead?:number;rowsWritten?:number}}
 export interface Backend {sql:Sql;transactionSync<T>(fn:()=>T):T}
-export const canonical=(x:any)=>JSON.stringify(sorted(x),(_k,v)=>{if(typeof v==='number'&&!Number.isFinite(v))throw Error('NON_FINITE');return v;});
-export const digest=(s:string)=>createHash('sha256').update(s).digest('hex');
 // Python price maps contain normalized float64 values, including integral floats.
 // This is deliberately separate from general evidence hashing: arbitrary mixed
 // Python int/float JSON cannot be losslessly inferred after JSON.parse().
@@ -41,8 +43,8 @@ export function register(ledger:R,id:string,event:R,index=false) {
   }
 }
 export class Store {
-  reads=0;writes=0;statements=0;
-  constructor(readonly db:Backend) {}
+  reads=0;writes=0;statements=0;fullValidations=0;
+  constructor(readonly db:Backend, readonly objectId?:string) {}
   setup() {
     // Creating empty schema does not initialize monitoring state or a baseline.
     this.db.sql.exec('CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)');
@@ -53,19 +55,50 @@ export class Store {
     this.db.sql.exec('CREATE TABLE IF NOT EXISTS evidence (key TEXT PRIMARY KEY, raw TEXT NOT NULL, hash TEXT NOT NULL, origin TEXT NOT NULL)');
     this.db.sql.exec('CREATE TABLE IF NOT EXISTS history (category TEXT NOT NULL, symbol TEXT NOT NULL, date TEXT NOT NULL, version INTEGER NOT NULL, body TEXT NOT NULL, hash TEXT NOT NULL, PRIMARY KEY(category,symbol,date,version))');
     this.db.sql.exec('CREATE TABLE IF NOT EXISTS backups (id TEXT PRIMARY KEY, body TEXT NOT NULL, hash TEXT NOT NULL)');
+    this.db.sql.exec('CREATE TABLE IF NOT EXISTS initialization_audit (id TEXT PRIMARY KEY, body TEXT NOT NULL, hash TEXT NOT NULL)');
+    this.db.sql.exec('CREATE TABLE IF NOT EXISTS checkpoint_control (id INTEGER PRIMARY KEY CHECK(id=1), generation INTEGER NOT NULL, validated_generation INTEGER NOT NULL, checkpoint_hash TEXT NOT NULL)');
+    this.db.sql.exec('CREATE TABLE IF NOT EXISTS run_checkpoints (date TEXT PRIMARY KEY, generation INTEGER NOT NULL, checkpoint_hash TEXT NOT NULL)');
+    for(const table of this.protectedTables)for(const action of ['INSERT','UPDATE','DELETE'])
+      this.db.sql.exec(this.triggerSql(table,action));
   }
+  private readonly protectedTables=['states','events','evidence','history','meta','initialization_audit'];
+  private triggerSql(table:string,action:string) {return `CREATE TRIGGER checkpoint_${table}_${action.toLowerCase()} AFTER ${action} ON ${table} BEGIN UPDATE checkpoint_control SET generation=generation+1 WHERE id=1; END`;}
   q(sql:string,...args:any[]) {this.statements++;const c=this.db.sql.exec(sql,...args);const rows=c.toArray();this.reads+=c.rowsRead??rows.length;this.writes+=c.rowsWritten??0;return rows;}
   tx<T>(f:()=>T) {return this.db.transactionSync(f);}
-  initialized() {return this.q("SELECT value FROM meta WHERE key='receipt'").length>0;}
-  initialize() {
-    this.setup();
+  initialized() {return this.q("SELECT 1 FROM sqlite_master WHERE type='table' AND name='meta'").length>0 && this.q("SELECT value FROM meta WHERE key='receipt'").length>0;}
+  initialize(receipt:InitializationReceipt=localTestReceipt(), fault?:'after_schema'|'after_receipt') {
     this.tx(()=> {
-      if(this.q('SELECT * FROM meta').length||['states','events','runs','claims','evidence','history','backups'].some(t=>this.q(`SELECT 1 FROM ${t} LIMIT 1`).length))throw Error('INITIALIZATION_REFUSED');
-      this.q("INSERT INTO meta VALUES ('receipt','EXPLICIT_OFFLINE_INITIALIZATION')");this.q("INSERT INTO meta VALUES ('schema','1')");
+      // Even empty old application tables are remnants, never proof of a new DO.
+      const objects=this.q("SELECT name FROM sqlite_master WHERE name NOT GLOB 'sqlite_*'");
+      if(objects.length)throw Error('INITIALIZATION_REFUSED: NONEMPTY_OR_EXISTING_SCHEMA');
+      const body=canonical(receipt),hash=digest(body);verifyReceipt(body,hash,body,hash);
+      if(this.objectId && receipt.target_object_id!==this.objectId)throw Error('INITIALIZATION_TARGET_MISMATCH');
+      this.setup();
+      if(fault==='after_schema')throw Error('INJECTED_INITIALIZATION_FAILURE');
+      this.q("INSERT INTO checkpoint_control VALUES (1,0,-1,'')");
+      this.q("INSERT INTO meta VALUES ('receipt',?)",body);this.q("INSERT INTO meta VALUES ('receipt_hash',?)",hash);
+      if(fault==='after_receipt')throw Error('INJECTED_INITIALIZATION_FAILURE');
+      this.q("INSERT INTO meta VALUES ('schema','1')");
+      this.q('INSERT INTO initialization_audit VALUES (?,?,?)',receipt.receipt_id,body,hash);
     });
   }
-  guard() {if(!this.initialized())throw Error('STATE_ERROR: MISSING_INITIALIZATION_RECEIPT');if(this.q("SELECT value FROM meta WHERE key='schema'")[0]?.value!=='1')throw Error('STATE_ERROR: INCOMPATIBLE_SCHEMA');}
-  unpack(row:any) {if(digest(row.version===undefined?row.body:`${row.version}:${row.body}`)!==row.hash)throw Error('STATE_ERROR: HASH_MISMATCH');return JSON.parse(row.body);}
+  guard() {
+    try {
+      if(!this.initialized())stateError('MISSING_INITIALIZATION_RECEIPT');
+      if(this.q("SELECT value FROM meta WHERE key='schema'")[0]?.value!=='1')stateError('INCOMPATIBLE_SCHEMA');
+      const body=this.q("SELECT value FROM meta WHERE key='receipt'")[0].value;
+      if(body==='EXPLICIT_OFFLINE_INITIALIZATION')stateError('LEGACY_INITIALIZATION_MIGRATION_REQUIRED');
+      const audit=this.q('SELECT * FROM initialization_audit');
+      if(audit.length!==1)stateError('INITIALIZATION_AUDIT');
+      const receipt=verifyReceipt(body,this.q("SELECT value FROM meta WHERE key='receipt_hash'")[0]?.value,audit[0].body,audit[0].hash);
+      if(audit[0].id!==receipt.receipt_id || (this.objectId && receipt.target_object_id!==this.objectId))stateError('INITIALIZATION_TARGET_BINDING');
+    }catch(error) {if(String(error).includes('STATE_ERROR:'))throw error;stateError('INITIALIZATION_INVALID');}
+  }
+  unpack(row:any) {
+    if(row.version!==undefined && (!Number.isSafeInteger(row.version)||row.version<1))stateError('STATE_VERSION');
+    if(digest(row.version===undefined?row.body:`${row.version}:${row.body}`)!==row.hash)stateError('HASH_MISMATCH');
+    const value=JSON.parse(row.body);if(canonical(value)!==row.body)stateError('NON_CANONICAL_OR_DUPLICATE_JSON');return value;
+  }
   state(symbol:string) {
     this.guard();const row=this.q('SELECT * FROM states WHERE category=? AND symbol=?',category(symbol),symbol)[0];
     if(!row) {
@@ -75,12 +108,76 @@ export class Store {
     const doc=this.unpack(row);this.validateState(symbol,doc);return {version:row.version,doc};
   }
   validateState(symbol:string,doc:R) {
-    if(doc.symbol!==symbol||doc.rules_version!==RULES)throw Error('STATE_ERROR: SYMBOL_OR_RULES');
-    const m=calculate(Object.entries(doc.history_prices).sort() as Pair[],doc.trading_date,symbol==='SPCX');
-    for(const k of ['adjclose','highest_adjclose','drawdown','rsi14','sma50','sma200'])if(m[k]===null?doc[k]!==null:typeof doc[k]!=='number'||!Number.isFinite(doc[k])||!closeEnough(m[k],doc[k]))throw Error('STATE_ERROR: INDICATORS');
-    if(doc.highest_date!==m.highest_date||doc.watch_tier!==tier(m.drawdown)||!Number.isFinite(doc.deepening_anchor))throw Error('STATE_ERROR: SEMANTICS');
-    for(const values of [doc.confirmed_thresholds,doc.threshold_state?.confirmed,doc.triggered_thresholds])if(!Array.isArray(values)||values.some((n:number)=>![10,20,30].includes(n))||canonical(values)!==canonical([...new Set(values)].sort((a:any,b:any)=>a-b)))throw Error('STATE_ERROR: THRESHOLD_SCHEMA');
-    if(canonical(doc.confirmed_thresholds)!==canonical(doc.threshold_state.confirmed)||canonical(doc.confirmed_thresholds)!==canonical(doc.triggered_thresholds))throw Error('STATE_ERROR: THRESHOLD_ALIAS');
+    try {validateStateContent(symbol,doc);}catch(error) {if(String(error).includes('STATE_ERROR:'))throw error;stateError('STATE_PROVENANCE',symbol);}
+  }
+  private control() {
+    const rows=this.q('SELECT * FROM checkpoint_control');const row=rows[0];
+    if(rows.length!==1 || row.id!==1 || !Number.isSafeInteger(row.generation) || row.generation<0 || !Number.isSafeInteger(row.validated_generation) || row.validated_generation < -1 || row.validated_generation>row.generation ||
+      (row.validated_generation===-1 ? row.checkpoint_hash!=='' : !/^[0-9a-f]{64}$/.test(row.checkpoint_hash)))stateError('CHECKPOINT_CONTROL');
+    return row;
+  }
+  private validateTriggers() {
+    const triggers=new Map(this.q("SELECT name,sql FROM sqlite_master WHERE type='trigger'").map(r=>[r.name,r.sql]));
+    if(triggers.size!==this.protectedTables.length*3)stateError('CHECKPOINT_TRIGGER_SET');
+    for(const table of this.protectedTables)for(const action of ['INSERT','UPDATE','DELETE'])
+      if(triggers.get(`checkpoint_${table}_${action.toLowerCase()}`)!==this.triggerSql(table,action))stateError('CHECKPOINT_TRIGGER_MISSING_OR_CHANGED');
+  }
+  validateFullCheckpoint() {
+    this.fullValidations++;
+    try {
+      this.guard();this.validateTriggers();const control=this.control();
+      const states=this.q('SELECT * FROM states ORDER BY category,symbol'),rows=this.q('SELECT * FROM events ORDER BY category,id');
+      const documents:R=Object.create(null),events:R=Object.create(null);
+      for(const row of states) {
+        if(!SYMBOLS.includes(row.symbol)||row.category!==category(row.symbol)||documents[row.symbol])stateError('STATE_CATEGORY_OR_DUPLICATE',row.symbol);
+        const doc=this.unpack(row);this.validateState(row.symbol,doc);documents[row.symbol]=doc;
+      }
+      for(const row of rows) {
+        if(events[row.id])stateError('DUPLICATE_OR_CONFLICTING_EVENT',row.id);
+        const event=this.unpack(row);validateEvent(row.category,row.id,event);events[row.id]=event;
+      }
+      for(const event of Object.values(events) as R[])if(!documents[event.symbol])stateError('ORPHAN_EVENT',event.event_id);
+      for(const [symbol,doc] of Object.entries(documents))validateReferences(symbol,doc,events);
+      const claims=this.q('SELECT * FROM claims ORDER BY key'),runs=new Map(this.q('SELECT * FROM runs').map(r=>[r.date,r]));
+      const evidence=this.q('SELECT * FROM evidence ORDER BY key'),evidenceByKey=new Map(evidence.map(r=>[r.key,r]));
+      for(const row of evidence)if(digest(row.raw)!==row.hash||!['MOCK_POINT_IN_TIME'].includes(row.origin)||!claims.some(c=>c.key===row.key))stateError('RAW_EVIDENCE_INTEGRITY',row.key);
+      for(const claim of claims) {
+        if(!SYMBOLS.includes(claim.symbol)||claim.key!==claim.date+'/'+claim.symbol||claim.ordinal!==SYMBOLS.indexOf(claim.symbol)||!runs.has(claim.date))stateError('CLAIM_REFERENCE',claim.key);
+        if(claim.raw_hash && evidenceByKey.get(claim.key)?.hash!==claim.raw_hash)stateError('CLAIM_RAW_REFERENCE',claim.key);
+        if(claim.status==='COMMITTED' && (!documents[claim.symbol]||documents[claim.symbol].trading_date<claim.date||!claim.raw_hash))stateError('MISSING_COMMITTED_STATE',claim.symbol);
+      }
+      const history=this.q('SELECT * FROM history ORDER BY category,symbol,date,version');
+      for(const row of history) {
+        const doc=this.unpack(row);
+        if(!SYMBOLS.includes(row.symbol)||row.category!==category(row.symbol)||doc.symbol!==row.symbol||doc.category!==row.category||doc.trading_date!==row.date)stateError('HISTORY_REFERENCE',row.symbol);
+      }
+      for(const row of states) {
+        const doc=documents[row.symbol],claim=claims.find(c=>c.symbol===row.symbol&&c.date===doc.trading_date&&c.status==='COMMITTED');
+        if(!claim)stateError('STATE_WITHOUT_COMMITTED_CLAIM',row.symbol);
+        const raw=evidenceByKey.get(claim.key);if(!raw)stateError('MISSING_COMMITTED_RAW',row.symbol);
+        const response=JSON.parse(raw.raw),sample=validateYahoo(row.symbol,JSON.parse(response.raw),response.asof);
+        if(response.status!==200||response.asof!==doc.source_as_of_utc||canonical(Object.fromEntries(sample.pairs))!==canonical(doc.history_prices)||canonical(sample.closes)!==canonical(doc.history_closes)||canonical(sample.identity)!==canonical(doc.identity_snapshot))stateError('STATE_RAW_PROVENANCE',row.symbol);
+        const report=history.find(h=>h.symbol===row.symbol&&h.version===row.version&&h.date===doc.trading_date);
+        if(!report||report.body!==canonical(reportAsset(doc)))stateError('STATE_HISTORY_REFERENCE',row.symbol);
+      }
+      const hash=digest(canonical({generation:control.generation,states:states.map(r=>[r.category,r.symbol,r.version,r.hash]),events:rows.map(r=>[r.category,r.id,r.hash]),evidence:evidence.map(r=>[r.key,r.hash]),history:history.map(r=>[r.category,r.symbol,r.date,r.version,r.hash])}));
+      return {generation:control.generation,hash,state_count:states.length,event_count:rows.length};
+    }catch(error) {if(String(error).includes('STATE_ERROR:'))throw error;stateError('CHECKPOINT_INVALID');}
+  }
+  certifyCheckpoint(date:string, proof:ReturnType<Store['validateFullCheckpoint']>) {
+    if(this.control().generation!==proof.generation)stateError('CHECKPOINT_CHANGED_DURING_PREFLIGHT');
+    this.q('UPDATE checkpoint_control SET validated_generation=?,checkpoint_hash=? WHERE id=1',proof.generation,proof.hash);
+    this.q('INSERT INTO run_checkpoints VALUES (?,?,?) ON CONFLICT(date) DO UPDATE SET generation=excluded.generation,checkpoint_hash=excluded.checkpoint_hash',date,proof.generation,proof.hash);
+  }
+  assertRequestCheckpoint(date:string) {
+    this.guard();this.validateTriggers();const row=this.control(),run=this.q('SELECT * FROM run_checkpoints WHERE date=?',date)[0];
+    if(row.generation!==row.validated_generation||!run||run.generation!==row.generation||run.checkpoint_hash!==row.checkpoint_hash)stateError('CHECKPOINT_CHANGED_REQUIRES_PREFLIGHT');
+  }
+  advanceCheckpoint(date:string, verifiedWrite:any) {
+    const control=this.control();
+    const hash=digest(canonical({previous:control.checkpoint_hash,generation:control.generation,verifiedWrite}));
+    this.q('UPDATE checkpoint_control SET validated_generation=generation,checkpoint_hash=? WHERE id=1',hash);
+    this.q('UPDATE run_checkpoints SET generation=?,checkpoint_hash=? WHERE date=?',control.generation,hash,date);
   }
   ledger(symbol:string) {this.guard();return Object.fromEntries(this.q('SELECT * FROM events WHERE category=?',category(symbol)).map(r=>[r.id,this.unpack(r)]));}
   putEvidence(key:string,raw:string,origin='MOCK_POINT_IN_TIME') {
@@ -92,9 +189,10 @@ export class Store {
   commit(key:string,symbol:string,priorVersion:number|null,doc:R,ledger:R,fault?:string) {
     this.validateState(symbol,doc);const body=canonical(doc);
     this.tx(()=> {
-      this.guard();const old=this.state(symbol);
-      for(const level of doc.confirmed_thresholds)if(!Object.values(ledger).some((e:any)=>e.symbol===symbol&&e.threshold===level&&['THRESHOLD_CROSSING','LEGACY_THRESHOLD_REVIEW'].includes(e.event_type)&&e.status==='CONFIRMED'))throw Error('STATE_ERROR: CONFIRMED_WITHOUT_EVENT');
-      for(const id of doc.threshold_state.pending_event_ids)if(ledger[id]?.symbol!==symbol||ledger[id]?.status!=='PENDING_REVIEW')throw Error('STATE_ERROR: PENDING_REFERENCE');
+      const date=this.q('SELECT date FROM claims WHERE key=?',key)[0]?.date;
+      this.assertRequestCheckpoint(date);const old=this.state(symbol),previousLedger=this.ledger(symbol);
+      for(const [id,event] of Object.entries(ledger))if(event.symbol===symbol)validateEvent(category(symbol),id,event);
+      validateReferences(symbol,doc,ledger);preserveDecisions(previousLedger,ledger,symbol);
       if((old?.version??null)!==priorVersion)throw Error('STATE_ERROR: CAS_CONFLICT');
       if(this.q('SELECT status FROM claims WHERE key=?',key)[0]?.status!=='EVIDENCE_SAVED')throw Error('STATE_ERROR: CLAIM_NOT_READY');
       const version=(priorVersion??0)+1;
@@ -103,6 +201,10 @@ export class Store {
       if(fault==='state_write')throw Error('INJECTED_STATE_WRITE');
       for(const [id,event] of Object.entries(ledger)) {
         const text=canonical(event),hash=digest(text);
+        if(event.symbol!==symbol) {
+          if(this.q('SELECT hash FROM events WHERE category=? AND id=?',category(symbol),id)[0]?.hash!==hash)stateError('UNRELATED_EVENT_MUTATION',id);
+          continue;
+        }
         if(this.q('SELECT hash FROM events WHERE category=? AND id=?',category(symbol),id)[0]?.hash!==hash)
           this.q('INSERT INTO events VALUES (?,?,?,?) ON CONFLICT(category,id) DO UPDATE SET body=excluded.body,hash=excluded.hash',category(symbol),id,text,hash);
       }
@@ -110,6 +212,7 @@ export class Store {
       const report=canonical(reportAsset(doc));
       this.q('INSERT INTO history VALUES (?,?,?,?,?,?)',category(symbol),symbol,doc.trading_date,version,report,digest(`${version}:${report}`));
       this.q("UPDATE claims SET status='COMMITTED' WHERE key=?",key);
+      this.advanceCheckpoint(date,{symbol,state_version:version,state_hash:hash});
     });
   }
   backup(id:string) {
