@@ -1,0 +1,319 @@
+{
+  "golden_fixtures": 76,
+  "validation_fixtures": 32,
+  "passed": 76,
+  "compared_float_fields": 11145,
+  "max_absolute_difference": 0,
+  "tolerance": {
+    "absolute": 1e-12,
+    "relative": 1e-12
+  },
+  "event_ids": "EXACT",
+  "discrete_fields": "EXACT",
+  "results": [
+    {
+      "name": "stock/unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/micro",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/material",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/high_same_tier",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/revision_only",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/mixed_material",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/disagreement",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/one_basis_only",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/unrelated_material",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/near_boundary",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/close_only",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/prior_unrelated",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/prior_related",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/prior_unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "stock/prior_source_risk",
+      "status": "PASS"
+    },
+    {
+      "name": "index/unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "index/micro",
+      "status": "PASS"
+    },
+    {
+      "name": "index/material",
+      "status": "PASS"
+    },
+    {
+      "name": "index/high_same_tier",
+      "status": "PASS"
+    },
+    {
+      "name": "index/revision_only",
+      "status": "PASS"
+    },
+    {
+      "name": "index/mixed_material",
+      "status": "PASS"
+    },
+    {
+      "name": "index/disagreement",
+      "status": "PASS"
+    },
+    {
+      "name": "index/one_basis_only",
+      "status": "PASS"
+    },
+    {
+      "name": "index/unrelated_material",
+      "status": "PASS"
+    },
+    {
+      "name": "index/near_boundary",
+      "status": "PASS"
+    },
+    {
+      "name": "index/close_only",
+      "status": "PASS"
+    },
+    {
+      "name": "index/prior_unrelated",
+      "status": "PASS"
+    },
+    {
+      "name": "index/prior_related",
+      "status": "PASS"
+    },
+    {
+      "name": "index/prior_unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "index/prior_source_risk",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline",
+      "status": "PASS"
+    },
+    {
+      "name": "normal",
+      "status": "PASS"
+    },
+    {
+      "name": "multi",
+      "status": "PASS"
+    },
+    {
+      "name": "deeper",
+      "status": "PASS"
+    },
+    {
+      "name": "recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "reentry",
+      "status": "PASS"
+    },
+    {
+      "name": "boundary10",
+      "status": "PASS"
+    },
+    {
+      "name": "boundary20",
+      "status": "PASS"
+    },
+    {
+      "name": "boundary30",
+      "status": "PASS"
+    },
+    {
+      "name": "existing_PENDING_REVIEW",
+      "status": "PASS"
+    },
+    {
+      "name": "existing_REJECTED",
+      "status": "PASS"
+    },
+    {
+      "name": "repeat",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_session_observation",
+      "status": "PASS"
+    },
+    {
+      "name": "identity_changed",
+      "status": "PASS"
+    },
+    {
+      "name": "indicator_samples_1",
+      "status": "PASS"
+    },
+    {
+      "name": "indicator_samples_14",
+      "status": "PASS"
+    },
+    {
+      "name": "indicator_samples_15",
+      "status": "PASS"
+    },
+    {
+      "name": "indicator_samples_49",
+      "status": "PASS"
+    },
+    {
+      "name": "indicator_samples_50",
+      "status": "PASS"
+    },
+    {
+      "name": "indicator_samples_199",
+      "status": "PASS"
+    },
+    {
+      "name": "indicator_samples_200",
+      "status": "PASS"
+    },
+    {
+      "name": "indicator_samples_251",
+      "status": "PASS"
+    },
+    {
+      "name": "indicator_samples_252",
+      "status": "PASS"
+    },
+    {
+      "name": "natural_high_expiry",
+      "status": "PASS"
+    },
+    {
+      "name": "per_level_mixed",
+      "status": "PASS"
+    },
+    {
+      "name": "archive/NVDA",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/NVDA",
+      "status": "PASS"
+    },
+    {
+      "name": "archive/AAPL",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/AAPL",
+      "status": "PASS"
+    },
+    {
+      "name": "archive/GOOGL",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/GOOGL",
+      "status": "PASS"
+    },
+    {
+      "name": "archive/MSFT",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/MSFT",
+      "status": "PASS"
+    },
+    {
+      "name": "archive/AMZN",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/AMZN",
+      "status": "PASS"
+    },
+    {
+      "name": "archive/SPCX",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/SPCX",
+      "status": "PASS"
+    },
+    {
+      "name": "archive/META",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/META",
+      "status": "PASS"
+    },
+    {
+      "name": "archive/AVGO",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/AVGO",
+      "status": "PASS"
+    },
+    {
+      "name": "archive/TSLA",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/TSLA",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/^GSPC",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/^NDX",
+      "status": "PASS"
+    },
+    {
+      "name": "archive_baseline/^SOX",
+      "status": "PASS"
+    }
+  ]
+}

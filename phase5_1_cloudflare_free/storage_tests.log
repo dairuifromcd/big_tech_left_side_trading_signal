@@ -1,0 +1,126 @@
+TAP version 13
+# (node:63806) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: 12 symbols: baseline, duplicate date, independent categories and report baseline semantics
+ok 1 - 12 symbols: baseline, duplicate date, independent categories and report baseline semantics
+  ---
+  duration_ms: 299.238958
+  type: 'test'
+  ...
+# Subtest: simultaneous schedulers and overlapping dates
+ok 2 - simultaneous schedulers and overlapping dates
+  ---
+  duration_ms: 1.877459
+  type: 'test'
+  ...
+# Subtest: durable global starts >=5sec and batch-boundary >=35sec, duplicate ticks issue no duplicate requests
+ok 3 - durable global starts >=5sec and batch-boundary >=35sec, duplicate ticks issue no duplicate requests
+  ---
+  duration_ms: 210.820208
+  type: 'test'
+  ...
+# Subtest: uncertain execution before_request never repeats collection
+ok 4 - uncertain execution before_request never repeats collection
+  ---
+  duration_ms: 1.1345
+  type: 'test'
+  ...
+# Subtest: uncertain execution after_request never repeats collection
+ok 5 - uncertain execution after_request never repeats collection
+  ---
+  duration_ms: 1.128625
+  type: 'test'
+  ...
+# Subtest: uncertain execution raw_write never repeats collection
+ok 6 - uncertain execution raw_write never repeats collection
+  ---
+  duration_ms: 1.122541
+  type: 'test'
+  ...
+# Subtest: atomic rollback state_write reprocesses saved raw without network
+ok 7 - atomic rollback state_write reprocesses saved raw without network
+  ---
+  duration_ms: 33.004333
+  type: 'test'
+  ...
+# Subtest: atomic rollback event_write reprocesses saved raw without network
+ok 8 - atomic rollback event_write reprocesses saved raw without network
+  ---
+  duration_ms: 41.049583
+  type: 'test'
+  ...
+# Subtest: raw evidence immutable; same input cannot overwrite bytes or origin
+ok 9 - raw evidence immutable; same input cannot overwrite bytes or origin
+  ---
+  duration_ms: 0.784458
+  type: 'test'
+  ...
+# Subtest: one symbol data failure does not contaminate eleven successful states
+ok 10 - one symbol data failure does not contaminate eleven successful states
+  ---
+  duration_ms: 190.688209
+  type: 'test'
+  ...
+# Subtest: 429 stops all further collection; 401/403 global two-denial circuit
+ok 11 - 429 stops all further collection; 401/403 global two-denial circuit
+  ---
+  duration_ms: 3.058792
+  type: 'test'
+  ...
+# Subtest: corrupted hash state fails closed before next requests
+ok 12 - corrupted hash state fails closed before next requests
+  ---
+  duration_ms: 208.429542
+  type: 'test'
+  ...
+# Subtest: corrupted missing state fails closed before next requests
+ok 13 - corrupted missing state fails closed before next requests
+  ---
+  duration_ms: 205.559458
+  type: 'test'
+  ...
+# Subtest: corrupted schema state fails closed before next requests
+ok 14 - corrupted schema state fails closed before next requests
+  ---
+  duration_ms: 206.552709
+  type: 'test'
+  ...
+# Subtest: missing real sessions require catchup and do not synthesize captures
+ok 15 - missing real sessions require catchup and do not synthesize captures
+  ---
+  duration_ms: 222.492042
+  type: 'test'
+  ...
+# Subtest: explicit selected backup repairs missing state without forgetting claims
+ok 16 - explicit selected backup repairs missing state without forgetting claims
+  ---
+  duration_ms: 212.931584
+  type: 'test'
+  ...
+# Subtest: pending stays sticky, rejected requires reopen, revision escalates with audit; thresholds not consumed
+ok 17 - pending stays sticky, rejected requires reopen, revision escalates with audit; thresholds not consumed
+  ---
+  duration_ms: 19.211333
+  type: 'test'
+  ...
+# Subtest: all seven legacy pending records survive imported storage without promotion or ID regeneration
+ok 18 - all seven legacy pending records survive imported storage without promotion or ID regeneration
+  ---
+  duration_ms: 14.236708
+  type: 'test'
+  ...
+# Subtest: read APIs are pure and exclude evidence, accounts, checkpoint details; validate paging and range
+ok 19 - read APIs are pure and exclude evidence, accounts, checkpoint details; validate paging and range
+  ---
+  duration_ms: 213.104667
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2327.328209

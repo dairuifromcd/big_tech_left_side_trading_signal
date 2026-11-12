@@ -1,0 +1,103 @@
+{
+  "basis": "One local Mock 12-asset baseline plus read API checks; not a cloud measurement or a revised-history stress benchmark",
+  "observed_local": {
+    "status": "PASS",
+    "platform": "LOCAL_MINIFLARE_WORKERD_SQLITE",
+    "local_scheduled_handler": true,
+    "platform_alarm_delivery": true,
+    "duplicate_alarm_did_not_collect": true,
+    "metrics": {
+      "state_json_bytes": 369581,
+      "raw_envelope_bytes": 259631,
+      "history_report_bytes": 8337,
+      "event_json_bytes": 0,
+      "reads": 1424,
+      "writes": 151,
+      "statements": 530,
+      "sqlite_bytes": 724992
+    },
+    "calls": [
+      "NVDA",
+      "AAPL",
+      "GOOGL",
+      "MSFT",
+      "AMZN",
+      "SPCX",
+      "META",
+      "AVGO",
+      "TSLA",
+      "^GSPC",
+      "^NDX",
+      "^SOX"
+    ],
+    "api_readonly": true,
+    "restart_persistence": true,
+    "backup_restore": true,
+    "uncertain_after_restart": true,
+    "outbound_requests": 0,
+    "cpu_host_process_microseconds": {
+      "user": 589511,
+      "system": 78344
+    },
+    "memory_host_before": {
+      "rss": 212041728,
+      "heapTotal": 94240768,
+      "heapUsed": 72246424,
+      "external": 37592951,
+      "arrayBuffers": 33623227
+    },
+    "memory_host_after": {
+      "rss": 236191744,
+      "heapTotal": 118587392,
+      "heapUsed": 86629952,
+      "external": 48181954,
+      "arrayBuffers": 43433156
+    },
+    "real_cloudflare_cpu": "NOT_VERIFIED",
+    "real_cloudflare_memory": "NOT_VERIFIED"
+  },
+  "assumptions": {
+    "trading_days_per_month": 21,
+    "trading_days_per_year": 252,
+    "private_api_requests_per_calendar_day": 200,
+    "mock_collection_attempts_per_run": 12,
+    "alarms_budget_per_run": 40,
+    "revision_event_growth_allowance_bytes_per_trading_day": 2000000,
+    "free_single_object_conservative_budget_bytes": 1000000000,
+    "free_account_public_storage_bytes": 5000000000,
+    "account_other_usage": "NOT_VERIFIED",
+    "storage_overhead_reserve_factor": 2
+  },
+  "estimates": {
+    "network_attempts_month": 252,
+    "network_attempts_year": 3024,
+    "raw_plus_committed_report_bytes_per_trading_day": 267968,
+    "raw_plus_report_bytes_month": 5627328,
+    "raw_plus_report_bytes_year": 67527936,
+    "baseline_state_bytes_overwritten_not_added_daily": 369581,
+    "sql_rows_read_month_baseline_scale": 29904,
+    "sql_rows_read_year_baseline_scale": 358848,
+    "sql_rows_written_month_baseline_scale": 3171,
+    "sql_rows_written_year_baseline_scale": 38052,
+    "alarm_requests_month_budget": 840,
+    "alarm_requests_year_budget": 10080,
+    "private_api_requests_month_30days": 6000,
+    "private_api_requests_year_365days": 73000,
+    "revision_heavy_growth_bytes_year_assumption": 571527936,
+    "conservative_full_day_15min_active_duration_GBs": 112.5
+  },
+  "not_measured": [
+    "Cloudflare Worker/DO CPU, isolate heap/RSS, cold start, duration billing, account quotas, alarms reliability, external Yahoo latency and error rates",
+    "SQLite index/write amplification and repeated evidence growth on a multi-year revised-history workload",
+    "Actual paid bill or R2 subscription eligibility"
+  ],
+  "limitations": [
+    "Node host RSS includes test tooling and is not the workerd isolate memory; host process CPU excludes child workerd CPU.",
+    "Local no-revision baseline has zero new market events, so its 151 SQL writes are not a worst-case event budget.",
+    "Backups kept in the same SQLite DB are not independent disaster recovery. Repeated full backups without a retention/archive design can grow superlinearly.",
+    "Finite free storage cannot retain unlimited raw evidence indefinitely; never silently delete evidence to stay free.",
+    "Official DO limits page disagrees about Free per-object 1GB vs 10GB; use 1GB until clarified."
+  ],
+  "usd_zero_feasibility": "CONDITIONAL_NOT_GUARANTEED",
+  "real_cloudflare_resource_validation": "NOT_VERIFIED"
+}

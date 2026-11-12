@@ -1,0 +1,828 @@
+
+  dist/worker.js  488.7kb
+
+⚡ Done in 19ms
+TAP version 13
+# Subtest: golden stock/unchanged
+ok 1 - golden stock/unchanged
+  ---
+  duration_ms: 16.055667
+  type: 'test'
+  ...
+# Subtest: golden stock/micro
+ok 2 - golden stock/micro
+  ---
+  duration_ms: 9.219166
+  type: 'test'
+  ...
+# Subtest: golden stock/material
+ok 3 - golden stock/material
+  ---
+  duration_ms: 6.1535
+  type: 'test'
+  ...
+# Subtest: golden stock/high_same_tier
+ok 4 - golden stock/high_same_tier
+  ---
+  duration_ms: 4.714833
+  type: 'test'
+  ...
+# Subtest: golden stock/revision_only
+ok 5 - golden stock/revision_only
+  ---
+  duration_ms: 4.205459
+  type: 'test'
+  ...
+# Subtest: golden stock/mixed_material
+ok 6 - golden stock/mixed_material
+  ---
+  duration_ms: 7.428083
+  type: 'test'
+  ...
+# Subtest: golden stock/disagreement
+ok 7 - golden stock/disagreement
+  ---
+  duration_ms: 5.645875
+  type: 'test'
+  ...
+# Subtest: golden stock/one_basis_only
+ok 8 - golden stock/one_basis_only
+  ---
+  duration_ms: 4.702792
+  type: 'test'
+  ...
+# Subtest: golden stock/unrelated_material
+ok 9 - golden stock/unrelated_material
+  ---
+  duration_ms: 3.906667
+  type: 'test'
+  ...
+# Subtest: golden stock/near_boundary
+ok 10 - golden stock/near_boundary
+  ---
+  duration_ms: 4.155417
+  type: 'test'
+  ...
+# Subtest: golden stock/close_only
+ok 11 - golden stock/close_only
+  ---
+  duration_ms: 3.252583
+  type: 'test'
+  ...
+# Subtest: golden stock/prior_unrelated
+ok 12 - golden stock/prior_unrelated
+  ---
+  duration_ms: 4.202125
+  type: 'test'
+  ...
+# Subtest: golden stock/prior_related
+ok 13 - golden stock/prior_related
+  ---
+  duration_ms: 3.552208
+  type: 'test'
+  ...
+# Subtest: golden stock/prior_unknown
+ok 14 - golden stock/prior_unknown
+  ---
+  duration_ms: 3.984708
+  type: 'test'
+  ...
+# Subtest: golden stock/prior_source_risk
+ok 15 - golden stock/prior_source_risk
+  ---
+  duration_ms: 3.691625
+  type: 'test'
+  ...
+# Subtest: golden index/unchanged
+ok 16 - golden index/unchanged
+  ---
+  duration_ms: 5.778959
+  type: 'test'
+  ...
+# Subtest: golden index/micro
+ok 17 - golden index/micro
+  ---
+  duration_ms: 3.799792
+  type: 'test'
+  ...
+# Subtest: golden index/material
+ok 18 - golden index/material
+  ---
+  duration_ms: 4.04875
+  type: 'test'
+  ...
+# Subtest: golden index/high_same_tier
+ok 19 - golden index/high_same_tier
+  ---
+  duration_ms: 3.384166
+  type: 'test'
+  ...
+# Subtest: golden index/revision_only
+ok 20 - golden index/revision_only
+  ---
+  duration_ms: 3.105958
+  type: 'test'
+  ...
+# Subtest: golden index/mixed_material
+ok 21 - golden index/mixed_material
+  ---
+  duration_ms: 5.065167
+  type: 'test'
+  ...
+# Subtest: golden index/disagreement
+ok 22 - golden index/disagreement
+  ---
+  duration_ms: 4.231792
+  type: 'test'
+  ...
+# Subtest: golden index/one_basis_only
+ok 23 - golden index/one_basis_only
+  ---
+  duration_ms: 4.216041
+  type: 'test'
+  ...
+# Subtest: golden index/unrelated_material
+ok 24 - golden index/unrelated_material
+  ---
+  duration_ms: 3.161292
+  type: 'test'
+  ...
+# Subtest: golden index/near_boundary
+ok 25 - golden index/near_boundary
+  ---
+  duration_ms: 3.519667
+  type: 'test'
+  ...
+# Subtest: golden index/close_only
+ok 26 - golden index/close_only
+  ---
+  duration_ms: 3.600959
+  type: 'test'
+  ...
+# Subtest: golden index/prior_unrelated
+ok 27 - golden index/prior_unrelated
+  ---
+  duration_ms: 3.470333
+  type: 'test'
+  ...
+# Subtest: golden index/prior_related
+ok 28 - golden index/prior_related
+  ---
+  duration_ms: 3.474791
+  type: 'test'
+  ...
+# Subtest: golden index/prior_unknown
+ok 29 - golden index/prior_unknown
+  ---
+  duration_ms: 3.486125
+  type: 'test'
+  ...
+# Subtest: golden index/prior_source_risk
+ok 30 - golden index/prior_source_risk
+  ---
+  duration_ms: 3.405917
+  type: 'test'
+  ...
+# Subtest: golden baseline
+ok 31 - golden baseline
+  ---
+  duration_ms: 0.602042
+  type: 'test'
+  ...
+# Subtest: golden normal
+ok 32 - golden normal
+  ---
+  duration_ms: 3.25875
+  type: 'test'
+  ...
+# Subtest: golden multi
+ok 33 - golden multi
+  ---
+  duration_ms: 3.990042
+  type: 'test'
+  ...
+# Subtest: golden deeper
+ok 34 - golden deeper
+  ---
+  duration_ms: 3.278167
+  type: 'test'
+  ...
+# Subtest: golden recovery
+ok 35 - golden recovery
+  ---
+  duration_ms: 3.9955
+  type: 'test'
+  ...
+# Subtest: golden reentry
+ok 36 - golden reentry
+  ---
+  duration_ms: 3.678958
+  type: 'test'
+  ...
+# Subtest: golden boundary10
+ok 37 - golden boundary10
+  ---
+  duration_ms: 3.822125
+  type: 'test'
+  ...
+# Subtest: golden boundary20
+ok 38 - golden boundary20
+  ---
+  duration_ms: 4.493291
+  type: 'test'
+  ...
+# Subtest: golden boundary30
+ok 39 - golden boundary30
+  ---
+  duration_ms: 4.845917
+  type: 'test'
+  ...
+# Subtest: golden existing_PENDING_REVIEW
+ok 40 - golden existing_PENDING_REVIEW
+  ---
+  duration_ms: 4.9955
+  type: 'test'
+  ...
+# Subtest: golden existing_REJECTED
+ok 41 - golden existing_REJECTED
+  ---
+  duration_ms: 4.938417
+  type: 'test'
+  ...
+# Subtest: golden repeat
+ok 42 - golden repeat
+  ---
+  duration_ms: 3.070083
+  type: 'test'
+  ...
+# Subtest: golden missing_session_observation
+ok 43 - golden missing_session_observation
+  ---
+  duration_ms: 3.983167
+  type: 'test'
+  ...
+# Subtest: golden identity_changed
+ok 44 - golden identity_changed
+  ---
+  duration_ms: 3.638
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_1
+ok 45 - golden indicator_samples_1
+  ---
+  duration_ms: 0.242375
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_14
+ok 46 - golden indicator_samples_14
+  ---
+  duration_ms: 0.198084
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_15
+ok 47 - golden indicator_samples_15
+  ---
+  duration_ms: 0.197125
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_49
+ok 48 - golden indicator_samples_49
+  ---
+  duration_ms: 0.209583
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_50
+ok 49 - golden indicator_samples_50
+  ---
+  duration_ms: 0.20225
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_199
+ok 50 - golden indicator_samples_199
+  ---
+  duration_ms: 0.321583
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_200
+ok 51 - golden indicator_samples_200
+  ---
+  duration_ms: 0.326958
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_251
+ok 52 - golden indicator_samples_251
+  ---
+  duration_ms: 0.363625
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_252
+ok 53 - golden indicator_samples_252
+  ---
+  duration_ms: 0.3585
+  type: 'test'
+  ...
+# Subtest: golden natural_high_expiry
+ok 54 - golden natural_high_expiry
+  ---
+  duration_ms: 4.610834
+  type: 'test'
+  ...
+# Subtest: golden per_level_mixed
+ok 55 - golden per_level_mixed
+  ---
+  duration_ms: 4.932958
+  type: 'test'
+  ...
+# Subtest: golden archive/NVDA
+ok 56 - golden archive/NVDA
+  ---
+  duration_ms: 6.236166
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/NVDA
+ok 57 - golden archive_baseline/NVDA
+  ---
+  duration_ms: 0.678667
+  type: 'test'
+  ...
+# Subtest: golden archive/AAPL
+ok 58 - golden archive/AAPL
+  ---
+  duration_ms: 5.379542
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/AAPL
+ok 59 - golden archive_baseline/AAPL
+  ---
+  duration_ms: 1.210625
+  type: 'test'
+  ...
+# Subtest: golden archive/GOOGL
+ok 60 - golden archive/GOOGL
+  ---
+  duration_ms: 5.421041
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/GOOGL
+ok 61 - golden archive_baseline/GOOGL
+  ---
+  duration_ms: 0.823667
+  type: 'test'
+  ...
+# Subtest: golden archive/MSFT
+ok 62 - golden archive/MSFT
+  ---
+  duration_ms: 4.2535
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/MSFT
+ok 63 - golden archive_baseline/MSFT
+  ---
+  duration_ms: 0.678916
+  type: 'test'
+  ...
+# Subtest: golden archive/AMZN
+ok 64 - golden archive/AMZN
+  ---
+  duration_ms: 3.73675
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/AMZN
+ok 65 - golden archive_baseline/AMZN
+  ---
+  duration_ms: 0.985292
+  type: 'test'
+  ...
+# Subtest: golden archive/SPCX
+ok 66 - golden archive/SPCX
+  ---
+  duration_ms: 2.691459
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/SPCX
+ok 67 - golden archive_baseline/SPCX
+  ---
+  duration_ms: 0.297291
+  type: 'test'
+  ...
+# Subtest: golden archive/META
+ok 68 - golden archive/META
+  ---
+  duration_ms: 5.167
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/META
+ok 69 - golden archive_baseline/META
+  ---
+  duration_ms: 0.713084
+  type: 'test'
+  ...
+# Subtest: golden archive/AVGO
+ok 70 - golden archive/AVGO
+  ---
+  duration_ms: 7.175542
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/AVGO
+ok 71 - golden archive_baseline/AVGO
+  ---
+  duration_ms: 0.960208
+  type: 'test'
+  ...
+# Subtest: golden archive/TSLA
+ok 72 - golden archive/TSLA
+  ---
+  duration_ms: 4.070292
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/TSLA
+ok 73 - golden archive_baseline/TSLA
+  ---
+  duration_ms: 0.683459
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/^GSPC
+ok 74 - golden archive_baseline/^GSPC
+  ---
+  duration_ms: 0.669458
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/^NDX
+ok 75 - golden archive_baseline/^NDX
+  ---
+  duration_ms: 0.652542
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/^SOX
+ok 76 - golden archive_baseline/^SOX
+  ---
+  duration_ms: 1.089917
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/NVDA
+ok 77 - Yahoo valid/NVDA
+  ---
+  duration_ms: 29.812083
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/AAPL
+ok 78 - Yahoo valid/AAPL
+  ---
+  duration_ms: 19.473875
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/GOOGL
+ok 79 - Yahoo valid/GOOGL
+  ---
+  duration_ms: 21.954667
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/MSFT
+ok 80 - Yahoo valid/MSFT
+  ---
+  duration_ms: 120.448833
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/AMZN
+ok 81 - Yahoo valid/AMZN
+  ---
+  duration_ms: 29.774333
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/SPCX
+ok 82 - Yahoo valid/SPCX
+  ---
+  duration_ms: 8.840625
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/META
+ok 83 - Yahoo valid/META
+  ---
+  duration_ms: 35.037
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/AVGO
+ok 84 - Yahoo valid/AVGO
+  ---
+  duration_ms: 32.293542
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/TSLA
+ok 85 - Yahoo valid/TSLA
+  ---
+  duration_ms: 23.946167
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/^GSPC
+ok 86 - Yahoo valid/^GSPC
+  ---
+  duration_ms: 25.406417
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/^NDX
+ok 87 - Yahoo valid/^NDX
+  ---
+  duration_ms: 23.047333
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/^SOX
+ok 88 - Yahoo valid/^SOX
+  ---
+  duration_ms: 21.450209
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/identity
+ok 89 - Yahoo NVDA/identity
+  ---
+  duration_ms: 0.225042
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/missing_adj
+ok 90 - Yahoo NVDA/missing_adj
+  ---
+  duration_ms: 0.064166
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/duplicate
+ok 91 - Yahoo NVDA/duplicate
+  ---
+  duration_ms: 0.802625
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/missing_day
+ok 92 - Yahoo NVDA/missing_day
+  ---
+  duration_ms: 24.587
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/zero
+ok 93 - Yahoo NVDA/zero
+  ---
+  duration_ms: 0.984125
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/null
+ok 94 - Yahoo NVDA/null
+  ---
+  duration_ms: 1.005209
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/short
+ok 95 - Yahoo NVDA/short
+  ---
+  duration_ms: 2.007292
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/bad_stamp
+ok 96 - Yahoo NVDA/bad_stamp
+  ---
+  duration_ms: 0.986292
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/out_of_range
+ok 97 - Yahoo NVDA/out_of_range
+  ---
+  duration_ms: 0.746125
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/stale
+ok 98 - Yahoo NVDA/stale
+  ---
+  duration_ms: 22.724958
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/identity
+ok 99 - Yahoo ^SOX/identity
+  ---
+  duration_ms: 0.084833
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/missing_adj
+ok 100 - Yahoo ^SOX/missing_adj
+  ---
+  duration_ms: 0.170292
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/duplicate
+ok 101 - Yahoo ^SOX/duplicate
+  ---
+  duration_ms: 0.769959
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/missing_day
+ok 102 - Yahoo ^SOX/missing_day
+  ---
+  duration_ms: 24.245542
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/zero
+ok 103 - Yahoo ^SOX/zero
+  ---
+  duration_ms: 0.854542
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/null
+ok 104 - Yahoo ^SOX/null
+  ---
+  duration_ms: 0.661667
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/short
+ok 105 - Yahoo ^SOX/short
+  ---
+  duration_ms: 1.008667
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/bad_stamp
+ok 106 - Yahoo ^SOX/bad_stamp
+  ---
+  duration_ms: 0.588709
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/out_of_range
+ok 107 - Yahoo ^SOX/out_of_range
+  ---
+  duration_ms: 0.749125
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/stale
+ok 108 - Yahoo ^SOX/stale
+  ---
+  duration_ms: 20.722208
+  type: 'test'
+  ...
+# Subtest: calendar exhaustive UTC close boundaries and DST
+ok 109 - calendar exhaustive UTC close boundaries and DST
+  ---
+  duration_ms: 595.735625
+  type: 'test'
+  ...
+# Subtest: finite input guard and compensated cancellation
+ok 110 - finite input guard and compensated cancellation
+  ---
+  duration_ms: 3.864834
+  type: 'test'
+  ...
+# Subtest: sha256 known vector
+ok 111 - sha256 known vector
+  ---
+  duration_ms: 4.863458
+  type: 'test'
+  ...
+# Subtest: write parity evidence
+ok 112 - write parity evidence
+  ---
+  duration_ms: 0.754125
+  type: 'test'
+  ...
+# An RPC stub was not disposed properly. You must call dispose() on all stubs in order to let the other side know that you are no longer using them. You cannot rely on the garbage collector for this because it may take arbitrarily long before actually collecting unreachable objects. As a shortcut, calling dispose() on the result of an RPC call disposes all stubs within it.
+# An RPC stub was not disposed properly. You must call dispose() on all stubs in order to let the other side know that you are no longer using them. You cannot rely on the garbage collector for this because it may take arbitrarily long before actually collecting unreachable objects. As a shortcut, calling dispose() on the result of an RPC call disposes all stubs within it.
+# Subtest: workerd SQLite: 12 assets, duplicate schedulers, API purity, runtime restart, uncertain claims and atomic rollback
+ok 113 - workerd SQLite: 12 assets, duplicate schedulers, API purity, runtime restart, uncertain claims and atomic rollback
+  ---
+  duration_ms: 1973.482625
+  type: 'test'
+  ...
+# (node:65973) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: 12 symbols: baseline, duplicate date, independent categories and report baseline semantics
+ok 114 - 12 symbols: baseline, duplicate date, independent categories and report baseline semantics
+  ---
+  duration_ms: 354.568083
+  type: 'test'
+  ...
+# Subtest: simultaneous schedulers and overlapping dates
+ok 115 - simultaneous schedulers and overlapping dates
+  ---
+  duration_ms: 1.887667
+  type: 'test'
+  ...
+# Subtest: durable global starts >=5sec and batch-boundary >=35sec, duplicate ticks issue no duplicate requests
+ok 116 - durable global starts >=5sec and batch-boundary >=35sec, duplicate ticks issue no duplicate requests
+  ---
+  duration_ms: 420.457125
+  type: 'test'
+  ...
+# Subtest: uncertain execution before_request never repeats collection
+ok 117 - uncertain execution before_request never repeats collection
+  ---
+  duration_ms: 1.319125
+  type: 'test'
+  ...
+# Subtest: uncertain execution after_request never repeats collection
+ok 118 - uncertain execution after_request never repeats collection
+  ---
+  duration_ms: 2.371708
+  type: 'test'
+  ...
+# Subtest: uncertain execution raw_write never repeats collection
+ok 119 - uncertain execution raw_write never repeats collection
+  ---
+  duration_ms: 1.916083
+  type: 'test'
+  ...
+# Subtest: atomic rollback state_write reprocesses saved raw without network
+ok 120 - atomic rollback state_write reprocesses saved raw without network
+  ---
+  duration_ms: 55.766041
+  type: 'test'
+  ...
+# Subtest: atomic rollback event_write reprocesses saved raw without network
+ok 121 - atomic rollback event_write reprocesses saved raw without network
+  ---
+  duration_ms: 51.840792
+  type: 'test'
+  ...
+# Subtest: raw evidence immutable; same input cannot overwrite bytes or origin
+ok 122 - raw evidence immutable; same input cannot overwrite bytes or origin
+  ---
+  duration_ms: 0.988166
+  type: 'test'
+  ...
+# Subtest: one symbol data failure does not contaminate eleven successful states
+ok 123 - one symbol data failure does not contaminate eleven successful states
+  ---
+  duration_ms: 246.626459
+  type: 'test'
+  ...
+# Subtest: 429 stops all further collection; 401/403 global two-denial circuit
+ok 124 - 429 stops all further collection; 401/403 global two-denial circuit
+  ---
+  duration_ms: 3.208792
+  type: 'test'
+  ...
+# Subtest: corrupted hash state fails closed before next requests
+ok 125 - corrupted hash state fails closed before next requests
+  ---
+  duration_ms: 329.841083
+  type: 'test'
+  ...
+# Subtest: corrupted missing state fails closed before next requests
+ok 126 - corrupted missing state fails closed before next requests
+  ---
+  duration_ms: 236.984875
+  type: 'test'
+  ...
+# Subtest: corrupted schema state fails closed before next requests
+ok 127 - corrupted schema state fails closed before next requests
+  ---
+  duration_ms: 220.079292
+  type: 'test'
+  ...
+# Subtest: missing real sessions require catchup and do not synthesize captures
+ok 128 - missing real sessions require catchup and do not synthesize captures
+  ---
+  duration_ms: 264.165625
+  type: 'test'
+  ...
+# Subtest: explicit selected backup repairs missing state without forgetting claims
+ok 129 - explicit selected backup repairs missing state without forgetting claims
+  ---
+  duration_ms: 229.828959
+  type: 'test'
+  ...
+# Subtest: pending stays sticky, rejected requires reopen, revision escalates with audit; thresholds not consumed
+ok 130 - pending stays sticky, rejected requires reopen, revision escalates with audit; thresholds not consumed
+  ---
+  duration_ms: 6.0215
+  type: 'test'
+  ...
+# Subtest: all seven legacy pending records survive imported storage without promotion or ID regeneration
+ok 131 - all seven legacy pending records survive imported storage without promotion or ID regeneration
+  ---
+  duration_ms: 13.8905
+  type: 'test'
+  ...
+# Subtest: read APIs are pure and exclude evidence, accounts, checkpoint details; validate paging and range
+ok 132 - read APIs are pure and exclude evidence, accounts, checkpoint details; validate paging and range
+  ---
+  duration_ms: 310.834583
+  type: 'test'
+  ...
+# Subtest: later history cannot impersonate a trusted original capture; plan is read-only
+ok 133 - later history cannot impersonate a trusted original capture; plan is read-only
+  ---
+  duration_ms: 0.992542
+  type: 'test'
+  ...
+# Subtest: slow durable sync and slow response do not shorten global network pacing
+ok 134 - slow durable sync and slow response do not shorten global network pacing
+  ---
+  duration_ms: 39.927583
+  type: 'test'
+  ...
+# Subtest: overlapping execution ticks never issue a second request or overwrite uncertain status
+ok 135 - overlapping execution ticks never issue a second request or overwrite uncertain status
+  ---
+  duration_ms: 1.728125
+  type: 'test'
+  ...
+1..135
+# tests 135
+# suites 0
+# pass 135
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3011.046667
