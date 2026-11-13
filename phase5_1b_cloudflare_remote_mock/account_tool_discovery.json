@@ -1,0 +1,24 @@
+{
+  "status": "NOT_VERIFIED",
+  "user_confirmed_connected": true,
+  "initial_search_plugins_result": [],
+  "metadata_later_discovered": [
+    "cloudflare_search",
+    "cloudflare_execute",
+    "cloudflare_docs",
+    "cloudflare_whoami"
+  ],
+  "attempted_calls": {
+    "search": "MCP -32001 Unknown tool",
+    "whoami": "MCP -32001 Unknown tool",
+    "docs": "MCP -32001 Unknown tool"
+  },
+  "execute_called": false,
+  "namespace_available_at_handoff": false,
+  "project_config_file_count": 0,
+  "api_token_env_present": false,
+  "api_key_env_present": false,
+  "credential_values_read_or_printed": false,
+  "login_or_oauth_changes": 0,
+  "remote_mutations": 0
+}

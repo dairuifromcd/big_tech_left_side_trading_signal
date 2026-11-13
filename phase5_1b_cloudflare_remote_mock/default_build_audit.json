@@ -1,0 +1,32 @@
+{
+  "status": "PASS_LOCAL_ONLY",
+  "mode": "production",
+  "default_admin_policy_present": false,
+  "default_testing_binding_present": false,
+  "default_report_secret_present": false,
+  "worker_config": {
+    "name": "us-stocks-phase51-offline",
+    "compatibilityDate": "2026-11-10",
+    "compatibilityFlags": [
+      "nodejs_compat"
+    ],
+    "env": {
+      "COORDINATOR": {
+        "type": "durable-object",
+        "worker": "us-stocks-phase51-offline",
+        "exportName": "ExecutionCoordinator"
+      }
+    },
+    "exports": {
+      "ExecutionCoordinator": {
+        "type": "durable-object",
+        "storage": "sqlite"
+      }
+    },
+    "manifest": {
+      "type": "partial",
+      "mainModule": "index.js",
+      "modules": {}
+    }
+  }
+}

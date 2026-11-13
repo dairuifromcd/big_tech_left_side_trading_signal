@@ -44,7 +44,7 @@ export function register(ledger:R,id:string,event:R,index=false) {
 }
 export class Store {
   reads=0;writes=0;statements=0;fullValidations=0;
-  constructor(readonly db:Backend, readonly objectId?:string) {}
+  constructor(readonly db:Backend, readonly objectId?:string, readonly evidenceOrigin:'MOCK_POINT_IN_TIME'|'MOCK_ONLY_SYNTHETIC_V1'='MOCK_POINT_IN_TIME') {}
   setup() {
     // Creating empty schema does not initialize monitoring state or a baseline.
     this.db.sql.exec('CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)');
@@ -66,7 +66,7 @@ export class Store {
   q(sql:string,...args:any[]) {this.statements++;const c=this.db.sql.exec(sql,...args);const rows=c.toArray();this.reads+=c.rowsRead??rows.length;this.writes+=c.rowsWritten??0;return rows;}
   tx<T>(f:()=>T) {return this.db.transactionSync(f);}
   initialized() {return this.q("SELECT 1 FROM sqlite_master WHERE type='table' AND name='meta'").length>0 && this.q("SELECT value FROM meta WHERE key='receipt'").length>0;}
-  initialize(receipt:InitializationReceipt=localTestReceipt(), fault?:'after_schema'|'after_receipt') {
+  initialize(receipt:InitializationReceipt=localTestReceipt(), fault?:'after_schema'|'after_receipt', bootstrap?:()=>void) {
     this.tx(()=> {
       // Even empty old application tables are remnants, never proof of a new DO.
       const objects=this.q("SELECT name FROM sqlite_master WHERE name NOT GLOB 'sqlite_*'");
@@ -80,6 +80,9 @@ export class Store {
       if(fault==='after_receipt')throw Error('INJECTED_INITIALIZATION_FAILURE');
       this.q("INSERT INTO meta VALUES ('schema','1')");
       this.q('INSERT INTO initialization_audit VALUES (?,?,?)',receipt.receipt_id,body,hash);
+      // Trusted adapter only: bootstrap the isolated experiment budget in the
+      // same transaction as H01. Never expose this callback through an RPC.
+      bootstrap?.();
     });
   }
   guard() {
@@ -140,7 +143,7 @@ export class Store {
       for(const [symbol,doc] of Object.entries(documents))validateReferences(symbol,doc,events);
       const claims=this.q('SELECT * FROM claims ORDER BY key'),runs=new Map(this.q('SELECT * FROM runs').map(r=>[r.date,r]));
       const evidence=this.q('SELECT * FROM evidence ORDER BY key'),evidenceByKey=new Map(evidence.map(r=>[r.key,r]));
-      for(const row of evidence)if(digest(row.raw)!==row.hash||!['MOCK_POINT_IN_TIME'].includes(row.origin)||!claims.some(c=>c.key===row.key))stateError('RAW_EVIDENCE_INTEGRITY',row.key);
+      for(const row of evidence)if(digest(row.raw)!==row.hash||row.origin!==this.evidenceOrigin||!claims.some(c=>c.key===row.key))stateError('RAW_EVIDENCE_INTEGRITY',row.key);
       for(const claim of claims) {
         if(!SYMBOLS.includes(claim.symbol)||claim.key!==claim.date+'/'+claim.symbol||claim.ordinal!==SYMBOLS.indexOf(claim.symbol)||!runs.has(claim.date))stateError('CLAIM_REFERENCE',claim.key);
         if(claim.raw_hash && evidenceByKey.get(claim.key)?.hash!==claim.raw_hash)stateError('CLAIM_RAW_REFERENCE',claim.key);
@@ -180,7 +183,7 @@ export class Store {
     this.q('UPDATE run_checkpoints SET generation=?,checkpoint_hash=? WHERE date=?',control.generation,hash,date);
   }
   ledger(symbol:string) {this.guard();return Object.fromEntries(this.q('SELECT * FROM events WHERE category=?',category(symbol)).map(r=>[r.id,this.unpack(r)]));}
-  putEvidence(key:string,raw:string,origin='MOCK_POINT_IN_TIME') {
+  putEvidence(key:string,raw:string,origin:string=this.evidenceOrigin) {
     if(raw.length>1_000_000)throw Error('DATA_ERROR: EVIDENCE_REQUIRES_CHUNKING');
     const hash=digest(raw),old=this.q('SELECT hash,raw,origin FROM evidence WHERE key=?',key)[0];
     if(old) {if(old.hash!==hash||old.raw!==raw||old.origin!==origin)throw Error('IMMUTABLE_EVIDENCE_CONFLICT');return hash;}

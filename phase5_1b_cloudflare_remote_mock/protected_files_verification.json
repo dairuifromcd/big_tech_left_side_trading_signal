@@ -1,0 +1,15 @@
+{
+  "all_protected_unchanged": true,
+  "protected_file_count": 537,
+  "intentional_modified_files": [
+    "cloudflare/README.md",
+    "cloudflare/cloudflare.config.ts",
+    "cloudflare/scripts/local.mjs",
+    "cloudflare/src/storage.ts"
+  ],
+  "unexpected_changes": [],
+  "phase51a_acceptance_unchanged": true,
+  "phase51_acceptance_unchanged": true,
+  "pending_records_identical": true,
+  "pending_count": 7
+}

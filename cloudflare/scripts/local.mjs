@@ -16,13 +16,16 @@ for(const p of [env.TMPDIR,env.XDG_CACHE_HOME,env.XDG_CONFIG_HOME])mkdirSync(p,{
 const commands={
   build:[node,[resolve(root,'node_modules/cf/bin/cf'),'build']],
   typecheck:[node,[resolve(root,'node_modules/typescript/bin/tsc'),'--noEmit']],
-  test:[node,['--import','tsx','--test','tests/parity.test.ts','tests/storage.test.ts','tests/runtime.test.ts','tests/hardening.test.ts','tests/hardening-runtime.test.ts']],
+  test:[node,['--import','tsx','--test','tests/parity.test.ts','tests/storage.test.ts','tests/runtime.test.ts','tests/hardening.test.ts','tests/hardening-runtime.test.ts','tests/remote-mock.test.ts','tests/remote-mock-runtime.test.ts']],
   offline:[node,['--import','tsx','--test','tests/parity.test.ts','tests/storage.test.ts','tests/hardening.test.ts']],
   'initialize-local':[node,['--import','tsx','scripts/initialize-local.ts','--local']],
+  'remote-unit':[node,['--import','tsx','--test','tests/remote-mock.test.ts']],
+  'remote-dry-run':[node,[resolve(root,'node_modules/cf/bin/cf'),'deploy','--mode','p51b-mock','--dry-run','--provision=false']],
 };
 const selected=commands[process.argv[2]];
 if(!selected)throw Error('Choose build, typecheck, test, offline, or initialize-local. Remote commands are not exposed.');
 if(process.argv[2]==='test') {
   const built=spawnSync(resolve(root,'node_modules/.bin/esbuild'),['src/worker.ts','--bundle','--format=esm','--platform=neutral','--external:cloudflare:workers','--external:node:crypto','--outfile=dist/worker.js'],{cwd:root,env,stdio:'inherit'});if(built.status!==0)process.exit(built.status??1);
+  const remote=spawnSync(resolve(root,'node_modules/.bin/esbuild'),['src/remote-worker.ts','--bundle','--format=esm','--platform=neutral','--external:cloudflare:workers','--external:node:crypto','--metafile=dist/remote-meta.json','--outfile=dist/remote-worker.js'],{cwd:root,env,stdio:'inherit'});if(remote.status!==0)process.exit(remote.status??1);
 }
 const result=spawnSync(selected[0],selected[1],{cwd:root,env,stdio:'inherit'});process.exit(result.status??1);

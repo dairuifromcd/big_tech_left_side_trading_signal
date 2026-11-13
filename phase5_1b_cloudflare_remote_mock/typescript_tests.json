@@ -1,0 +1,10 @@
+{
+  "environment": "LOCAL_NODE_AND_WORKERD",
+  "baseline_preserved": 203,
+  "added": 38,
+  "tests": 241,
+  "pass": 241,
+  "fail": 0,
+  "cancelled": 0,
+  "skipped": 0
+}

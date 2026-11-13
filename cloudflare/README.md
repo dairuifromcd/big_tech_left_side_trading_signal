@@ -30,3 +30,17 @@ userconfig、globalconfig 都指定到 `.cache`；不要全局安装或使用默
 
 验收范围、尚缺功能、资源限制及下一阶段权限见 `../phase5_1_cloudflare_free/acceptance.md`。
 当前实现不可直接接入真实 Yahoo 或正式历史状态；完整端到端移植尚未验收。
+
+## Phase 5.1B Gate A
+
+隔离远程 Mock 的候选配置使用 `--mode p51b-mock`，当前默认关闭。只进行本地预览：
+
+```sh
+node cloudflare/scripts/local.mjs remote-dry-run
+```
+
+此命令清空继承认证环境，执行 `cf deploy --dry-run --provision=false`，不部署。
+远程入口只依赖合成行情，不打包 `fixtures/samples.json`；本地 Golden 仍使用原样本。
+远程窗口、初始化对象 ID、管理桥、Secrets 和账户都必须在 Gate B 单独获批后配置。
+查看 `phase5_1b_cloudflare_remote_mock/gate_a_acceptance.md` 和 `deployment_manifest.json`。
+本阶段不自动提交或推送 Git。

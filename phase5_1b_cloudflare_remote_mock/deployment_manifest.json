@@ -1,0 +1,291 @@
+{
+  "task": "PHASE_5_1B_CLOUDFLARE_REMOTE_MOCK_POC",
+  "gate": "A",
+  "status": "PARTIAL_DRAFT_ACCOUNT_UNRESOLVED",
+  "can_execute_gate_b": false,
+  "generated_at_utc": "2026-11-12T23:34:24.597165+00:00",
+  "authorization": {
+    "gate_b_approved": false,
+    "required": "Explicit approval after verified account, names, permissions and exact window; continue does not authorize remote writes",
+    "expired_window_requires_new_approval": true
+  },
+  "target_account": {
+    "masked_reference": "UNRESOLVED_NO_ACCOUNT_SELECTED",
+    "verification": "NOT_VERIFIED",
+    "plan": "NOT_VERIFIED",
+    "free_tier_eligibility": "DOCS_ONLY_VERIFIED",
+    "remaining_quota": "NOT_VERIFIED",
+    "plugin": "User confirmed connected; tool metadata appeared but search/whoami/docs returned Unknown tool; namespace subsequently removed",
+    "cli_project_auth": "ABSENT_NO_LOGIN_PERFORMED"
+  },
+  "resources": {
+    "worker": {
+      "candidate_name": "us-stocks-p51b-mock-20261113",
+      "final_name": null,
+      "collision_checked": false,
+      "max_count": 1
+    },
+    "durable_object": {
+      "class": "RemoteMockCoordinator",
+      "storage": "sqlite",
+      "namespace_count": 1,
+      "instance_count": 1,
+      "object_name": "phase51b-synthetic-20261113-v1",
+      "object_id": "NOT_CREATED_OR_VERIFIED",
+      "naming_rule": "COORDINATOR.idFromName(fixed object name); never accept arbitrary object names or IDs from HTTP routing"
+    },
+    "extra_admin_worker": false,
+    "production_domain": false
+  },
+  "code_version": {
+    "baseline_head": "b1fd17df1ef1ff1832e87947d141ff4cac7be3a5",
+    "uncommitted_changes": true,
+    "reviewed_code_sha256": "7ff45034b20d88946abac0c91179ffbc1877d5f64c51666a710e76e329b6928c",
+    "bundle_sha256": "9d7840912c19cf0037101c292b752200770007550d342a40c0de51c4afc201fc",
+    "bundle_bytes": 155597,
+    "build_mode": "p51b-mock",
+    "cf_version": "1.0.0-beta.29",
+    "changes_before_gate_b": "Only explicitly approved name/account/window/enable/target-ID bindings; otherwise stop and re-review",
+    "no_git_commit_or_push": true
+  },
+  "bindings": {
+    "COORDINATOR": "same Worker RemoteMockCoordinator namespace",
+    "REMOTE_MOCK_ENABLED": "Currently DISABLED_PENDING_GATE_B; explicit activation required",
+    "MOCK_START_UTC": "2026-11-14T00:00:00Z",
+    "MOCK_END_UTC": "2026-11-15T00:00:00Z",
+    "MOCK_INIT_END_UTC": "2026-11-14T00:20:00Z",
+    "MOCK_INIT_ENABLED": "Absent now; stage2 only EXPLICIT_ISOLATED_MOCK_V1; revoke after init",
+    "MOCK_INIT_OBJECT_ID": "Absent now; must equal real ctx.id and command target"
+  },
+  "secrets": [
+    {
+      "name": "MOCK_INIT_TOKEN",
+      "scope": "One precise isolated DO initialization; only once, expires at initEnd",
+      "value": "NOT_CREATED",
+      "min_random_bytes": 32
+    },
+    {
+      "name": "MOCK_CONTROL_TOKEN",
+      "scope": "identity/status/start/stop only, fixed instance; start forbidden after end, stop/status grace1h",
+      "value": "NOT_CREATED",
+      "min_random_bytes": 32
+    },
+    {
+      "name": "REPORT_TOKEN",
+      "scope": "six GET report families only; revoke on stop/cleanup",
+      "value": "NOT_CREATED",
+      "min_random_bytes": 32
+    }
+  ],
+  "permissions": {
+    "verified_grants": [],
+    "readonly_needed": [
+      "account/plan/subscriptions read",
+      "Workers and DO metadata read",
+      "schedules/subdomain read",
+      "per-resource metrics/logs read"
+    ],
+    "write_needed_after_approval": [
+      "create one dedicated Worker and SQLite class/namespace",
+      "edit/deploy only that Worker",
+      "put/delete only three named secrets and approved text bindings",
+      "invoke only the fixed instance management RPC through protected HTTP",
+      "stop/cancel Alarm only this object"
+    ],
+    "exact_endpoint_grants": "NOT_VERIFIED; validate current API schema and existing OAuth before execution; never expand OAuth automatically",
+    "project_cf_authentication": "Needs separately explained and explicitly approved project-local credential flow; never read personal auth files or export plugin secrets"
+  },
+  "planned_remote_operations": [
+    {
+      "stage": 0,
+      "kind": "READ_ONLY",
+      "operations": [
+        "verify account and actual Free plan, SQLite availability",
+        "list/paginate Worker/DO/Cron metadata, names, URL, usage and permissions; store only relevant masked summaries"
+      ]
+    },
+    {
+      "stage": 1,
+      "kind": "WRITE_REQUIRES_GATE_B",
+      "operations": [
+        "cf deploy --mode p51b-mock --provision=false using approved account and project-local authentication",
+        "create only candidate dedicated Worker, one SQLite class/namespace; no other binding resource types",
+        "upload control/report secrets, activate short-lived authenticated bridge with H01 init flag absent",
+        "read fixed instance identity and empty-storage eligibility; do not delete remnants"
+      ]
+    },
+    {
+      "stage": 2,
+      "kind": "WRITE_REQUIRES_GATE_B",
+      "operations": [
+        "second cf deployment of same code and approved exact-object-ID/H01 policy only",
+        "upload one-time init secret",
+        "call initializeIsolatedMock exactly once with complete command",
+        "read receipt/schema/audit; reject replay; if uncertain use readonly reconciliation, never re-init",
+        "delete init Secret and disable init flag, recording any implicit version/deployment effects"
+      ]
+    },
+    {
+      "stage": 3,
+      "kind": "WRITE_REQUIRES_GATE_B",
+      "operations": [
+        "start fixed fixtures in order within window, no more than two runs",
+        "bounded platform Alarms commit synthetic state and counters",
+        "idempotent repeat start of existing fixture; readonly new stub/report/metrics checks",
+        "stop fixed object and cancel its Alarm; verify persisted STOPPED and stable counters"
+      ]
+    },
+    {
+      "stage": 4,
+      "kind": "WRITE_REQUIRES_GATE_B",
+      "operations": [
+        "export masked evidence and actual per-resource metrics",
+        "revoke control/report Secret and any init capability",
+        "retain stopped dedicated Worker/namespace/storage for review; no remote deletion authorized by this draft"
+      ]
+    }
+  ],
+  "deployment_safety": {
+    "max_explicit_cf_deployments": 2,
+    "secrets_and_flag_changes_may_create_versions": true,
+    "unlisted_resource_or_deployment_effect": "STOP_AND_REPORT",
+    "auto_provision_flag": false,
+    "dry_run_command": "node cloudflare/scripts/local.mjs remote-dry-run",
+    "dry_run_effect": "Local build and validation only, no API/credentials per official docs",
+    "pre_deploy_requirements": [
+      "account and names verified",
+      "exact auth scope verified",
+      "diff of reviewed code accepted",
+      "temporary HTTP admin bridge explicitly approved",
+      "all generated bindings/resources match this manifest",
+      "free eligibility and remaining shared quotas adequate",
+      "existing approved workers.dev subdomain; do not create or modify an account-level subdomain"
+    ],
+    "current_config_enabled": false,
+    "no_account_subdomain_creation": true
+  },
+  "external_urls": {
+    "application_candidate": "https://us-stocks-p51b-mock-20261113.<approved-account-subdomain>.workers.dev",
+    "application_verified": false,
+    "application_paths": [
+      "GET /_mock/identity",
+      "GET /_mock/status",
+      "POST /_mock/initialize",
+      "POST /_mock/start",
+      "POST /_mock/stop",
+      "GET /api/overview",
+      "GET /api/assets/:symbol",
+      "GET /api/assets/:symbol/history",
+      "GET /api/events",
+      "GET /api/runs/latest",
+      "GET /api/health"
+    ],
+    "control_plane": "https://api.cloudflare.com/client/v4/accounts/<approved-account>/... (read metadata and scoped Worker/Secret/deployment operations only; exact endpoints still to verify)",
+    "outbound_market_data_urls": [],
+    "custom_domains": [],
+    "dashboard_initialization_route": false
+  },
+  "features": {
+    "cron": false,
+    "scheduled_handler": false,
+    "real_yahoo": false,
+    "r2": false,
+    "paid_services": false,
+    "static_assets": false,
+    "production_state_import": false,
+    "archived_yahoo_import": false,
+    "local_testing_binding": false
+  },
+  "experiment": {
+    "mode": "MOCK_ONLY_SYNTHETIC_V1",
+    "fixture_dates": [
+      "2026-11-06",
+      "2026-11-09"
+    ],
+    "start_utc": "2026-11-14T00:00:00Z",
+    "end_exclusive_utc": "2026-11-15T00:00:00Z",
+    "init_end_exclusive_utc": "2026-11-14T00:20:00Z",
+    "stop_status_grace_end_exclusive_utc": "2026-11-15T01:00:00Z",
+    "max_window_seconds": 86400,
+    "max_runs": 2,
+    "symbols_per_run": 12,
+    "max_collector_attempts": 24,
+    "max_processed_alarm_ticks": 80,
+    "max_initiated_management_report_requests": 200,
+    "expected_alarm_ticks_local_model": 26,
+    "pacing": "real finished +5s globally; extra30s per batch boundary",
+    "platform_alarm_caveat": "At-least-once deliveries may include late/in-flight callbacks; 80 is processing budget, not a guarantee on platform-billed delivery count; stop early on unexpected repeats",
+    "real_execution_time_separate_from_fixture_time": true,
+    "window_revision": "Previous unapproved Nov13 candidate withdrawn; this Nov14 proposal requires approval, no automatic extension"
+  },
+  "kill_switch": {
+    "verification": "LOCAL_PASS",
+    "persistent": [
+      "deadline",
+      "run/collector/alarm budgets",
+      "terminal STOPPED",
+      "fixture/real-time execution audit",
+      "budget hash"
+    ],
+    "checks": [
+      "expired init refuses schema creation",
+      "expired sync prevents collector call",
+      "attempt charged before collection",
+      "90 repeated early ticks stop at80, no recollect",
+      "stop cancels local workerd Alarm",
+      "runtime recreation preserves stop",
+      "config cannot extend persisted window"
+    ],
+    "cloud_verification": "NOT_VERIFIED"
+  },
+  "cost": {
+    "account_billing_verified": false,
+    "expected_incremental_cost": "$0 only conditional on verified Free eligibility and sufficient shared quotas; not guaranteed",
+    "paid_upgrade_authorized": false,
+    "fee_trigger_action": "STOP_NO_UPGRADE",
+    "quota_shared_with_other_projects": true,
+    "public_endpoint_invalid_requests_consume_quota": true,
+    "local_sqlite_page_bytes": 737280,
+    "cloud_cpu_duration_memory_rows_requests": "NOT_VERIFIED",
+    "docs_review_utc_date": "2026-11-12"
+  },
+  "cleanup": {
+    "proposal": "STOP_REVOKE_AND_RETAIN",
+    "actions": [
+      "persist STOPPED and cancel only target Alarm",
+      "read/export relevant evidence",
+      "revoke three named secrets and init flag",
+      "retain stopped Worker/namespace/SQLite for review"
+    ],
+    "retained_storage_consumes_quota": true,
+    "worker_or_namespace_deletion": "Not included; exact identities and verified deletion/migration plan need separate explicit approval",
+    "worker_deletion_is_not_proof_of_do_storage_deletion": true,
+    "rollback": "stop and revoke scoped credentials without resetting state or reinitializing; emergency dedicated-Worker disable only if explicitly approved; never touch other projects"
+  },
+  "gate_a_counters": {
+    "cloudflare_remote_mutations": 0,
+    "remote_deployments": 0,
+    "real_yahoo_requests": 0,
+    "real_trading_actions": 0,
+    "production_state_mutations": 0
+  },
+  "evidence_files": [
+    "remote_build_audit.json",
+    "default_build_audit.json",
+    "reviewed_code_sha256.json",
+    "python_tests.json",
+    "typescript_tests.log",
+    "parity_results.json",
+    "hardening_runtime_results.json",
+    "remote_mock_local_results.json",
+    "remote_mock_workerd_results.json",
+    "protected_files_verification.json",
+    "cf_remote_dry_run.log"
+  ],
+  "authorization_blockers": [
+    "No verified target account/plan/remaining quota/name/URL",
+    "Plugin tool calls failed and namespace removed",
+    "No project-local cf authentication or approved authentication setup",
+    "Temporary HTTP bridge/resources/window/credentials/stop-retain cleanup not explicitly approved"
+  ]
+}

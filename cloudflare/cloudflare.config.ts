@@ -1,9 +1,17 @@
 import {bindings,defineConfig,exports} from 'cf/config';
-import * as entrypoint from './src/worker.ts' with {type:'cf-worker'};
-// Local PoC only. No account ID, secrets, route, asset binding or Cron provisioned.
-export default defineConfig({worker:{
+// Path entrypoints prevent the local archived-fixture module entering the remote
+// build graph. The explicitly selected remote mode is disabled until Gate B.
+export default defineConfig(({mode})=>mode==='p51b-mock'?{worker:{
+  name:'us-stocks-p51b-mock-20261113',entrypoint:'./src/remote-worker.ts',
+  compatibilityDate:'2026-11-10',compatibilityFlags:['nodejs_compat'],
+  exports:{RemoteMockCoordinator:exports.durableObject({storage:'sqlite'})},
+  env:{COORDINATOR:bindings.durableObject({worker:'us-stocks-p51b-mock-20261113',exportName:'RemoteMockCoordinator'}),
+    REMOTE_MOCK_ENABLED:bindings.text('DISABLED_PENDING_GATE_B'),
+    MOCK_START_UTC:bindings.text('2026-11-14T00:00:00Z'),MOCK_END_UTC:bindings.text('2026-11-15T00:00:00Z'),
+    MOCK_INIT_END_UTC:bindings.text('2026-11-14T00:20:00Z')}
+}}:{worker:{
   name:'us-stocks-phase51-offline',
-  entrypoint,
+  entrypoint:'./src/worker.ts',
   compatibilityDate:'2026-11-10',
   compatibilityFlags:['nodejs_compat'],
   exports:{ExecutionCoordinator:exports.durableObject({storage:'sqlite'})},

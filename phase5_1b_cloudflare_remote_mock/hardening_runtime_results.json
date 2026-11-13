@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "platform": "LOCAL_WORKERD_SQLITE",
+  "blocked_checkpoint_cases": 15,
+  "collector_calls_for_blocked_cases": 0,
+  "outbound_requests": 0,
+  "remote_initialization": "NOT_VERIFIED"
+}

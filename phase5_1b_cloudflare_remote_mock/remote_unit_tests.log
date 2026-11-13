@@ -1,0 +1,180 @@
+TAP version 13
+# (node:10484) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: synthetic identity and date validation NVDA
+ok 1 - synthetic identity and date validation NVDA
+  ---
+  duration_ms: 29.197292
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation AAPL
+ok 2 - synthetic identity and date validation AAPL
+  ---
+  duration_ms: 17.025583
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation GOOGL
+ok 3 - synthetic identity and date validation GOOGL
+  ---
+  duration_ms: 17.621208
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation MSFT
+ok 4 - synthetic identity and date validation MSFT
+  ---
+  duration_ms: 16.708416
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation AMZN
+ok 5 - synthetic identity and date validation AMZN
+  ---
+  duration_ms: 21.301834
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation SPCX
+ok 6 - synthetic identity and date validation SPCX
+  ---
+  duration_ms: 6.762375
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation META
+ok 7 - synthetic identity and date validation META
+  ---
+  duration_ms: 16.245083
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation AVGO
+ok 8 - synthetic identity and date validation AVGO
+  ---
+  duration_ms: 20.439959
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation TSLA
+ok 9 - synthetic identity and date validation TSLA
+  ---
+  duration_ms: 15.995916
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation ^GSPC
+ok 10 - synthetic identity and date validation ^GSPC
+  ---
+  duration_ms: 20.805917
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation ^NDX
+ok 11 - synthetic identity and date validation ^NDX
+  ---
+  duration_ms: 15.420917
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation ^SOX
+ok 12 - synthetic identity and date validation ^SOX
+  ---
+  duration_ms: 21.498917
+  type: 'test'
+  ...
+# Subtest: two full runs use real pacing with explicit fixture dates, <=80 alarms and exactly24 calls
+ok 13 - two full runs use real pacing with explicit fixture dates, <=80 alarms and exactly24 calls
+  ---
+  duration_ms: 1664.099
+  type: 'test'
+  ...
+# Subtest: production Coordinator still rejects archived date against actual execution time
+ok 14 - production Coordinator still rejects archived date against actual execution time
+  ---
+  duration_ms: 1.00225
+  type: 'test'
+  ...
+# Subtest: initialization and budget bootstrap are atomic on adapter failure
+ok 15 - initialization and budget bootstrap are atomic on adapter failure
+  ---
+  duration_ms: 1.145792
+  type: 'test'
+  ...
+# Subtest: init expiry refuses schema creation
+ok 16 - init expiry refuses schema creation
+  ---
+  duration_ms: 0.515958
+  type: 'test'
+  ...
+# Subtest: window rejects 1794527999999
+ok 17 - window rejects 1794527999999
+  ---
+  duration_ms: 0.047583
+  type: 'test'
+  ...
+# Subtest: window rejects 1794614400000
+ok 18 - window rejects 1794614400000
+  ---
+  duration_ms: 0.031167
+  type: 'test'
+  ...
+# Subtest: window rejects 1794614400001
+ok 19 - window rejects 1794614400001
+  ---
+  duration_ms: 0.028917
+  type: 'test'
+  ...
+# Subtest: window cannot be longer than24h or init longer than20min
+ok 20 - window cannot be longer than24h or init longer than20min
+  ---
+  duration_ms: 0.0585
+  type: 'test'
+  ...
+# Subtest: stop persists across adapter replacement and prohibits collection
+ok 21 - stop persists across adapter replacement and prohibits collection
+  ---
+  duration_ms: 1.455084
+  type: 'test'
+  ...
+# Subtest: deadline before next alarm stops without collection
+ok 22 - deadline before next alarm stops without collection
+  ---
+  duration_ms: 1.291917
+  type: 'test'
+  ...
+# Subtest: expiry during durable sync blocks collector even after attempt charged
+ok 23 - expiry during durable sync blocks collector even after attempt charged
+  ---
+  duration_ms: 2.142417
+  type: 'test'
+  ...
+# Subtest: persisted alarm budget stops repeated early callbacks
+ok 24 - persisted alarm budget stops repeated early callbacks
+  ---
+  duration_ms: 61.454334
+  type: 'test'
+  ...
+# Subtest: overlapping, reversed and arbitrary fixture requests are rejected
+ok 25 - overlapping, reversed and arbitrary fixture requests are rejected
+  ---
+  duration_ms: 1.553667
+  type: 'test'
+  ...
+# Subtest: changed persisted budget fails closed before source invocation
+ok 26 - changed persisted budget fails closed before source invocation
+  ---
+  duration_ms: 1.274583
+  type: 'test'
+  ...
+# Subtest: redeployment cannot extend the persisted window
+ok 27 - redeployment cannot extend the persisted window
+  ---
+  duration_ms: 0.554084
+  type: 'test'
+  ...
+# Subtest: uncertain collection after durable declaration is never recollected
+ok 28 - uncertain collection after durable declaration is never recollected
+  ---
+  duration_ms: 1.450791
+  type: 'test'
+  ...
+1..28
+# tests 28
+# suites 0
+# pass 28
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2077.944125

@@ -1,0 +1,95 @@
+{
+  "status": "PASS_LOCAL_ONLY",
+  "cf_version": "1.0.0-beta.29",
+  "mode": "p51b-mock",
+  "remote_mutations": 0,
+  "deployments": 0,
+  "account_verification": "NOT_VERIFIED",
+  "resources": {
+    "worker": "us-stocks-p51b-mock-20261113",
+    "class": "RemoteMockCoordinator",
+    "storage": "sqlite",
+    "binding_count": 1
+  },
+  "enabled": false,
+  "secrets_present": false,
+  "cron": false,
+  "r2": false,
+  "routes": false,
+  "assets": false,
+  "archived_yahoo_or_production_state_included": false,
+  "esbuild_inputs": [
+    "src/api.ts",
+    "src/calendar-data.json",
+    "src/checkpoint.ts",
+    "src/coordinator.ts",
+    "src/core.ts",
+    "src/initialization.ts",
+    "src/integrity.ts",
+    "src/observations.ts",
+    "src/remote-harness.ts",
+    "src/remote-worker.ts",
+    "src/storage.ts",
+    "src/synthetic.ts",
+    "src/yahoo.ts"
+  ],
+  "vite_sources": [
+    "../../../../../../src/core.ts",
+    "../../../../../../src/integrity.ts",
+    "../../../../../../src/initialization.ts",
+    "../../../../../../src/yahoo.ts",
+    "../../../../../../src/checkpoint.ts",
+    "../../../../../../src/storage.ts",
+    "../../../../../../src/api.ts",
+    "../../../../../../src/observations.ts",
+    "../../../../../../src/coordinator.ts",
+    "../../../../../../src/synthetic.ts",
+    "../../../../../../src/remote-harness.ts",
+    "../../../../../../src/remote-worker.ts"
+  ],
+  "bundle_bytes": 155597,
+  "bundle_sha256": "9d7840912c19cf0037101c292b752200770007550d342a40c0de51c4afc201fc",
+  "worker_config_sha256": "44ed9453eefcc3029ece4c76081305e9356cf0cf99a39723b56943ee211078a0",
+  "reviewed_code_sha256": "7ff45034b20d88946abac0c91179ffbc1877d5f64c51666a710e76e329b6928c",
+  "worker_config": {
+    "name": "us-stocks-p51b-mock-20261113",
+    "compatibilityDate": "2026-11-10",
+    "compatibilityFlags": [
+      "nodejs_compat"
+    ],
+    "env": {
+      "COORDINATOR": {
+        "type": "durable-object",
+        "worker": "us-stocks-p51b-mock-20261113",
+        "exportName": "RemoteMockCoordinator"
+      },
+      "REMOTE_MOCK_ENABLED": {
+        "type": "text",
+        "value": "DISABLED_PENDING_GATE_B"
+      },
+      "MOCK_START_UTC": {
+        "type": "text",
+        "value": "2026-11-14T00:00:00Z"
+      },
+      "MOCK_END_UTC": {
+        "type": "text",
+        "value": "2026-11-15T00:00:00Z"
+      },
+      "MOCK_INIT_END_UTC": {
+        "type": "text",
+        "value": "2026-11-14T00:20:00Z"
+      }
+    },
+    "exports": {
+      "RemoteMockCoordinator": {
+        "type": "durable-object",
+        "storage": "sqlite"
+      }
+    },
+    "manifest": {
+      "type": "partial",
+      "mainModule": "index.js",
+      "modules": {}
+    }
+  }
+}
