@@ -1,0 +1,179 @@
+{
+  "environment": "LOCAL_WORKERD_SQLITE",
+  "status": "PASS",
+  "cases": [
+    {
+      "scenario": "checkpoint",
+      "result": "REFUSED",
+      "error": "Error: STATE_ERROR: CHECKPOINT_CONTROL",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "budget_write",
+      "result": "REFUSED",
+      "error": "Error: ATOMIC_START_INJECTED_budget_write",
+      "fault_reached": true,
+      "snapshot_identical": true,
+      "retry": "STARTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "run_insert",
+      "result": "REFUSED",
+      "error": "Error: ATOMIC_START_INJECTED_run_insert",
+      "fault_reached": true,
+      "snapshot_identical": true,
+      "retry": "STARTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "claim_6",
+      "result": "REFUSED",
+      "error": "Error: ATOMIC_START_INJECTED_claim_6",
+      "fault_reached": true,
+      "snapshot_identical": true,
+      "retry": "STARTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "checkpoint_control",
+      "result": "REFUSED",
+      "error": "Error: ATOMIC_START_INJECTED_checkpoint_control",
+      "fault_reached": true,
+      "snapshot_identical": true,
+      "retry": "STARTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "run_checkpoint",
+      "result": "REFUSED",
+      "error": "Error: ATOMIC_START_INJECTED_run_checkpoint",
+      "fault_reached": true,
+      "snapshot_identical": true,
+      "retry": "STARTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "updated",
+      "result": "REFUSED",
+      "error": "Error: ATOMIC_START_INJECTED_updated",
+      "fault_reached": true,
+      "snapshot_identical": true,
+      "retry": "STARTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "duplicate",
+      "result": "DUPLICATE",
+      "error": "",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "order",
+      "result": "REFUSED",
+      "error": "Error: FIXTURE_ORDER_REQUIRED",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "stopped",
+      "result": "REFUSED",
+      "error": "Error: EXPERIMENT_STOPPED",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "exhausted",
+      "result": "REFUSED",
+      "error": "Error: EXPERIMENT_BUDGET_EXHAUSTED",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "collector_exhausted",
+      "result": "REFUSED",
+      "error": "Error: EXPERIMENT_BUDGET_EXHAUSTED",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "alarm_exhausted",
+      "result": "REFUSED",
+      "error": "Error: EXPERIMENT_BUDGET_EXHAUSTED",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "negative_budget",
+      "result": "REFUSED",
+      "error": "Error: EXPERIMENT_BUDGET_CORRUPT",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "over_budget",
+      "result": "REFUSED",
+      "error": "Error: EXPERIMENT_BUDGET_CORRUPT",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "existing_claim",
+      "result": "REFUSED",
+      "error": "Error: STATE_ERROR: CLAIM_REFERENCE [2026-11-06/NVDA]",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "overlap",
+      "result": "REFUSED",
+      "error": "Error: OVERLAPPING_OR_FAILED_RUN_BLOCKED",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "window",
+      "result": "REFUSED",
+      "error": "Error: EXPERIMENT_WINDOW_CLOSED",
+      "fault_reached": false,
+      "snapshot_identical": true,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    },
+    {
+      "scenario": "success",
+      "result": "STARTED",
+      "error": "",
+      "fault_reached": false,
+      "snapshot_identical": false,
+      "retry": "NOT_ATTEMPTED",
+      "collector_calls": 0
+    }
+  ],
+  "outbound_requests": 0,
+  "collector_calls": 0
+}

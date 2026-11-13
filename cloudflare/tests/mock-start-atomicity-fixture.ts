@@ -63,3 +63,28 @@ export function exerciseStart(s:Store,scenario:StartCase) {
   }
   return {scenario,result:result??'REFUSED',error,fault_reached:faultReached,snapshot_identical:before===after,retry,collector_calls:h.source.calls.length};
 }
+
+// Focused duplicate regression: advancing the clock must not hide an updated write.
+export function exerciseAdvancedDuplicate(s:Store,withEvents=false) {
+  let now=ATOMIC_START+60000,collectorCalls=0;
+  const h=new RemoteHarness(s,ATOMIC_PLAN,()=>now,async()=>{throw Error('UNEXPECTED_SYNC');});
+  h.engine.collector.collect=async()=>{collectorCalls++;throw Error('UNEXPECTED_COLLECTOR');};
+  s.initialize(undefined,undefined,()=>h.bootstrap());
+  const fixture=FIXTURE_DATES[0],first=h.start(fixture);
+  if(first!=='STARTED')throw Error('FIRST_START_FAILED');
+  // Test-only ledger sentinels verify duplicate does not rewrite either decision.
+  // Inserted after valid start; not represented as valid market/checkpoint evidence.
+  if(withEvents)for(const status of ['CONFIRMED','PENDING_REVIEW']) {
+    const body=canonical({status,origin:'LOCAL_DUPLICATE_SENTINEL'});
+    s.q('INSERT INTO events VALUES (?,?,?,?)','stocks','local-duplicate-'+status,body,digest(body));
+  }
+  const before=snapshot(s),updated=s.q('SELECT updated FROM runs WHERE date=?',fixture)[0].updated;
+  now+=30000;
+  const q=s.q.bind(s);let writeStatements=0;
+  s.q=(sql:string,...args:any[])=>{if(!sql.trimStart().startsWith('SELECT'))writeStatements++;return q(sql,...args);};
+  let duplicate:string;
+  try{duplicate=h.start(fixture);}finally{s.q=q;}
+  const after=snapshot(s),b=h.read();
+  if(duplicate!=='DUPLICATE'||before!==after||writeStatements||collectorCalls||h.source.calls.length||b.runs!==1||b.executions.length!==1||s.q('SELECT updated FROM runs WHERE date=?',fixture)[0].updated!==updated)throw Error('ADVANCED_DUPLICATE_MUTATED_STATE');
+  return {first,duplicate,clock_advance_ms:30000,updated_before:updated,updated_after:s.q('SELECT updated FROM runs WHERE date=?',fixture)[0].updated,snapshot_before_sha256:digest(before),snapshot_after_sha256:digest(after),snapshot_identical:true,write_statements:writeStatements,collector_calls:collectorCalls,source_calls:h.source.calls.length,runs:b.runs,executions:b.executions.length,event_sentinels:withEvents?2:0};
+}

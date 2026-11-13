@@ -1,0 +1,29 @@
+# Phase 5.1B 严格幂等性验证
+
+PHASE_5_1B_IDEMPOTENCY_CHECK: PASS
+
+Git HEAD: `16e7ac975dff1e0e2abc7c26ec5ea7ef48840e88`；初始工作区干净。未提交或推送。
+
+此前疑问对当前 RemoteHarness.start 路径属于误报：它在已有 Run 时提前返回 DUPLICATE，不会调用 Coordinator.startInTransaction，也不会到达最后的 runs.updated 更新。无需改生产源码，本次仅改4个测试文件，新增本报告及独立输出子目录，不覆盖既有验收资料。
+
+新增4项：Node SQLite和本地workerd SQLite各两项，分别为空事件表和两个本地事件标记。先合法启动 STARTED，保存全部应用schema及表内容（排除平台_cf_*内部表），将注入时钟推进30000ms并保持窗口有效，再启动得到DUPLICATE。快照逐字一致且SHA256相同，runs.updated前后均1794528060000；mock_experiment预算/执行、12条claims、checkpoint_control、run_checkpoints、states、events、evidence、history及其他应用表全部不变。runs预算及executions均保持1，写语句/Collector/source calls/外部请求均0。workerd真实storage.getAlarm前后均null，无新Alarm。
+
+事件覆盖的CONFIRMED/PENDING_REVIEW标记为合法首次启动后注入的本地哨兵，证明重复路径不改写已有决定；它们不是有效市场证据，不代表重新通过完整checkpoint。实际7条PENDING_REVIEW由受保护文件字节校验确认未变。测试覆盖RemoteHarness启动路径及其在workerd中的真实SQLite行为，未将其声称为远程HTTP管理桥的Alarm重排验证。
+
+完整TypeScript285/285（原281保留，新增4），typecheck通过。Python无生产变更，未重跑；已接受基线271/271。首轮沙箱本地监听EPERM导致失败，日志保留为idempotency_typescript.log；允许本地监听后完整测试成功，见idempotency_typescript_authorized.log。所有运行结果写入新的idempotency_verification目录，旧测试及验收输出保持不变。
+
+Protected Files Integrity: PASS；除4个指定测试文件外，592个tracked文件与当前HEAD字节一致；生产源码、配置、原Gate A全部验收报告、市场历史及7条待复核事件均未修改。git diff --check通过。
+
+Gate B资源/时间/预算/认证待审清单内容不变，作为未授权草案继续保留；生产源码和既有bundle未改。旧reviewed_code_sha256聚合包含测试，因此新增测试后的整体审阅hash不能冒充旧hash：补充测试hash见verification_summary.json，将来Gate B执行前须将补充证据纳入新的审阅hash。当前无有效部署授权，也不自动刷新或覆盖旧Manifest。
+
+GATE_B_BOOTSTRAP_PREFERENCE: USER_MANUAL_DASHBOARD_FIRST
+
+保留用户优先人工Dashboard首次创建的决策。未开展部署研究或创建资源；后续须单独核实Dashboard是否支持当前cf exports及SQLite DO绑定，不支持则提出替代方案单独审批。
+
+PRODUCTION_CODE_CHANGE_REQUIRED: NO
+DUPLICATE_START_DATABASE_MUTATIONS: 0
+COLLECTOR_CALLS_ON_DUPLICATE: 0
+CLOUDFLARE_REMOTE_MUTATIONS: 0
+GATE_B_APPROVED: false
+
+无OAuth、Token创建、Secrets上传、真实Yahoo请求或Gate B操作。本阶段到此停止。

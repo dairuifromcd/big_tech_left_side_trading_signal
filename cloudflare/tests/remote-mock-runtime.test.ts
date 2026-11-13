@@ -86,6 +86,13 @@ test('atomic Mock start in real local workerd SQLite',async t=> {
       assert.equal(result.collector_calls,0);assert.equal(outbound,0);
       assert.equal(result.snapshot_identical,scenario!=='success');
     });
+    for(const withEvents of [false,true])await t.test(`duplicate after clock advances30s preserves workerd SQLite state (events=${withEvents})`,async()=> {
+      const stub:any=ns.getByName('advanced-duplicate-'+withEvents);
+      const result=await stub.duplicateAfterAdvance(withEvents);
+      assert.equal(result.snapshot_before_sha256,result.snapshot_after_sha256);
+      assert.equal(outbound,0);assert.equal(result.alarm_before,null);assert.equal(result.alarm_after,null);
+      writeTestResult(`idempotency_workerd_${withEvents?'events':'empty'}.json`,{...result,outbound_requests:outbound});
+    });
     writeTestResult('mock_start_atomicity_workerd_results.json',{environment:'LOCAL_WORKERD_SQLITE',status:'PASS',cases:results,outbound_requests:outbound,collector_calls:0});
   }finally{await mf.dispose();}
 });

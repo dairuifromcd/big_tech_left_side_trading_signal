@@ -1,0 +1,19 @@
+{
+  "first": "STARTED",
+  "duplicate": "DUPLICATE",
+  "clock_advance_ms": 30000,
+  "updated_before": 1794528060000,
+  "updated_after": 1794528060000,
+  "snapshot_before_sha256": "98684355485f30c1efdf536bb0fec049f2fa3dd0b7a4ac26dd89cdc4dc02a1f4",
+  "snapshot_after_sha256": "98684355485f30c1efdf536bb0fec049f2fa3dd0b7a4ac26dd89cdc4dc02a1f4",
+  "snapshot_identical": true,
+  "write_statements": 0,
+  "collector_calls": 0,
+  "source_calls": 0,
+  "runs": 1,
+  "executions": 1,
+  "event_sentinels": 2,
+  "alarm_before": null,
+  "alarm_after": null,
+  "outbound_requests": 0
+}

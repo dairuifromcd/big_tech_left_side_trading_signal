@@ -96,3 +96,14 @@ test('internal Coordinator start requires the caller to own a Store transaction'
   assert.throws(()=>f.harness.engine.startInTransaction(FIXTURE_DATES[0],START),/START_TRANSACTION_REQUIRED/);
   assert.equal(snapshot(f.store),before);assert.equal(f.harness.source.calls.length,0);f.db.close();
 });
+
+import {exerciseAdvancedDuplicate} from './mock-start-atomicity-fixture.ts';
+for(const withEvents of [false,true])test(`duplicate after clock advances30s preserves complete Node SQLite state (events=${withEvents})`,()=> {
+  const f=fixture();const originalFetch=globalThis.fetch;let outbound=0;
+  globalThis.fetch=async()=>{outbound++;throw Error('EXTERNAL_NETWORK_FORBIDDEN');};
+  try {
+    const result=exerciseAdvancedDuplicate(f.store,withEvents);
+    assert.equal(outbound,0);assert.equal(result.snapshot_before_sha256,result.snapshot_after_sha256);
+    writeTestResult(`idempotency_node_${withEvents?'events':'empty'}.json`,{...result,outbound_requests:outbound});
+  }finally{globalThis.fetch=originalFetch;f.db.close();}
+});
