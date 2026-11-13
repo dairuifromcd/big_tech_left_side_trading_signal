@@ -1,0 +1,51 @@
+{
+  "task": "PHASE_5_1B_STAGE1_LOCAL_PACKAGE",
+  "authorization": "LOCAL_PREPARATION_ONLY",
+  "gate_b_approved": false,
+  "can_execute_remote": false,
+  "head": "4651ca01f2514b0e6be07578de1bdf7bec5bc06a",
+  "mode": "p51b-stage1",
+  "entrypoint": "cloudflare/src/remote-worker.ts",
+  "worker": "us-stocks-p51b-mock-20261113",
+  "durable_object": {
+    "class": "RemoteMockCoordinator",
+    "storage": "sqlite",
+    "binding": "COORDINATOR",
+    "fixed_name": "phase51b-synthetic-20261113-v1",
+    "remote_id": "NOT_VERIFIED",
+    "namespace_count": 1,
+    "instance_count": 1
+  },
+  "env": {
+    "REMOTE_MOCK_ENABLED": "EXPLICIT_PHASE51B_IDENTITY_V1",
+    "MOCK_START_UTC": "2026-11-15T22:00:00Z",
+    "MOCK_END_UTC": "2026-11-16T22:00:00Z",
+    "MOCK_INIT_END_UTC": "2026-11-15T22:20:00Z"
+  },
+  "absent_bindings": [
+    "MOCK_INIT_ENABLED",
+    "MOCK_INIT_OBJECT_ID",
+    "MOCK_INIT_TOKEN"
+  ],
+  "future_secrets_names_only": [
+    "MOCK_CONTROL_TOKEN",
+    "REPORT_TOKEN"
+  ],
+  "secret_values_created": false,
+  "http_allowed": [
+    "GET /_mock/identity; valid dedicated Control Bearer; no query parameters; bounded window"
+  ],
+  "http_other_operations": "REFUSED_IN_STAGE1",
+  "cron": false,
+  "r2": false,
+  "routes": false,
+  "custom_domain": false,
+  "assets": false,
+  "extra_workers": false,
+  "extra_do_classes": false,
+  "real_collector": false,
+  "workers_dev_and_preview_urls": "UNSPECIFIED_CF_DEFAULTS; user must review effects and existing account subdomain before approval",
+  "remote_plan": "USER_LOCAL_CF_BOOTSTRAP; NOT_AUTHORIZED_TO_EXECUTE",
+  "candidate_identity_brisbane": "2026-11-16 08:00–08:15 UTC+10; postpone if not ready; never auto-extend",
+  "stage2": "Existing p51b-mock remains disabled; exact remote object ID/init enable/secrets and all Gate B work require separate authorization"
+}

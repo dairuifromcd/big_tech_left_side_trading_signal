@@ -1,0 +1,2327 @@
+
+  dist/worker.js  513.0kb
+
+⚡ Done in 35ms
+
+  dist/remote-worker.js  152.4kb
+
+⚡ Done in 12ms
+TAP version 13
+# (node:40315) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: H01 workerd default policy denies init, monitoring and test backdoor; HTTP has no admin route
+ok 1 - H01 workerd default policy denies init, monitoring and test backdoor; HTTP has no admin route
+  ---
+  duration_ms: 2456.207333
+  type: 'test'
+  ...
+# Subtest: H01 workerd controlled initialization works without LOCAL_TESTING and rejects bad credential/target/replay
+ok 2 - H01 workerd controlled initialization works without LOCAL_TESTING and rejects bad credential/target/replay
+  ---
+  duration_ms: 3327.321583
+  type: 'test'
+  ...
+# Subtest: H01 workerd initialization transaction rolls back schema and receipt on injected failure
+ok 3 - H01 workerd initialization transaction rolls back schema and receipt on injected failure
+  ---
+  duration_ms: 654.080666
+  type: 'test'
+  ...
+# An RPC stub was not disposed properly. You must call dispose() on all stubs in order to let the other side know that you are no longer using them. You cannot rely on the garbage collector for this because it may take arbitrarily long before actually collecting unreachable objects. As a shortcut, calling dispose() on the result of an RPC call disposes all stubs within it.
+# Subtest: H02 workerd corrupted checkpoints block every collector before request, including after preflight
+ok 4 - H02 workerd corrupted checkpoints block every collector before request, including after preflight
+  ---
+  duration_ms: 6975.181833
+  type: 'test'
+  ...
+# (node:40316) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: H01 explicit empty initialization writes a verifiable one-time receipt
+ok 5 - H01 explicit empty initialization writes a verifiable one-time receipt
+  ---
+  duration_ms: 15.341875
+  type: 'test'
+  ...
+# Subtest: H01 uninitialized monitor and read API fail safely without writes or collector
+ok 6 - H01 uninitialized monitor and read API fail safely without writes or collector
+  ---
+  duration_ms: 30.621625
+  type: 'test'
+  ...
+# Subtest: H01 refuses storage remnant states
+ok 7 - H01 refuses storage remnant states
+  ---
+  duration_ms: 0.737583
+  type: 'test'
+  ...
+# Subtest: H01 refuses storage remnant events
+ok 8 - H01 refuses storage remnant events
+  ---
+  duration_ms: 0.498625
+  type: 'test'
+  ...
+# Subtest: H01 refuses storage remnant claims
+ok 9 - H01 refuses storage remnant claims
+  ---
+  duration_ms: 0.4105
+  type: 'test'
+  ...
+# Subtest: H01 refuses storage remnant evidence
+ok 10 - H01 refuses storage remnant evidence
+  ---
+  duration_ms: 1.706625
+  type: 'test'
+  ...
+# Subtest: H01 refuses storage remnant history
+ok 11 - H01 refuses storage remnant history
+  ---
+  duration_ms: 0.768625
+  type: 'test'
+  ...
+# Subtest: H01 refuses storage remnant backups
+ok 12 - H01 refuses storage remnant backups
+  ---
+  duration_ms: 0.586875
+  type: 'test'
+  ...
+# Subtest: H01 refuses storage remnant audit
+ok 13 - H01 refuses storage remnant audit
+  ---
+  duration_ms: 1.023417
+  type: 'test'
+  ...
+# Subtest: H01 refuses storage remnant empty_old_table
+ok 14 - H01 refuses storage remnant empty_old_table
+  ---
+  duration_ms: 1.18575
+  type: 'test'
+  ...
+# Subtest: H01 refuses storage remnant __miniflare_do_name
+ok 15 - H01 refuses storage remnant __miniflare_do_name
+  ---
+  duration_ms: 0.960334
+  type: 'test'
+  ...
+# Subtest: H01 refuses storage remnant _cf_forgotten_prices
+ok 16 - H01 refuses storage remnant _cf_forgotten_prices
+  ---
+  duration_ms: 0.877334
+  type: 'test'
+  ...
+# Subtest: H01 initialization failure is fully atomic after_schema
+ok 17 - H01 initialization failure is fully atomic after_schema
+  ---
+  duration_ms: 4.449875
+  type: 'test'
+  ...
+# Subtest: H01 initialization failure is fully atomic after_receipt
+ok 18 - H01 initialization failure is fully atomic after_receipt
+  ---
+  duration_ms: 2.4505
+  type: 'test'
+  ...
+# Subtest: H01 deleted receipt or cleared rows cannot authorize reinitialization over old schema
+ok 19 - H01 deleted receipt or cleared rows cannot authorize reinitialization over old schema
+  ---
+  duration_ms: 0.808459
+  type: 'test'
+  ...
+# Subtest: H01 authorization requires enabled policy, separate secret and exact DO target
+ok 20 - H01 authorization requires enabled policy, separate secret and exact DO target
+  ---
+  duration_ms: 1.535333
+  type: 'test'
+  ...
+# Subtest: H01 command rejects extra credential fields before building a receipt
+ok 21 - H01 command rejects extra credential fields before building a receipt
+  ---
+  duration_ms: 0.12125
+  type: 'test'
+  ...
+# Subtest: H01 receipt corruption fails closed and does not restore or reset it
+ok 22 - H01 receipt corruption fails closed and does not restore or reset it
+  ---
+  duration_ms: 1.89225
+  type: 'test'
+  ...
+# Subtest: H02 valid full checkpoint validation is read-only and supports next-day mock execution
+ok 23 - H02 valid full checkpoint validation is read-only and supports next-day mock execution
+  ---
+  duration_ms: 10003.795375
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: state body hash
+ok 24 - H02 blocks before collector: state body hash
+  ---
+  duration_ms: 251.108916
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: state schema
+ok 25 - H02 blocks before collector: state schema
+  ---
+  duration_ms: 188.741125
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: database schema
+ok 26 - H02 blocks before collector: database schema
+  ---
+  duration_ms: 7.99525
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: state event model
+ok 27 - H02 blocks before collector: state event model
+  ---
+  duration_ms: 287.358083
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: state version
+ok 28 - H02 blocks before collector: state version
+  ---
+  duration_ms: 221.580084
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: stock identity
+ok 29 - H02 blocks before collector: stock identity
+  ---
+  duration_ms: 190.646875
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: index identity
+ok 30 - H02 blocks before collector: index identity
+  ---
+  duration_ms: 11.559833
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: history Close mismatch
+ok 31 - H02 blocks before collector: history Close mismatch
+  ---
+  duration_ms: 186.808542
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: metrics recomputed hash but invalid value
+ok 32 - H02 blocks before collector: metrics recomputed hash but invalid value
+  ---
+  duration_ms: 243.199375
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: threshold alias
+ok 33 - H02 blocks before collector: threshold alias
+  ---
+  duration_ms: 242.302584
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: event body hash with valid state
+ok 34 - H02 blocks before collector: event body hash with valid state
+  ---
+  duration_ms: 272.307083
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: event ID primary key
+ok 35 - H02 blocks before collector: event ID primary key
+  ---
+  duration_ms: 225.071291
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: semantic event threshold
+ok 36 - H02 blocks before collector: semantic event threshold
+  ---
+  duration_ms: 217.835083
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: evidence version hash
+ok 37 - H02 blocks before collector: evidence version hash
+  ---
+  duration_ms: 220.02725
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: missing evidence versions
+ok 38 - H02 blocks before collector: missing evidence versions
+  ---
+  duration_ms: 232.129
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: duplicate evidence versions
+ok 39 - H02 blocks before collector: duplicate evidence versions
+  ---
+  duration_ms: 216.651583
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: missing audit trail
+ok 40 - H02 blocks before collector: missing audit trail
+  ---
+  duration_ms: 217.515583
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: audit final status
+ok 41 - H02 blocks before collector: audit final status
+  ---
+  duration_ms: 238.64675
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: audit chain rewrite
+ok 42 - H02 blocks before collector: audit chain rewrite
+  ---
+  duration_ms: 224.2755
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: confirmed threshold missing event
+ok 43 - H02 blocks before collector: confirmed threshold missing event
+  ---
+  duration_ms: 226.880584
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: pending missing reference
+ok 44 - H02 blocks before collector: pending missing reference
+  ---
+  duration_ms: 224.737375
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: pending points to confirmed event
+ok 45 - H02 blocks before collector: pending points to confirmed event
+  ---
+  duration_ms: 239.0035
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: revision review mismatch
+ok 46 - H02 blocks before collector: revision review mismatch
+  ---
+  duration_ms: 202.891625
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: missing pending reference silently dropped
+ok 47 - H02 blocks before collector: missing pending reference silently dropped
+  ---
+  duration_ms: 214.819292
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: stock in index category
+ok 48 - H02 blocks before collector: stock in index category
+  ---
+  duration_ms: 197.629875
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: index in stock category
+ok 49 - H02 blocks before collector: index in stock category
+  ---
+  duration_ms: 237.269542
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: wrong event symbol
+ok 50 - H02 blocks before collector: wrong event symbol
+  ---
+  duration_ms: 231.825083
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: wrong event model
+ok 51 - H02 blocks before collector: wrong event model
+  ---
+  duration_ms: 198.475167
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: invalid event status
+ok 52 - H02 blocks before collector: invalid event status
+  ---
+  duration_ms: 193.590083
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: conflicting duplicate event across category
+ok 53 - H02 blocks before collector: conflicting duplicate event across category
+  ---
+  duration_ms: 193.123042
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: dependency flags silently removed
+ok 54 - H02 blocks before collector: dependency flags silently removed
+  ---
+  duration_ms: 206.834916
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: dependency points to wrong symbol
+ok 55 - H02 blocks before collector: dependency points to wrong symbol
+  ---
+  duration_ms: 194.15
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: unknown legacy evidence scheme
+ok 56 - H02 blocks before collector: unknown legacy evidence scheme
+  ---
+  duration_ms: 196.922291
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: missing committed state
+ok 57 - H02 blocks before collector: missing committed state
+  ---
+  duration_ms: 181.897333
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: raw evidence hash
+ok 58 - H02 blocks before collector: raw evidence hash
+  ---
+  duration_ms: 201.657292
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: history DTO hash
+ok 59 - H02 blocks before collector: history DTO hash
+  ---
+  duration_ms: 192.259167
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: trigger protection removed
+ok 60 - H02 blocks before collector: trigger protection removed
+  ---
+  duration_ms: 7.943625
+  type: 'test'
+  ...
+# Subtest: H02 blocks before collector: unexpected trigger
+ok 61 - H02 blocks before collector: unexpected trigger
+  ---
+  duration_ms: 7.377792
+  type: 'test'
+  ...
+# Subtest: H02 repair of isolated copy restores valid preflight, without resetting pending or rejected events
+ok 62 - H02 repair of isolated copy restores valid preflight, without resetting pending or rejected events
+  ---
+  duration_ms: 1032.194417
+  type: 'test'
+  ...
+# Subtest: H02 mutation after daily preflight is detected before the first collector call
+ok 63 - H02 mutation after daily preflight is detected before the first collector call
+  ---
+  duration_ms: 383.016084
+  type: 'test'
+  ...
+# Subtest: H02 full scan runs once per new day, not per asset or report read
+ok 64 - H02 full scan runs once per new day, not per asset or report read
+  ---
+  duration_ms: 746.887667
+  type: 'test'
+  ...
+# Subtest: H02 seven legacy pending remain unchanged in isolated SQL; unsupported hashes explicitly block
+ok 65 - H02 seven legacy pending remain unchanged in isolated SQL; unsupported hashes explicitly block
+  ---
+  duration_ms: 31.531791
+  type: 'test'
+  ...
+# Subtest: H02 symbol commit preserves prior decisions: pending promotion
+ok 66 - H02 symbol commit preserves prior decisions: pending promotion
+  ---
+  duration_ms: 451.584875
+  type: 'test'
+  ...
+# Subtest: H02 symbol commit preserves prior decisions: rejected reopening
+ok 67 - H02 symbol commit preserves prior decisions: rejected reopening
+  ---
+  duration_ms: 450.650416
+  type: 'test'
+  ...
+# Subtest: H02 symbol commit preserves prior decisions: dependency removal
+ok 68 - H02 symbol commit preserves prior decisions: dependency removal
+  ---
+  duration_ms: 450.121583
+  type: 'test'
+  ...
+# Subtest: golden stock/unchanged
+ok 69 - golden stock/unchanged
+  ---
+  duration_ms: 34.1625
+  type: 'test'
+  ...
+# Subtest: golden stock/micro
+ok 70 - golden stock/micro
+  ---
+  duration_ms: 13.670209
+  type: 'test'
+  ...
+# Subtest: golden stock/material
+ok 71 - golden stock/material
+  ---
+  duration_ms: 5.077
+  type: 'test'
+  ...
+# Subtest: golden stock/high_same_tier
+ok 72 - golden stock/high_same_tier
+  ---
+  duration_ms: 7.440917
+  type: 'test'
+  ...
+# Subtest: golden stock/revision_only
+ok 73 - golden stock/revision_only
+  ---
+  duration_ms: 4.281333
+  type: 'test'
+  ...
+# Subtest: golden stock/mixed_material
+ok 74 - golden stock/mixed_material
+  ---
+  duration_ms: 12.4825
+  type: 'test'
+  ...
+# Subtest: golden stock/disagreement
+ok 75 - golden stock/disagreement
+  ---
+  duration_ms: 8.414
+  type: 'test'
+  ...
+# Subtest: golden stock/one_basis_only
+ok 76 - golden stock/one_basis_only
+  ---
+  duration_ms: 7.662667
+  type: 'test'
+  ...
+# Subtest: golden stock/unrelated_material
+ok 77 - golden stock/unrelated_material
+  ---
+  duration_ms: 33.037417
+  type: 'test'
+  ...
+# Subtest: golden stock/near_boundary
+ok 78 - golden stock/near_boundary
+  ---
+  duration_ms: 45.258375
+  type: 'test'
+  ...
+# Subtest: golden stock/close_only
+ok 79 - golden stock/close_only
+  ---
+  duration_ms: 16.994625
+  type: 'test'
+  ...
+# Subtest: golden stock/prior_unrelated
+ok 80 - golden stock/prior_unrelated
+  ---
+  duration_ms: 8.484042
+  type: 'test'
+  ...
+# Subtest: golden stock/prior_related
+ok 81 - golden stock/prior_related
+  ---
+  duration_ms: 8.724083
+  type: 'test'
+  ...
+# Subtest: golden stock/prior_unknown
+ok 82 - golden stock/prior_unknown
+  ---
+  duration_ms: 4.941416
+  type: 'test'
+  ...
+# Subtest: golden stock/prior_source_risk
+ok 83 - golden stock/prior_source_risk
+  ---
+  duration_ms: 10.44925
+  type: 'test'
+  ...
+# Subtest: golden index/unchanged
+ok 84 - golden index/unchanged
+  ---
+  duration_ms: 11.6005
+  type: 'test'
+  ...
+# Subtest: golden index/micro
+ok 85 - golden index/micro
+  ---
+  duration_ms: 8.960666
+  type: 'test'
+  ...
+# Subtest: golden index/material
+ok 86 - golden index/material
+  ---
+  duration_ms: 10.228959
+  type: 'test'
+  ...
+# Subtest: golden index/high_same_tier
+ok 87 - golden index/high_same_tier
+  ---
+  duration_ms: 6.987042
+  type: 'test'
+  ...
+# Subtest: golden index/revision_only
+ok 88 - golden index/revision_only
+  ---
+  duration_ms: 4.969792
+  type: 'test'
+  ...
+# Subtest: golden index/mixed_material
+ok 89 - golden index/mixed_material
+  ---
+  duration_ms: 30.858916
+  type: 'test'
+  ...
+# Subtest: golden index/disagreement
+ok 90 - golden index/disagreement
+  ---
+  duration_ms: 9.328875
+  type: 'test'
+  ...
+# Subtest: golden index/one_basis_only
+ok 91 - golden index/one_basis_only
+  ---
+  duration_ms: 12.881417
+  type: 'test'
+  ...
+# Subtest: golden index/unrelated_material
+ok 92 - golden index/unrelated_material
+  ---
+  duration_ms: 4.63425
+  type: 'test'
+  ...
+# Subtest: golden index/near_boundary
+ok 93 - golden index/near_boundary
+  ---
+  duration_ms: 5.127667
+  type: 'test'
+  ...
+# Subtest: golden index/close_only
+ok 94 - golden index/close_only
+  ---
+  duration_ms: 4.485125
+  type: 'test'
+  ...
+# Subtest: golden index/prior_unrelated
+ok 95 - golden index/prior_unrelated
+  ---
+  duration_ms: 3.463625
+  type: 'test'
+  ...
+# Subtest: golden index/prior_related
+ok 96 - golden index/prior_related
+  ---
+  duration_ms: 10.80725
+  type: 'test'
+  ...
+# Subtest: golden index/prior_unknown
+ok 97 - golden index/prior_unknown
+  ---
+  duration_ms: 9.105667
+  type: 'test'
+  ...
+# Subtest: golden index/prior_source_risk
+ok 98 - golden index/prior_source_risk
+  ---
+  duration_ms: 13.339292
+  type: 'test'
+  ...
+# Subtest: golden baseline
+ok 99 - golden baseline
+  ---
+  duration_ms: 0.852208
+  type: 'test'
+  ...
+# Subtest: golden normal
+ok 100 - golden normal
+  ---
+  duration_ms: 2.997167
+  type: 'test'
+  ...
+# Subtest: golden multi
+ok 101 - golden multi
+  ---
+  duration_ms: 7.534
+  type: 'test'
+  ...
+# Subtest: golden deeper
+ok 102 - golden deeper
+  ---
+  duration_ms: 4.491166
+  type: 'test'
+  ...
+# Subtest: golden recovery
+ok 103 - golden recovery
+  ---
+  duration_ms: 4.066708
+  type: 'test'
+  ...
+# Subtest: golden reentry
+ok 104 - golden reentry
+  ---
+  duration_ms: 3.761625
+  type: 'test'
+  ...
+# Subtest: golden boundary10
+ok 105 - golden boundary10
+  ---
+  duration_ms: 8.679333
+  type: 'test'
+  ...
+# Subtest: golden boundary20
+ok 106 - golden boundary20
+  ---
+  duration_ms: 5.716042
+  type: 'test'
+  ...
+# Subtest: golden boundary30
+ok 107 - golden boundary30
+  ---
+  duration_ms: 4.968959
+  type: 'test'
+  ...
+# Subtest: golden existing_PENDING_REVIEW
+ok 108 - golden existing_PENDING_REVIEW
+  ---
+  duration_ms: 3.726791
+  type: 'test'
+  ...
+# Subtest: golden existing_REJECTED
+ok 109 - golden existing_REJECTED
+  ---
+  duration_ms: 10.521833
+  type: 'test'
+  ...
+# Subtest: golden repeat
+ok 110 - golden repeat
+  ---
+  duration_ms: 3.14725
+  type: 'test'
+  ...
+# Subtest: golden missing_session_observation
+ok 111 - golden missing_session_observation
+  ---
+  duration_ms: 6.18225
+  type: 'test'
+  ...
+# Subtest: golden identity_changed
+ok 112 - golden identity_changed
+  ---
+  duration_ms: 3.749542
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_1
+ok 113 - golden indicator_samples_1
+  ---
+  duration_ms: 0.70525
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_14
+ok 114 - golden indicator_samples_14
+  ---
+  duration_ms: 0.8885
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_15
+ok 115 - golden indicator_samples_15
+  ---
+  duration_ms: 0.386458
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_49
+ok 116 - golden indicator_samples_49
+  ---
+  duration_ms: 0.278167
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_50
+ok 117 - golden indicator_samples_50
+  ---
+  duration_ms: 0.23875
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_199
+ok 118 - golden indicator_samples_199
+  ---
+  duration_ms: 0.360708
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_200
+ok 119 - golden indicator_samples_200
+  ---
+  duration_ms: 0.348833
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_251
+ok 120 - golden indicator_samples_251
+  ---
+  duration_ms: 0.377167
+  type: 'test'
+  ...
+# Subtest: golden indicator_samples_252
+ok 121 - golden indicator_samples_252
+  ---
+  duration_ms: 0.368375
+  type: 'test'
+  ...
+# Subtest: golden natural_high_expiry
+ok 122 - golden natural_high_expiry
+  ---
+  duration_ms: 7.2735
+  type: 'test'
+  ...
+# Subtest: golden per_level_mixed
+ok 123 - golden per_level_mixed
+  ---
+  duration_ms: 6.539
+  type: 'test'
+  ...
+# Subtest: golden archive/NVDA
+ok 124 - golden archive/NVDA
+  ---
+  duration_ms: 14.357083
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/NVDA
+ok 125 - golden archive_baseline/NVDA
+  ---
+  duration_ms: 0.959042
+  type: 'test'
+  ...
+# Subtest: golden archive/AAPL
+ok 126 - golden archive/AAPL
+  ---
+  duration_ms: 10.871041
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/AAPL
+ok 127 - golden archive_baseline/AAPL
+  ---
+  duration_ms: 2.194417
+  type: 'test'
+  ...
+# Subtest: golden archive/GOOGL
+ok 128 - golden archive/GOOGL
+  ---
+  duration_ms: 14.01
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/GOOGL
+ok 129 - golden archive_baseline/GOOGL
+  ---
+  duration_ms: 2.015917
+  type: 'test'
+  ...
+# Subtest: golden archive/MSFT
+ok 130 - golden archive/MSFT
+  ---
+  duration_ms: 5.49875
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/MSFT
+ok 131 - golden archive_baseline/MSFT
+  ---
+  duration_ms: 1.047292
+  type: 'test'
+  ...
+# Subtest: golden archive/AMZN
+ok 132 - golden archive/AMZN
+  ---
+  duration_ms: 10.063167
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/AMZN
+ok 133 - golden archive_baseline/AMZN
+  ---
+  duration_ms: 1.316125
+  type: 'test'
+  ...
+# Subtest: golden archive/SPCX
+ok 134 - golden archive/SPCX
+  ---
+  duration_ms: 2.150416
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/SPCX
+ok 135 - golden archive_baseline/SPCX
+  ---
+  duration_ms: 1.416542
+  type: 'test'
+  ...
+# Subtest: golden archive/META
+ok 136 - golden archive/META
+  ---
+  duration_ms: 11.328125
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/META
+ok 137 - golden archive_baseline/META
+  ---
+  duration_ms: 0.79225
+  type: 'test'
+  ...
+# Subtest: golden archive/AVGO
+ok 138 - golden archive/AVGO
+  ---
+  duration_ms: 13.060625
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/AVGO
+ok 139 - golden archive_baseline/AVGO
+  ---
+  duration_ms: 1.329958
+  type: 'test'
+  ...
+# Subtest: golden archive/TSLA
+ok 140 - golden archive/TSLA
+  ---
+  duration_ms: 9.430708
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/TSLA
+ok 141 - golden archive_baseline/TSLA
+  ---
+  duration_ms: 1.303333
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/^GSPC
+ok 142 - golden archive_baseline/^GSPC
+  ---
+  duration_ms: 2.198167
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/^NDX
+ok 143 - golden archive_baseline/^NDX
+  ---
+  duration_ms: 0.784083
+  type: 'test'
+  ...
+# Subtest: golden archive_baseline/^SOX
+ok 144 - golden archive_baseline/^SOX
+  ---
+  duration_ms: 0.803708
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/NVDA
+ok 145 - Yahoo valid/NVDA
+  ---
+  duration_ms: 67.315167
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/AAPL
+ok 146 - Yahoo valid/AAPL
+  ---
+  duration_ms: 35.107334
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/GOOGL
+ok 147 - Yahoo valid/GOOGL
+  ---
+  duration_ms: 42.153875
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/MSFT
+ok 148 - Yahoo valid/MSFT
+  ---
+  duration_ms: 92.350292
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/AMZN
+ok 149 - Yahoo valid/AMZN
+  ---
+  duration_ms: 53.649
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/SPCX
+ok 150 - Yahoo valid/SPCX
+  ---
+  duration_ms: 330.644041
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/META
+ok 151 - Yahoo valid/META
+  ---
+  duration_ms: 136.794208
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/AVGO
+ok 152 - Yahoo valid/AVGO
+  ---
+  duration_ms: 109.337292
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/TSLA
+ok 153 - Yahoo valid/TSLA
+  ---
+  duration_ms: 283.065917
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/^GSPC
+ok 154 - Yahoo valid/^GSPC
+  ---
+  duration_ms: 603.510958
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/^NDX
+ok 155 - Yahoo valid/^NDX
+  ---
+  duration_ms: 243.8715
+  type: 'test'
+  ...
+# Subtest: Yahoo valid/^SOX
+ok 156 - Yahoo valid/^SOX
+  ---
+  duration_ms: 232.894166
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/identity
+ok 157 - Yahoo NVDA/identity
+  ---
+  duration_ms: 12.058875
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/missing_adj
+ok 158 - Yahoo NVDA/missing_adj
+  ---
+  duration_ms: 3.1365
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/duplicate
+ok 159 - Yahoo NVDA/duplicate
+  ---
+  duration_ms: 14.918917
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/missing_day
+ok 160 - Yahoo NVDA/missing_day
+  ---
+  duration_ms: 125.907667
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/zero
+ok 161 - Yahoo NVDA/zero
+  ---
+  duration_ms: 1.903875
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/null
+ok 162 - Yahoo NVDA/null
+  ---
+  duration_ms: 9.954417
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/short
+ok 163 - Yahoo NVDA/short
+  ---
+  duration_ms: 1.518792
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/bad_stamp
+ok 164 - Yahoo NVDA/bad_stamp
+  ---
+  duration_ms: 1.03675
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/out_of_range
+ok 165 - Yahoo NVDA/out_of_range
+  ---
+  duration_ms: 1.483166
+  type: 'test'
+  ...
+# Subtest: Yahoo NVDA/stale
+ok 166 - Yahoo NVDA/stale
+  ---
+  duration_ms: 300.4775
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/identity
+ok 167 - Yahoo ^SOX/identity
+  ---
+  duration_ms: 0.18575
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/missing_adj
+ok 168 - Yahoo ^SOX/missing_adj
+  ---
+  duration_ms: 0.312667
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/duplicate
+ok 169 - Yahoo ^SOX/duplicate
+  ---
+  duration_ms: 2.320792
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/missing_day
+ok 170 - Yahoo ^SOX/missing_day
+  ---
+  duration_ms: 185.862625
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/zero
+ok 171 - Yahoo ^SOX/zero
+  ---
+  duration_ms: 1.540541
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/null
+ok 172 - Yahoo ^SOX/null
+  ---
+  duration_ms: 2.317625
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/short
+ok 173 - Yahoo ^SOX/short
+  ---
+  duration_ms: 6.020584
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/bad_stamp
+ok 174 - Yahoo ^SOX/bad_stamp
+  ---
+  duration_ms: 1.55225
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/out_of_range
+ok 175 - Yahoo ^SOX/out_of_range
+  ---
+  duration_ms: 1.565125
+  type: 'test'
+  ...
+# Subtest: Yahoo ^SOX/stale
+ok 176 - Yahoo ^SOX/stale
+  ---
+  duration_ms: 23.449084
+  type: 'test'
+  ...
+# Subtest: calendar exhaustive UTC close boundaries and DST
+ok 177 - calendar exhaustive UTC close boundaries and DST
+  ---
+  duration_ms: 3489.562083
+  type: 'test'
+  ...
+# Subtest: finite input guard and compensated cancellation
+ok 178 - finite input guard and compensated cancellation
+  ---
+  duration_ms: 0.804333
+  type: 'test'
+  ...
+# Subtest: sha256 known vector
+ok 179 - sha256 known vector
+  ---
+  duration_ms: 9.253542
+  type: 'test'
+  ...
+# Subtest: write parity evidence
+ok 180 - write parity evidence
+  ---
+  duration_ms: 1.334542
+  type: 'test'
+  ...
+# Subtest: remote entry in local workerd: private bridge, H01, Alarm, kill and persistence
+    # Subtest: default remote config refuses management and report
+    ok 1 - default remote config refuses management and report
+      ---
+      duration_ms: 293.21675
+      type: 'test'
+      ...
+    # Subtest: identity read-only and exact credential/target required
+    ok 2 - identity read-only and exact credential/target required
+      ---
+      duration_ms: 162.151083
+      type: 'test'
+      ...
+    # Subtest: explicit initialization once, no LOCAL_TESTING or arbitrary SQL RPC
+    ok 3 - explicit initialization once, no LOCAL_TESTING or arbitrary SQL RPC
+      ---
+      duration_ms: 73.40475
+      type: 'test'
+      ...
+    # Subtest: HTTP bridge enforces separate credentials and strict commands
+    ok 4 - HTTP bridge enforces separate credentials and strict commands
+      ---
+      duration_ms: 125.021084
+      type: 'test'
+      ...
+    # Subtest: Alarm commits synthetic state, duplicate start is idempotent
+    ok 5 - Alarm commits synthetic state, duplicate start is idempotent
+      ---
+      duration_ms: 364.301584
+      type: 'test'
+      ...
+    # Subtest: six read-only reports have explicit synthetic provenance
+    ok 6 - six read-only reports have explicit synthetic provenance
+      ---
+      duration_ms: 155.375041
+      type: 'test'
+      ...
+    # Subtest: authenticated stop cancels Alarm and cannot resume
+    ok 7 - authenticated stop cancels Alarm and cannot resume
+      ---
+      duration_ms: 173.066584
+      type: 'test'
+      ...
+    # Subtest: new runtime reads persisted stop and receipt without an Alarm
+    ok 8 - new runtime reads persisted stop and receipt without an Alarm
+      ---
+      duration_ms: 708.988
+      type: 'test'
+      ...
+    # Subtest: expired initialization is rejected without LOCAL_TESTING
+    ok 9 - expired initialization is rejected without LOCAL_TESTING
+      ---
+      duration_ms: 379.2995
+      type: 'test'
+      ...
+    1..9
+ok 181 - remote entry in local workerd: private bridge, H01, Alarm, kill and persistence
+  ---
+  duration_ms: 4410.235833
+  type: 'test'
+  ...
+# Subtest: atomic Mock start in real local workerd SQLite
+    # Subtest: checkpoint
+    ok 1 - checkpoint
+      ---
+      duration_ms: 217.553416
+      type: 'test'
+      ...
+    # Subtest: budget_write
+    ok 2 - budget_write
+      ---
+      duration_ms: 28.717875
+      type: 'test'
+      ...
+    # Subtest: run_insert
+    ok 3 - run_insert
+      ---
+      duration_ms: 103.983583
+      type: 'test'
+      ...
+    # Subtest: claim_6
+    ok 4 - claim_6
+      ---
+      duration_ms: 30.83375
+      type: 'test'
+      ...
+    # Subtest: checkpoint_control
+    ok 5 - checkpoint_control
+      ---
+      duration_ms: 54.571
+      type: 'test'
+      ...
+    # Subtest: run_checkpoint
+    ok 6 - run_checkpoint
+      ---
+      duration_ms: 35.214084
+      type: 'test'
+      ...
+    # Subtest: updated
+    ok 7 - updated
+      ---
+      duration_ms: 23.142791
+      type: 'test'
+      ...
+    # Subtest: duplicate
+    ok 8 - duplicate
+      ---
+      duration_ms: 29.116458
+      type: 'test'
+      ...
+    # Subtest: order
+    ok 9 - order
+      ---
+      duration_ms: 47.540667
+      type: 'test'
+      ...
+    # Subtest: stopped
+    ok 10 - stopped
+      ---
+      duration_ms: 18.706916
+      type: 'test'
+      ...
+    # Subtest: exhausted
+    ok 11 - exhausted
+      ---
+      duration_ms: 30.176041
+      type: 'test'
+      ...
+    # Subtest: collector_exhausted
+    ok 12 - collector_exhausted
+      ---
+      duration_ms: 21.871542
+      type: 'test'
+      ...
+    # Subtest: alarm_exhausted
+    ok 13 - alarm_exhausted
+      ---
+      duration_ms: 11.613125
+      type: 'test'
+      ...
+    # Subtest: negative_budget
+    ok 14 - negative_budget
+      ---
+      duration_ms: 13.500542
+      type: 'test'
+      ...
+    # Subtest: over_budget
+    ok 15 - over_budget
+      ---
+      duration_ms: 13.286292
+      type: 'test'
+      ...
+    # Subtest: existing_claim
+    ok 16 - existing_claim
+      ---
+      duration_ms: 9.434709
+      type: 'test'
+      ...
+    # Subtest: overlap
+    ok 17 - overlap
+      ---
+      duration_ms: 16.004875
+      type: 'test'
+      ...
+    # Subtest: window
+    ok 18 - window
+      ---
+      duration_ms: 12.750375
+      type: 'test'
+      ...
+    # Subtest: success
+    ok 19 - success
+      ---
+      duration_ms: 15.104334
+      type: 'test'
+      ...
+    # Subtest: duplicate after clock advances30s preserves workerd SQLite state (events=false)
+    ok 20 - duplicate after clock advances30s preserves workerd SQLite state (events=false)
+      ---
+      duration_ms: 104.704625
+      type: 'test'
+      ...
+    # Subtest: duplicate after clock advances30s preserves workerd SQLite state (events=true)
+    ok 21 - duplicate after clock advances30s preserves workerd SQLite state (events=true)
+      ---
+      duration_ms: 91.285042
+      type: 'test'
+      ...
+    1..21
+ok 182 - atomic Mock start in real local workerd SQLite
+  ---
+  duration_ms: 2671.448041
+  type: 'test'
+  ...
+# (node:40319) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: synthetic identity and date validation NVDA
+ok 183 - synthetic identity and date validation NVDA
+  ---
+  duration_ms: 128.090334
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation AAPL
+ok 184 - synthetic identity and date validation AAPL
+  ---
+  duration_ms: 41.580958
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation GOOGL
+ok 185 - synthetic identity and date validation GOOGL
+  ---
+  duration_ms: 40.744416
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation MSFT
+ok 186 - synthetic identity and date validation MSFT
+  ---
+  duration_ms: 70.586
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation AMZN
+ok 187 - synthetic identity and date validation AMZN
+  ---
+  duration_ms: 60.318333
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation SPCX
+ok 188 - synthetic identity and date validation SPCX
+  ---
+  duration_ms: 36.262083
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation META
+ok 189 - synthetic identity and date validation META
+  ---
+  duration_ms: 84.479167
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation AVGO
+ok 190 - synthetic identity and date validation AVGO
+  ---
+  duration_ms: 33.492625
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation TSLA
+ok 191 - synthetic identity and date validation TSLA
+  ---
+  duration_ms: 33.436375
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation ^GSPC
+ok 192 - synthetic identity and date validation ^GSPC
+  ---
+  duration_ms: 35.024958
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation ^NDX
+ok 193 - synthetic identity and date validation ^NDX
+  ---
+  duration_ms: 32.201917
+  type: 'test'
+  ...
+# Subtest: synthetic identity and date validation ^SOX
+ok 194 - synthetic identity and date validation ^SOX
+  ---
+  duration_ms: 36.141542
+  type: 'test'
+  ...
+# Subtest: two full runs use real pacing with explicit fixture dates, <=80 alarms and exactly24 calls
+ok 195 - two full runs use real pacing with explicit fixture dates, <=80 alarms and exactly24 calls
+  ---
+  duration_ms: 8126.614334
+  type: 'test'
+  ...
+# Subtest: production Coordinator still rejects archived date against actual execution time
+ok 196 - production Coordinator still rejects archived date against actual execution time
+  ---
+  duration_ms: 1.202042
+  type: 'test'
+  ...
+# Subtest: initialization and budget bootstrap are atomic on adapter failure
+ok 197 - initialization and budget bootstrap are atomic on adapter failure
+  ---
+  duration_ms: 1.433584
+  type: 'test'
+  ...
+# Subtest: init expiry refuses schema creation
+ok 198 - init expiry refuses schema creation
+  ---
+  duration_ms: 0.565833
+  type: 'test'
+  ...
+# Subtest: window rejects 1794527999999
+ok 199 - window rejects 1794527999999
+  ---
+  duration_ms: 0.053292
+  type: 'test'
+  ...
+# Subtest: window rejects 1794614400000
+ok 200 - window rejects 1794614400000
+  ---
+  duration_ms: 0.032083
+  type: 'test'
+  ...
+# Subtest: window rejects 1794614400001
+ok 201 - window rejects 1794614400001
+  ---
+  duration_ms: 0.029459
+  type: 'test'
+  ...
+# Subtest: window cannot be longer than24h or init longer than20min
+ok 202 - window cannot be longer than24h or init longer than20min
+  ---
+  duration_ms: 0.060833
+  type: 'test'
+  ...
+# Subtest: stop persists across adapter replacement and prohibits collection
+ok 203 - stop persists across adapter replacement and prohibits collection
+  ---
+  duration_ms: 1.486334
+  type: 'test'
+  ...
+# Subtest: deadline before next alarm stops without collection
+ok 204 - deadline before next alarm stops without collection
+  ---
+  duration_ms: 2.295834
+  type: 'test'
+  ...
+# Subtest: expiry during durable sync blocks collector even after attempt charged
+ok 205 - expiry during durable sync blocks collector even after attempt charged
+  ---
+  duration_ms: 3.630375
+  type: 'test'
+  ...
+# Subtest: persisted alarm budget stops repeated early callbacks
+ok 206 - persisted alarm budget stops repeated early callbacks
+  ---
+  duration_ms: 80.036167
+  type: 'test'
+  ...
+# Subtest: overlapping, reversed and arbitrary fixture requests are rejected
+ok 207 - overlapping, reversed and arbitrary fixture requests are rejected
+  ---
+  duration_ms: 1.902125
+  type: 'test'
+  ...
+# Subtest: changed persisted budget fails closed before source invocation
+ok 208 - changed persisted budget fails closed before source invocation
+  ---
+  duration_ms: 1.352417
+  type: 'test'
+  ...
+# Subtest: redeployment cannot extend the persisted window
+ok 209 - redeployment cannot extend the persisted window
+  ---
+  duration_ms: 0.660042
+  type: 'test'
+  ...
+# Subtest: uncertain collection after durable declaration is never recollected
+ok 210 - uncertain collection after durable declaration is never recollected
+  ---
+  duration_ms: 1.80375
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: checkpoint
+ok 211 - atomic Mock start Node SQLite: checkpoint
+  ---
+  duration_ms: 1.978584
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: budget_write
+ok 212 - atomic Mock start Node SQLite: budget_write
+  ---
+  duration_ms: 2.382166
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: run_insert
+ok 213 - atomic Mock start Node SQLite: run_insert
+  ---
+  duration_ms: 1.976959
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: claim_6
+ok 214 - atomic Mock start Node SQLite: claim_6
+  ---
+  duration_ms: 2.752625
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: checkpoint_control
+ok 215 - atomic Mock start Node SQLite: checkpoint_control
+  ---
+  duration_ms: 2.337375
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: run_checkpoint
+ok 216 - atomic Mock start Node SQLite: run_checkpoint
+  ---
+  duration_ms: 8.532125
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: updated
+ok 217 - atomic Mock start Node SQLite: updated
+  ---
+  duration_ms: 2.621
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: duplicate
+ok 218 - atomic Mock start Node SQLite: duplicate
+  ---
+  duration_ms: 6.38575
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: order
+ok 219 - atomic Mock start Node SQLite: order
+  ---
+  duration_ms: 2.165042
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: stopped
+ok 220 - atomic Mock start Node SQLite: stopped
+  ---
+  duration_ms: 2.81
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: exhausted
+ok 221 - atomic Mock start Node SQLite: exhausted
+  ---
+  duration_ms: 1.908625
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: collector_exhausted
+ok 222 - atomic Mock start Node SQLite: collector_exhausted
+  ---
+  duration_ms: 1.335792
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: alarm_exhausted
+ok 223 - atomic Mock start Node SQLite: alarm_exhausted
+  ---
+  duration_ms: 1.075375
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: negative_budget
+ok 224 - atomic Mock start Node SQLite: negative_budget
+  ---
+  duration_ms: 1.398334
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: over_budget
+ok 225 - atomic Mock start Node SQLite: over_budget
+  ---
+  duration_ms: 2.251208
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: existing_claim
+ok 226 - atomic Mock start Node SQLite: existing_claim
+  ---
+  duration_ms: 2.633209
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: overlap
+ok 227 - atomic Mock start Node SQLite: overlap
+  ---
+  duration_ms: 1.828292
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: window
+ok 228 - atomic Mock start Node SQLite: window
+  ---
+  duration_ms: 0.910875
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: success
+ok 229 - atomic Mock start Node SQLite: success
+  ---
+  duration_ms: 68.348958
+  type: 'test'
+  ...
+# Subtest: internal Coordinator start requires the caller to own a Store transaction
+ok 230 - internal Coordinator start requires the caller to own a Store transaction
+  ---
+  duration_ms: 3.375417
+  type: 'test'
+  ...
+# Subtest: duplicate after clock advances30s preserves complete Node SQLite state (events=false)
+ok 231 - duplicate after clock advances30s preserves complete Node SQLite state (events=false)
+  ---
+  duration_ms: 4.181458
+  type: 'test'
+  ...
+# Subtest: duplicate after clock advances30s preserves complete Node SQLite state (events=true)
+ok 232 - duplicate after clock advances30s preserves complete Node SQLite state (events=true)
+  ---
+  duration_ms: 17.310542
+  type: 'test'
+  ...
+# An RPC stub was not disposed properly. You must call dispose() on all stubs in order to let the other side know that you are no longer using them. You cannot rely on the garbage collector for this because it may take arbitrarily long before actually collecting unreachable objects. As a shortcut, calling dispose() on the result of an RPC call disposes all stubs within it.
+# An RPC stub was not disposed properly. You must call dispose() on all stubs in order to let the other side know that you are no longer using them. You cannot rely on the garbage collector for this because it may take arbitrarily long before actually collecting unreachable objects. As a shortcut, calling dispose() on the result of an RPC call disposes all stubs within it.
+# Subtest: workerd SQLite: 12 assets, duplicate schedulers, API purity, runtime restart, uncertain claims and atomic rollback
+ok 233 - workerd SQLite: 12 assets, duplicate schedulers, API purity, runtime restart, uncertain claims and atomic rollback
+  ---
+  duration_ms: 8977.560083
+  type: 'test'
+  ...
+# Subtest: Stage1 workerd SQLite: HTTP/RPC denial, empty storage and runtime restart
+    # Subtest: valid control reads fixed identity without application initialization
+    ok 1 - valid control reads fixed identity without application initialization
+      ---
+      duration_ms: 61.070209
+      type: 'test'
+      ...
+    # Subtest: missing authorization
+    ok 2 - missing authorization
+      ---
+      duration_ms: 347.756875
+      type: 'test'
+      ...
+    # Subtest: wrong authorization
+    ok 3 - wrong authorization
+      ---
+      duration_ms: 168.509583
+      type: 'test'
+      ...
+    # Subtest: report cannot control identity
+    ok 4 - report cannot control identity
+      ---
+      duration_ms: 112.694334
+      type: 'test'
+      ...
+    # Subtest: malformed bearer
+    ok 5 - malformed bearer
+      ---
+      duration_ms: 45.327917
+      type: 'test'
+      ...
+    # Subtest: identity rejects query object_id=arbitrary
+    ok 6 - identity rejects query object_id=arbitrary
+      ---
+      duration_ms: 68.0345
+      type: 'test'
+      ...
+    # Subtest: identity rejects query namespace=arbitrary
+    ok 7 - identity rejects query namespace=arbitrary
+      ---
+      duration_ms: 73.528958
+      type: 'test'
+      ...
+    # Subtest: identity rejects query token=arbitrary
+    ok 8 - identity rejects query token=arbitrary
+      ---
+      duration_ms: 134.995916
+      type: 'test'
+      ...
+    # Subtest: identity rejects query fixture_date=2026-11-06
+    ok 9 - identity rejects query fixture_date=2026-11-06
+      ---
+      duration_ms: 70.133125
+      type: 'test'
+      ...
+    # Subtest: identity rejects query sql=DROP%20TABLE%20meta
+    ok 10 - identity rejects query sql=DROP%20TABLE%20meta
+      ---
+      duration_ms: 55.476709
+      type: 'test'
+      ...
+    # Subtest: identity refuses POST
+    ok 11 - identity refuses POST
+      ---
+      duration_ms: 125.563417
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/initialize {"operation":"INITIALIZE_EMPTY_ISOLATED_MOCK"}
+    ok 12 - Stage1 refuses /_mock/initialize {"operation":"INITIALIZE_EMPTY_ISOLATED_MOCK"}
+      ---
+      duration_ms: 93.782667
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/start {"fixture_date":"2026-11-06"}
+    ok 13 - Stage1 refuses /_mock/start {"fixture_date":"2026-11-06"}
+      ---
+      duration_ms: 197.281791
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/start {"fixture_date":"2099-01-01"}
+    ok 14 - Stage1 refuses /_mock/start {"fixture_date":"2099-01-01"}
+      ---
+      duration_ms: 48.601791
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/stop {}
+    ok 15 - Stage1 refuses /_mock/stop {}
+      ---
+      duration_ms: 176.860667
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/sql {"sql":"CREATE TABLE injected(x)"}
+    ok 16 - Stage1 refuses /_mock/sql {"sql":"CREATE TABLE injected(x)"}
+      ---
+      duration_ms: 161.853208
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/objects/arbitrary/start {"fixture_date":"2026-11-06"}
+    ok 17 - Stage1 refuses /_mock/objects/arbitrary/start {"fixture_date":"2026-11-06"}
+      ---
+      duration_ms: 143.404291
+      type: 'test'
+      ...
+    # Subtest: status denied
+    ok 18 - status denied
+      ---
+      duration_ms: 206.811709
+      type: 'test'
+      ...
+    # Subtest: status unauthorized
+    ok 19 - status unauthorized
+      ---
+      duration_ms: 498.535416
+      type: 'test'
+      ...
+    # Subtest: report denied /api/overview
+    ok 20 - report denied /api/overview
+      ---
+      duration_ms: 342.074416
+      type: 'test'
+      ...
+    # Subtest: report denied /api/runs/latest
+    ok 21 - report denied /api/runs/latest
+      ---
+      duration_ms: 87.7295
+      type: 'test'
+      ...
+    # Subtest: report denied /api/health
+    ok 22 - report denied /api/health
+      ---
+      duration_ms: 241.973209
+      type: 'test'
+      ...
+    # Subtest: report denied /api/events
+    ok 23 - report denied /api/events
+      ---
+      duration_ms: 81.002875
+      type: 'test'
+      ...
+    # Subtest: report denied /api/assets/NVDA
+    ok 24 - report denied /api/assets/NVDA
+      ---
+      duration_ms: 61.886958
+      type: 'test'
+      ...
+    # Subtest: report denied /api/assets/NVDA/history
+    ok 25 - report denied /api/assets/NVDA/history
+      ---
+      duration_ms: 254.560625
+      type: 'test'
+      ...
+    # Subtest: report unauthorized
+    ok 26 - report unauthorized
+      ---
+      duration_ms: 100.062917
+      type: 'test'
+      ...
+    # Subtest: control cannot report
+    ok 27 - control cannot report
+      ---
+      duration_ms: 83.070334
+      type: 'test'
+      ...
+    # Subtest: report write denied
+    ok 28 - report write denied
+      ---
+      duration_ms: 51.470416
+      type: 'test'
+      ...
+    # Subtest: unknown admin denied
+    ok 29 - unknown admin denied
+      ---
+      duration_ms: 54.064875
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses initialize
+    ok 30 - direct RPC refuses initialize
+      ---
+      duration_ms: 33.5035
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses start
+    ok 31 - direct RPC refuses start
+      ---
+      duration_ms: 26.970959
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses arbitrary fixture
+    ok 32 - direct RPC refuses arbitrary fixture
+      ---
+      duration_ms: 23.718125
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses stop
+    ok 33 - direct RPC refuses stop
+      ---
+      duration_ms: 30.92325
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses status
+    ok 34 - direct RPC refuses status
+      ---
+      duration_ms: 30.670208
+      type: 'test'
+      ...
+    # Subtest: SQL/local test RPC missing
+    not ok 35 - SQL/local test RPC missing
+      ---
+      duration_ms: 10.204833
+      type: 'test'
+      location: '/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/cloudflare/tests/stage1-runtime.test.ts:2:2223'
+      failureType: 'testCodeFailure'
+      error: 'The RPC receiver does not implement the method "testQuery".'
+      code: 'ERR_TEST_FAILURE'
+      name: 'TypeError'
+      stack: |-
+        async #fetch (file:///Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/cloudflare/node_modules/miniflare/dist/src/workers/core/entry.worker.js:5124:125)
+        async ProxyServer.fetch (file:///Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/cloudflare/node_modules/miniflare/dist/src/workers/core/entry.worker.js:5083:14)
+      ...
+    # Subtest: disabled mode
+    ok 36 - disabled mode
+      ---
+      duration_ms: 340.465958
+      type: 'test'
+      ...
+    # Subtest: missing control
+    ok 37 - missing control
+      ---
+      duration_ms: 271.928209
+      type: 'test'
+      ...
+    # Subtest: short control
+    ok 38 - short control
+      ---
+      duration_ms: 246.398458
+      type: 'test'
+      ...
+    # Subtest: before start
+    ok 39 - before start
+      ---
+      duration_ms: 252.631709
+      type: 'test'
+      ...
+    # Subtest: after end
+    ok 40 - after end
+      ---
+      duration_ms: 256.438833
+      type: 'test'
+      ...
+    # Subtest: accidental H01 fields do not enable Stage1 initialize
+    ok 41 - accidental H01 fields do not enable Stage1 initialize
+      ---
+      duration_ms: 243.483625
+      type: 'test'
+      ...
+    # Subtest: repeated identity then process runtime restart retains identity and emptiness
+    ok 42 - repeated identity then process runtime restart retains identity and emptiness
+      ---
+      duration_ms: 515.032916
+      type: 'test'
+      ...
+    1..42
+not ok 234 - Stage1 workerd SQLite: HTTP/RPC denial, empty storage and runtime restart
+  ---
+  duration_ms: 8433.719875
+  type: 'test'
+  location: '/Users/rui/Documents/fun_projects/vibe_coding/big_tech_left_side_trading_signal/cloudflare/tests/stage1-runtime.test.ts:1:530'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# (node:40517) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Stage1 real HTTP and RPC entrypoint in Node SQLite: no writes on any probe
+    # Subtest: missing authorization
+    ok 1 - missing authorization
+      ---
+      duration_ms: 17.98225
+      type: 'test'
+      ...
+    # Subtest: wrong authorization
+    ok 2 - wrong authorization
+      ---
+      duration_ms: 0.819083
+      type: 'test'
+      ...
+    # Subtest: report cannot control identity
+    ok 3 - report cannot control identity
+      ---
+      duration_ms: 1.84875
+      type: 'test'
+      ...
+    # Subtest: malformed bearer
+    ok 4 - malformed bearer
+      ---
+      duration_ms: 0.474791
+      type: 'test'
+      ...
+    # Subtest: identity rejects query object_id=arbitrary
+    ok 5 - identity rejects query object_id=arbitrary
+      ---
+      duration_ms: 0.430125
+      type: 'test'
+      ...
+    # Subtest: identity rejects query namespace=arbitrary
+    ok 6 - identity rejects query namespace=arbitrary
+      ---
+      duration_ms: 0.225125
+      type: 'test'
+      ...
+    # Subtest: identity rejects query token=arbitrary
+    ok 7 - identity rejects query token=arbitrary
+      ---
+      duration_ms: 0.154542
+      type: 'test'
+      ...
+    # Subtest: identity rejects query fixture_date=2026-11-06
+    ok 8 - identity rejects query fixture_date=2026-11-06
+      ---
+      duration_ms: 0.24525
+      type: 'test'
+      ...
+    # Subtest: identity rejects query sql=DROP%20TABLE%20meta
+    ok 9 - identity rejects query sql=DROP%20TABLE%20meta
+      ---
+      duration_ms: 1.33525
+      type: 'test'
+      ...
+    # Subtest: identity refuses POST
+    ok 10 - identity refuses POST
+      ---
+      duration_ms: 0.881125
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/initialize {"operation":"INITIALIZE_EMPTY_ISOLATED_MOCK"}
+    ok 11 - Stage1 refuses /_mock/initialize {"operation":"INITIALIZE_EMPTY_ISOLATED_MOCK"}
+      ---
+      duration_ms: 0.709208
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/start {"fixture_date":"2026-11-06"}
+    ok 12 - Stage1 refuses /_mock/start {"fixture_date":"2026-11-06"}
+      ---
+      duration_ms: 0.324333
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/start {"fixture_date":"2099-01-01"}
+    ok 13 - Stage1 refuses /_mock/start {"fixture_date":"2099-01-01"}
+      ---
+      duration_ms: 0.267667
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/stop {}
+    ok 14 - Stage1 refuses /_mock/stop {}
+      ---
+      duration_ms: 0.248875
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/sql {"sql":"CREATE TABLE injected(x)"}
+    ok 15 - Stage1 refuses /_mock/sql {"sql":"CREATE TABLE injected(x)"}
+      ---
+      duration_ms: 0.284125
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/objects/arbitrary/start {"fixture_date":"2026-11-06"}
+    ok 16 - Stage1 refuses /_mock/objects/arbitrary/start {"fixture_date":"2026-11-06"}
+      ---
+      duration_ms: 0.262417
+      type: 'test'
+      ...
+    # Subtest: status denied
+    ok 17 - status denied
+      ---
+      duration_ms: 0.129459
+      type: 'test'
+      ...
+    # Subtest: status unauthorized
+    ok 18 - status unauthorized
+      ---
+      duration_ms: 0.097625
+      type: 'test'
+      ...
+    # Subtest: report denied /api/overview
+    ok 19 - report denied /api/overview
+      ---
+      duration_ms: 0.141292
+      type: 'test'
+      ...
+    # Subtest: report denied /api/runs/latest
+    ok 20 - report denied /api/runs/latest
+      ---
+      duration_ms: 0.093791
+      type: 'test'
+      ...
+    # Subtest: report denied /api/health
+    ok 21 - report denied /api/health
+      ---
+      duration_ms: 0.127417
+      type: 'test'
+      ...
+    # Subtest: report denied /api/events
+    ok 22 - report denied /api/events
+      ---
+      duration_ms: 0.090625
+      type: 'test'
+      ...
+    # Subtest: report denied /api/assets/NVDA
+    ok 23 - report denied /api/assets/NVDA
+      ---
+      duration_ms: 0.11075
+      type: 'test'
+      ...
+    # Subtest: report denied /api/assets/NVDA/history
+    ok 24 - report denied /api/assets/NVDA/history
+      ---
+      duration_ms: 0.402041
+      type: 'test'
+      ...
+    # Subtest: report unauthorized
+    ok 25 - report unauthorized
+      ---
+      duration_ms: 0.566875
+      type: 'test'
+      ...
+    # Subtest: control cannot report
+    ok 26 - control cannot report
+      ---
+      duration_ms: 0.162542
+      type: 'test'
+      ...
+    # Subtest: report write denied
+    ok 27 - report write denied
+      ---
+      duration_ms: 0.13175
+      type: 'test'
+      ...
+    # Subtest: unknown admin denied
+    ok 28 - unknown admin denied
+      ---
+      duration_ms: 0.295459
+      type: 'test'
+      ...
+    # Subtest: default/unknown enable refuses undefined
+    ok 29 - default/unknown enable refuses undefined
+      ---
+      duration_ms: 0.195333
+      type: 'test'
+      ...
+    # Subtest: default/unknown enable refuses DISABLED_PENDING_GATE_B
+    ok 30 - default/unknown enable refuses DISABLED_PENDING_GATE_B
+      ---
+      duration_ms: 0.30825
+      type: 'test'
+      ...
+    # Subtest: default/unknown enable refuses typo
+    ok 31 - default/unknown enable refuses typo
+      ---
+      duration_ms: 0.182334
+      type: 'test'
+      ...
+    # Subtest: missing/short configured control token undefined
+    ok 32 - missing/short configured control token undefined
+      ---
+      duration_ms: 0.236291
+      type: 'test'
+      ...
+    # Subtest: missing/short configured control token short
+    ok 33 - missing/short configured control token short
+      ---
+      duration_ms: 0.067416
+      type: 'test'
+      ...
+    # Subtest: exact Stage1 window offset -1
+    ok 34 - exact Stage1 window offset -1
+      ---
+      duration_ms: 0.197333
+      type: 'test'
+      ...
+    # Subtest: exact Stage1 window offset 0
+    ok 35 - exact Stage1 window offset 0
+      ---
+      duration_ms: 0.832625
+      type: 'test'
+      ...
+    # Subtest: exact Stage1 window offset 60000
+    ok 36 - exact Stage1 window offset 60000
+      ---
+      duration_ms: 0.196958
+      type: 'test'
+      ...
+    # Subtest: exact Stage1 window offset 1200000
+    ok 37 - exact Stage1 window offset 1200000
+      ---
+      duration_ms: 0.185166
+      type: 'test'
+      ...
+    # Subtest: exact Stage1 window offset 86399999
+    ok 38 - exact Stage1 window offset 86399999
+      ---
+      duration_ms: 0.25925
+      type: 'test'
+      ...
+    # Subtest: exact Stage1 window offset 86400000
+    ok 39 - exact Stage1 window offset 86400000
+      ---
+      duration_ms: 0.09375
+      type: 'test'
+      ...
+    # Subtest: exact Stage1 window offset 86400001
+    ok 40 - exact Stage1 window offset 86400001
+      ---
+      duration_ms: 0.091583
+      type: 'test'
+      ...
+    # Subtest: exact Stage1 window offset 90000000
+    ok 41 - exact Stage1 window offset 90000000
+      ---
+      duration_ms: 0.085875
+      type: 'test'
+      ...
+    # Subtest: repeated identity and coordinator replacement preserve empty state
+    ok 42 - repeated identity and coordinator replacement preserve empty state
+      ---
+      duration_ms: 0.41825
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses initialize
+    ok 43 - direct RPC refuses initialize
+      ---
+      duration_ms: 0.239458
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses start fixture
+    ok 44 - direct RPC refuses start fixture
+      ---
+      duration_ms: 0.101042
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses start arbitrary fixture
+    ok 45 - direct RPC refuses start arbitrary fixture
+      ---
+      duration_ms: 0.074
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses stop
+    ok 46 - direct RPC refuses stop
+      ---
+      duration_ms: 0.077
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses status
+    ok 47 - direct RPC refuses status
+      ---
+      duration_ms: 0.087041
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses report
+    ok 48 - direct RPC refuses report
+      ---
+      duration_ms: 0.109375
+      type: 'test'
+      ...
+    # Subtest: Stage1 initialization stays disabled even with accidentally injected H01 fields
+    ok 49 - Stage1 initialization stays disabled even with accidentally injected H01 fields
+      ---
+      duration_ms: 0.232
+      type: 'test'
+      ...
+    # Subtest: stale Alarm callback is inert
+    ok 50 - stale Alarm callback is inert
+      ---
+      duration_ms: 0.3755
+      type: 'test'
+      ...
+    # Subtest: no SQL or local test RPC
+    ok 51 - no SQL or local test RPC
+      ---
+      duration_ms: 0.072959
+      type: 'test'
+      ...
+    1..51
+ok 235 - Stage1 real HTTP and RPC entrypoint in Node SQLite: no writes on any probe
+  ---
+  duration_ms: 40.871583
+  type: 'test'
+  ...
+# (node:40522) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: 12 symbols: baseline, duplicate date, independent categories and report baseline semantics
+ok 236 - 12 symbols: baseline, duplicate date, independent categories and report baseline semantics
+  ---
+  duration_ms: 1001.95325
+  type: 'test'
+  ...
+# Subtest: simultaneous schedulers and overlapping dates
+ok 237 - simultaneous schedulers and overlapping dates
+  ---
+  duration_ms: 3.173584
+  type: 'test'
+  ...
+# Subtest: durable global starts >=5sec and batch-boundary >=35sec, duplicate ticks issue no duplicate requests
+ok 238 - durable global starts >=5sec and batch-boundary >=35sec, duplicate ticks issue no duplicate requests
+  ---
+  duration_ms: 888.218833
+  type: 'test'
+  ...
+# Subtest: uncertain execution before_request never repeats collection
+ok 239 - uncertain execution before_request never repeats collection
+  ---
+  duration_ms: 2.96325
+  type: 'test'
+  ...
+# Subtest: uncertain execution after_request never repeats collection
+ok 240 - uncertain execution after_request never repeats collection
+  ---
+  duration_ms: 2.062083
+  type: 'test'
+  ...
+# Subtest: uncertain execution raw_write never repeats collection
+ok 241 - uncertain execution raw_write never repeats collection
+  ---
+  duration_ms: 4.955041
+  type: 'test'
+  ...
+# Subtest: atomic rollback state_write reprocesses saved raw without network
+ok 242 - atomic rollback state_write reprocesses saved raw without network
+  ---
+  duration_ms: 88.036625
+  type: 'test'
+  ...
+# Subtest: atomic rollback event_write reprocesses saved raw without network
+ok 243 - atomic rollback event_write reprocesses saved raw without network
+  ---
+  duration_ms: 79.437166
+  type: 'test'
+  ...
+# Subtest: raw evidence immutable; same input cannot overwrite bytes or origin
+ok 244 - raw evidence immutable; same input cannot overwrite bytes or origin
+  ---
+  duration_ms: 1.174458
+  type: 'test'
+  ...
+# Subtest: one symbol data failure does not contaminate eleven successful states
+ok 245 - one symbol data failure does not contaminate eleven successful states
+  ---
+  duration_ms: 544.574875
+  type: 'test'
+  ...
+# Subtest: 429 stops all further collection; 401/403 global two-denial circuit
+ok 246 - 429 stops all further collection; 401/403 global two-denial circuit
+  ---
+  duration_ms: 11.508041
+  type: 'test'
+  ...
+# Subtest: corrupted hash state fails closed before next requests
+ok 247 - corrupted hash state fails closed before next requests
+  ---
+  duration_ms: 754.704958
+  type: 'test'
+  ...
+# Subtest: corrupted missing state fails closed before next requests
+ok 248 - corrupted missing state fails closed before next requests
+  ---
+  duration_ms: 747.9365
+  type: 'test'
+  ...
+# Subtest: corrupted schema state fails closed before next requests
+ok 249 - corrupted schema state fails closed before next requests
+  ---
+  duration_ms: 492.502
+  type: 'test'
+  ...
+# Subtest: missing real sessions require catchup and do not synthesize captures
+ok 250 - missing real sessions require catchup and do not synthesize captures
+  ---
+  duration_ms: 1082.213208
+  type: 'test'
+  ...
+# Subtest: explicit selected backup repairs missing state without forgetting claims
+ok 251 - explicit selected backup repairs missing state without forgetting claims
+  ---
+  duration_ms: 687.043375
+  type: 'test'
+  ...
+# Subtest: pending stays sticky, rejected requires reopen, revision escalates with audit; thresholds not consumed
+ok 252 - pending stays sticky, rejected requires reopen, revision escalates with audit; thresholds not consumed
+  ---
+  duration_ms: 17.720417
+  type: 'test'
+  ...
+# Subtest: all seven legacy pending records survive imported storage without promotion or ID regeneration
+ok 253 - all seven legacy pending records survive imported storage without promotion or ID regeneration
+  ---
+  duration_ms: 18.404291
+  type: 'test'
+  ...
+# Subtest: read APIs are pure and exclude evidence, accounts, checkpoint details; validate paging and range
+ok 254 - read APIs are pure and exclude evidence, accounts, checkpoint details; validate paging and range
+  ---
+  duration_ms: 639.95025
+  type: 'test'
+  ...
+# Subtest: later history cannot impersonate a trusted original capture; plan is read-only
+ok 255 - later history cannot impersonate a trusted original capture; plan is read-only
+  ---
+  duration_ms: 0.680583
+  type: 'test'
+  ...
+# Subtest: slow durable sync and slow response do not shorten global network pacing
+ok 256 - slow durable sync and slow response do not shorten global network pacing
+  ---
+  duration_ms: 77.639417
+  type: 'test'
+  ...
+# Subtest: overlapping execution ticks never issue a second request or overwrite uncertain status
+ok 257 - overlapping execution ticks never issue a second request or overwrite uncertain status
+  ---
+  duration_ms: 2.2295
+  type: 'test'
+  ...
+1..257
+# tests 380
+# suites 0
+# pass 378
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 21308.92075

@@ -1,0 +1,43 @@
+{
+  "status": "PASS_LOCAL_ONLY",
+  "mode": "production",
+  "root": "phase5_1b_cloudflare_remote_mock/stage1_local_package/builds/default/.cloudflare/output/v0",
+  "files": {
+    "config.json": "eb7c4bc31d2b0e14806d60c3f348bac35c2680fc08cbf80e837a4e4fb2ad6e8e",
+    "workers/default/bundle/.vite/manifest.json": "adc6cbede6ffdd0f4ff071c941fea1448fb726fc5b86039b8a41b4b97a5a22a1",
+    "workers/default/bundle/index.js": "4fa3f652a0a585c21885ea6a6422f58f4b0de6971f21c01604be4c7b566b2f49",
+    "workers/default/bundle/index.js.map": "4e43c7921fa37850e5f5c743738354b7890cc359e99520b1433a1d893b4cee62",
+    "workers/default/worker.config.json": "5e73ea06bd9b68c12b04d6123dcbf2a0252795df9368d4d1c341603b17e4ef35"
+  },
+  "aggregate_sha256": "6d4ea4aad9ba4a5c0398d58118d65fce1e549e698ba86d78519ce1d3a67e6ac7",
+  "bundle_sha256": "4fa3f652a0a585c21885ea6a6422f58f4b0de6971f21c01604be4c7b566b2f49",
+  "worker_config_sha256": "5e73ea06bd9b68c12b04d6123dcbf2a0252795df9368d4d1c341603b17e4ef35",
+  "bundle_bytes": 527197,
+  "worker_config": {
+    "name": "us-stocks-phase51-offline",
+    "compatibilityDate": "2026-11-10",
+    "compatibilityFlags": [
+      "nodejs_compat"
+    ],
+    "env": {
+      "COORDINATOR": {
+        "type": "durable-object",
+        "worker": "us-stocks-phase51-offline",
+        "exportName": "ExecutionCoordinator"
+      }
+    },
+    "exports": {
+      "ExecutionCoordinator": {
+        "type": "durable-object",
+        "storage": "sqlite"
+      }
+    },
+    "manifest": {
+      "type": "partial",
+      "mainModule": "index.js",
+      "modules": {}
+    }
+  },
+  "workers_dev_preview_urls": "UNSPECIFIED_CF_DEFAULTS_REVIEW_BEFORE_REMOTE_AUTHORIZATION",
+  "remote_calls": 0
+}

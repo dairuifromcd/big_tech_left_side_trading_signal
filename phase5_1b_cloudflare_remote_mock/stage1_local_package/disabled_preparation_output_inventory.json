@@ -1,0 +1,59 @@
+{
+  "status": "PASS_LOCAL_ONLY",
+  "mode": "p51b-identity-prep",
+  "root": "phase5_1b_cloudflare_remote_mock/stage1_local_package/builds/disabled_preparation/.cloudflare/output/v0",
+  "files": {
+    "config.json": "50025b00620829ed25bf4a6917f2fadc61f5818363f7ecfc66a5749eb94eadb6",
+    "workers/default/bundle/.vite/manifest.json": "adc6cbede6ffdd0f4ff071c941fea1448fb726fc5b86039b8a41b4b97a5a22a1",
+    "workers/default/bundle/index.js": "f750138982c60fdca94c47fea14a5d93c47d03a0daeb154795c0a1a275caf7a6",
+    "workers/default/bundle/index.js.map": "85a0dd087b9196a37cc81e993225cb7a5adabdbef81040009e71f3e770cae087",
+    "workers/default/worker.config.json": "7e4a0b00c7054f9a04665ba09a31e149ed37bc4794b9f47ae4e34c1b0b20cd3c"
+  },
+  "aggregate_sha256": "2bbb530e922466b0d4188526443532720d8545d2abf9399dcb785d8c7545c62a",
+  "bundle_sha256": "f750138982c60fdca94c47fea14a5d93c47d03a0daeb154795c0a1a275caf7a6",
+  "worker_config_sha256": "7e4a0b00c7054f9a04665ba09a31e149ed37bc4794b9f47ae4e34c1b0b20cd3c",
+  "bundle_bytes": 156651,
+  "worker_config": {
+    "name": "us-stocks-p51b-mock-20261113",
+    "compatibilityDate": "2026-11-10",
+    "compatibilityFlags": [
+      "nodejs_compat"
+    ],
+    "env": {
+      "COORDINATOR": {
+        "type": "durable-object",
+        "worker": "us-stocks-p51b-mock-20261113",
+        "exportName": "RemoteMockCoordinator"
+      },
+      "REMOTE_MOCK_ENABLED": {
+        "type": "text",
+        "value": "DISABLED_PENDING_GATE_B"
+      },
+      "MOCK_START_UTC": {
+        "type": "text",
+        "value": "2026-11-15T22:00:00Z"
+      },
+      "MOCK_END_UTC": {
+        "type": "text",
+        "value": "2026-11-16T22:00:00Z"
+      },
+      "MOCK_INIT_END_UTC": {
+        "type": "text",
+        "value": "2026-11-15T22:20:00Z"
+      }
+    },
+    "exports": {
+      "RemoteMockCoordinator": {
+        "type": "durable-object",
+        "storage": "sqlite"
+      }
+    },
+    "manifest": {
+      "type": "partial",
+      "mainModule": "index.js",
+      "modules": {}
+    }
+  },
+  "workers_dev_preview_urls": "UNSPECIFIED_CF_DEFAULTS_REVIEW_BEFORE_REMOTE_AUTHORIZATION",
+  "remote_calls": 0
+}

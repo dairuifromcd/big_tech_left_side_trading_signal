@@ -1,0 +1,24 @@
+├  Build
+│  Delegating to vite build "--mode" "p51b-mock"
+[36mvite v8.3.8 [32mbuilding ssr environment for p51b-mock...[36m[39m
+transforming...
+✓ 16 modules transformed.
+rendering chunks...
+computing gzip size...
+.cloudflare/output/v0/workers/default/bundle/.vite/manifest.json    0.15 kB │ gzip:  0.11 kB
+.cloudflare/output/v0/workers/default/bundle/index.js             156.65 kB │ gzip: 42.36 kB │ map: 161.12 kB
+
+[32m✓ built in 50ms[39m
+◆  Build complete
+│
+├  Deploy
+│  Total Upload: 152.98 KiB / gzip: 40.68 KiB
+│  Your Worker has access to the following bindings:
+│  Binding                                                                                       Resource                  
+│  env.COORDINATOR (RemoteMockCoordinator, defined in us-stocks-p51b-mock-20261113)              Durable Object            
+│  env.REMOTE_MOCK_ENABLED ("DISABLED_PENDING_GATE_B")                                           Environment Variable      
+│  env.MOCK_START_UTC ("2026-11-15T23:00:00Z")                                                   Environment Variable      
+│  env.MOCK_END_UTC ("2026-11-16T23:00:00Z")                                                     Environment Variable      
+│  env.MOCK_INIT_END_UTC ("2026-11-15T23:20:00Z")                                                Environment Variable      
+│
+│  --dry-run: exiting now.

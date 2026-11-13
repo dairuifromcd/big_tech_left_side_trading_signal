@@ -1,0 +1,165 @@
+{
+  "PHASE_5_1B_STAGE1_LOCAL_PACKAGE": "PASS",
+  "components": {
+    "DEFAULT_BUILD_DISABLED": "PASS_LOCAL_ONLY",
+    "STAGE1_IDENTITY_ENABLED": "PASS_LOCAL_ONLY",
+    "H01_INITIALIZATION_DISABLED": "PASS_LOCAL_ONLY",
+    "MOCK_START_DISABLED_BEFORE_INITIALIZATION": "PASS_LOCAL_ONLY",
+    "UNAUTHORIZED_REQUESTS_REFUSED": "PASS_LOCAL_ONLY",
+    "EMPTY_SQL_AND_NATIVE_STORAGE": "PASS_LOCAL_ONLY",
+    "ALARM_NULL": "PASS_LOCAL_ONLY",
+    "NO_EXTERNAL_COLLECTOR": "PASS_LOCAL_ONLY",
+    "WORKERD_SQLITE_TESTS": "PASS_LOCAL_ONLY",
+    "TYPESCRIPT_REGRESSION": "PASS_LOCAL_ONLY",
+    "GOLDEN_PARITY": "PASS_LOCAL_ONLY",
+    "PROTECTED_FILES_INTEGRITY": "PASS_LOCAL_ONLY",
+    "BUILD_OUTPUT_AUDIT": "PASS_LOCAL_ONLY",
+    "DEPLOYMENT_RUNBOOK_READY": "PASS_LOCAL_ONLY"
+  },
+  "typescript": {
+    "tests": 380,
+    "pass": 380,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "baseline": 285,
+    "added": 95,
+    "baseline_retained": "All existing test files byte-identical; same original seven test modules executed; old baseline log unavailable in checkout",
+    "baseline_test_files_sha256": {
+      "cloudflare/tests/hardening-fixture.ts": "691af8033881364411c68650674294d7bdf4f7bf8cf2ea956b4bb432c450f769",
+      "cloudflare/tests/hardening-runtime.test.ts": "fb8a76a34006eeda1ab50554f0bfb2cb26f1c792bfd1ac0353ec392ea5ffe4e4",
+      "cloudflare/tests/hardening.test.ts": "fd1b540a70381ef379a519c0779c16bc6eec7050815606274109fe9cf862a0b1",
+      "cloudflare/tests/mock-start-atomicity-fixture.ts": "ac7dba0604ec8029a121b86cc30af7030c7a1be4d4c9e838bc30178caed83f91",
+      "cloudflare/tests/mock-start-atomicity-worker.ts": "2d13d99eb645132bfb45f6bc95bcfd9a515cdd69448f7eb050815524c0be8345",
+      "cloudflare/tests/parity.test.ts": "6ea0308ddde17dbf6d9508b50aa44802980258ba68d8aef9222bddde07864133",
+      "cloudflare/tests/remote-mock-runtime.test.ts": "347abdfa17558325dae5a85b4e117e755e1da18a3e0485d95ef80f8f880cbc6a",
+      "cloudflare/tests/remote-mock.test.ts": "207bc3bc3bee1c884320907d4d6742efc1b39d32d41715decbb9a95dd6fe297d",
+      "cloudflare/tests/runtime.test.ts": "2ef6ca417e775f6605a97b84ef4f03e3499b2a268fc52d3d05ff17ef5cd348de",
+      "cloudflare/tests/storage.test.ts": "5b38c89db6ae56b9c1be25abbb52274e323974fdfdc90a85463e7cc6046a7f8a",
+      "cloudflare/tests/test-output.ts": "c484f03cfa6fa4ca7e1452b520157f8d53a2ecb6525a6a946c5d44a4ad31ca0d"
+    }
+  },
+  "typecheck": "PASS",
+  "stage1_node": {
+    "status": "PASS",
+    "checks": 51,
+    "environment": "LOCAL_NODE_REAL_ENTRYPOINT_SQLITE",
+    "sql_and_native_empty": true,
+    "receipt_absent": true,
+    "application_tables": [],
+    "mutations": 0,
+    "collector_calls": 0,
+    "outbound_requests": 0,
+    "alarm": null,
+    "credentials": "RANDOM_TEST_PROCESS_ONLY_NOT_RECORDED"
+  },
+  "stage1_workerd": {
+    "status": "PASS",
+    "checks": 42,
+    "environment": "LOCAL_WORKERD_SQLITE_WITH_TEST_ONLY_OBSERVER",
+    "sql_and_native_empty": true,
+    "receipt_absent": true,
+    "alarm": null,
+    "collector_calls": 0,
+    "outbound_requests": 0,
+    "snapshot": {
+      "schema": [],
+      "changes": [
+        {
+          "n": 0
+        }
+      ],
+      "native": [],
+      "alarm": null,
+      "collectors": 0
+    },
+    "runtime_restart_same_id": true,
+    "credentials": "RANDOM_TEST_PROCESS_ONLY_NOT_RECORDED"
+  },
+  "stage1_actual_cf_output_workerd": {
+    "status": "PASS",
+    "checks": 42,
+    "environment": "LOCAL_WORKERD_ACTUAL_CF_BUILD_OUTPUT",
+    "sql_and_native_empty": true,
+    "receipt_absent": true,
+    "alarm": null,
+    "collector_calls": 0,
+    "outbound_requests": 0,
+    "snapshot": {
+      "object_id": "2edcb7a2cdeff633c1a15b3752d3c2061f09275fa98749062191b7ccd02b4896",
+      "initialized": false,
+      "empty_sql": true,
+      "empty_native": true,
+      "alarm": null
+    },
+    "runtime_restart_same_id": true,
+    "credentials": "RANDOM_TEST_PROCESS_ONLY_NOT_RECORDED"
+  },
+  "runtime_test_binding_overrides": "workerd uses process-only fictitious Control/Report plus clock-relative start/end/initEnd; Node verifies exact candidate boundaries; candidate config text audited separately; no H01 injection except explicit denial probes",
+  "full_output_standalone_test_count": 43,
+  "h01_h02_workerd": {
+    "status": "PASS",
+    "platform": "LOCAL_WORKERD_SQLITE",
+    "blocked_checkpoint_cases": 15,
+    "collector_calls_for_blocked_cases": 0,
+    "outbound_requests": 0,
+    "remote_initialization": "NOT_VERIFIED"
+  },
+  "atomic_workerd_cases": 19,
+  "duplicate_start_idempotency": "PASS_NODE_AND_WORKERD_EMPTY_AND_EVENTS",
+  "golden": {
+    "golden_fixtures": 76,
+    "validation_fixtures": 32,
+    "passed": 76,
+    "compared_float_fields": 11145,
+    "max_absolute_difference": 0,
+    "tolerance": {
+      "absolute": 1e-12,
+      "relative": 1e-12
+    },
+    "event_ids": "EXACT",
+    "discrete_fields": "EXACT"
+  },
+  "python": "ACCEPTED_HISTORICAL_271/271; not rerun; no Python or common business logic changes",
+  "local_build_and_prebuilt_dry_run": "PASS; exact packaged working directory validated without rebuilding",
+  "initial_failures_retained": [
+    "typescript_tests.log (sandbox loopback EPERM)",
+    "typescript_initial_test_harness_failure.log (sync esbuild plugin / RPC proxy comparison)",
+    "typescript_rpc_sync_failure.log (missing RPC throws synchronously)"
+  ],
+  "protected_files": {
+    "status": "PASS",
+    "head": "4651ca01f2514b0e6be07578de1bdf7bec5bc06a",
+    "baseline": "initial_baseline.json; current HEAD plus pre-existing untracked research files",
+    "protected_file_count": 617,
+    "unexpected_changes": [],
+    "unexpected_new_files": [],
+    "intentional_modified_files": [
+      "cloudflare/cloudflare.config.ts",
+      "cloudflare/scripts/local.mjs",
+      "cloudflare/src/remote-worker.ts"
+    ],
+    "new_code_files": [
+      "cloudflare/scripts/stage1_package_audit.py",
+      "cloudflare/tests/stage1-fixture.ts",
+      "cloudflare/tests/stage1-runtime.test.ts",
+      "cloudflare/tests/stage1.test.ts"
+    ],
+    "historical_phase51_phase51a_phase51b_and_research_preserved": true,
+    "production_python_and_historical_market_state_preserved": true,
+    "pending_count": 7,
+    "pending_sha256": "c3cd3ec3aeb416fbeef3cecd8c0ea3fc2d962b090484927d6797a625b18d5be1",
+    "pending_records_identical": true
+  },
+  "CLOUDFLARE_REMOTE_MUTATIONS": 0,
+  "REMOTE_DEPLOYMENTS": 0,
+  "OAUTH_LOGINS": 0,
+  "API_TOKENS_CREATED": 0,
+  "REAL_SECRETS_CREATED": 0,
+  "SECRETS_UPLOADED": 0,
+  "REAL_YAHOO_REQUESTS": 0,
+  "LIVE_TRADING_ACTIONS": 0,
+  "GATE_B_APPROVED": false,
+  "cloud_platform_behavior": "NOT_VERIFIED"
+}

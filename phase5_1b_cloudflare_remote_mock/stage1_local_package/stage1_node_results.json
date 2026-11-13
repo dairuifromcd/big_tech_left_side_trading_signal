@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checks": 51,
+  "environment": "LOCAL_NODE_REAL_ENTRYPOINT_SQLITE",
+  "sql_and_native_empty": true,
+  "receipt_absent": true,
+  "application_tables": [],
+  "mutations": 0,
+  "collector_calls": 0,
+  "outbound_requests": 0,
+  "alarm": null,
+  "credentials": "RANDOM_TEST_PROCESS_ONLY_NOT_RECORDED"
+}

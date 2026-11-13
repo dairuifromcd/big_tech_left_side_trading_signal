@@ -12,14 +12,16 @@ export interface RemoteEnv extends InitializationPolicy {
   MOCK_CONTROL_TOKEN?:string; REPORT_TOKEN?:string;
 }
 function plan(env:RemoteEnv):WindowPlan {return {start:Date.parse(env.MOCK_START_UTC??''),end:Date.parse(env.MOCK_END_UTC??''),initEnd:Date.parse(env.MOCK_INIT_END_UTC??'')};}
-function enabled(env:RemoteEnv) {if(env.REMOTE_MOCK_ENABLED!=='EXPLICIT_PHASE51B_MOCK_V1')throw Error('REMOTE_MOCK_DISABLED');}
+function identityOnly(env:RemoteEnv) {return env.REMOTE_MOCK_ENABLED==='EXPLICIT_PHASE51B_IDENTITY_V1';}
+function enabled(env:RemoteEnv) {if(!identityOnly(env)&&env.REMOTE_MOCK_ENABLED!=='EXPLICIT_PHASE51B_MOCK_V1')throw Error('REMOTE_MOCK_DISABLED');}
+function executionEnabled(env:RemoteEnv) {enabled(env);if(identityOnly(env))throw Error('STAGE1_IDENTITY_ONLY');}
 function token(expected:string|undefined,supplied:string) {return !!expected&&expected.length>=32&&timingSafeEqual(Buffer.from(digest(expected)),Buffer.from(digest(supplied)));}
 function control(env:RemoteEnv,credential:string) {
   enabled(env);if(!token(env.MOCK_CONTROL_TOKEN,credential))throw Error('UNAUTHORIZED');
   // Allow a bounded one-hour stop/status grace period. This cannot extend the
   // persisted collection/init window or resume a stopped experiment.
   const p=plan(env);validateWindow(p,p.start);
-  if(Date.now()<p.start||Date.now()>=p.end+3600000)throw Error('CONTROL_EXPIRED');
+  if(Date.now()<p.start||Date.now()>=p.end+(identityOnly(env)?0:3600000))throw Error('CONTROL_EXPIRED');
 }
 export class RemoteMockCoordinator extends DurableObject<RemoteEnv> {
   readonly store:Store;readonly harness:RemoteHarness;
@@ -31,7 +33,7 @@ export class RemoteMockCoordinator extends DurableObject<RemoteEnv> {
       empty_native:(await this.ctx.storage.list({limit:1})).size===0,alarm:await this.ctx.storage.getAlarm()};
   }
   async initializeIsolatedMock(command:InitializationCommand,credential:string) {
-    enabled(this.env);validateWindow(plan(this.env),Date.now(),true);
+    executionEnabled(this.env);validateWindow(plan(this.env),Date.now(),true);
     authorizeInitialization(this.env,this.ctx.id.toString(),command,credential);
     const outcome=await this.ctx.blockConcurrencyWhile(async()=> {
       try {
@@ -46,13 +48,13 @@ export class RemoteMockCoordinator extends DurableObject<RemoteEnv> {
     if('error' in outcome)throw Error(outcome.error);return outcome;
   }
   async startFixture(fixture:string,credential:string) {
-    control(this.env,credential);const result=this.harness.start(fixture);await this.ctx.storage.sync();await this.arm();return result;
+    control(this.env,credential);executionEnabled(this.env);const result=this.harness.start(fixture);await this.ctx.storage.sync();await this.arm();return result;
   }
   async stopExperiment(credential:string) {
-    control(this.env,credential);this.harness.stop();await this.ctx.storage.sync();await this.ctx.storage.deleteAlarm();return this.harness.read();
+    control(this.env,credential);executionEnabled(this.env);this.harness.stop();await this.ctx.storage.sync();await this.ctx.storage.deleteAlarm();return this.harness.read();
   }
   async status(credential:string) {
-    control(this.env,credential);return {experiment:this.harness.read(),alarm:await this.ctx.storage.getAlarm(),
+    control(this.env,credential);executionEnabled(this.env);return {experiment:this.harness.read(),alarm:await this.ctx.storage.getAlarm(),
       runs:this.store.q('SELECT * FROM runs ORDER BY date'),claims:this.store.q('SELECT date,symbol,ordinal,status,started,finished,error FROM claims ORDER BY date,ordinal'),
       receipt:JSON.parse(this.store.q("SELECT value FROM meta WHERE key='receipt'")[0].value),
       sql_reads_local_counter:this.store.reads,sql_writes_local_counter:this.store.writes,sqlite_bytes:this.ctx.storage.sql.databaseSize,
@@ -60,12 +62,15 @@ export class RemoteMockCoordinator extends DurableObject<RemoteEnv> {
   }
   async report(request:Request,credential:string) {
     enabled(this.env);if(!token(this.env.REPORT_TOKEN,credential))throw Error('UNAUTHORIZED');
+    executionEnabled(this.env);
     const response=api(this.store,request),body:any=await response.json();
     return Response.json({...body,mode:'DRY_RUN_REMOTE_MOCK_ONLY',provenance:'SYNTHETIC_NOT_HISTORICAL_PIT',
       execution:this.harness.read()}, {status:response.status,headers:response.headers});
   }
   private async arm() {const next=this.harness.nextAlarm();if(next===null)await this.ctx.storage.deleteAlarm();else await this.ctx.storage.setAlarm(next);}
   async alarm() {
+    // Stage 1 must remain inert, even if a stale platform callback is delivered.
+    if(identityOnly(this.env))return;
     try {enabled(this.env);await this.harness.tick();await this.arm();}
     catch {try{this.harness.stop('ADAPTER_FAILURE');}catch{}await this.ctx.storage.deleteAlarm();}
   }
@@ -76,14 +81,18 @@ export default {
     const url=new URL(request.url),path=url.pathname,credential=request.headers.get('Authorization')?.match(/^Bearer (.+)$/)?.[1]??'';
     try {
       enabled(env);
+      // Identity has no query interface, including object/namespace or URL credentials.
+      if(path==='/_mock/identity'&&url.search)throw Error('INVALID_COMMAND');
       if(path.startsWith('/api/')) {
         if(!token(env.REPORT_TOKEN,credential))return Response.json({error:'UNAUTHORIZED'},{status:401,headers});
         if(request.method!=='GET')return Response.json({error:'READ_ONLY'},{status:405,headers});
+        executionEnabled(env);
         return env.COORDINATOR.getByName(OBJECT_NAME).report(request,credential);
       }
       // Temporary admin bridge in this one Worker; never routes to arbitrary
       // objects, SQL, fixture timestamps, fault hooks, URLs or local-test RPCs.
       const init=path==='/_mock/initialize';
+      if(identityOnly(env)&&path!=='/_mock/identity')throw Error('STAGE1_IDENTITY_ONLY');
       if(init) {if(!token(env.MOCK_INIT_TOKEN,credential))throw Error('UNAUTHORIZED');validateWindow(plan(env),Date.now(),true);}
       else control(env,credential);
       if(!['/_mock/identity','/_mock/status','/_mock/initialize','/_mock/start','/_mock/stop'].includes(path))return Response.json({error:'NOT_FOUND'},{status:404,headers});

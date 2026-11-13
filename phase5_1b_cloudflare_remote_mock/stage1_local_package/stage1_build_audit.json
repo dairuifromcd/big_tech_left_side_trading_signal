@@ -1,0 +1,62 @@
+{
+  "status": "PASS_LOCAL_ONLY",
+  "mode": "p51b-stage1",
+  "head": "4651ca01f2514b0e6be07578de1bdf7bec5bc06a",
+  "git_committed": false,
+  "source_sha256": "16a4048c783ef39a30e85842be29f5a3f44905b71bb22bb8a10bc1f1fd3b4e41",
+  "bundle_sha256": "f750138982c60fdca94c47fea14a5d93c47d03a0daeb154795c0a1a275caf7a6",
+  "bundle_bytes": 156651,
+  "worker_config_sha256": "bfca973a1f48aefc457fe27e7685ee110e8b10985997d25421279d3ced9712c4",
+  "complete_build_output_sha256": "9d905d8da36bf5602dadbda25280d0fc4504d7a9b73d06dfc5cbb1bfd654ed39",
+  "complete_build_output": "phase5_1b_cloudflare_remote_mock/stage1_local_package/builds/stage1/.cloudflare/output/v0",
+  "lockfile_sha256": "dcb23a1554ad5cb2ecc3f1a3970e8bccbcc25d60be104eb513bf940698d8c599",
+  "historical_manifest_sha256": "29adb600b8a79d4648aa6699f898011d77ae1cfcb2615ca2fe33944f668754d7",
+  "package_manifest_sha256": "bd9b7a0ab0aab64ea36476c574747052e24919f12b2e8f4c3696b701e7ae7a7c",
+  "evidence_sha256": {
+    "cf_default_build.log": "af9ca221882683ead675aad610a579fb94eaec5e420cd0a107fdaf494e74ea23",
+    "cf_disabled_preparation_dry_run.log": "9a9e935572158ee30ebce76a989b4d0f6dbbd04bb76fcd60f227a9fbe2d6123a",
+    "cf_disabled_stage2_dry_run.log": "32591b107919bcb5640b8c16f5de81d717d676f147f060661deb56507145c40c",
+    "cf_packaged_prebuilt_dry_run.log": "9e705dd485ea6e290d733541e089cb44074b0217a0b580662cc8a10c0888bd3a",
+    "cf_stage1_build.log": "3e6574726ec1339e7f1bc1282676bc110ff739051e19c411850e693295d6d0f7",
+    "cf_stage1_prebuilt_dry_run.log": "9e705dd485ea6e290d733541e089cb44074b0217a0b580662cc8a10c0888bd3a",
+    "hardening_runtime_results.json": "48c129529c1753d365b251efb82d0e3dadd6e990c30de79ebece7649daf2d059",
+    "mock_start_atomicity_workerd_results.json": "763a1f77842ad4c46743629227a86d1a56fec019b5917d8c54392c36eab3ecac",
+    "parity_results.json": "fc45ebe9348b5063dd650746d2e07aa7f9f7fb67be141fe935aeaf8a29dd4358",
+    "remote_mock_local_results.json": "17802e2fc7dd154bd5a9712f434cb9866889450250ed289be075fb660576d353",
+    "remote_mock_workerd_results.json": "d01f6f0a5dc0f2e964d184e85c633e24b291291b86d0cf12bb38493d3dc47b4a",
+    "runtime_results.json": "160179919b80a6009eb046367fef4f2e0f1113b8c062c74519d30a98bc685c89",
+    "stage1_full_output_workerd.log": "dc88df56a416d402567c1f33916f4811aa7ebf1ffc4536be3e8172594b8d0b35",
+    "stage1_full_output_workerd_results.json": "7c18919b33d72f184f08f0f442c2363fa57a3d2766639e61cf7dc04584b24739",
+    "stage1_node_results.json": "9e59ade4ae492a66c5074bd536fe312e45245c901c3d959a400a35c812b386ef",
+    "stage1_test_results.json": "aa26ce33b12ff35cdbe32f0ad538caffcf5e718062817689878063b376989dce",
+    "stage1_workerd_results.json": "e51ed1aad31ffc8cc740a2a4666a485141e61f1930a00b0494bcd24eb5f6d15f",
+    "typecheck.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "typescript_initial_test_harness_failure.log": "b0cba97cd6c5e44dcfb2457dccfd4a05db20028642d56ea72da16db3be38dd08",
+    "typescript_rpc_sync_failure.log": "a2f3b4b4990323bc23af11928746aac39da9327e03b4e0e2a677f94552c4f2dc",
+    "typescript_tests.log": "216b4f6a7d14b9536ee8851858ed8b6074d17e8a3084c03b2aa2f161c3fc7172",
+    "typescript_tests_authorized.log": "04c043b25848860c19e5a7f72d8438d2872ceaf2d02ddbf60acf34a97fa480e2"
+  },
+  "evidence_aggregate_sha256": "a6f263dbbd1c8527417df0b552cc5ec09311425709d1613cb7a6e9d709356f0a",
+  "configuration_delta_from_disabled_preparation": {
+    "REMOTE_MOCK_ENABLED": {
+      "disabled": {
+        "type": "text",
+        "value": "DISABLED_PENDING_GATE_B"
+      },
+      "stage1": {
+        "type": "text",
+        "value": "EXPLICIT_PHASE51B_IDENTITY_V1"
+      }
+    }
+  },
+  "historical_bundle_changed": true,
+  "bundle_change_reason": "Explicit identity-only flag and HTTP/RPC execution guards; strict Stage1 identity deadline and query rejection; existing full mock flag retained",
+  "test_rpc_in_deployment": false,
+  "production_state_in_remote_graph": false,
+  "secret_bindings_in_build": [],
+  "default_bundle_identical_to_historical_audit": true,
+  "cf_version_locked": "1.0.0-beta.29",
+  "cf_version_installed": "1.0.0-beta.29",
+  "gate_b_approved": false,
+  "remote_mutations": 0
+}

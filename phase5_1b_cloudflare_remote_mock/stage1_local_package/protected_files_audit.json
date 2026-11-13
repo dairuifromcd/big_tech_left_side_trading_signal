@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "head": "4651ca01f2514b0e6be07578de1bdf7bec5bc06a",
+  "baseline": "initial_baseline.json; current HEAD plus pre-existing untracked research files",
+  "protected_file_count": 617,
+  "unexpected_changes": [],
+  "unexpected_new_files": [],
+  "intentional_modified_files": [
+    "cloudflare/cloudflare.config.ts",
+    "cloudflare/scripts/local.mjs",
+    "cloudflare/src/remote-worker.ts"
+  ],
+  "new_code_files": [
+    "cloudflare/scripts/stage1_package_audit.py",
+    "cloudflare/tests/stage1-fixture.ts",
+    "cloudflare/tests/stage1-runtime.test.ts",
+    "cloudflare/tests/stage1.test.ts"
+  ],
+  "historical_phase51_phase51a_phase51b_and_research_preserved": true,
+  "production_python_and_historical_market_state_preserved": true,
+  "pending_count": 7,
+  "pending_sha256": "c3cd3ec3aeb416fbeef3cecd8c0ea3fc2d962b090484927d6797a625b18d5be1",
+  "pending_records_identical": true
+}

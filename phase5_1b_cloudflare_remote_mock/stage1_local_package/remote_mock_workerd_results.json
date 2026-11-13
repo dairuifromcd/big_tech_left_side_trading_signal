@@ -1,0 +1,11 @@
+{
+  "environment": "LOCAL_WORKERD_ONLY",
+  "checks": 9,
+  "collector_calls": 1,
+  "outbound_requests": 0,
+  "kill_alarm_cancelled": true,
+  "persisted_stop": true,
+  "remote_init_security": "LOCAL_PASS",
+  "cloud_initialization": "NOT_VERIFIED",
+  "actual_cloud_eviction": "NOT_VERIFIED"
+}

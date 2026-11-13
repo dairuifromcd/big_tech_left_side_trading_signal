@@ -1,0 +1,269 @@
+TAP version 13
+# Subtest: Stage1 workerd SQLite: HTTP/RPC denial, empty storage and runtime restart
+    # Subtest: valid control reads fixed identity without application initialization
+    ok 1 - valid control reads fixed identity without application initialization
+      ---
+      duration_ms: 9.126417
+      type: 'test'
+      ...
+    # Subtest: missing authorization
+    ok 2 - missing authorization
+      ---
+      duration_ms: 11.36575
+      type: 'test'
+      ...
+    # Subtest: wrong authorization
+    ok 3 - wrong authorization
+      ---
+      duration_ms: 8.615583
+      type: 'test'
+      ...
+    # Subtest: report cannot control identity
+    ok 4 - report cannot control identity
+      ---
+      duration_ms: 9.237875
+      type: 'test'
+      ...
+    # Subtest: malformed bearer
+    ok 5 - malformed bearer
+      ---
+      duration_ms: 9.591375
+      type: 'test'
+      ...
+    # Subtest: identity rejects query object_id=arbitrary
+    ok 6 - identity rejects query object_id=arbitrary
+      ---
+      duration_ms: 7.293792
+      type: 'test'
+      ...
+    # Subtest: identity rejects query namespace=arbitrary
+    ok 7 - identity rejects query namespace=arbitrary
+      ---
+      duration_ms: 7.254416
+      type: 'test'
+      ...
+    # Subtest: identity rejects query token=arbitrary
+    ok 8 - identity rejects query token=arbitrary
+      ---
+      duration_ms: 7.447042
+      type: 'test'
+      ...
+    # Subtest: identity rejects query fixture_date=2026-11-06
+    ok 9 - identity rejects query fixture_date=2026-11-06
+      ---
+      duration_ms: 8.647958
+      type: 'test'
+      ...
+    # Subtest: identity rejects query sql=DROP%20TABLE%20meta
+    ok 10 - identity rejects query sql=DROP%20TABLE%20meta
+      ---
+      duration_ms: 10.042959
+      type: 'test'
+      ...
+    # Subtest: identity refuses POST
+    ok 11 - identity refuses POST
+      ---
+      duration_ms: 7.080375
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/initialize {"operation":"INITIALIZE_EMPTY_ISOLATED_MOCK"}
+    ok 12 - Stage1 refuses /_mock/initialize {"operation":"INITIALIZE_EMPTY_ISOLATED_MOCK"}
+      ---
+      duration_ms: 9.750666
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/start {"fixture_date":"2026-11-06"}
+    ok 13 - Stage1 refuses /_mock/start {"fixture_date":"2026-11-06"}
+      ---
+      duration_ms: 8.74475
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/start {"fixture_date":"2099-01-01"}
+    ok 14 - Stage1 refuses /_mock/start {"fixture_date":"2099-01-01"}
+      ---
+      duration_ms: 7.46975
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/stop {}
+    ok 15 - Stage1 refuses /_mock/stop {}
+      ---
+      duration_ms: 7.69875
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/sql {"sql":"CREATE TABLE injected(x)"}
+    ok 16 - Stage1 refuses /_mock/sql {"sql":"CREATE TABLE injected(x)"}
+      ---
+      duration_ms: 8.085042
+      type: 'test'
+      ...
+    # Subtest: Stage1 refuses /_mock/objects/arbitrary/start {"fixture_date":"2026-11-06"}
+    ok 17 - Stage1 refuses /_mock/objects/arbitrary/start {"fixture_date":"2026-11-06"}
+      ---
+      duration_ms: 7.046959
+      type: 'test'
+      ...
+    # Subtest: status denied
+    ok 18 - status denied
+      ---
+      duration_ms: 6.117417
+      type: 'test'
+      ...
+    # Subtest: status unauthorized
+    ok 19 - status unauthorized
+      ---
+      duration_ms: 6.718083
+      type: 'test'
+      ...
+    # Subtest: report denied /api/overview
+    ok 20 - report denied /api/overview
+      ---
+      duration_ms: 6.523
+      type: 'test'
+      ...
+    # Subtest: report denied /api/runs/latest
+    ok 21 - report denied /api/runs/latest
+      ---
+      duration_ms: 8.165792
+      type: 'test'
+      ...
+    # Subtest: report denied /api/health
+    ok 22 - report denied /api/health
+      ---
+      duration_ms: 7.753542
+      type: 'test'
+      ...
+    # Subtest: report denied /api/events
+    ok 23 - report denied /api/events
+      ---
+      duration_ms: 7.208917
+      type: 'test'
+      ...
+    # Subtest: report denied /api/assets/NVDA
+    ok 24 - report denied /api/assets/NVDA
+      ---
+      duration_ms: 6.140541
+      type: 'test'
+      ...
+    # Subtest: report denied /api/assets/NVDA/history
+    ok 25 - report denied /api/assets/NVDA/history
+      ---
+      duration_ms: 6.562666
+      type: 'test'
+      ...
+    # Subtest: report unauthorized
+    ok 26 - report unauthorized
+      ---
+      duration_ms: 6.673875
+      type: 'test'
+      ...
+    # Subtest: control cannot report
+    ok 27 - control cannot report
+      ---
+      duration_ms: 6.043167
+      type: 'test'
+      ...
+    # Subtest: report write denied
+    ok 28 - report write denied
+      ---
+      duration_ms: 7.260667
+      type: 'test'
+      ...
+    # Subtest: unknown admin denied
+    ok 29 - unknown admin denied
+      ---
+      duration_ms: 6.525167
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses initialize
+    ok 30 - direct RPC refuses initialize
+      ---
+      duration_ms: 12.925084
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses start
+    ok 31 - direct RPC refuses start
+      ---
+      duration_ms: 2.360458
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses arbitrary fixture
+    ok 32 - direct RPC refuses arbitrary fixture
+      ---
+      duration_ms: 1.641583
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses stop
+    ok 33 - direct RPC refuses stop
+      ---
+      duration_ms: 1.933334
+      type: 'test'
+      ...
+    # Subtest: direct RPC refuses status
+    ok 34 - direct RPC refuses status
+      ---
+      duration_ms: 1.892208
+      type: 'test'
+      ...
+    # Subtest: SQL/local test RPC missing
+    ok 35 - SQL/local test RPC missing
+      ---
+      duration_ms: 12.054166
+      type: 'test'
+      ...
+    # Subtest: disabled mode
+    ok 36 - disabled mode
+      ---
+      duration_ms: 128.040208
+      type: 'test'
+      ...
+    # Subtest: missing control
+    ok 37 - missing control
+      ---
+      duration_ms: 123.188333
+      type: 'test'
+      ...
+    # Subtest: short control
+    ok 38 - short control
+      ---
+      duration_ms: 121.78875
+      type: 'test'
+      ...
+    # Subtest: before start
+    ok 39 - before start
+      ---
+      duration_ms: 126.079875
+      type: 'test'
+      ...
+    # Subtest: after end
+    ok 40 - after end
+      ---
+      duration_ms: 117.805584
+      type: 'test'
+      ...
+    # Subtest: accidental H01 fields do not enable Stage1 initialize
+    ok 41 - accidental H01 fields do not enable Stage1 initialize
+      ---
+      duration_ms: 114.501583
+      type: 'test'
+      ...
+    # Subtest: repeated identity then process runtime restart retains identity and emptiness
+    ok 42 - repeated identity then process runtime restart retains identity and emptiness
+      ---
+      duration_ms: 155.968458
+      type: 'test'
+      ...
+    1..42
+ok 1 - Stage1 workerd SQLite: HTTP/RPC denial, empty storage and runtime restart
+  ---
+  duration_ms: 1571.978875
+  type: 'test'
+  ...
+1..1
+# tests 43
+# suites 0
+# pass 43
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2144.607542

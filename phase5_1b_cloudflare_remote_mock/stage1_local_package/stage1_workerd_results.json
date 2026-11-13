@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "checks": 42,
+  "environment": "LOCAL_WORKERD_SQLITE_WITH_TEST_ONLY_OBSERVER",
+  "sql_and_native_empty": true,
+  "receipt_absent": true,
+  "alarm": null,
+  "collector_calls": 0,
+  "outbound_requests": 0,
+  "snapshot": {
+    "schema": [],
+    "changes": [
+      {
+        "n": 0
+      }
+    ],
+    "native": [],
+    "alarm": null,
+    "collectors": 0
+  },
+  "runtime_restart_same_id": true,
+  "credentials": "RANDOM_TEST_PROCESS_ONLY_NOT_RECORDED"
+}
