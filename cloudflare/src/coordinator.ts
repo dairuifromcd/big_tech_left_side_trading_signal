@@ -6,15 +6,21 @@ export interface Collector {collect(symbol:string, checkpointDate?:string):Promi
 export class Coordinator {
   constructor(readonly store:Store,readonly collector:Collector,readonly clock:(()=>number)|null=null) {}
   start(date:string,now:number) {
+    return this.store.tx(()=>this.startInTransaction(date,now));
+  }
+  // Synchronous composition point for trusted adapters owning Store.tx().
+  // Never exposed as RPC. The callback runs only after all start checks pass,
+  // before creating the run, and must share the caller's transaction.
+  startInTransaction(date:string,now:number,beforeCreate:()=>void=()=>{}) {
+    this.store.assertTransaction();
     this.store.guard();if(!calendar[date]||latestSession(now)!==date)throw Error('INVALID_TARGET_SESSION');
-    return this.store.tx(()=> {
-      if(this.store.q('SELECT 1 FROM runs WHERE date=?',date).length)return 'DUPLICATE';
-      if(this.store.q("SELECT 1 FROM runs WHERE status IN ('RUNNING','UNCERTAIN_EXECUTION','STATE_ERROR') LIMIT 1").length)throw Error('OVERLAPPING_RUN_BLOCKED');
-      const proof=this.store.validateFullCheckpoint();
-      this.store.q("INSERT INTO runs VALUES (?,'RUNNING',?)",date,now);
-      SYMBOLS.forEach((symbol,i)=>this.store.q("INSERT INTO claims(key,date,symbol,ordinal,status) VALUES (?,?,?,?,'READY')",date+'/'+symbol,date,symbol,i));
-      this.store.certifyCheckpoint(date,proof);return 'STARTED';
-    });
+    if(this.store.q('SELECT 1 FROM runs WHERE date=?',date).length)return 'DUPLICATE';
+    if(this.store.q("SELECT 1 FROM runs WHERE status IN ('RUNNING','UNCERTAIN_EXECUTION','STATE_ERROR') LIMIT 1").length)throw Error('OVERLAPPING_RUN_BLOCKED');
+    const proof=this.store.validateFullCheckpoint();
+    beforeCreate();
+    this.store.q("INSERT INTO runs VALUES (?,'RUNNING',?)",date,now);
+    SYMBOLS.forEach((symbol,i)=>this.store.q("INSERT INTO claims(key,date,symbol,ordinal,status) VALUES (?,?,?,?,'READY')",date+'/'+symbol,date,symbol,i));
+    this.store.certifyCheckpoint(date,proof);return 'STARTED';
   }
   async tick(date:string,now:number,fault?:string) {
     this.store.guard();const run=this.store.q('SELECT * FROM runs WHERE date=?',date)[0];if(!run||run.status!=='RUNNING')return run?.status??'NO_RUN';

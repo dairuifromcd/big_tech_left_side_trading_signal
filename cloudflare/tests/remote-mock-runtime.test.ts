@@ -71,3 +71,21 @@ test('remote entry in local workerd: private bridge, H01, Alarm, kill and persis
     assert.equal(outbound,0);writeTestResult('remote_mock_workerd_results.json',{environment:'LOCAL_WORKERD_ONLY',checks:9,collector_calls:1,outbound_requests:outbound,kill_alarm_cancelled:true,persisted_stop:true,remote_init_security:'LOCAL_PASS',cloud_initialization:'NOT_VERIFIED',actual_cloud_eviction:'NOT_VERIFIED'});
   }finally{await mf.dispose();}
 });
+
+import {buildSync} from 'esbuild';
+import {START_CASES} from './mock-start-atomicity-fixture.ts';
+test('atomic Mock start in real local workerd SQLite',async t=> {
+  let outbound=0;
+  const contents=buildSync({entryPoints:['tests/mock-start-atomicity-worker.ts'],bundle:true,write:false,format:'esm',platform:'neutral',external:['cloudflare:workers','node:crypto']}).outputFiles[0].text;
+  const mf=new Miniflare({host:'127.0.0.1',port:0,cf:false,telemetry:{enabled:false},enableDevRegistry:false,resourcePersistencePath:newLocalPersistence(),resourceTmpPath:resolve('.tmp'),workers:[{config:{name:'atomic-start-local',compatibilityDate:'2026-11-10',compatibilityFlags:['nodejs_compat'],manifest:{mainModule:'atomic.js',modules:{'atomic.js':{type:'esm',contents}}},exports:{AtomicityTest:{type:'durable-object',storage:'sqlite'}},env:{TEST:{type:'durable-object',worker:'atomic-start-local',exportName:'AtomicityTest'}}},dev:{outboundService:{type:'fetcher',handler:()=>{outbound++;throw Error('EXTERNAL_NETWORK_FORBIDDEN');}}}}]});
+  const results:any[]=[];
+  try {
+    await mf.ready;const ns=await mf.getDurableObjectNamespace('TEST');
+    for(const scenario of START_CASES)await t.test(scenario,async()=> {
+      const stub:any=ns.getByName(scenario),result=await stub.exercise(scenario);results.push(result);
+      assert.equal(result.collector_calls,0);assert.equal(outbound,0);
+      assert.equal(result.snapshot_identical,scenario!=='success');
+    });
+    writeTestResult('mock_start_atomicity_workerd_results.json',{environment:'LOCAL_WORKERD_SQLITE',status:'PASS',cases:results,outbound_requests:outbound,collector_calls:0});
+  }finally{await mf.dispose();}
+});

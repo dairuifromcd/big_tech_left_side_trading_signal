@@ -1,3 +1,9 @@
+# Finalization 窗口更新
+
+以下旧窗口为历史方案，已撤回。当前准备/最终模式均禁用；初始化仅在最终候选Brisbane2026-11-16 09:00–09:20（UTC11-15 23:00–23:20），实验硬截止11-17 09:00 Brisbane，control宽限至10:00。两个显式部署和Secrets应在初始化窗口前完成；Stage1未初始化准备窗口的身份核验、Stage2切换及超时停止规则见gate_b_authorization_request.md。Gate B未获授权。
+
+---
+
 # 远程初始化安全设计
 
 REMOTE_INIT_SECURITY_READY: LOCAL_PASS。真实 Cloudflare 初始化 NOT_VERIFIED，Gate B 仍被账户/认证/授权条件阻断。

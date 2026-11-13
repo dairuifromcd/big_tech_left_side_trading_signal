@@ -85,3 +85,14 @@ test('uncertain collection after durable declaration is never recollected',async
   const f=fixture();f.initialize();const h=f.harness;h.start(FIXTURE_DATES[0]);f.store.q("UPDATE claims SET status='REQUEST_CLAIMED',started=? WHERE ordinal=0",f.clock());
   assert.equal(await h.tick(),'UNCERTAIN_EXECUTION');assert.equal(h.source.calls.length,0);assert.equal(h.read().status,'STOPPED');
 });
+
+// Every failed start compares the complete application schema and table contents.
+import {START_CASES,exerciseStart} from './mock-start-atomicity-fixture.ts';
+for(const scenario of START_CASES)test(`atomic Mock start Node SQLite: ${scenario}`,()=> {
+  const f=fixture();try{exerciseStart(f.store,scenario);}finally{f.db.close();}
+});
+test('internal Coordinator start requires the caller to own a Store transaction',()=> {
+  const f=fixture();f.initialize();const before=snapshot(f.store);
+  assert.throws(()=>f.harness.engine.startInTransaction(FIXTURE_DATES[0],START),/START_TRANSACTION_REQUIRED/);
+  assert.equal(snapshot(f.store),before);assert.equal(f.harness.source.calls.length,0);f.db.close();
+});

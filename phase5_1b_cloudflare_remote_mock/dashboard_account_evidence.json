@@ -1,0 +1,19 @@
+{
+  "provenance": "USER_REPORTED_DASHBOARD",
+  "reported_date": "2026-11-13",
+  "timezone": "Australia/Brisbane",
+  "exact_time_utc": "NOT_PROVIDED",
+  "account_reference": "USER_SELECTED_DASHBOARD_ACCOUNT_NO_ID_RETAINED",
+  "agent_viewed_screenshots": false,
+  "workers": {"plan": "Free", "displayed_price_usd": 0, "daily_request_limit": 100000, "count": 1, "candidate_name_conflict_found": false, "candidate_name": "us-stocks-p51b-mock-20261113", "workers_dev_subdomain_configured": true, "account_cron_count": 0, "existing_worker_cron_count": 0, "requests_used": "NOT_PROVIDED"},
+  "durable_objects": {"namespace_count": 0, "reported_daily_requests": 0, "reported_daily_duration_gb_sec": 0, "reported_sql_rows_read": 0, "reported_sql_rows_written": 0, "reported_sql_storage_bytes": 0, "exact_chart_window_timezone": "NOT_PROVIDED"},
+  "displayed_free_limits": {"worker_cpu_ms_per_request": 10, "account_cron_triggers": 5, "do_requests_per_day": 100000, "do_duration_gb_sec_per_day": 13000, "sql_rows_read_per_day": 5000000, "sql_rows_written_per_day": 100000, "sql_storage_gb": 5},
+  "cli_authentication": "NOT_VERIFIED_NO_LOGIN_PERFORMED",
+  "api_account_verification": "NOT_VERIFIED_NO_ACCOUNT_API_CALLS",
+  "deployment_permission": "NOT_VERIFIED",
+  "sqlite_do_creation": "PENDING_REMOTE_TEST",
+  "cloud_cpu_duration_alarm": "PENDING_REMOTE_TEST",
+  "future_shared_quota_available": "NOT_VERIFIED",
+  "no_charge_guarantee": "NOT_VERIFIED",
+  "gate_b_approved": false
+}

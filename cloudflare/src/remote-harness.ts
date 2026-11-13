@@ -43,17 +43,19 @@ export class RemoteHarness {
     this.store.q("UPDATE runs SET status='HALTED',updated=? WHERE status='RUNNING'",this.clock());
   }
   start(fixture:string) {
-    const b=this.active();if(!FIXTURE_DATES.includes(fixture as any))throw Error('MOCK_FIXTURE_NOT_ALLOWED');
-    if(this.store.q('SELECT 1 FROM runs WHERE date=?',fixture).length)return 'DUPLICATE';
-    if(b.runs>=2||b.collectors>=24||b.alarms>=80)throw Error('EXPERIMENT_BUDGET_EXHAUSTED');
-    if(fixture!==FIXTURE_DATES[b.runs])throw Error('FIXTURE_ORDER_REQUIRED');
-    if(this.store.q("SELECT 1 FROM runs WHERE status!='COMPLETE'").length)throw Error('OVERLAPPING_OR_FAILED_RUN_BLOCKED');
-    // No simulated timestamp supplied by the caller. Only this isolated adapter
-    // derives one from its fixed fixture. Coordinator's real-date guard is intact.
-    this.store.validateFullCheckpoint();
-    this.write({...b,runs:b.runs+1,executions:[...b.executions,{fixture_date:fixture,real_started_at_utc:new Date(this.clock()).toISOString()}]});
-    const result=this.engine.start(fixture,calendar[fixture]![1]+1000);
-    this.store.q('UPDATE runs SET updated=? WHERE date=?',this.clock(),fixture);return result;
+    return this.store.tx(()=> {
+      const b=this.active();if(!FIXTURE_DATES.includes(fixture as any))throw Error('MOCK_FIXTURE_NOT_ALLOWED');
+      if(this.store.q('SELECT 1 FROM runs WHERE date=?',fixture).length)return 'DUPLICATE';
+      if(b.runs>=2||b.collectors>=24||b.alarms>=80)throw Error('EXPERIMENT_BUDGET_EXHAUSTED');
+      if(fixture!==FIXTURE_DATES[b.runs])throw Error('FIXTURE_ORDER_REQUIRED');
+      if(this.store.q("SELECT 1 FROM runs WHERE status!='COMPLETE'").length)throw Error('OVERLAPPING_OR_FAILED_RUN_BLOCKED');
+      // No simulated timestamp supplied by the caller. Only this isolated adapter
+      // derives one from its fixed fixture. Coordinator's real-date guard is intact.
+      const result=this.engine.startInTransaction(fixture,calendar[fixture]![1]+1000,()=> {
+        this.write({...b,runs:b.runs+1,executions:[...b.executions,{fixture_date:fixture,real_started_at_utc:new Date(this.clock()).toISOString()}]});
+      });
+      this.store.q('UPDATE runs SET updated=? WHERE date=?',this.clock(),fixture);return result;
+    });
   }
   async tick() {
     try {

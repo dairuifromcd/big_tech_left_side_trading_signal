@@ -1,3 +1,9 @@
+# Finalization 当前计划引用
+
+旧窗口已撤回，以下为原始计划历史。当前候选为Brisbane2026-11-16 09:00至11-17 09:00，准备与最终两种禁用构建模式及详细时序见 gate_b_authorization_request.md / deployment_manifest.json。Gate B未授权，不执行。
+
+---
+
 # 有限 Mock 执行计划
 
 仅本地模拟已执行；以下远程步骤待 Gate B 授权。

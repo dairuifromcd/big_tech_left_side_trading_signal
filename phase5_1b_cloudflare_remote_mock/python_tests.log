@@ -272,6 +272,6 @@ test_relaxed_tolerance_can_hide_tier_boundary_change (tests.test_revision_diagno
 test_short_history_requires_explicit_permission_and_has_null_sma200 (tests.test_revision_diagnostics.ToleranceAndImpactTests.test_short_history_requires_explicit_permission_and_has_null_sma200) ... ok
 
 ----------------------------------------------------------------------
-Ran 271 tests in 19.553s
+Ran 271 tests in 17.167s
 
 OK

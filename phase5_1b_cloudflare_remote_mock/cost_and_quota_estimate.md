@@ -13,3 +13,7 @@ Worker 10ms CPU 是重要待验证风险：桥只做鉴权/小请求转发，指
 仅当前账户已核实 Workers Free、SQLite DO 可用、共享剩余额度足够时，预期新增应付费用为 $0；这不是费用保证。当前费用结论仅 DOCS_ONLY_VERIFIED，不批准任何付费升级。公开入口的无效请求也可耗账户免费请求，不能从应用内部消除；需用户评估与批准。
 
 Gate B 前不能用本地结果推算已验证的每月/每年成本。后续应从单次真实用量分别推算约 21 交易日/月和 252/年，并计入报告读取、复核、历史/备份增长和账户其他项目；备份不在本阶段开启。
+
+## 2026-11-13 Finalization 更新（取代上方当前账户未知的旧结论）
+
+Workers Free / US$0、DO 用量0与namespace0来自 USER_REPORTED_DASHBOARD；不是代理 API/CLI 核验。Workers 已用请求、精确图表窗口和未来共享额度仍 NOT_VERIFIED。最新本地计数以 remote_mock_local_results.json 为准，SQL计数不代表平台计费行数。当前仅可条件预计 US$0，不保证无费用；真实CPU、Duration、SQL/Alarm计费 PENDING_REMOTE_TEST。官方 [DO pricing](https://developers.cloudflare.com/durable-objects/platform/pricing/)说明 Free 仅支持 SQLite，额度每日00:00 UTC重置，超过额度会拒绝相关操作。候选窗口 Brisbane 11-16 09:00至11-17 09:00（UTC 11-15 23:00至11-16 23:00），需按两个UTC日分别评估。准备阶段、控制宽限及其他项目也可能消耗共享额度；优先当天上午停止。不得自动升级、付费或保证未来余额。

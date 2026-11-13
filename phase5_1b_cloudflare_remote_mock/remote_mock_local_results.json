@@ -18,7 +18,7 @@
   ],
   "real_yahoo_requests": 0,
   "cloud_metrics": "NOT_VERIFIED",
-  "local_sql_statements": 4510,
-  "local_query_rows_returned": 7012,
+  "local_sql_statements": 4482,
+  "local_query_rows_returned": 6913,
   "local_sqlite_page_bytes": 737280
 }

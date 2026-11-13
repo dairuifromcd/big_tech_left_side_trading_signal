@@ -1,0 +1,314 @@
+{
+  "checked_at_utc": "2026-11-13T00:05:34.833717+00:00",
+  "scope": "LOCAL_HELP_SCHEMA_ONLY",
+  "project_cf_version": "1.0.0-beta.29",
+  "node": "project node22.23.0",
+  "plugin_calls_this_followup": 0,
+  "authentication_started": false,
+  "profiles_created": 0,
+  "authenticated_cloud_api_calls": 0,
+  "remote_mutations": 0,
+  "outside_project_changes": 0,
+  "project_config_file_count": 0,
+  "project_dotenv_present": false,
+  "root_dotenv_present": false,
+  "api_token_env_present": false,
+  "commands": [
+    {
+      "command": "cf --version",
+      "exit_code": 0,
+      "output": "1.0.0-beta.29\n",
+      "stderr": ""
+    },
+    {
+      "command": "cf auth login --help",
+      "exit_code": 0,
+      "output": "cf auth login\n\nAuthenticate with Cloudflare\n\nGlobal flags\n  -q, --quiet       Suppress non-essential output     [boolean] [default: false]\n  -z, --zone        Zone ID or domain name (overrides CLOUDFLARE_ZONE_ID)\n                                                                        [string]\n      --profile     Use a specific auth profile                         [string]\n  -m, --mode        Mode used to evaluate project configuration         [string]\n      --local       Use local resource simulations    [boolean] [default: false]\n      --persist-to  Directory holding local persisted state (default:\n                    .cloudflare/state next to cloudflare.config.ts)     [string]\n  -h, --help        Show help                                          [boolean]\n  -v, --version     Show version number                                [boolean]\n\nOptions\n      --dry-run      Parse arguments and show the command without executing it\n                                                      [boolean] [default: false]\n  -f, --force        Force re-authentication even if already logged in\n                                                      [boolean] [default: false]\n      --browser      Open the authorization link in a browser (use --no-browser\n                     to print it instead)              [boolean] [default: true]\n      --device       Use OAuth device authorization (use --no-device for the\n                     localhost callback flow)          [boolean] [default: true]\n      --scopes       The set of OAuth scopes to request                  [array]\n      --use-keyring  Encrypt OAuth credentials using the OS keychain (persisted\n                     across invocations; use --no-use-keyring to disable)\n                                                                       [boolean]\n",
+      "stderr": ""
+    },
+    {
+      "command": "cf auth create --help",
+      "exit_code": 0,
+      "output": "cf auth create <name>\n\nCreate or re-authenticate a named auth profile\n\nPositionals\n  name  Name for the auth profile                            [string] [required]\n\nGlobal flags\n  -q, --quiet       Suppress non-essential output     [boolean] [default: false]\n  -z, --zone        Zone ID or domain name (overrides CLOUDFLARE_ZONE_ID)\n                                                                        [string]\n      --profile     Use a specific auth profile                         [string]\n  -m, --mode        Mode used to evaluate project configuration         [string]\n      --local       Use local resource simulations    [boolean] [default: false]\n      --persist-to  Directory holding local persisted state (default:\n                    .cloudflare/state next to cloudflare.config.ts)     [string]\n  -h, --help        Show help                                          [boolean]\n  -v, --version     Show version number                                [boolean]\n\nOptions\n      --dry-run  Parse arguments and show the command without executing it\n                                                      [boolean] [default: false]\n      --browser  Open the authorization link in a browser (use --no-browser to\n                 print it instead)                     [boolean] [default: true]\n      --device   Use OAuth device authorization (use --no-device for the\n                 localhost callback flow)              [boolean] [default: true]\n      --scopes   The set of OAuth scopes to request                      [array]\n",
+      "stderr": ""
+    },
+    {
+      "command": "cf schema accounts list",
+      "exit_code": 0,
+      "output": {
+        "operationId": "accounts.list",
+        "httpMethod": "GET",
+        "path": "/accounts",
+        "pathParams": [],
+        "queryParams": [
+          {
+            "name": "name",
+            "flag": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "page",
+            "flag": "page",
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "per_page",
+            "flag": "per-page",
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "direction",
+            "flag": "direction",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "hasRequestBody": false,
+        "requestBodyFields": []
+      },
+      "stderr": ""
+    },
+    {
+      "command": "cf schema accounts subscriptions get",
+      "exit_code": 0,
+      "output": {
+        "operationId": "accounts.subscriptions.get",
+        "httpMethod": "GET",
+        "path": "/{account_or_zone}/{account_or_zone_id}/subscriptions",
+        "pathParams": [
+          {
+            "name": "account_or_zone",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "account_or_zone_id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyFields": []
+      },
+      "stderr": ""
+    },
+    {
+      "command": "cf schema accounts entitlements get",
+      "exit_code": 0,
+      "output": {
+        "operationId": "accounts.entitlements.get",
+        "httpMethod": "GET",
+        "path": "/{account_or_zone}/{account_or_zone_id}/entitlements",
+        "pathParams": [
+          {
+            "name": "account_or_zone",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "account_or_zone_id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyFields": []
+      },
+      "stderr": ""
+    },
+    {
+      "command": "cf schema workers list",
+      "exit_code": 0,
+      "output": {
+        "operationId": "workers.list",
+        "httpMethod": "GET",
+        "path": "/accounts/{account_id}/workers/workers",
+        "pathParams": [
+          {
+            "name": "account_id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "page",
+            "flag": "page",
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "per_page",
+            "flag": "per-page",
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "order_by",
+            "flag": "order-by",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "order",
+            "flag": "order",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "hasRequestBody": false,
+        "requestBodyFields": []
+      },
+      "stderr": ""
+    },
+    {
+      "command": "cf schema workers get",
+      "exit_code": 0,
+      "output": {
+        "operationId": "workers.get",
+        "httpMethod": "GET",
+        "path": "/accounts/{account_id}/workers/workers/{worker_id}",
+        "pathParams": [
+          {
+            "name": "account_id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "worker_id",
+            "flag": "worker",
+            "positional": true,
+            "type": "string",
+            "required": true
+          }
+        ],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyFields": []
+      },
+      "stderr": ""
+    },
+    {
+      "command": "cf schema durable-objects namespaces list",
+      "exit_code": 0,
+      "output": {
+        "operationId": "durable-objects.namespaces.list",
+        "httpMethod": "GET",
+        "path": "/accounts/{account_id}/workers/durable_objects/namespaces",
+        "pathParams": [
+          {
+            "name": "account_id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "page",
+            "flag": "page",
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "per_page",
+            "flag": "per-page",
+            "type": "number",
+            "required": false
+          }
+        ],
+        "hasRequestBody": false,
+        "requestBodyFields": []
+      },
+      "stderr": ""
+    },
+    {
+      "command": "cf schema billing usage get-info-v1",
+      "exit_code": 0,
+      "output": {
+        "operationId": "billing.usage.get-info-v1",
+        "httpMethod": "GET",
+        "path": "/accounts/{account_id}/billable-usage/info",
+        "pathParams": [
+          {
+            "name": "account_id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyFields": []
+      },
+      "stderr": ""
+    },
+    {
+      "command": "cf schema billing usage get-account-usage-v2",
+      "exit_code": 0,
+      "output": {
+        "operationId": "billing.usage.get-account-usage-v2",
+        "httpMethod": "GET",
+        "path": "/accounts/{account_id}/billable/usage",
+        "pathParams": [
+          {
+            "name": "account_id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "from",
+            "flag": "from",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "to",
+            "flag": "to",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "hasRequestBody": false,
+        "requestBodyFields": []
+      },
+      "stderr": ""
+    },
+    {
+      "command": "cf workers scripts --help",
+      "exit_code": 0,
+      "output": "cf workers scripts\n\nWorker script operations including usage model, settings, content, tags,\nschedules, subdomains, and queue consumers\n\nCommands\n  cf workers scripts search  Search Worker Scripts\n\nGlobal flags\n  -q, --quiet       Suppress non-essential output     [boolean] [default: false]\n  -z, --zone        Zone ID or domain name (overrides CLOUDFLARE_ZONE_ID)\n                                                                        [string]\n      --profile     Use a specific auth profile                         [string]\n  -m, --mode        Mode used to evaluate project configuration         [string]\n      --local       Use local resource simulations    [boolean] [default: false]\n      --persist-to  Directory holding local persisted state (default:\n                    .cloudflare/state next to cloudflare.config.ts)     [string]\n  -h, --help        Show help                                          [boolean]\n  -v, --version     Show version number                                [boolean]\n",
+      "stderr": ""
+    }
+  ],
+  "auth_proposal": {
+    "executed": false,
+    "profile": "p51b-readonly",
+    "explicit_oauth_scopes": [
+      "user:read",
+      "account:read",
+      "billing:read",
+      "workers:read",
+      "account-analytics.read"
+    ],
+    "automatic_scope": "offline_access",
+    "config_root": "cloudflare/.home/cloudflare",
+    "credential_file": "cloudflare/.home/cloudflare/config/p51b-readonly.json",
+    "keyring_proposed": false,
+    "directory_activation_proposed": false
+  },
+  "scope_source_sha256": {
+    "cf-DmvZ2L51.mjs": "ed853867d3ec6fcdabc925556a587affa59715173796cb6271cdb2d8ba138d90",
+    "chunk-Q5KVZMHK-WOCEMyET.mjs": "49249b9c6e58f55cccf80ef408b210ab75978e5575df2d194fa58ccd694691d9"
+  },
+  "pinned_cli_gaps": {
+    "workers scripts schedules --help": "Unknown command",
+    "workers scripts subdomains --help": "Unknown command",
+    "usage_api": "Alpha/Restricted; account support not verified"
+  }
+}

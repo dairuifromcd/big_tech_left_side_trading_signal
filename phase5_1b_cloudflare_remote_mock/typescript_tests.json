@@ -1,10 +1,12 @@
 {
-  "environment": "LOCAL_NODE_AND_WORKERD",
-  "baseline_preserved": 203,
-  "added": 38,
-  "tests": 241,
-  "pass": 241,
+  "tests": 281,
+  "pass": 281,
   "fail": 0,
   "cancelled": 0,
-  "skipped": 0
+  "skipped": 0,
+  "todo": 0,
+  "baseline_total": 241,
+  "baseline_tests_retained": true,
+  "missing_baseline_test_names": [],
+  "added": 40
 }

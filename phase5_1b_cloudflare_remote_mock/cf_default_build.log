@@ -6,7 +6,7 @@ transforming...
 rendering chunks...
 computing gzip size...
 .cloudflare/output/v0/workers/default/bundle/.vite/manifest.json    0.15 kB │ gzip:   0.11 kB
-.cloudflare/output/v0/workers/default/bundle/index.js             526.82 kB │ gzip: 134.28 kB │ map: 142.68 kB
+.cloudflare/output/v0/workers/default/bundle/index.js             527.19 kB │ gzip: 134.36 kB │ map: 143.52 kB
 
-[32m✓ built in 34ms[39m
+[32m✓ built in 62ms[39m
 ◆  Build complete

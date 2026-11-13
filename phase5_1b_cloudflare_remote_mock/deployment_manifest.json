@@ -1,7 +1,7 @@
 {
   "task": "PHASE_5_1B_CLOUDFLARE_REMOTE_MOCK_POC",
   "gate": "A",
-  "status": "PARTIAL_DRAFT_ACCOUNT_UNRESOLVED",
+  "status": "READY_FOR_GATE_B_AUTHORIZATION_REVIEW",
   "can_execute_gate_b": false,
   "generated_at_utc": "2026-11-12T23:34:24.597165+00:00",
   "authorization": {
@@ -10,20 +10,23 @@
     "expired_window_requires_new_approval": true
   },
   "target_account": {
-    "masked_reference": "UNRESOLVED_NO_ACCOUNT_SELECTED",
-    "verification": "NOT_VERIFIED",
-    "plan": "NOT_VERIFIED",
-    "free_tier_eligibility": "DOCS_ONLY_VERIFIED",
-    "remaining_quota": "NOT_VERIFIED",
+    "masked_reference": "USER_SELECTED_DASHBOARD_ACCOUNT_NO_ID_RETAINED",
+    "verification": "USER_REPORTED_DASHBOARD",
+    "plan": "Free — USER_REPORTED_DASHBOARD",
+    "free_tier_eligibility": "USER_REPORTED_DASHBOARD_PLUS_OFFICIAL_DOCS_SQLITE_ONLY",
+    "remaining_quota": "DO_REPORTED_ZERO_AT_DASHBOARD_CHECK; WORKERS_USED_AND_EXACT_UTC_WINDOW_NOT_PROVIDED; FUTURE_SHARED_QUOTA_NOT_VERIFIED",
     "plugin": "User confirmed connected; tool metadata appeared but search/whoami/docs returned Unknown tool; namespace subsequently removed",
-    "cli_project_auth": "ABSENT_NO_LOGIN_PERFORMED"
+    "cli_project_auth": "NOT_VERIFIED_NO_LOGIN_PERFORMED",
+    "evidence": "dashboard_account_evidence.json",
+    "deployment_permission": "NOT_VERIFIED"
   },
   "resources": {
     "worker": {
       "candidate_name": "us-stocks-p51b-mock-20261113",
       "final_name": null,
-      "collision_checked": false,
-      "max_count": 1
+      "collision_checked": true,
+      "max_count": 1,
+      "collision_evidence": "USER_REPORTED_DASHBOARD 2026-11-13; recheck before Gate B"
     },
     "durable_object": {
       "class": "RemoteMockCoordinator",
@@ -32,28 +35,36 @@
       "instance_count": 1,
       "object_name": "phase51b-synthetic-20261113-v1",
       "object_id": "NOT_CREATED_OR_VERIFIED",
-      "naming_rule": "COORDINATOR.idFromName(fixed object name); never accept arbitrary object names or IDs from HTTP routing"
+      "naming_rule": "COORDINATOR.idFromName(fixed object name); never accept arbitrary object names or IDs from HTTP routing",
+      "account_namespace_baseline": {
+        "count": 0,
+        "provenance": "USER_REPORTED_DASHBOARD"
+      }
     },
     "extra_admin_worker": false,
     "production_domain": false
   },
   "code_version": {
-    "baseline_head": "b1fd17df1ef1ff1832e87947d141ff4cac7be3a5",
+    "baseline_head": "44fa349b7d4cb5f6cc1c498d224c967cefd99984",
     "uncommitted_changes": true,
-    "reviewed_code_sha256": "7ff45034b20d88946abac0c91179ffbc1877d5f64c51666a710e76e329b6928c",
-    "bundle_sha256": "9d7840912c19cf0037101c292b752200770007550d342a40c0de51c4afc201fc",
-    "bundle_bytes": 155597,
+    "reviewed_code_sha256": "d0a0854cbbb8ef87b0a9c424c799debe2cc5be88abed101c3492b521e3fcb4e2",
+    "bundle_sha256": "4dd23002f2548f7d29035fdfa10d5e26cf3e5a1c7769786bac88ab6671da8976",
+    "bundle_bytes": 156016,
     "build_mode": "p51b-mock",
     "cf_version": "1.0.0-beta.29",
-    "changes_before_gate_b": "Only explicitly approved name/account/window/enable/target-ID bindings; otherwise stop and re-review",
-    "no_git_commit_or_push": true
+    "changes_before_gate_b": "Only reviewed two-stage pre-initialization window/enable/exact-ID/secret configuration; rebuild and audit each config variant before deployment; no persisted-window extension",
+    "no_git_commit_or_push": true,
+    "worker_config_sha256": "50613ebf5a5d4f1ebe0b07c83fbf1503f35deb85dcf833af336120bfe467a5cd",
+    "preparation_build_mode": "p51b-identity-prep",
+    "preparation_worker_config_sha256": "7e4a0b00c7054f9a04665ba09a31e149ed37bc4794b9f47ae4e34c1b0b20cd3c",
+    "preparation_bundle_sha256": "4dd23002f2548f7d29035fdfa10d5e26cf3e5a1c7769786bac88ab6671da8976"
   },
   "bindings": {
     "COORDINATOR": "same Worker RemoteMockCoordinator namespace",
     "REMOTE_MOCK_ENABLED": "Currently DISABLED_PENDING_GATE_B; explicit activation required",
-    "MOCK_START_UTC": "2026-11-14T00:00:00Z",
-    "MOCK_END_UTC": "2026-11-15T00:00:00Z",
-    "MOCK_INIT_END_UTC": "2026-11-14T00:20:00Z",
+    "MOCK_START_UTC": "2026-11-15T23:00:00Z",
+    "MOCK_END_UTC": "2026-11-16T23:00:00Z",
+    "MOCK_INIT_END_UTC": "2026-11-15T23:20:00Z",
     "MOCK_INIT_ENABLED": "Absent now; stage2 only EXPLICIT_ISOLATED_MOCK_V1; revoke after init",
     "MOCK_INIT_OBJECT_ID": "Absent now; must equal real ctx.id and command target"
   },
@@ -80,49 +91,46 @@
   "permissions": {
     "verified_grants": [],
     "readonly_needed": [
-      "account/plan/subscriptions read",
-      "Workers and DO metadata read",
-      "schedules/subdomain read",
-      "per-resource metrics/logs read"
+      "Individual Worker Metadata Read-Only for target Worker/DO metrics; dashboard for account-level plan/usage"
     ],
     "write_needed_after_approval": [
-      "create one dedicated Worker and SQLite class/namespace",
-      "edit/deploy only that Worker",
-      "put/delete only three named secrets and approved text bindings",
-      "invoke only the fixed instance management RPC through protected HTTP",
-      "stop/cancel Alarm only this object"
+      "Initial creation: target-account Workers product Admin (all Workers scope); recommended user manual bootstrap, not implicit agent grant",
+      "Existing dedicated Worker: Individual Workers Editor for deployments/bindings and three Secrets put/delete",
+      "DO exports/namespace inherits implementing Worker role; no separate DO write role",
+      "Data-plane init/start/stop only fixed object via three short-lived scoped application Secrets"
     ],
-    "exact_endpoint_grants": "NOT_VERIFIED; validate current API schema and existing OAuth before execution; never expand OAuth automatically",
-    "project_cf_authentication": "Needs separately explained and explicitly approved project-local credential flow; never read personal auth files or export plugin secrets"
+    "exact_endpoint_grants": "OFFICIAL_DOCS_ROLE_MAPPING_ONLY; lock-version cf granular token compatibility NOT_VERIFIED; stop on missing or broader rights",
+    "project_cf_authentication": "Design only: project-isolated process API Token preferred after separate approval; no credential file by default; no readonly Profile/OAuth/personal auth read",
+    "authentication_plan": "gate_b_authentication_plan.md",
+    "bootstrap_requires_separate_decision": true
   },
   "planned_remote_operations": [
     {
       "stage": 0,
       "kind": "READ_ONLY",
       "operations": [
-        "verify account and actual Free plan, SQLite availability",
-        "list/paginate Worker/DO/Cron metadata, names, URL, usage and permissions; store only relevant masked summaries"
+        "User Dashboard recheck of selected account/Free/shared quotas/candidate name/workers.dev/Cron with exact time; no new readonly OAuth Profile",
+        "Review chosen bootstrap permission path and endpoint requirements; no actual API account result claimed"
       ]
     },
     {
       "stage": 1,
       "kind": "WRITE_REQUIRES_GATE_B",
       "operations": [
-        "cf deploy --mode p51b-mock --provision=false using approved account and project-local authentication",
-        "create only candidate dedicated Worker, one SQLite class/namespace; no other binding resource types",
-        "upload control/report secrets, activate short-lived authenticated bridge with H01 init flag absent",
-        "read fixed instance identity and empty-storage eligibility; do not delete remnants"
+        "After separate approval, first explicit deployment preferably by user with existing Dashboard session, otherwise separately approved short-lived Workers product Admin token and locked cf",
+        "Create only the dedicated Worker and SQLite exports namespace; use reviewed preparation window, no H01 flag or init Secret",
+        "Configure control/report Secrets; read fixed instance identity only during preparation window and require empty SQL/native storage and Alarm=null",
+        "If manual upload cannot preserve cf exports or granular cf requires extra scopes, stop and re-review; no automatic fallback"
       ]
     },
     {
       "stage": 2,
       "kind": "WRITE_REQUIRES_GATE_B",
       "operations": [
-        "second cf deployment of same code and approved exact-object-ID/H01 policy only",
-        "upload one-time init secret",
-        "call initializeIsolatedMock exactly once with complete command",
-        "read receipt/schema/audit; reject replay; if uncertain use readonly reconciliation, never re-init",
-        "delete init Secret and disable init flag, recording any implicit version/deployment effects"
+        "Second and final explicit deployment: same reviewed bundle, final window bindings and exact object-ID/H01 flag; ready by 08:45 Brisbane",
+        "Configure one-time init Secret before final window; initialize only 09:00–09:20 Brisbane",
+        "Persist final window exactly once; read receipt/schema/audit; uncertain outcome requires read-only reconciliation, never re-init",
+        "Delete init Secret after receipt; disable init flag only without a third explicit deployment. Otherwise retain expired flag, receipt replay guard and no init Secret; record actual state."
       ]
     },
     {
@@ -139,9 +147,9 @@
       "stage": 4,
       "kind": "WRITE_REQUIRES_GATE_B",
       "operations": [
-        "export masked evidence and actual per-resource metrics",
-        "revoke control/report Secret and any init capability",
-        "retain stopped dedicated Worker/namespace/storage for review; no remote deletion authorized by this draft"
+        "Export masked evidence and real per-resource metrics",
+        "Persist STOPPED and verify Alarm=null; revoke all three application Secrets and temporary control-plane grants",
+        "Retain isolated Worker/namespace/synthetic evidence; no deletion. If flag removal requires extra explicit deployment, stop that change and record expired disabled capability."
       ]
     }
   ],
@@ -153,13 +161,13 @@
     "dry_run_command": "node cloudflare/scripts/local.mjs remote-dry-run",
     "dry_run_effect": "Local build and validation only, no API/credentials per official docs",
     "pre_deploy_requirements": [
-      "account and names verified",
-      "exact auth scope verified",
-      "diff of reviewed code accepted",
-      "temporary HTTP admin bridge explicitly approved",
-      "all generated bindings/resources match this manifest",
-      "free eligibility and remaining shared quotas adequate",
-      "existing approved workers.dev subdomain; do not create or modify an account-level subdomain"
+      "Explicit Gate B approval of exact resource/two-stage window/bridge/cleanup and authentication path",
+      "User selected account plus exact Dashboard recheck time, candidate name and existing workers.dev; no account subdomain creation",
+      "Accept reviewed source/bundle hashes; both stage modes locally built disabled; after approval audit the exact enabled/ID/Secret configuration before each deployment",
+      "Confirm actual narrow per-Worker token accepted by required cf endpoints or keep manual deployment; no automatic scope expansion",
+      "Prepare both explicit deployments and three Secrets before final init window",
+      "Sufficient shared quotas; current Workers used requests not supplied; no paid upgrade",
+      "If any unexpected resource/version/deployment/permission effect arises: stop and re-review"
     ],
     "current_config_enabled": false,
     "no_account_subdomain_creation": true
@@ -202,10 +210,10 @@
       "2026-11-06",
       "2026-11-09"
     ],
-    "start_utc": "2026-11-14T00:00:00Z",
-    "end_exclusive_utc": "2026-11-15T00:00:00Z",
-    "init_end_exclusive_utc": "2026-11-14T00:20:00Z",
-    "stop_status_grace_end_exclusive_utc": "2026-11-15T01:00:00Z",
+    "start_utc": "2026-11-15T23:00:00Z",
+    "end_exclusive_utc": "2026-11-16T23:00:00Z",
+    "init_end_exclusive_utc": "2026-11-15T23:20:00Z",
+    "stop_status_grace_end_exclusive_utc": "2026-11-17T00:00:00Z",
     "max_window_seconds": 86400,
     "max_runs": 2,
     "symbols_per_run": 12,
@@ -216,7 +224,25 @@
     "pacing": "real finished +5s globally; extra30s per batch boundary",
     "platform_alarm_caveat": "At-least-once deliveries may include late/in-flight callbacks; 80 is processing budget, not a guarantee on platform-billed delivery count; stop early on unexpected repeats",
     "real_execution_time_separate_from_fixture_time": true,
-    "window_revision": "Previous unapproved Nov13 candidate withdrawn; this Nov14 proposal requires approval, no automatic extension"
+    "window_revision": "Withdraw unapproved Nov14 window; future candidate only, disabled in checked-in config; requires explicit authorization; no automatic activation or extension",
+    "brisbane_window": "2026-11-16 09:00 to 2026-11-17 09:00 UTC+10",
+    "initialization_timing": {
+      "full_deployment_in_20_minutes": "NOT_ASSUMED_SUFFICIENT",
+      "stage1_uninitialized_preparation_bindings": {
+        "MOCK_START_UTC": "2026-11-15T22:00:00Z",
+        "MOCK_END_UTC": "2026-11-16T22:00:00Z",
+        "MOCK_INIT_END_UTC": "2026-11-15T22:20:00Z",
+        "MOCK_INIT_ENABLED": "ABSENT",
+        "MOCK_INIT_TOKEN": "ABSENT"
+      },
+      "stage1_identity_brisbane": "2026-11-16 08:00 to 08:15",
+      "stage2_ready_by_brisbane": "2026-11-16 08:45",
+      "final_init_brisbane": "2026-11-16 09:00 to 09:20",
+      "invariant": "Stage1 never initializes or starts a fixture; stage2 changes window before persistence. Any existing receipt/state/alarm blocks progression. Both deployments and Secrets completed before final init window. Missed deadline aborts; no third deployment or persisted deadline extension.",
+      "stage1_variant_currently_built": true,
+      "stage1_variant_future_requirement": "Current disabled preparation mode locally built/audited; after Gate B approval, rebuild and compare exact enabled configuration before first deployment",
+      "stage1_build_mode": "p51b-identity-prep"
+    }
   },
   "kill_switch": {
     "verification": "LOCAL_PASS",
@@ -240,27 +266,29 @@
   },
   "cost": {
     "account_billing_verified": false,
-    "expected_incremental_cost": "$0 only conditional on verified Free eligibility and sufficient shared quotas; not guaranteed",
+    "expected_incremental_cost": "Conditional expected US$0 only under actual Free plan/adequate shared quotas; no zero-cost guarantee",
     "paid_upgrade_authorized": false,
     "fee_trigger_action": "STOP_NO_UPGRADE",
     "quota_shared_with_other_projects": true,
     "public_endpoint_invalid_requests_consume_quota": true,
     "local_sqlite_page_bytes": 737280,
     "cloud_cpu_duration_memory_rows_requests": "NOT_VERIFIED",
-    "docs_review_utc_date": "2026-11-12"
+    "docs_review_utc_date": "2026-11-13",
+    "account_plan_evidence": "USER_REPORTED_DASHBOARD Workers Free US$0; not API/CLI verified",
+    "full_day_duration_caveat": "0.128 GB ×86400 =11059.2 GB-s illustration excludes preparation/grace/other projects; not a cloud measurement or billing cap"
   },
   "cleanup": {
     "proposal": "STOP_REVOKE_AND_RETAIN",
     "actions": [
-      "persist STOPPED and cancel only target Alarm",
-      "read/export relevant evidence",
-      "revoke three named secrets and init flag",
-      "retain stopped Worker/namespace/SQLite for review"
+      "Persist STOPPED; cancel only target Alarm; read/export masked synthetic evidence and actual metrics",
+      "Revoke three named application Secrets and temporary control-plane grants; remove init flag only if no third explicit deployment is required, otherwise preserve receipt/time denial and record flag",
+      "Retain stopped dedicated Worker/namespace/SQLite for review; no automatic deletion"
     ],
     "retained_storage_consumes_quota": true,
     "worker_or_namespace_deletion": "Not included; exact identities and verified deletion/migration plan need separate explicit approval",
     "worker_deletion_is_not_proof_of_do_storage_deletion": true,
-    "rollback": "stop and revoke scoped credentials without resetting state or reinitializing; emergency dedicated-Worker disable only if explicitly approved; never touch other projects"
+    "rollback": "stop and revoke scoped credentials without resetting state or reinitializing; emergency dedicated-Worker disable only if explicitly approved; never touch other projects",
+    "optional_alternative": "FULL_CLEANUP_AFTER_REVIEW — separate exact identity/export/no-other-bindings/official deletion or migration plan and explicit irreversible-deletion approval required; see gate_b_authorization_request.md"
   },
   "gate_a_counters": {
     "cloudflare_remote_mutations": 0,
@@ -280,12 +308,26 @@
     "remote_mock_local_results.json",
     "remote_mock_workerd_results.json",
     "protected_files_verification.json",
-    "cf_remote_dry_run.log"
+    "cf_remote_dry_run.log",
+    "dashboard_account_evidence.json",
+    "mock_start_atomicity_workerd_results.json",
+    "mock_start_atomicity_review.md",
+    "gate_b_authentication_plan.md",
+    "gate_b_authorization_request.md",
+    "test_results.json",
+    "completion_handoff.md",
+    "finalization_baseline.json",
+    "preparation_build_audit.json",
+    "cf_preparation_dry_run.log"
   ],
   "authorization_blockers": [
-    "No verified target account/plan/remaining quota/name/URL",
-    "Plugin tool calls failed and namespace removed",
-    "No project-local cf authentication or approved authentication setup",
-    "Temporary HTTP bridge/resources/window/credentials/stop-retain cleanup not explicitly approved"
-  ]
+    "Gate B explicit approval not granted",
+    "No final masked account selection record/actual URL/namespace/object ID; dashboard precise time and near-execution shared quota recheck needed",
+    "Bootstrap authentication decision needed: recommended user manual first deploy; agent first creation needs separately approved product-level Workers Admin",
+    "No actual grants or cf granular-token compatibility verification; do not expand permissions on failure",
+    "Both disabled stage modes locally audited; enabled/exact-ID/Secret configuration still requires approved local build audit before deployment",
+    "Real SQLite/CPU/Duration/Alarm/usage remain PENDING_REMOTE_TEST; no fee guarantee"
+  ],
+  "generated_at_local_date": "2026-11-13 Australia/Brisbane",
+  "gate_b_approved": false
 }

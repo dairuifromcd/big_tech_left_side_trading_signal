@@ -47,10 +47,10 @@
     "../../../../../../src/remote-harness.ts",
     "../../../../../../src/remote-worker.ts"
   ],
-  "bundle_bytes": 155597,
-  "bundle_sha256": "9d7840912c19cf0037101c292b752200770007550d342a40c0de51c4afc201fc",
-  "worker_config_sha256": "44ed9453eefcc3029ece4c76081305e9356cf0cf99a39723b56943ee211078a0",
-  "reviewed_code_sha256": "7ff45034b20d88946abac0c91179ffbc1877d5f64c51666a710e76e329b6928c",
+  "bundle_bytes": 156016,
+  "bundle_sha256": "4dd23002f2548f7d29035fdfa10d5e26cf3e5a1c7769786bac88ab6671da8976",
+  "worker_config_sha256": "50613ebf5a5d4f1ebe0b07c83fbf1503f35deb85dcf833af336120bfe467a5cd",
+  "reviewed_code_sha256": "d0a0854cbbb8ef87b0a9c424c799debe2cc5be88abed101c3492b521e3fcb4e2",
   "worker_config": {
     "name": "us-stocks-p51b-mock-20261113",
     "compatibilityDate": "2026-11-10",
@@ -69,15 +69,15 @@
       },
       "MOCK_START_UTC": {
         "type": "text",
-        "value": "2026-11-14T00:00:00Z"
+        "value": "2026-11-15T23:00:00Z"
       },
       "MOCK_END_UTC": {
         "type": "text",
-        "value": "2026-11-15T00:00:00Z"
+        "value": "2026-11-16T23:00:00Z"
       },
       "MOCK_INIT_END_UTC": {
         "type": "text",
-        "value": "2026-11-14T00:20:00Z"
+        "value": "2026-11-15T23:20:00Z"
       }
     },
     "exports": {

@@ -44,6 +44,7 @@ export function register(ledger:R,id:string,event:R,index=false) {
 }
 export class Store {
   reads=0;writes=0;statements=0;fullValidations=0;
+  private transactionDepth=0;
   constructor(readonly db:Backend, readonly objectId?:string, readonly evidenceOrigin:'MOCK_POINT_IN_TIME'|'MOCK_ONLY_SYNTHETIC_V1'='MOCK_POINT_IN_TIME') {}
   setup() {
     // Creating empty schema does not initialize monitoring state or a baseline.
@@ -64,7 +65,11 @@ export class Store {
   private readonly protectedTables=['states','events','evidence','history','meta','initialization_audit'];
   private triggerSql(table:string,action:string) {return `CREATE TRIGGER checkpoint_${table}_${action.toLowerCase()} AFTER ${action} ON ${table} BEGIN UPDATE checkpoint_control SET generation=generation+1 WHERE id=1; END`;}
   q(sql:string,...args:any[]) {this.statements++;const c=this.db.sql.exec(sql,...args);const rows=c.toArray();this.reads+=c.rowsRead??rows.length;this.writes+=c.rowsWritten??0;return rows;}
-  tx<T>(f:()=>T) {return this.db.transactionSync(f);}
+  tx<T>(f:()=>T) {return this.db.transactionSync(()=> {
+    this.transactionDepth++;
+    try{return f();}finally{this.transactionDepth--;}
+  });}
+  assertTransaction() {if(!this.transactionDepth)throw Error('START_TRANSACTION_REQUIRED');}
   initialized() {return this.q("SELECT 1 FROM sqlite_master WHERE type='table' AND name='meta'").length>0 && this.q("SELECT value FROM meta WHERE key='receipt'").length>0;}
   initialize(receipt:InitializationReceipt=localTestReceipt(), fault?:'after_schema'|'after_receipt', bootstrap?:()=>void) {
     this.tx(()=> {

@@ -4,6 +4,7 @@
   "default_admin_policy_present": false,
   "default_testing_binding_present": false,
   "default_report_secret_present": false,
+  "bundle_sha256": "4fa3f652a0a585c21885ea6a6422f58f4b0de6971f21c01604be4c7b566b2f49",
   "worker_config": {
     "name": "us-stocks-phase51-offline",
     "compatibilityDate": "2026-11-10",

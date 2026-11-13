@@ -14,3 +14,7 @@
 失败恢复：不确定初始化只读核验，未知状态不重试初始化；运行失败 stop+取消 Alarm+撤销本实验凭据，不 reset 数据或覆盖 checkpoint。若配额令 DO stop 写失败，使用事先批准的专用 Worker 停用/凭据撤销；具体 API/版本语义未获核验前不得执行。Gate B 授权不包括账户设置、付费、全局认证、其他项目资源。
 
 本计划的可逆恢复方式是禁用执行入口并保留证据，恢复执行必须另行批准；不会把回滚旧版本当作清除持久化 STOPPED 或延长窗口的手段。
+
+## Finalization 当前方案
+
+默认仍为 STOP_REVOKE_AND_RETAIN，所有远程动作未授权、未执行。最新精确步骤及可选 FULL_CLEANUP_AFTER_REVIEW 见 gate_b_authorization_request.md。删除资源须另批；不能将删除 Worker 等同于删除 DO 持久化数据。最多两次显式部署，若移除 init flag 要第三次部署，不执行；通过撤销 init Secret、已持久化一次性 receipt 和 initEnd 失效，并如实记录残留 flag。临时控制面凭据也须在导出和安全停止后撤销，不能只删本地文件。

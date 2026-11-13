@@ -1,180 +1,300 @@
 TAP version 13
-# (node:10484) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (node:17244) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: synthetic identity and date validation NVDA
 ok 1 - synthetic identity and date validation NVDA
   ---
-  duration_ms: 29.197292
+  duration_ms: 53.86325
   type: 'test'
   ...
 # Subtest: synthetic identity and date validation AAPL
 ok 2 - synthetic identity and date validation AAPL
   ---
-  duration_ms: 17.025583
+  duration_ms: 18.232375
   type: 'test'
   ...
 # Subtest: synthetic identity and date validation GOOGL
 ok 3 - synthetic identity and date validation GOOGL
   ---
-  duration_ms: 17.621208
+  duration_ms: 17.104084
   type: 'test'
   ...
 # Subtest: synthetic identity and date validation MSFT
 ok 4 - synthetic identity and date validation MSFT
   ---
-  duration_ms: 16.708416
+  duration_ms: 17.259875
   type: 'test'
   ...
 # Subtest: synthetic identity and date validation AMZN
 ok 5 - synthetic identity and date validation AMZN
   ---
-  duration_ms: 21.301834
+  duration_ms: 21.846583
   type: 'test'
   ...
 # Subtest: synthetic identity and date validation SPCX
 ok 6 - synthetic identity and date validation SPCX
   ---
-  duration_ms: 6.762375
+  duration_ms: 6.899375
   type: 'test'
   ...
 # Subtest: synthetic identity and date validation META
 ok 7 - synthetic identity and date validation META
   ---
-  duration_ms: 16.245083
+  duration_ms: 21.45325
   type: 'test'
   ...
 # Subtest: synthetic identity and date validation AVGO
 ok 8 - synthetic identity and date validation AVGO
   ---
-  duration_ms: 20.439959
+  duration_ms: 15.528166
   type: 'test'
   ...
 # Subtest: synthetic identity and date validation TSLA
 ok 9 - synthetic identity and date validation TSLA
   ---
-  duration_ms: 15.995916
+  duration_ms: 15.756667
   type: 'test'
   ...
 # Subtest: synthetic identity and date validation ^GSPC
 ok 10 - synthetic identity and date validation ^GSPC
   ---
-  duration_ms: 20.805917
+  duration_ms: 20.676458
   type: 'test'
   ...
 # Subtest: synthetic identity and date validation ^NDX
 ok 11 - synthetic identity and date validation ^NDX
   ---
-  duration_ms: 15.420917
+  duration_ms: 15.463708
   type: 'test'
   ...
 # Subtest: synthetic identity and date validation ^SOX
 ok 12 - synthetic identity and date validation ^SOX
   ---
-  duration_ms: 21.498917
+  duration_ms: 20.625583
   type: 'test'
   ...
 # Subtest: two full runs use real pacing with explicit fixture dates, <=80 alarms and exactly24 calls
 ok 13 - two full runs use real pacing with explicit fixture dates, <=80 alarms and exactly24 calls
   ---
-  duration_ms: 1664.099
+  duration_ms: 1520.191375
   type: 'test'
   ...
 # Subtest: production Coordinator still rejects archived date against actual execution time
 ok 14 - production Coordinator still rejects archived date against actual execution time
   ---
-  duration_ms: 1.00225
+  duration_ms: 1.010667
   type: 'test'
   ...
 # Subtest: initialization and budget bootstrap are atomic on adapter failure
 ok 15 - initialization and budget bootstrap are atomic on adapter failure
   ---
-  duration_ms: 1.145792
+  duration_ms: 1.130417
   type: 'test'
   ...
 # Subtest: init expiry refuses schema creation
 ok 16 - init expiry refuses schema creation
   ---
-  duration_ms: 0.515958
+  duration_ms: 0.4975
   type: 'test'
   ...
 # Subtest: window rejects 1794527999999
 ok 17 - window rejects 1794527999999
   ---
-  duration_ms: 0.047583
+  duration_ms: 0.053041
   type: 'test'
   ...
 # Subtest: window rejects 1794614400000
 ok 18 - window rejects 1794614400000
   ---
-  duration_ms: 0.031167
+  duration_ms: 0.028334
   type: 'test'
   ...
 # Subtest: window rejects 1794614400001
 ok 19 - window rejects 1794614400001
   ---
-  duration_ms: 0.028917
+  duration_ms: 0.026083
   type: 'test'
   ...
 # Subtest: window cannot be longer than24h or init longer than20min
 ok 20 - window cannot be longer than24h or init longer than20min
   ---
-  duration_ms: 0.0585
+  duration_ms: 0.055209
   type: 'test'
   ...
 # Subtest: stop persists across adapter replacement and prohibits collection
 ok 21 - stop persists across adapter replacement and prohibits collection
   ---
-  duration_ms: 1.455084
+  duration_ms: 1.346042
   type: 'test'
   ...
 # Subtest: deadline before next alarm stops without collection
 ok 22 - deadline before next alarm stops without collection
   ---
-  duration_ms: 1.291917
+  duration_ms: 1.191083
   type: 'test'
   ...
 # Subtest: expiry during durable sync blocks collector even after attempt charged
 ok 23 - expiry during durable sync blocks collector even after attempt charged
   ---
-  duration_ms: 2.142417
+  duration_ms: 2.25425
   type: 'test'
   ...
 # Subtest: persisted alarm budget stops repeated early callbacks
 ok 24 - persisted alarm budget stops repeated early callbacks
   ---
-  duration_ms: 61.454334
+  duration_ms: 46.539208
   type: 'test'
   ...
 # Subtest: overlapping, reversed and arbitrary fixture requests are rejected
 ok 25 - overlapping, reversed and arbitrary fixture requests are rejected
   ---
-  duration_ms: 1.553667
+  duration_ms: 1.514459
   type: 'test'
   ...
 # Subtest: changed persisted budget fails closed before source invocation
 ok 26 - changed persisted budget fails closed before source invocation
   ---
-  duration_ms: 1.274583
+  duration_ms: 1.37025
   type: 'test'
   ...
 # Subtest: redeployment cannot extend the persisted window
 ok 27 - redeployment cannot extend the persisted window
   ---
-  duration_ms: 0.554084
+  duration_ms: 0.640916
   type: 'test'
   ...
 # Subtest: uncertain collection after durable declaration is never recollected
 ok 28 - uncertain collection after durable declaration is never recollected
   ---
-  duration_ms: 1.450791
+  duration_ms: 1.409167
   type: 'test'
   ...
-1..28
-# tests 28
+# Subtest: atomic Mock start Node SQLite: checkpoint
+ok 29 - atomic Mock start Node SQLite: checkpoint
+  ---
+  duration_ms: 1.497667
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: budget_write
+ok 30 - atomic Mock start Node SQLite: budget_write
+  ---
+  duration_ms: 1.786416
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: run_insert
+ok 31 - atomic Mock start Node SQLite: run_insert
+  ---
+  duration_ms: 2.6025
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: claim_6
+ok 32 - atomic Mock start Node SQLite: claim_6
+  ---
+  duration_ms: 1.718
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: checkpoint_control
+ok 33 - atomic Mock start Node SQLite: checkpoint_control
+  ---
+  duration_ms: 1.7595
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: run_checkpoint
+ok 34 - atomic Mock start Node SQLite: run_checkpoint
+  ---
+  duration_ms: 1.740125
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: updated
+ok 35 - atomic Mock start Node SQLite: updated
+  ---
+  duration_ms: 1.8065
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: duplicate
+ok 36 - atomic Mock start Node SQLite: duplicate
+  ---
+  duration_ms: 1.530667
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: order
+ok 37 - atomic Mock start Node SQLite: order
+  ---
+  duration_ms: 0.878792
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: stopped
+ok 38 - atomic Mock start Node SQLite: stopped
+  ---
+  duration_ms: 0.844291
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: exhausted
+ok 39 - atomic Mock start Node SQLite: exhausted
+  ---
+  duration_ms: 0.838042
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: collector_exhausted
+ok 40 - atomic Mock start Node SQLite: collector_exhausted
+  ---
+  duration_ms: 0.798833
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: alarm_exhausted
+ok 41 - atomic Mock start Node SQLite: alarm_exhausted
+  ---
+  duration_ms: 0.803875
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: negative_budget
+ok 42 - atomic Mock start Node SQLite: negative_budget
+  ---
+  duration_ms: 0.813208
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: over_budget
+ok 43 - atomic Mock start Node SQLite: over_budget
+  ---
+  duration_ms: 0.810167
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: existing_claim
+ok 44 - atomic Mock start Node SQLite: existing_claim
+  ---
+  duration_ms: 1.199625
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: overlap
+ok 45 - atomic Mock start Node SQLite: overlap
+  ---
+  duration_ms: 1.362333
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: window
+ok 46 - atomic Mock start Node SQLite: window
+  ---
+  duration_ms: 9.682959
+  type: 'test'
+  ...
+# Subtest: atomic Mock start Node SQLite: success
+ok 47 - atomic Mock start Node SQLite: success
+  ---
+  duration_ms: 1.463875
+  type: 'test'
+  ...
+# Subtest: internal Coordinator start requires the caller to own a Store transaction
+ok 48 - internal Coordinator start requires the caller to own a Store transaction
+  ---
+  duration_ms: 0.680709
+  type: 'test'
+  ...
+1..48
+# tests 48
 # suites 0
-# pass 28
+# pass 48
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 2077.944125
+# duration_ms 2070.737291

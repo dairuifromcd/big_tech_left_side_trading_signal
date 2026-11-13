@@ -1,3 +1,9 @@
+# Gate A Finalization — 2026-11-13
+
+当前结果、证据来源和完整分项见 [gate_a_acceptance.md](gate_a_acceptance.md)，交接见 [completion_handoff.md](completion_handoff.md)。Mock启动事务修复及Node/workerd故障注入见 [mock_start_atomicity_review.md](mock_start_atomicity_review.md)。账户证据为 USER_REPORTED_DASHBOARD；未来认证与具体授权清单分别见 gate_b_authentication_plan.md、gate_b_authorization_request.md。Gate B仍未批准。下面保留首次Gate A说明，旧窗口/账户状态以最新交接为准。
+
+---
+
 # Phase 5.1B — Gate A
 
 PHASE_5_1B_GATE_A: **PARTIAL**。只完成本地准备，Gate B 未授权、未执行。

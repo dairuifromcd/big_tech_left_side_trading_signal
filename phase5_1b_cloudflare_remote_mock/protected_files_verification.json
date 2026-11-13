@@ -1,15 +1,30 @@
 {
+  "baseline": "finalization_baseline.json at current HEAD, never overwritten",
+  "head": "44fa349b7d4cb5f6cc1c498d224c967cefd99984",
   "all_protected_unchanged": true,
-  "protected_file_count": 537,
-  "intentional_modified_files": [
-    "cloudflare/README.md",
+  "protected_file_count": 540,
+  "unexpected_changes": [],
+  "unexpected_new_files": [],
+  "intentional_modified_code_files": [
     "cloudflare/cloudflare.config.ts",
     "cloudflare/scripts/local.mjs",
-    "cloudflare/src/storage.ts"
+    "cloudflare/scripts/remote_mock_build_audit.py",
+    "cloudflare/src/coordinator.ts",
+    "cloudflare/src/remote-harness.ts",
+    "cloudflare/src/storage.ts",
+    "cloudflare/tests/remote-mock-runtime.test.ts",
+    "cloudflare/tests/remote-mock.test.ts"
   ],
-  "unexpected_changes": [],
-  "phase51a_acceptance_unchanged": true,
   "phase51_acceptance_unchanged": true,
+  "phase51a_acceptance_unchanged": true,
+  "phase42_history_unchanged": true,
+  "pending_count": 7,
   "pending_records_identical": true,
-  "pending_count": 7
+  "initial_user_file_contents_preserved": {
+    "phase5_1b_cloudflare_remote_mock/account_readonly_assessment.md": true,
+    "phase5_1b_cloudflare_remote_mock/gate_a_acceptance.md": true,
+    "phase5_1b_cloudflare_remote_mock/account_cli_auth_approval.md": true,
+    "phase5_1b_cloudflare_remote_mock/account_cli_readonly_preflight.json": true,
+    "phase5_1b_cloudflare_remote_mock/dashboard_readonly_checklist.md": true
+  }
 }

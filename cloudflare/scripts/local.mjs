@@ -21,6 +21,7 @@ const commands={
   'initialize-local':[node,['--import','tsx','scripts/initialize-local.ts','--local']],
   'remote-unit':[node,['--import','tsx','--test','tests/remote-mock.test.ts']],
   'remote-dry-run':[node,[resolve(root,'node_modules/cf/bin/cf'),'deploy','--mode','p51b-mock','--dry-run','--provision=false']],
+  'remote-preparation-dry-run':[node,[resolve(root,'node_modules/cf/bin/cf'),'deploy','--mode','p51b-identity-prep','--dry-run','--provision=false']],
 };
 const selected=commands[process.argv[2]];
 if(!selected)throw Error('Choose build, typecheck, test, offline, or initialize-local. Remote commands are not exposed.');
